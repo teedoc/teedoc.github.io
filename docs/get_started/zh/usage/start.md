@@ -8,7 +8,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 ## 构建与预览
 
 在有`site_config.json`的文档目录下执行
-```
+```shell
 teedoc serve
 ```
 
@@ -24,7 +24,7 @@ teedoc serve
 
 如果只需要构建生成`HTML`页面，只需要执行
 
-```
+```shell
 teedoc build
 ```
 
@@ -32,7 +32,7 @@ teedoc build
 
 
 另外，也可以指定参数`-d`或者`--dir` 来指定文档目录，这样就不用在文档目录下面执行命令了，比如
-```
+```shell
 teedoc -d /home/teedoc/my_doc build
 ```
 
@@ -46,7 +46,7 @@ teedoc -d /home/teedoc/my_doc build
 
 ## 文档目录结构
 
-```
+```shell
 ├─.github
 ├─docs
 │  ├─develop
@@ -83,14 +83,14 @@ teedoc -d /home/teedoc/my_doc build
 
 ### 从 json 转到 yaml
 
-```
+```shell
 teedoc -f ./config.json json2yaml
 ```
 
 ### 从 yaml 转到 json
 
 
-```
+```shell
 teedoc -f ./config.json yaml2json
 ```
 

@@ -8,6 +8,8 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 
 * [MaixPy](https://maixpy.sipeed.com): 边缘 AI 计算 Python SDK
 
+* [Sipeed Wiki](https://wiki.sipeed.com): Sipeed 官方Wiki
+
 
 期待你的使用， 欢迎[提交 issue](https://github.com/teedoc/teedoc.github.io/issues) 或者 PR 来添加你的网站
 

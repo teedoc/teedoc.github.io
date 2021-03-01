@@ -10,7 +10,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 需要先安装`Python3` （仅支持 `Python3`）
 
 比如在`Ubuntu`上：
-```
+```shell
 sudo apt install python3 python3-pip
 ```
 
@@ -22,12 +22,12 @@ sudo apt install python3 python3-pip
 
 打开终端，输入：
 
-```
+```shell
 pip3 install teedoc
 ```
 
 以后使用以下命令来更新软件：
-```
+```shell
 pip3 install teedoc --upgrade
 ```
 
@@ -41,7 +41,7 @@ pip3 install teedoc --upgrade
 
 * 获取文档模板工程
 
-```
+```shell
 git clone https://github.com/teedoc/teedoc.github.io my_site
 ```
 
@@ -49,21 +49,21 @@ git clone https://github.com/teedoc/teedoc.github.io my_site
 
 这会根据`site_config.sjon`中的`plugins`的插件设置安装插件
 
-```
+```shell
 cd my_site
 teedoc install
 ```
 
 * 构建 `HTML` 页面并起一个`HTTP`服务
 
-```
+```shell
 teedoc serve
 ```
 
 这个命令会先构建所有`HTML`页面以及拷贝资源文件，然后起一个`HTTP`服务
 如果只需要生成页面，使用
 
-```
+```shell
 teedoc build
 ```
 

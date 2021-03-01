@@ -8,5 +8,7 @@ desc: teedoc, convert markdown or jupyter notbook into html static webpage, use 
 
 * [MaixPy](https://maixpy.sipeed.com): Edge AI Computing Python SDK
 
+* [Sipeed Wiki](https://wiki.sipeed.com): Sipeed Official Wiki
+
 
 Looking forward to your use, welcome to [submit issue](https://github.com/teedoc/teedoc.github.io/issues) or PR to add your website

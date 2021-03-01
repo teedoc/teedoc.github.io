@@ -22,12 +22,12 @@ sudo apt install python3 python3-pip
 
 Open the terminal and enter:
 
-```
+```shell
 pip3 install teedoc
 ```
 
 Later use the following command to update the software:
-```
+```shell
 pip3 install teedoc --upgrade
 ```
 
@@ -41,7 +41,7 @@ For example, it may be in `~/.local/bin`
 
 * Get the document template project
 
-```
+```shell
 git clone https://github.com/teedoc/teedoc.github.io my_site
 ```
 
@@ -49,21 +49,21 @@ git clone https://github.com/teedoc/teedoc.github.io my_site
 
 This will install the plugin according to the plugin settings of `plugins` in `site_config.sjon`
 
-```
+```shell
 cd my_site
 teedoc install
 ```
 
 * Build an `HTML` page and start a `HTTP` service
 
-```
+```shell
 teedoc serve
 ```
 
 This command will first build all `HTML` pages and copy resource files, and then start an `HTTP` service
 If you only need to generate pages, use
 
-```
+```shell
 teedoc build
 ```
 
