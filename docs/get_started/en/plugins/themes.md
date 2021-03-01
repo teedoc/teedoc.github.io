@@ -30,7 +30,16 @@ Configure the plugin in `site_config.json`
 * `css`: `css` file `URL`, which can override the default style and will be inserted into the `head` tag of the page
 * `js`: `js` file `URL`, can write `js` program, it will be loaded at the end of the page
 
-The default code highlighting uses [prismjs](https://prismjs.com/), and the support of some common languages ​​is checked by default. `js` file + `css` file totals about `100KiB`, if you need the code If you can’t highlight, or want to save traffic or reduce loading time, you can go to [here](https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+bash+c+cpp+cmake+coffeescript+docker+go+ini+java+json+json5+kotlin+latex+less+lua+makefile+markdown+markup-templating+objectivec+php+powershell+python+jsx+tsx+ruby+rust+sass+scss+shell-session+sql+swift+textile+typescript+yaml&plugins=line-numbers+highlight-keywords+toolbar+copy-to-clipboard+match-braces) Check the default check and check the language and Function, finally get a `css` file and a `js` file in the `static` directory, and then set the `URL`:
+The default code highlighting uses [prismjs](https://prismjs.com/), and the support of some common languages ​​is checked by default. `js` file + `css` file totals about `100KiB`, if you need the code If you can’t highlight, or want to save traffic or reduce loading time, you can go to [here](https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+bash+c+cpp+cmake+coffeescript+docker+go+ini+java+json+json5+kotlin+latex+less+lua+makefile+markdown+markup-templating+objectivec+php+powershell+python+jsx+tsx+ruby+rust+sass+scss+shell-session+sql+swift+textile+typescript+yaml&plugins=line-numbers+highlight-keywords+toolbar+copy-to-clipboard+match-braces) Check the default check and check the language and Function, finally get a `css` file and a `js` file in the `static/js` directory, and then set the `URL` in `site_config.json`:
+```json
+    "route": {
+        "assets": {
+            "/static/": "static"
+        }
+    }
+```
+> this config will due to files in `static` dir will be copied to `static` dir of out dir.
+
 * `code_highlight_css`: `code` highlighting `css` file `URL`, will replace the default highlighting `css` file, and will be inserted into the `head` tag of the page
 * `code_highlight_js`: `code` highlighting `js` file `URL`, will replace the default highlighting `js` file, and will be loaded at the end of the page
 
