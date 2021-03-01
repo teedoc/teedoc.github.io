@@ -11,7 +11,7 @@ desc: teedoc 生成的网站部署到服务器
 访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
 点击 `Use this template`
 ![github use template](../../assets/images/github_use_template.jpg)
-然后填写新的仓库名称（仓库名字最好是`teedoc.github.io`将`teedoc`替换成你的用户名或者组织名）和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 `teedoc`官网一模一样的仓库了
+然后填写新的仓库名称（如果你不准备自定义域名，则仓库名字最好是`teedoc.github.io`将`teedoc`替换成你的用户名或者组织名）和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 `teedoc`官网一模一样的仓库了
 > 会发现有一个`.github/workflows`的目录，这个就是`github action`的配置文件，我们利用这个功能来实现：
 > 当我们更新仓库的源文件时， `github action`自动根据这个配置文件的命令构建生成静态网页，然后推送到这个仓库的`gh-pages`分支
 
@@ -46,11 +46,29 @@ ssh-keygen -t rsa -f key.txt
 
 ## 设置 pages 服务
 
-然后在设置里面找到 `pages` 服务设置，打开即可，然后访问对应的域名，
+然后在设置里面找到 `pages` 服务设置，打开即可，然后访问对应的域名，可以勾选 `Enforce HTTPS`来使能`HTTPS`（推荐）
 比如这里是`https://teedoc.github.io/`
 
->! 注意如果跟路径不是`/`，而且没有自定义域名，比如`https://teedoc.github.io/my_site/`， 则需要在`site_config.json`中配置`"site_root_url":"/my_site/"`
+>! 注意如果跟路径不是`/`，而且没有自定义域名（自定义域名见后面的介绍），比如`https://teedoc.github.io/my_site/`， 则需要在`site_config.json`中配置`"site_root_url":"/my_site/"`
 
 ![](../../assets/images/github_pages.jpg)
+
+## Pages 服务自定义域名
+
+部署好后会有一个默认的域名，比如`teedoc.github.io`， 如果想使用自己的域名，比如`teedoc.neucrack.com`，即需要自定义域名。
+
+在`site_config.json`文件中设置了网站根目录映射的文件目录，比如这里是`pages/index/zh`目录：
+```json
+        "pages": {
+            "/": "pages/index/zh",
+            "/en/": "pages/index/en"
+        },
+```
+
+在这个目录新建一个文件，取名`CNAME`注意没有后缀，然后写入自定义的域名比如`teedoc.neucrack.com`保存文件，提交即可
+
+> 你可能在设置里面看到了`custom domain`的设置，但是需要像这里说的设置`CNAME`文件才能保持一直生效，不然下次提交自定义域名就失效了
+
+
 
 
