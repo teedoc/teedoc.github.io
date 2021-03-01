@@ -11,8 +11,9 @@ git clone https://github.com/Neutree/teedoc
 ## Installation Environment
 
 ```
+sudo apt install python3 python3-pip
 cd teedoc
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 
@@ -22,14 +23,14 @@ pip install -r requirements.txt
 * Install plugin
 
 ```
-python teedoc/teedoc_main.py -p examples/teedoc_site install
+python3 teedoc/teedoc_main.py -p examples/teedoc_site install
 ```
 
 * Run
 
 ```
-python teedoc/teedoc_main.py -p examples/teedoc_site build
-python teedoc/teedoc_main.py -p examples/teedoc_site serve
+python3 teedoc/teedoc_main.py -p examples/teedoc_site build
+python3 teedoc/teedoc_main.py -p examples/teedoc_site serve
 ```
 
 * Plug-in import issues and update debugging issues
