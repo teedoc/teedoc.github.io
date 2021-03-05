@@ -296,7 +296,12 @@ such as:
 
 * `id`: The `id` of the document. Generally, there is no need to write it. The `id` will be set to the `<html>` tags of all pages in the `config.json` directory. For example, if `teedoc_page` is set here, all pages in this directory will become `<html id="teedoc_page"> ... </html>`. If the `markdown` file has set `id`, this value will be overwritten, that is, each page can only have one `id`.
 * `class`: The `class` of the document, generally you don't need to write it. Set the `class` to the `<html>` tags of all pages in the `config.json` directory, and use spaces for multiple `class` Separate. For example, if `language_zh` is set here, all pages in this directory will become `<html class="language_zh"> ... </html>`. If `class` is set in the `markdown` file, it will be appended. For example, if `language_zh` is set in `config.json`, and `class: zh_readme` is set in `README.md`, the final result is `class=" language_zh zh_readme"`. This function is convenient to customize the style of each page or the style of different documents.
-* `navbar`: Navigation bar settings, each document can be set individually for the navigation bar, if you want to keep the entire website unified, you can modify each configuration to be the same
+* `navbar`: Navigation bar settings, each document can be individually set up the navigation bar, if you want to keep the entire website unified, you can modify each configuration to be the same. The keyword `type` is used in the first layer and is used to indicate the category of this label in the navigation bar. The values are:
+   * `link`: normal link, this option is the default when you don’t write the `type` keyword
+   * `list`: There are sub-items, which will be displayed in the form of a drop-down menu
+![](../../assets/images/navbar.png)
+   * `selection`: Single option, such as language selection. When the `type` keyword is not written and there is the `items` keyword, this option is the default
+![](../../assets/images/navbar2.png)
 * `footer`: website footer, divided into upper and lower parts, and multiple columns can be added to the upper part, and each column can have multiple values
 * `plugins`: Configure the configuration items of the plug-in, if it has been set in the `site_config.json`, it will be overwritten, that is, the priority of the child `config` is higher
 

@@ -221,6 +221,7 @@ teedoc -f ./config.json yaml2json
             {
                 "label": "语言: ",
                 "position": "right",
+                "type": "selection",
                 "items": [
                     {
                         "url": "/get_started/zh/",
@@ -297,7 +298,12 @@ teedoc -f ./config.json yaml2json
 
 * `id`: 文档的 `id`， 一般情况下不需要写，会将`id`设置到`config.json` 目录下所有页面的`<html>`标签上。 比如这里设置了`teedoc_page`， 那么这个目录下所有页面都会变成`<html id="teedoc_page"> ... </html>`。 如果`markdown`文件设置了`id`，则会覆盖这个值，即每个页面只能有一个`id`。
 * `class`: 文档的 `class`， 一般情况下不需要写，会将`class`设置到`config.json` 目录下所有页面的`<html>`标签上， 多个`class`用空格隔开。 比如这里设置了`language_zh`， 那么这个目录下所有页面都会变成`<html class="language_zh"> ... </html>`。 如果`markdown`文件设置了`class`，则会追加，比如`config.json`中设置了`language_zh`， 在`README.md`中设置了`class: zh_readme`， 则最终是`class="language_zh zh_readme"`。 这个功能方便自定义每个页面的样式，或者不同文档的样式。
-* `navbar`: 导航栏设置，每个文档都可以单独设置导航栏，要想保持整个网站统一，修改每个配置相同即可
+* `navbar`: 导航栏设置，每个文档都可以单独设置导航栏，要想保持整个网站统一，修改每个配置相同即可。关键字`type`用于第一层，用来表示导航栏的这个标签的类别，取值有：
+  * `link`: 普通链接，不写`type`关键字时默认是这个选项
+  * `list`: 有子项，会以下拉菜单的形式显示
+![](../../assets/images/navbar.png)
+  * `selection`: 单选项，比如选择语言。 不写`type`关键字并且有`items`关键字时，默认是这个选项
+![](../../assets/images/navbar2.png)
 * `footer`: 网站页脚，分为上下两个部分，上部又可以添加多个栏目，每个栏目里面可以有多个值
 * `plugins`: 配置插件的配置项，如果`site_config.json`中已经设置了，会覆盖，即子`config`的优先级更高
 
