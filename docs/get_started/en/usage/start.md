@@ -112,6 +112,7 @@ The configuration file is in `json` format, for example:
     "site_root_url": "/",
     "site_domain": "teedoc.github.io",
     "site_protocol": "https",
+    "config_template_dir": "./",
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
@@ -160,6 +161,7 @@ The configuration file is in `json` format, for example:
 * `site_root_url`: website root directory path, use the default value `/`; if you need to put the generated content in the website folder (not the root directory folder), you can set
 * `site_domain`: website domain name, currently used place: generate `sitemap.xml` and `robots.txt`
 * `site_protocol`: website protocol, `http` or `https`, currently used place: generate `sitemap.xml` and `robots.txt`
+* `config_template_dir`: `config` template file, `config.json` or `config.yaml` in other document directories can be `import` the files in it, the default location is the directory where `site_config` is located
 * `route`: Web page routing, including routing of documents, pages and resource files, such as routing of documents
 ```json
 "docs": {
@@ -191,6 +193,7 @@ Here you can configure the navigation bar of each document and the content of th
 such as:
 ```json
 {
+    "import": "config_zh",
     "id": "teedoc_page",
     "class": "language_zh",
     "navbar": {
@@ -294,6 +297,63 @@ such as:
 }
 ```
 
+* `import`: You can import the configuration from the template file, the file name without suffix. For example, `site_config` set `config_template_dir` to `./`, fill in `"import": "config_zh"` here, it means to import `config_zh.json` (priority) or `config_zh in the same directory as `site_config` .yaml`.
+Then you can add the configuration of the current document, overwrite the template file, the same keywords, and modify different content. If it is an array (list), to replace the content of the template file, you need to add `id` to the array item of the template file. Keyword, then modify, if the `id` keyword is not specified, it will be appended to the array. For example, the template file `config_zh`:
+```json
+{
+    "navbar": {
+        "title": "teedoc",
+        "items": [
+            {
+                "url": "/get_started/zh/",
+                "label": "安装使用",
+                "position": "left"
+            },
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "url": "/zh",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/en",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+The configuration file of a specific document:
+```json
+{
+    "import": "config_zh",
+    "navbar": {
+        "title": "teedoc123",
+        "items": [
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "url": "/get_started/zh",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/get_started/en",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 * `id`: The `id` of the document. Generally, there is no need to write it. The `id` will be set to the `<html>` tags of all pages in the `config.json` directory. For example, if `teedoc_page` is set here, all pages in this directory will become `<html id="teedoc_page"> ... </html>`. If the `markdown` file has set `id`, this value will be overwritten, that is, each page can only have one `id`.
 * `class`: The `class` of the document, generally you don't need to write it. Set the `class` to the `<html>` tags of all pages in the `config.json` directory, and use spaces for multiple `class` Separate. For example, if `language_zh` is set here, all pages in this directory will become `<html class="language_zh"> ... </html>`. If `class` is set in the `markdown` file, it will be appended. For example, if `language_zh` is set in `config.json`, and `class: zh_readme` is set in `README.md`, the final result is `class=" language_zh zh_readme"`. This function is convenient to customize the style of each page or the style of different documents.
 * `navbar`: Navigation bar settings, each document can be individually set up the navigation bar, if you want to keep the entire website unified, you can modify each configuration to be the same. The keyword `type` is used in the first layer and is used to indicate the category of this label in the navigation bar. The values are:

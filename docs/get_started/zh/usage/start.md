@@ -112,6 +112,7 @@ teedoc -f ./config.json yaml2json
     "site_root_url": "/",
     "site_domain": "teedoc.github.io",
     "site_protocol": "https",
+    "config_template_dir": "./",
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
@@ -160,6 +161,7 @@ teedoc -f ./config.json yaml2json
 * `site_root_url`: 网站根目录路径， 使用默认值`/`即可; 如果需要将生成的内容放到网站的文件夹中（不是根目录的文件夹），可以设置
 * `site_domain`: 网站域名，目前用到的地方：生成`sitemap.xml` 和 `robots.txt`
 * `site_protocol`: 网站协议，`http`或者`https`，目前用到的地方：生成`sitemap.xml` 和 `robots.txt`
+* `config_template_dir`: `config` 模板文件，其它文档目录的`config.json`或者`config.yaml`可以`import`这里面的文件，默认位置为`site_config`所在目录
 * `route`: 网页路由，包含了文档和页面以及资源文件的路由，比如文档的路由
 ```json
 "docs": {
@@ -192,6 +194,7 @@ teedoc -f ./config.json yaml2json
 
 ```json
 {
+    "import": "config_zh",
     "id": "teedoc_page",
     "class": "language_zh",
     "navbar": {
@@ -295,7 +298,63 @@ teedoc -f ./config.json yaml2json
     }
 }
 ```
-
+* `import`: 可以从模板文件导入配置，没有后缀的文件名。比如`site_config`中设置了`config_template_dir`为`./`，这里填`"import": "config_zh"`, 则代表从导入`site_config`同目录下的`config_zh.json`（优先）或者`config_zh.yaml`。
+然后可以添加当前文档的配置，覆盖模板文件，同样的关键字，修改不同的内容即可，如果是数组(列表)，要替换模板文件的内容，需要在模板文件的数组项中增加`id`关键字，然后修改，如果不指定`id`关键字，则会追加到数组中。比如模板文件`config_zh`：
+```json
+{
+    "navbar": {
+        "title": "teedoc",
+        "items": [
+            {
+                "url": "/get_started/zh/",
+                "label": "安装使用",
+                "position": "left"
+            },
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "url": "/zh",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/en",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+具体某个文档的配置文件：
+```json
+{
+    "import": "config_zh",
+    "navbar": {
+        "title": "teedoc123",
+        "items": [
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "url": "/get_started/zh",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/get_started/en",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
 * `id`: 文档的 `id`， 一般情况下不需要写，会将`id`设置到`config.json` 目录下所有页面的`<html>`标签上。 比如这里设置了`teedoc_page`， 那么这个目录下所有页面都会变成`<html id="teedoc_page"> ... </html>`。 如果`markdown`文件设置了`id`，则会覆盖这个值，即每个页面只能有一个`id`。
 * `class`: 文档的 `class`， 一般情况下不需要写，会将`class`设置到`config.json` 目录下所有页面的`<html>`标签上， 多个`class`用空格隔开。 比如这里设置了`language_zh`， 那么这个目录下所有页面都会变成`<html class="language_zh"> ... </html>`。 如果`markdown`文件设置了`class`，则会追加，比如`config.json`中设置了`language_zh`， 在`README.md`中设置了`class: zh_readme`， 则最终是`class="language_zh zh_readme"`。 这个功能方便自定义每个页面的样式，或者不同文档的样式。
 * `navbar`: 导航栏设置，每个文档都可以单独设置导航栏，要想保持整个网站统一，修改每个配置相同即可。关键字`type`用于第一层，用来表示导航栏的这个标签的类别，取值有：
