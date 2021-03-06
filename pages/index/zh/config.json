@@ -1,4 +1,4 @@
 {
     "import": "config_zh",
-    "id": "web_page"
+    "class": "md_page"
 }

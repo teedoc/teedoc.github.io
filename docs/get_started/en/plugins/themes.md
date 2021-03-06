@@ -66,3 +66,5 @@ Then the `html` tags of all generated pages under this document will contain thi
 
 `class` has:
 * `language_zh`: Change the title of the page directory on the right from Roman numerals to Chinese `one, two, three...`
+* `md_page`: Ordinary markdown files are rendered into html pages, you can add this class, it will be displayed in the center instead of left-aligned
+

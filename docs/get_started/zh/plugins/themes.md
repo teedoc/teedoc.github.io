@@ -65,4 +65,4 @@ desc: teedoc 主题插件
 
 `class`有：
 * `language_zh`： 会让右边页面目录的标题从罗马数字变成中文`一、二、三...`
-
+* `md_page`: 普通 markdown 文件渲染成 html 页面，可以加上这个类，会居中显示而不是左对齐
