@@ -31,6 +31,8 @@ pip3 install teedoc
 pip3 install teedoc --upgrade
 ```
 
+> 如果你的网络使用 `pypi.org` 速度很慢，可以选择其它源，比如清华 tuna 源： `pip3 install teedoc -i https://pypi.tuna.tsinghua.edu.cn/simple`
+
 现在你可以在终端使用 `teedoc` 命令了
 
 如果不能，请检查是不是`Python`可执行目录没有加入到环境变量 `PATH`,
@@ -53,6 +55,8 @@ git clone https://github.com/teedoc/teedoc.github.io my_site
 cd my_site
 teedoc install
 ```
+
+> 插件也是以 `python` 包的形式发布的， 所以这会从 `pypi.org` 下载对应的插件，同样，也可以使用其它源，比如清华 tuna 源： `teedoc -i https://pypi.tuna.tsinghua.edu.cn/simple install`
 
 * 构建 `HTML` 页面并起一个`HTTP`服务
 

@@ -31,6 +31,8 @@ Later use the following command to update the software:
 pip3 install teedoc --upgrade
 ```
 
+> If your network uses `pypi.org` and the speed is very slow, you can choose other sources, such as Tsinghua tuna source: `pip3 install teedoc -i https://pypi.tuna.tsinghua.edu.cn/simple`
+
 Now you can use the `teedoc` command in the terminal
 
 If not, please check if the `Python` executable directory is not added to the environment variable `PATH`,
@@ -53,6 +55,8 @@ This will install the plugin according to the plugin settings of `plugins` in `s
 cd my_site
 teedoc install
 ```
+
+> The plug-in is also released in the form of `python` package, so this will download the corresponding plug-in from `pypi.org`. Similarly, other sources can also be used, such as Tsinghua tuna source: `teedoc -i https://pypi. tuna.tsinghua.edu.cn/simple install`
 
 * Build an `HTML` page and start a `HTTP` service
 
