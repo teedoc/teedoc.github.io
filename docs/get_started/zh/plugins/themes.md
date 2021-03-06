@@ -7,6 +7,8 @@ desc: teedoc 主题插件
 
 ## `teedoc-plugin-theme-default`: 默认主题插件
 
+### 插件配置
+
 在`site_config.json`中配置插件
 ```json
     "plugins": {
@@ -45,4 +47,22 @@ desc: teedoc 主题插件
 
 支持 `白天` 和 `夜间` 模式， 夜间模式会在`body`加一个`dark`类， 如果要该夜间模式的`css`样式，可以基于这个类名修改
 
+### class 支持
+
+主题支持几个常用的`class` 和 `id`， 可以在`config.json`(/`config.yaml`) 或者或者`.md`文件的`class`和`id`关键字中设置，就可以直接使用这个样式了
+
+比如在`config.json`中设置
+```json
+{
+    "class": "language_zh",
+    "navbar": {
+        ...
+    }
+}
+```
+
+则这个文档下面所有生成的页面的`html`标签都会包含这个类， 比如`language_zh`会让右边页面目录的标题从罗马数字变成中文`一、二、三...`
+
+`class`有：
+* `language_zh`： 会让右边页面目录的标题从罗马数字变成中文`一、二、三...`
 

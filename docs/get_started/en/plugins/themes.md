@@ -7,6 +7,9 @@ desc: teedoc theme plugin
 
 ## `teedoc-plugin-theme-default`: default theme plugin
 
+
+### Plugin configuration
+
 Configure the plugin in `site_config.json`
 ```json
     "plugins": {
@@ -44,3 +47,22 @@ The default code highlighting uses [prismjs](https://prismjs.com/), and the supp
 * `code_highlight_js`: `code` highlighting `js` file `URL`, will replace the default highlighting `js` file, and will be loaded at the end of the page
 
 Supports `day` and `night` modes. The night mode will add a `dark` class to the `body`. If you want the `css` style of the night mode, you can modify it based on this class name
+
+### class support
+
+The theme supports several commonly used `class` and `id`, which can be set in `config.json`(/`config.yaml`) or the `class` and `id` keywords in the `.md` file. You can use this style directly
+
+For example, set in `config.json`
+```json
+{
+     "class": "language_zh",
+     "navbar": {
+         ...
+     }
+}
+```
+
+Then the `html` tags of all generated pages under this document will contain this class. For example, `language_zh` will change the title of the page directory on the right from Roman numerals to Chinese `one, two, three...`
+
+`class` has:
+* `language_zh`: Change the title of the page directory on the right from Roman numerals to Chinese `one, two, three...`
