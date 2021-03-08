@@ -460,6 +460,7 @@ teedoc -f ./config.json yaml2json
 title: teedoc
 keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
 desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
+tags: teedoc, markdown, 语法
 id: zh_readme
 class: zh_readme
 ---
@@ -469,6 +470,7 @@ class: zh_readme
 * `title`: 文章的标题
 * `keywords`: 关键词，多个关键词用英文逗号`,` 隔开，会被添加到`html`头中，方便搜索引擎爬取
 * `desc`: 页面描述，会被添加到`html`头中，方便搜索引擎爬取
+* `tags`: 给文章添加的标签， 和`keywords`不同的是，`keywords`是给搜索引擎看的，不会显示在页面，`tags`是会显示在页面的
 * `id`: 页面`id`， 会被添加到`html`标签中，比如`<html id="zh_readme">...</html>`, 可以不设置，会覆盖`config.json`中的设置
 * `class`: 页面`class`,多个用英文逗号`,`隔开，可以不设置，会覆盖`config.json`中的设置。比如可以通过设置这个值来达到设置特定页面的`css`样式
 

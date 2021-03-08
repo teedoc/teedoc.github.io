@@ -458,6 +458,7 @@ Add a header
 title: teedoc
 keywords: teedoc, markdown, jupyter notebook, html, document generation, alternative gitbook, website generation, static website
 desc: teedoc, convert markdown or jupyter notbook into html static webpage
+tags: teedoc, markdown
 id: zh_readme
 class: zh_readme
 ---
@@ -467,6 +468,7 @@ Use these keys to set article information:
 * `title`: the title of the article
 * `keywords`: Keywords, multiple keywords are separated by English commas `,`, will be added to the header of `html`, which is convenient for search engines to crawl
 * `desc`: page description, which will be added to the header of `html` for easy crawling by search engines
+* `tags`: tags added to the article. Unlike `keywords`, `keywords` is for search engines and will not be displayed on the page, but `tags` will be displayed on the page
 * `id`: page `id`, will be added to the `html` tag, such as `<html id="zh_readme">...</html>`, it can be left unset, it will overwrite `config.json` Settings in
 * `class`: page `class`, multiple separated by English comma`, `, it is not necessary to set it, it will overwrite the setting in `config.json`. For example, you can set the `css` style of a specific page by setting this value
 
