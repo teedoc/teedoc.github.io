@@ -29,6 +29,7 @@ jobs:
         run: |
           GITEE_GIT_ADDR="git@gitee.com:teedoc/teedoc.git"
           git checkout gh-pages
+          git fetch --unshallow
           SSHPATH="$HOME/.ssh"
           rm -rf "$SSHPATH"
           mkdir -p "$SSHPATH"
