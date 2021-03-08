@@ -38,7 +38,7 @@ jobs:
           teedoc install
           teedoc build
           out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
-          cp -r .github/workflows/sync_to_gitee.yml $out_dir/
+          cp -rf .github $out_dir/
           cd $out_dir
           git init
           git config user.name ${{ secrets.GIT_NAME }}
