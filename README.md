@@ -18,6 +18,12 @@ pip3 install teedoc
 git clone https://github.com/teedoc/teedoc.github.io my_site
 ```
 
+或者
+
+```
+git clone https://github.com/teedoc/teedoc.gitee.io my_site
+```
+
 * Install plugins
 
 ```

@@ -47,6 +47,12 @@ For example, it may be in `~/.local/bin`
 git clone https://github.com/teedoc/teedoc.github.io my_site
 ```
 
+or
+
+```shell
+git clone https://github.com/teedoc/teedoc.gitee.io my_site
+```
+
 * Install plugin
 
 This will install the plugin according to the plugin settings of `plugins` in `site_config.sjon`
