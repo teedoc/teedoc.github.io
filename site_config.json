@@ -49,6 +49,12 @@
             "config": {
                 "search_hint": "Search"
             }
+        },
+        "teedoc-plugin-baidu-tongji": {
+            "from": "pypi",
+            "config": {
+                "code": "91ac08174b63c5c88f71f8a94004a1fe"
+            }
         }
     },
     "rebuild_changes_delay": 0,
