@@ -20,6 +20,18 @@ Configure the plugin in `site_config.json`
 
 * `toc_depth`: The depth of the article table of contents (right column), the default is `3`, which means to `h3` that is `### three-level heading` in `markdown`
 
+## `teedoc-plugin-jupyter-notebook-parser`: jupyter notebook parsing plugin
+
+Configure the plugin in `site_config.json`
+```json
+    "plugins": {
+        "teedoc-plugin-jupyter-notebook-parser":{
+            "from": "pypi",
+            "config": {
+            }
+        }
+    }
+```
 
 ## `teedoc-plugin-search`: Website search plugin
 

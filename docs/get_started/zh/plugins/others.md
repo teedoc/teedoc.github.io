@@ -14,11 +14,24 @@ desc: teedoc 其它插件
             "config": {
                 "toc_depth": 3
             }
-        },
+        }
     }
 ```
 
 * `toc_depth`: 文章目录（右边栏）的深度， 默认 `3`， 代表到`h3` 即 `markdown` 中的`### 三级标题`
+
+## `teedoc-plugin-jupyter-notebook-parser`: jupyter notebook 解析插件
+
+在`site_config.json`中配置插件
+```json
+    "plugins": {
+        "teedoc-plugin-jupyter-notebook-parser":{
+            "from": "pypi",
+            "config": {
+            }
+        }
+    }
+```
 
 
 ## `teedoc-plugin-search`: 网站搜索插件

@@ -113,6 +113,7 @@ The configuration file is in `json` format, for example:
     "site_domain": "teedoc.github.io",
     "site_protocol": "https",
     "config_template_dir": "./",
+    "source": "https://github.com/teedoc/teedoc.github.io/blob/main",
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
@@ -162,6 +163,7 @@ The configuration file is in `json` format, for example:
 * `site_domain`: website domain name, currently used place: generate `sitemap.xml` and `robots.txt`
 * `site_protocol`: website protocol, `http` or `https`, currently used place: generate `sitemap.xml` and `robots.txt`
 * `config_template_dir`: `config` template file, `config.json` or `config.yaml` in other document directories can be `import` the files in it, the default location is the directory where `site_config` is located
+* `source`: document source path, such as `https://github.com/teedoc/teedoc.github.io/blob/main`, where `main` is the main branch of the document, and `Edit this page' will be added to the document page `Button (link), click to jump to the source code of the corresponding file. You can leave it blank to not add a link. In addition, you can add `"show_source": "Edit this page"` in `config.json` to define the text content of the button as `Edit this page`, if you want the document to have no such button, set it to `"show_source": false`; you can also add `show_source: edit this page` or `show_source: false` in the header information of the file (`md` or `ipynb` file) to set
 * `route`: Web page routing, including routing of documents, pages and resource files, such as routing of documents
 ```json
 "docs": {
@@ -293,7 +295,8 @@ such as:
                 "curr_doc_result_hint": "Current document search result"
             }
         }
-    }
+    },
+    "show_source": "Edit this page"
 }
 ```
 
@@ -364,6 +367,7 @@ The configuration file of a specific document:
 ![](../../assets/images/navbar2.png)
 * `footer`: website footer, divided into upper and lower parts, and multiple columns can be added to the upper part, and each column can have multiple values
 * `plugins`: Configure the configuration items of the plug-in, if it has been set in the `site_config.json`, it will be overwritten, that is, the priority of the child `config` is higher
+* `show_source`: Under the premise that the keyword `source` is set in `site_config.json`, it is the source code path of the document, such as `https://github.com/teedoc/teedoc.github.io/blob/main` , Where `main` is the main branch of the document, and the `Edit this page` button (link) will be added to the document page, click to jump to the corresponding file source code. Set `"show_source": "Edit this page"` to define the text content of the button as `Edit this page`, if you don't set it, the default is `Edit this page`, if you want the document to have this button, set it to `"show_source": false`; you can also add `show_source: edit this page` or `show_source: false` in the header information of the file (`md` or `ipynb` file) to set
 
 ## sidebar.json Document directory (sidebar) settings
 

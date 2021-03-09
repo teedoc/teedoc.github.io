@@ -113,6 +113,7 @@ teedoc -f ./config.json yaml2json
     "site_domain": "teedoc.github.io",
     "site_protocol": "https",
     "config_template_dir": "./",
+    "source": "https://github.com/teedoc/teedoc.github.io/blob/main",
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
@@ -162,6 +163,7 @@ teedoc -f ./config.json yaml2json
 * `site_domain`: 网站域名，目前用到的地方：生成`sitemap.xml` 和 `robots.txt`
 * `site_protocol`: 网站协议，`http`或者`https`，目前用到的地方：生成`sitemap.xml` 和 `robots.txt`
 * `config_template_dir`: `config` 模板文件，其它文档目录的`config.json`或者`config.yaml`可以`import`这里面的文件，默认位置为`site_config`所在目录
+* `source`: 文档源码路径， 比如`https://github.com/teedoc/teedoc.github.io/blob/main`，这里`main`是文档主分支，会在文档页面添加`Edit this page`按钮（链接），点击可跳转到对应文件源码。可以留空，则不添加链接。另外，可以在`config.json`中添加`"show_source": "编辑本页"`来定义按钮的文字内容为`编辑本页`，如果希望文档没有这个按钮，则设置为`"show_source": false`；也可在文件(`md`或`ipynb`文件)的头信息中添加`show_source: 编辑本页`或者 `show_source: false` 来设置
 * `route`: 网页路由，包含了文档和页面以及资源文件的路由，比如文档的路由
 ```json
 "docs": {
@@ -295,7 +297,8 @@ teedoc -f ./config.json yaml2json
                 "curr_doc_result_hint": "当前文档搜索结果"
             }
         }
-    }
+    },
+    "show_source": "编辑本页"
 }
 ```
 * `import`: 可以从模板文件导入配置，没有后缀的文件名。比如`site_config`中设置了`config_template_dir`为`./`，这里填`"import": "config_zh"`, 则代表从导入`site_config`同目录下的`config_zh.json`（优先）或者`config_zh.yaml`。
@@ -365,6 +368,7 @@ teedoc -f ./config.json yaml2json
 ![](../../assets/images/navbar2.png)
 * `footer`: 网站页脚，分为上下两个部分，上部又可以添加多个栏目，每个栏目里面可以有多个值
 * `plugins`: 配置插件的配置项，如果`site_config.json`中已经设置了，会覆盖，即子`config`的优先级更高
+* `show_source`: 在`site_config.json`中设置了`source`关键词的前提下，即文档源码路径， 比如`https://github.com/teedoc/teedoc.github.io/blob/main`，这里`main`是文档主分支，会在文档页面添加`Edit this page`按钮（链接），点击可跳转到对应文件源码。设置`"show_source": "编辑本页"`来定义按钮的文字内容为`编辑本页`，不设置默认为`Edit this page`, 如果希望文档没有这个按钮，则设置为`"show_source": false`；也可在文件(`md`或`ipynb`文件)的头信息中添加`show_source: 编辑本页`或者 `show_source: false` 来设置
 
 ## sidebar.json 文档目录（侧边栏）设置
 
