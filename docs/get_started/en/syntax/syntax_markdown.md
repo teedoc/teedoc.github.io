@@ -28,10 +28,11 @@ desc: teedoc's markdown syntax introduction and examples
 
 Use these keys to set article information:
 * `title`: the title of the article
-* `keywords`: Keywords, multiple keywords are separated by English commas `,`, will be added to the header of `html`, which is convenient for search engines to crawl
+* `keywords`: Keywords, multiple keywords are separated by English commas`,`, will be added to the header of `html`, which is convenient for search engines to crawl, and will not be displayed on the page
 * `desc`: page description, which will be added to the header of `html` for easy crawling by search engines
+* `tags`: article tags, will be displayed on the page
 * `id`: page `id`, will be added to the `html` tag, such as `<html id="zh_readme">...</html>`, it can be left unset, it will overwrite `config.json` Settings in
-* `class`: page `class`, multiple separated by English comma`, `, it is not necessary to set it, it will overwrite the setting in `config.json`. For example, you can set the `css` style of a specific page by setting this value
+* `class`: page `class`, multiple separated by English comma`, `, you can not set it, it will overwrite the setting in `config.json`. For example, you can set the `css` style of a specific page by setting this value
 
 ### Markdown file content
 
