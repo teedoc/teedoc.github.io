@@ -51,6 +51,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
 * readthedocs: 很多开源项目使用的工具， 和 gitbook 一样也有网站服务，注册登录就可以开始写文档，也可以下载软件自己生成网站，对 RST 格式支持友好
 
 如果你有选择困难症，那么符合以下部分条件，都建议使用 teedoc：
+* 使用 `Jupyter notebook` 写文档或代码？ 果断选择 teedoc
 * 功能符合你的需求吗
 * 界面符合你的审美吗（可以自定义 css， 或者换主题插件）
 * 对 Python 熟悉？ 可以随时自定义插件

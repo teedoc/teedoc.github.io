@@ -51,6 +51,7 @@ In fact, there are already many tools of this type. Just choose one according to
 * readthedocs: A tool used by many open source projects. It also has a website service like gitbook. You can start writing documents after registering and logging in. You can also download the software to generate the website yourself, which is friendly to RST format support
 
 If you have choice difficulties, you are recommended to use teedoc if you meet some of the following conditions:
+* Writing with `Jupyter notebook`? Just use teedoc!
 * Does the function meet your needs?
 * Does the interface meet your aesthetics (you can customize css, or change the theme plug-in)
 * Familiar with Python? You can customize the plugin at any time
