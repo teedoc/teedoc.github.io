@@ -29,6 +29,8 @@ items:
     file: usage/seo.md
 -   label: Website using teedoc
     file: usage/sites.md
+-   label: Common problem
+    file: usage/problems.md
 -   label: More samples
     items:
     -   label: Second-level subdirectory example
