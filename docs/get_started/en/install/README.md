@@ -1,24 +1,24 @@
 ---
 title: teedoc installation and use
 keywords: teedoc, markdown, jupyter notebook, html, document generation, alternative gitbook, website generation, static website, installation, use
-desc: teedoc, convert markdown or jupyter notbook into html static web pages, introduce the use of teedoc
+desc: teedoc, which converts markdown or jupyter notbook into html static web pages, introduces the use of teedoc
 ---
 
 
-## Instructions
+## Install python3
 
 Need to install `Python3` first (only support `Python3`)
 
 For example, on `Ubuntu`:
-```
-sudo apt install python3 python3-pip
+```shell
+sudo apt install python3 python3-pip git
 ```
 
 `Windows` and `macOS` please go to [Official Website Download](https://www.python.org/downloads/)
 
 
 
-### Installation
+## Install teedoc
 
 Open the terminal and enter:
 
@@ -39,21 +39,29 @@ If not, please check if the `Python` executable directory is not added to the en
 For example, it may be in `~/.local/bin`
 
 
-### Building a web page
+## New Construction
 
-* Get the document template project
+Create an empty directory to store the document project
 
+```shell
+mkdir my_site
+cd my_site
+teedoc init
+```
+
+This will automatically generate some basic files in the `my_site` directory
+
+
+In addition, in addition to using the `init` command to generate a minimal project, you can also get a source code of the official website document and modify it based on the content of this document
 ```shell
 git clone https://github.com/teedoc/teedoc.github.io my_site
 ```
-
 or
-
 ```shell
-git clone https://github.com/teedoc/teedoc.gitee.io my_site
+git clone https://gitee.com/teedoc/teedoc.gitee.io my_site
 ```
 
-* Install plugin
+## Install plugin
 
 This will install the plugin according to the plugin settings of `plugins` in `site_config.sjon`
 
@@ -64,7 +72,7 @@ teedoc install
 
 > The plug-in is also released in the form of `python` package, so this will download the corresponding plug-in from `pypi.org`. Similarly, other sources can also be used, such as Tsinghua tuna source: `teedoc -i https://pypi. tuna.tsinghua.edu.cn/simple install`
 
-* Build an `HTML` page and start a `HTTP` service
+## Build an `HTML` page and start an `HTTP` service
 
 ```shell
 teedoc serve
@@ -86,7 +94,7 @@ Open the browser to visit: [http://127.0.0.1:2333](http://127.0.0.1:2333)
 At the same time, you can see that there is an additional `out` directory under the directory, which is the generated static website content, directly copy it to the server and use `nginx` or `apache` for deployment.
 
 
-### Create a new warehouse based on the template warehouse on github
+## Create a new warehouse based on the template warehouse on github
 
 
 Visit [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
@@ -97,4 +105,4 @@ Click `Use this template`
 
 Then fill in the new warehouse name and description, create a new warehouse of your own based on this warehouse, and now you have obtained the warehouse exactly the same as the official website of teedoc
 
-Then use `git clone your warehouse address` to clone to the local
+Then use `git clone your warehouse address` to clone to the local 

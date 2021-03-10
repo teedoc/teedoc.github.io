@@ -5,20 +5,20 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 ---
 
 
-## 使用方法
+## 安装 python3
 
 需要先安装`Python3` （仅支持 `Python3`）
 
 比如在`Ubuntu`上：
 ```shell
-sudo apt install python3 python3-pip
+sudo apt install python3 python3-pip git
 ```
 
 `Windows` 和 `macOS`请到[官网下载](https://www.python.org/downloads/)
 
 
 
-### 安装
+## 安装 teedoc
 
 打开终端，输入：
 
@@ -39,21 +39,29 @@ pip3 install teedoc --upgrade
 比如可能在 `~/.local/bin`
 
 
-### 构建网页
+## 新建工程
 
-* 获取文档模板工程
+新建一个空目录用来放文档工程
 
+```shell
+mkdir my_site
+cd my_site
+teedoc init
+```
+
+这会在 `my_site` 目录下自动生成一些基础文件
+
+
+另外，除了使用`init`命令生成一份最小工程，你也可以获得一份官网文档源码，基于这个文档内容修改
 ```shell
 git clone https://github.com/teedoc/teedoc.github.io my_site
 ```
-
 或者
-
 ```shell
-git clone https://github.com/teedoc/teedoc.gitee.io my_site
+git clone https://gitee.com/teedoc/teedoc.gitee.io my_site
 ```
 
-* 安装插件
+## 安装插件
 
 这会根据`site_config.sjon`中的`plugins`的插件设置安装插件
 
@@ -64,7 +72,7 @@ teedoc install
 
 > 插件也是以 `python` 包的形式发布的， 所以这会从 `pypi.org` 下载对应的插件，同样，也可以使用其它源，比如清华 tuna 源： `teedoc -i https://pypi.tuna.tsinghua.edu.cn/simple install`
 
-* 构建 `HTML` 页面并起一个`HTTP`服务
+## 构建 `HTML` 页面并起一个`HTTP`服务
 
 ```shell
 teedoc serve
@@ -86,7 +94,7 @@ teedoc build
 同时可以看到目录下多了一个`out`目录，里面就是生成的静态网站内容，直接拷贝到服务器使用`nginx`或者`apache`进行部署即可
 
 
-### 在 github 上基于模板仓库创建新仓库
+## 在 github 上基于模板仓库创建新仓库
 
 
 访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
