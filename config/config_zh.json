@@ -50,7 +50,7 @@
                 "items": [
                     {
                         "label": "使用 teedoc 构建",
-                        "url": "https://github.com/neutree/teedoc",
+                        "url": "https://teedoc.neucrack.com",
                         "target": "_blank"
                     },
                     {
@@ -87,13 +87,13 @@
         ],
         "bottom": [
             {
-                "label": "*ICP备********号-1",
+                "label": "渝ICP备19015320号",
                 "url": "https://beian.miit.gov.cn",
                 "target": "_blank"
             },
             {
-                "label": "*公网安备**************号",
-                "url": "https://beian.miit.gov.cn/#/Integrated/index",
+                "label": "粤公网安备44030602004109号",
+                "url": "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109",
                 "target": "_blank"
             }
         ]

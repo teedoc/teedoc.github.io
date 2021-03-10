@@ -5,7 +5,7 @@ desc: teedoc, convert markdown or jupyter notbook into html static web pages, us
 ---
 
 
-Official website: [teedoc.github.io](https://teedoc.github.io/)
+Official website: [teedoc.neucrack.com](https://teedoc.neucrack.com/) or [teedoc.github.io](https://teedoc.github.io/)
 Source file of this document: [github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
 Source code: [https://github.com/teedoc/teedoc](https://github.com/teedoc/teedoc) Welcome star
 

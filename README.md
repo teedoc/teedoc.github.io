@@ -1,7 +1,7 @@
 teedoc official website
 =====
 
-visit: [teedoc.github.io](https://teedoc.github.io) or [https://teedoc.gitee.io/](https://teedoc.gitee.io/)
+visit: [teedoc.neucrack.com](https://teedoc.neucrack.com/) or [teedoc.github.io](https://teedoc.github.io)
 
 
 ## build locally
