@@ -147,10 +147,10 @@ Below is a warning message
 
 To display this picture, you need to set the key value of `route` in `site_config.json`
 
-![This is a picture](../../assets/images/logo.jpg)
-![This is an image](../assets/images/logo.jpg)
+![This is a picture](../../assets/images/logo.png)
+![This is an image](../assets/images/logo.png)
 
-![This is a picture](../../assets/images/logo.jpg)![This is a picture](../assets/images/logo.jpg)
+![This is a picture](../../assets/images/logo.png)![This is a picture](../assets/images/logo.png)
 
 ## Video
 
