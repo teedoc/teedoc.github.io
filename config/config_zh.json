@@ -73,6 +73,11 @@
                         "target": "_blank"
                     },
                     {
+                        "label": "gitee",
+                        "url": "https://gitee.com/teedoc/teedoc",
+                        "target": "_blank"
+                    },
+                    {
                         "label": "本网站源文件",
                         "url": "https://github.com/teedoc/teedoc.github.io",
                         "target": "_blank"
