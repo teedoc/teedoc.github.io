@@ -75,9 +75,9 @@ The supported configurations are as follows:
 * `curr_doc_result_hint`: search result hint, the search result in the currently browsed document, default `Result from current doc`
 
 
-## Baidu Statistics
+## `teedoc-plugin-baidu-tongji`: Baidu Analytics
 
-Add the code of [Baidu Statistics](https://tongji.baidu.com/) on each page, send the visit information to Baidu, and you can see the visit statistics in the background
+Add the code of [Baidu Analytics](https://tongji.baidu.com/) on each page, send the visit information to Baidu, and you can see the visit statistics in the background
 
 After registering and logging in to Baidu Statistics, add a website on the management page, and then there will be a code acquisition page with the following code
 ```js

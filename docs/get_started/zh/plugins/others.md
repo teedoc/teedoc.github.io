@@ -76,7 +76,7 @@ desc: teedoc 其它插件
 * `curr_doc_result_hint`: 搜索结果提示，当前浏览的文档中的搜索结果， 默认`Result from current doc`
 
 
-## 百度统计
+## `teedoc-plugin-baidu-tongji`: 百度统计
 
 在每个页面添加[百度统计](https://tongji.baidu.com/)的代码，将访问信息发送到百度，就可以在后台看到访问统计信息了
 
