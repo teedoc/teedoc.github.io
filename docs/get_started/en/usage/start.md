@@ -375,7 +375,10 @@ There is a directory for setting documents, one for each document, independent o
 
 The file path uses a relative path, just fill in the file name, `README.md` will be automatically converted to `index.html`
 
-In addition, you can also directly `url` without writing the path of `file`, such as `"url": "/get_started/zh"`, at the same time you can set `"target":"_blank"` to open in a new window. Current window open
+In addition, you can also directly `url` without writing the path of `file`, such as `"url": "/get_started/zh/"`, at the same time you can set `"target":"_blank"` to open in a new window, otherwise Open in current window
+
+For the items in the first layer of `items`, if there is only `label` without `url`, `file` and `items`, a classification mark will be added to the sidebar, and the effect is as follows:
+![](../../assets/images/sidebar.png)
 
 such as:
 ```json

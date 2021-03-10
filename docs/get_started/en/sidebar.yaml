@@ -33,6 +33,7 @@ items:
     file: usage/sites.md
 -   label: Common problem
     file: usage/problems.md
+-   label: More
 -   label: More samples
     items:
     -   label: Second-level subdirectory example

@@ -33,6 +33,7 @@ items:
     file: usage/sites.md
 -   label: 常见问题
     file: usage/problems.md
+-   label: 更多
 -   label: 更多样例
     items:
     -   label: 二级子目录样例
