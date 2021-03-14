@@ -21,7 +21,9 @@
             "/static/": "static",
             "/get_started/assets/": "docs/get_started/assets"
         },
-        "/blog/": "blog"
+        "blog": {
+            "/blog/": "blog"
+        }
     },
     "executable": {
         "python": "python3",
@@ -60,6 +62,11 @@
             "from": "pypi",
             "config": {
                 "code": "4d52982572d5512e9762879ebf063c86"
+            }
+        },
+        "teedoc-plugin-blog": {
+            "from": "pypi",
+            "config": {
             }
         }
     },
