@@ -41,7 +41,7 @@ Convert documents in `Markdown` or `Jupyter Notebook` format into `HTML` static 
 - [x] SEO friendly
 - [x] Real-time preview of changes
 - [x] Multi-threaded construction, faster construction speed
-- [ ] Blog support
+- [x] Blog support
 
 ## Demo
 

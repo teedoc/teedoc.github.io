@@ -41,7 +41,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 - [x] SEO 友好
 - [x] 实时预览更改
 - [x] 多线程构建，更快的构建速度
-- [ ] 博客支持
+- [x] 博客支持
 
 ## 演示
 
