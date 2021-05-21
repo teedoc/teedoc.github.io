@@ -381,6 +381,8 @@ teedoc -f ./config.json yaml2json
 第一层 `items`中的项目，如果只有`label`，没有`url`，`file`和 `items`， 则会在侧边栏中添加一个分类标记,效果如下：
 ![](../../assets/images/sidebar.png)
 
+另外, 如果希望目录默认展开, 添加`"collapsed": false`即可
+
 比如：
 
 ```json
@@ -401,6 +403,7 @@ teedoc -f ./config.json yaml2json
         {
             "label": "插件",
             "file": "plugins/README.md",
+            "collapsed": false,
             "items":[
                 {
                     "label": "主题插件",
