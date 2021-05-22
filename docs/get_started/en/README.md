@@ -1,7 +1,7 @@
 ---
-title: teedoc
+title: open source static doc site generator
 keywords: teedoc, markdown, jupyter notebook, html, document generation, alternative gitbook, website generation, static website, static blog
-desc: teedoc, convert markdown or jupyter notbook into html static web pages, used for personal or corporate website building, blog building, database building, wiki, etc.
+desc: teedoc, open source static doc site generator, convert markdown or jupyter notbook into html static web pages, used for personal or corporate website building, blog building, database building, wiki, etc.
 ---
 
 
@@ -41,7 +41,7 @@ Convert documents in `Markdown` or `Jupyter Notebook` format into `HTML` static 
 - [x] SEO friendly
 - [x] Real-time preview of changes
 - [x] Multi-threaded construction, faster construction speed
-- [ ] Blog support
+- [x] Blog support
 
 ## Demo
 

@@ -380,6 +380,8 @@ In addition, you can also directly `url` without writing the path of `file`, suc
 For the items in the first layer of `items`, if there is only `label` without `url`, `file` and `items`, a classification mark will be added to the sidebar, and the effect is as follows:
 ![](../../assets/images/sidebar.png)
 
+And you can add option `"collapsed": false` to show sub directory by default
+
 such as:
 ```json
 {
@@ -399,6 +401,7 @@ such as:
         {
             "label": "Plugin",
             "file": "plugins/README.md",
+            "collapsed": false,
             "items":[
                 {
                     "label": "Theme Plugin",
