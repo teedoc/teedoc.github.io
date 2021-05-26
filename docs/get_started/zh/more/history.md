@@ -4,6 +4,9 @@ keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook,
 desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页， 介绍了 teedoc 的更新历史
 ---
 
+## 2021-05-21 v1.14.0
+
+优化多线程构建, 构建更迅速一些了. (用多进程代替了多线程)
 
 ## 2021-05-21 v1.13.0
 
