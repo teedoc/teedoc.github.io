@@ -10,7 +10,7 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 
 ## 2021-05-21 v1.13.0
 
-在 `sidebar.json` 中, 社会子`"collapsed": false`来默认展开显示子目录
+在 `sidebar.json` 中, 设置`"collapsed": false`来默认展开显示子目录
 
 ## 2021-04-14 v1.12.3
 
