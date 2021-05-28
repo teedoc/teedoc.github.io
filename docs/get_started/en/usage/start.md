@@ -94,6 +94,23 @@ teedoc -f ./config.json json2yaml
 teedoc -f ./config.json yaml2json
 ```
 
+### From gitbook SUMMARY.md to json
+
+
+```shell
+teedoc -f ./SUMMARY.md summary2json
+```
+
+
+
+### From gitbook SUMMARY.md to yaml
+
+
+```shell
+teedoc -f ./SUMMARY.md summary2yaml
+```
+
+
 
 
 

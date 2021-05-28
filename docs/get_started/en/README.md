@@ -42,6 +42,7 @@ Convert documents in `Markdown` or `Jupyter Notebook` format into `HTML` static 
 - [x] Real-time preview of changes
 - [x] Multi-threaded construction, faster construction speed
 - [x] Blog support
+- [x] Switch from gitbook is easy, just config `route` and convert `SUMMARY.md` by `summary2yaml` command
 
 ## Demo
 

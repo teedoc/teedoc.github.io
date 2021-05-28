@@ -4,6 +4,22 @@ keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook,
 desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页， 介绍了 teedoc 的更新历史
 ---
 
+## 2021-05-21 v1.15.0
+
+* 添加 summary2json 和 summary2yaml 命令, 以方便将 gitbook 的 SUMMARY.md 转为 sidebar.yaml 或者 `sidebar.json`
+* 目录栏支持拖动变换大小, 通过设置插件 `teedoc-plugin-theme-default` 的 `sidebar_width` 配置来设置目录栏默认宽度 , 比如:
+```
+"teedoc-plugin-theme-default": {
+            "from": "../../plugins/teedoc-plugin-theme-default",
+            "config": {
+                "env": {
+                    "sidebar_width": "300px"
+                }
+            }
+}
+```
+
+
 ## 2021-05-21 v1.14.0
 
 优化多线程构建, 构建更迅速一些了. (用多进程代替了多线程)

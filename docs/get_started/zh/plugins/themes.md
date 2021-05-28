@@ -17,7 +17,8 @@ desc: teedoc 主题插件
             "config": {
                 "dark": true,
                 "env":{
-                    "main_color": "#4caf7d"
+                    "main_color": "#4caf7d",
+                    "sidebar_width": "300px"
                 },
                 "css": "/static/css/custom.css",
                 "js": "/static/js/custom.js",
@@ -29,6 +30,7 @@ desc: teedoc 主题插件
 ```
 
 * `main_color`: 主题主颜色
+* `sidebar_width`: 侧边目录栏默认宽度, 可以是`"300px"`, `300`, `"30%"` 这样的格式
 * `css`: `css`文件 `URL`，可以覆盖默认的样式，会被插入到页面的`head`标签中
 * `js`： `js`文件 `URL`，可以写`js`程序，会被放在页面的末尾加载
 

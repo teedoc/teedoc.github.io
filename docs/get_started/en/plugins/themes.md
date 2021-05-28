@@ -18,7 +18,8 @@ Configure the plugin in `site_config.json`
             "config": {
                 "dark": true,
                 "env":{
-                    "main_color": "#4caf7d"
+                    "main_color": "#4caf7d",
+                    "sidebar_width": "300px"
                 },
                 "css": "/static/css/custom.css",
                 "js": "/static/js/custom.js",
@@ -30,6 +31,7 @@ Configure the plugin in `site_config.json`
 ```
 
 * `main_color`: theme main color
+* `sidebar_width`: sidebar default width, format can be like`"300px"`, `300`, `"30%"`
 * `css`: `css` file `URL`, which can override the default style and will be inserted into the `head` tag of the page
 * `js`: `js` file `URL`, can write `js` program, it will be loaded at the end of the page
 

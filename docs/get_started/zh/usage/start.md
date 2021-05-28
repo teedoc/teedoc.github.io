@@ -95,6 +95,23 @@ teedoc -f ./config.json yaml2json
 ```
 
 
+### 从 gitbook SUMMARY.md 转到 json
+
+
+```shell
+teedoc -f ./SUMMARY.md summary2json
+```
+
+
+
+### 从 gitbook SUMMARY.md 转到 yaml
+
+
+```shell
+teedoc -f ./SUMMARY.md summary2yaml
+```
+
+
 
 
 ## site_config.json 网站配置
