@@ -33,6 +33,8 @@ items:
     file: usage/seo.md
 -   label: 使用了 teedoc 的网站
     file: usage/sites.md
+-   label: 从 gitbook 转换为 teedoc
+    file: usage/gitbook2teedoc.md
 -   label: 常见问题
     file: usage/problems.md
 -   label: 更新历史

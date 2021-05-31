@@ -33,6 +33,8 @@ items:
     file: usage/seo.md
 -   label: Website using teedoc
     file: usage/sites.md
+-   label: Convert gitbook to teedoc
+    file: usage/gitbook2teedoc.md
 -   label: Common problem
     file: usage/problems.md
 -   label: Update history
