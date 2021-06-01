@@ -15,6 +15,8 @@ The author said in the readme that it takes 30 minutes to build once, but after 
 Teedoc has the advantage of multi-threaded construction, and other functions and UI can also be satisfied, you can consider switching to teedoc (but teedoc does not support epub and pdf export (2021-05-29), if it is supported, it will be in [here](../README.md) description)
 
 
+Final effect: [teedoc.github.io/re0-web-teedoc/](https://teedoc.github.io/re0-web-teedoc/)
+
 ## New teedoc project
 
 ```
@@ -378,4 +380,5 @@ Edit `pages/index/zh/README.md`, modify as needed
 
 Like `gitbook`, `teedoc build` generates static files and puts them in the `out` folder, and can be directly copied to the server for deployment. For more information, please see [document](./deploy.md)
 
+Final effect: [teedoc.github.io/re0-web-teedoc/](https://teedoc.github.io/re0-web-teedoc/)
 

@@ -14,6 +14,8 @@ desc: 快速从 gitbook 转换为 teedoc, 摆脱 gitbook 单线程构建龟速
 
 teedoc 有着多线程构建的优势, 同时其它功能和 UI 也能满足的情况下, 可以考虑切换到 teedoc (不过 teedoc 暂时不支持 epub 和 pdf 导出(2021-05-29), 如果支持了会在[这里](../README.md)说明)
 
+成功转换后的效果: [teedoc.github.io/re0-web-teedoc/](https://teedoc.github.io/re0-web-teedoc/)
+
 
 ## 新建 teedoc 工程
 
@@ -378,3 +380,4 @@ teedoc -f 'SUMMARY.md' summary2yaml
 
 和 `gitbook` 一样, `teedoc build`生成的都是静态文件,并且放在 `out`文件夹下, 直接拷贝到服务器部署即可,更多请看[文档](./deploy.md)
 
+最终效果: [teedoc.github.io/re0-web-teedoc/](https://teedoc.github.io/re0-web-teedoc/)
