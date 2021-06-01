@@ -25,7 +25,7 @@ ssh-keygen -t rsa -f key.txt
 
 ## 设置密钥
 
-到文档项目的设置里面设置`ssh`密钥, 添加一个`ssh`密钥， 拷贝 `key.txt.pub` 中的内容，注意是`pub`文件，即公钥，名字随便取
+到文档项目的设置里面设置`ssh`密钥, 添加一个`ssh`密钥， 拷贝 `key.txt.pub` 中的内容，注意是`pub`文件，即公钥，选中**允许写入权限**, 名字随便取
 ![](../../assets/images/github_deploy_key.jpg)
 
 然后点击`Secrets`，设置秘密键值对， 需要设置的变量有：

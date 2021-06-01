@@ -25,7 +25,7 @@ Got the two files `key.txt` and `key.key.pub`
 
 ## Set key
 
-Set the `ssh` key in the settings of the document project, add a `ssh` key, copy the content in `key.txt.pub`, pay attention to the `pub` file, which is the public key, and take whatever name you want
+Set the `ssh` key in the settings of the document project, add a `ssh` key, copy the content in `key.txt.pub`, pay attention to the `pub` file, which is the public key, select **Allow write access**, and take whatever name you want
 ![](../../assets/images/github_deploy_key.jpg)
 
 Then click `Secrets` to set secret key-value pairs. The variables that need to be set are:
