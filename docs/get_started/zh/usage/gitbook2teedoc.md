@@ -72,7 +72,7 @@ teedoc install
 
 这里`url`兼容了之前的路径`gitbook/book/markdown/` 和资源路径`/res/`. 
 
-因为`re0-web`这个项目源文件的图片都是用的绝对路径`url`比如`<img width="500" src="/res/img/article/chapter010/12.jpg" />`, 所以这里将`/res/`影射到了`books/res`文件夹;
+因为`re0-web`这个项目源文件的图片都是用的绝对路径`url`比如`<img width="500" src="/res/img/article/chapter010/12.jpg" />`, 所以这里将`/res/`映射到了`books/res`文件夹;
 
 另外源文件内可以用相对路径, 但是目录必须在同一个份文档内, 比如在本文档(点击右上角编辑本页可以看到源码), `![](../assets/images/logo.png)`: ![](../assets/images/logo.png)
 
