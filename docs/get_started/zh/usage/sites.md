@@ -10,6 +10,12 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 
 * [Sipeed Wiki](https://wiki.sipeed.com): Sipeed 官方Wiki
 
+* [teedoc.github.io/re0-web-teedoc/](https://teedoc.github.io/re0-web-teedoc/): 从 gitbook 转到 teedoc 的示例网站
+
+* [QuecPython](https://python.quectel.com/doc/): QuecPython 文档中心
+
+* [cozylife](https://www.cozylife.app/): 一站式智能硬件开发及物联网云服务平台
+
 
 期待你的使用， 欢迎[提交 issue](https://github.com/teedoc/teedoc.github.io/issues) 或者 PR 来添加你的网站
 
