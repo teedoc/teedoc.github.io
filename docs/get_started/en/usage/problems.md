@@ -15,3 +15,20 @@ Need upgrade `nbconvert`：
 pip3 install --upgrade nbconvert
 ```
 
+
+## Plugin error, or code raise error
+
+Firstly, try to upgrade `teedoc` by:
+
+```
+pip install -U teedoc
+```
+
+Then update plugins in your doc directory:
+
+```
+teedoc install
+```
+
+If problems remain exists, [create issue](https://github.com/teedoc/teedoc/issues/new) on github
+
