@@ -14,7 +14,7 @@ desc: teedoc, open source static doc site generator, convert markdown or jupyter
     </div>
     <div id="big_btn_wrapper">
         <div class="big_btn">
-            <a href="/get_started/zh/">Get started</a>
+            <a href="/get_started/en/">Get started</a>
         </div>
     </div>
 
