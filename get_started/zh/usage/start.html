@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html  class="language_zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站, 写文档">
+    <meta name="description" content="teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页， 介绍了 teedoc 的基本使用">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/split.js"></script>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+    <title>开始写文档 - teedoc</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.png" alt="teedoc logo"><h2>teedoc</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  href="">Language: 中文</a><ul><li class="active"><a  href="/get_started/zh/">中文</a></li>
+<li class=""><a  href="/get_started/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">开始写文档</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active no_link"><a><span class="label">更多样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">二级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="sidebar_splitter">
+                </div>
+            </div>
+            <div id="article">
+                <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>开始写文档</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                <div id="source_link"><a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/usage/start.md" target="_blank">编辑本页</a></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h2 id="-1">构建与预览</h2>
+
+<p>在有<code>site_config.json</code>的文档目录下执行</p>
+
+<pre><code class="shell language-shell">teedoc serve
+</code></pre>
+
+<p>在显示 <code>Starting server at 0.0.0.0:2333 ....</code> 后，就可以了</p>
+
+<p>打开浏览器访问: <a href="http://127.0.0.1:2333">http://127.0.0.1:2333</a></p>
+
+<p>实时修改文件，保存文件后，默认过<code>3</code>秒后，会自动重新构建这个文件，然后浏览器会自动刷新</p>
+
+<blockquote>
+  <p>自动刷新的延迟时间可以设置，可以加 <code>-t</code> 参数， 比如<code>teedoc -t 0 serve</code>设置为<code>0</code>秒延迟，<br />
+  另外也可以在文档配置中设置，见后面配置参数<code>rebuild_changes_delay</code>的说明</p>
+</blockquote>
+
+<p>如果只需要构建生成<code>HTML</code>页面，只需要执行</p>
+
+<pre><code class="shell language-shell">teedoc build
+</code></pre>
+
+<blockquote class="spoiler">
+  <p>注意，如果是最终生成发布版本的文档， 一定要用<code>build</code>命令来生成网站页面，<code>serve</code>命令生成的页面只能用于本地预览，会有多余的预览相关的代码，不适合用在生产环境部署</p>
+</blockquote>
+
+<p>另外，也可以指定参数<code>-d</code>或者<code>--dir</code> 来指定文档目录，这样就不用在文档目录下面执行命令了，比如</p>
+
+<pre><code class="shell language-shell">teedoc -d /home/teedoc/my_doc build
+</code></pre>
+
+<h2 id="-2">构建文档删除</h2>
+
+<p>构建好的文档会被放到<code>out</code>目录下，程序不会主动删除，如果需要清除，请手动删除</p>
+
+<h2 id="-3">文档目录结构</h2>
+
+<pre><code class="shell language-shell">├─.github
+├─docs
+│  ├─develop
+│  │  ├─en
+│  │  └─zh
+│  └─get_started
+│      ├─assets
+│      ├─en
+│      └─zh
+├─pages
+│  └─index
+│      ├─en
+│      └─zh
+├─static
+│
+└─site_config.json
+</code></pre>
+
+<ul>
+<li><code>.github</code>: 自动构建脚本，在后面的章节将如何使用</li>
+<li><code>docs</code>: 文档，包含了多份文档， 每份文档都是单独一个文件夹</li>
+<li><code>pages</code>: 页面，包括主页、404页面等等页面</li>
+<li><code>static</code>: 静态文件文件夹，比如存放图片</li>
+<li><code>site_config.json</code>: 网站配置文件</li>
+<li><code>config.json</code>: 除了<code>site_config.json</code>外，每个文档目录下都可以有<code>config.json</code>用来配置文档相关页面</li>
+<li><code>sidebar.json</code>: 文档目录</li>
+</ul>
+
+<h2 id="-4">配置文件</h2>
+
+<p>配置文件可以是 <code>json</code> 或者 <code>yaml</code> 格式的文件，选择你喜欢使用的即可</p>
+
+<p>如果你的文档目录内容很多，建议使用<code>yaml</code>格式，看起来会更加简洁</p>
+
+<p><code>teedoc</code> 提供了 <code>json</code> 和 <code>yaml</code> 格式互相转换的命令</p>
+
+<h3 id="json-yaml">从 json 转到 yaml</h3>
+
+<pre><code class="shell language-shell">teedoc -f ./config.json json2yaml
+</code></pre>
+
+<h3 id="yaml-json">从 yaml 转到 json</h3>
+
+<pre><code class="shell language-shell">teedoc -f ./config.json yaml2json
+</code></pre>
+
+<h3 id="gitbook-summarymd-json">从 gitbook SUMMARY.md 转到 json</h3>
+
+<pre><code class="shell language-shell">teedoc -f ./SUMMARY.md summary2json
+</code></pre>
+
+<h3 id="gitbook-summarymd-yaml">从 gitbook SUMMARY.md 转到 yaml</h3>
+
+<pre><code class="shell language-shell">teedoc -f ./SUMMARY.md summary2yaml
+</code></pre>
+
+<h2 id="site_configjson">site_config.json 网站配置</h2>
+
+<p>网站的配置项，比如网站名称，页面路由，插件配置等等</p>
+
+<p>下面的示例配置文件看起来配置项比较多，不要被吓到，其实很简单，主要几个配置项，掌握了就思想就容易了</p>
+
+<p>配置文件是<code>json</code>格式， 比如：</p>
+
+<pre><code class="json language-json">{
+    "site_name": "teedoc",
+    "site_slogon": "happy to write",
+    "site_root_url": "/",
+    "site_domain": "teedoc.github.io",
+    "site_protocol": "https",
+    "config_template_dir": "./",
+    "source": "https://github.com/teedoc/teedoc.github.io/blob/main",
+    "route": {
+        "docs": {
+            "/get_started/zh/": "docs/get_started/zh",
+            "/get_started/en/": "docs/get_started/en",
+            "/develop/zh/": "docs/develop/zh",
+            "/develop/en/": "docs/develop/en"
+        },
+        "pages": {
+            "/": "pages/index/zh",
+            "/en/": "pages/index/en"
+        },
+        "assets": {
+            "/static/": "static",
+            "/get_started/assets/": "docs/get_started/assets"
+        },
+        "/blog/": "blog"
+    },
+    "executable": {
+        "python": "python3",
+        "pip": "pip3"
+    },
+    "plugins": {
+        "teedoc-plugin-markdown-parser":{
+            "from": "pypi",
+            "config": {
+            }
+        },
+        "teedoc-plugin-theme-default":{
+            "from": "pypi",
+            "config": {
+                "dark": true,
+                "env":{
+                    "main_color": "#4caf7d"
+                },
+                "css": "/static/css/custom.css",
+                "js": "/static/js/custom.js"
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<ul>
+<li><code>site_name</code>: 网站名</li>
+<li><code>site_slogon</code>: 网站标语</li>
+<li><code>site_root_url</code>: 网站根目录路径， 使用默认值<code>/</code>即可; 如果需要将生成的内容放到网站的文件夹中（不是根目录的文件夹），可以设置</li>
+<li><code>site_domain</code>: 网站域名，目前用到的地方：生成<code>sitemap.xml</code> 和 <code>robots.txt</code></li>
+<li><code>site_protocol</code>: 网站协议，<code>http</code>或者<code>https</code>，目前用到的地方：生成<code>sitemap.xml</code> 和 <code>robots.txt</code></li>
+<li><code>config_template_dir</code>: <code>config</code> 模板文件，其它文档目录的<code>config.json</code>或者<code>config.yaml</code>可以<code>import</code>这里面的文件，默认位置为<code>site_config</code>所在目录</li>
+<li><code>source</code>: 文档源码路径， 比如<code>https://github.com/teedoc/teedoc.github.io/blob/main</code>，这里<code>main</code>是文档主分支，会在文档页面添加<code>Edit this page</code>按钮（链接），点击可跳转到对应文件源码。可以留空，则不添加链接。另外，可以在<code>config.json</code>中添加<code>"show_source": "编辑本页"</code>来定义按钮的文字内容为<code>编辑本页</code>，如果希望文档没有这个按钮，则设置为<code>"show_source": false</code>；也可在文件(<code>md</code>或<code>ipynb</code>文件)的头信息中添加<code>show_source: 编辑本页</code>或者 <code>show_source: false</code> 来设置</li>
+<li><code>route</code>: 网页路由，包含了文档和页面以及资源文件的路由，比如文档的路由</li>
+</ul>
+
+<pre><code class="json language-json">"docs": {
+    "/get_started/zh/": "docs/get_started/zh",
+    "/get_started/en/": "docs/get_started/en",
+    "/develop/zh/": "docs/develop/zh",
+    "/develop/en/": "docs/develop/en"
+},
+</code></pre>
+
+<p><code>key</code>代表了最终生成的网站中文档的<code>url</code>, 后面的值则是对应的源文档路径，<br />
+比如源文档<code>docs/get_started/zh/README.md</code>，构建后会生成文件<code>out/get_started/zh/index.html</code>, 如果不是<code>md</code>文件（即不支持的文件），则会原封不动地拷贝文件，最后<code>out</code>目录就是生成的网站</p>
+
+<p><code>pages</code>同理，<code>assets</code>则不会进行文档转换，直接拷贝到相应的目录</p>
+
+<ul>
+<li><code>executable</code>: 可执行程序设置， 这里可以设置<code>python</code>和<code>pip</code>的可执行程序名，在安装插件时会用到</li>
+<li><code>plugins</code>: 插件配置， 主要有名字， 来源， 配置项组成。<br />
+名字可以在<a href="https://github.com">github</a> 搜索<code>teedoc-plugin</code>来找到开源的插件，也欢迎你参与编写插件（只需要动 <code>Python</code> 语法即可）；<br />
+<code>from</code>字段填<code>pypi</code>即可，如果插件下载到了本地也可以填写文件夹路径，也可以直接填<code>git</code>路径比如<code>git+https://github.com/*****/******.git</code><br />
+配置项则由具体的插件决定，比如<code>teedoc-plugin-theme-default</code>就有<code>dark</code>选项来选择是否启用暗黑主题</li>
+<li><code>rebuild_changes_delay</code>: 检测到文件更改后，延迟多少秒自动重新生成该文档， 浏览器中会自动刷新页面，默认为<code>3</code>秒，最短可以设置为<code>0</code>秒, 可以使用<code>teedoc -t 3 serve</code> 或者 <code>teedoc --delay serve</code> 来覆盖这个设置</li>
+<li><code>robots</code>: 自定义<code>robots.txt</code>的内容， 比如 <code>"User-agent": "*"</code>代表允许所有客户端爬取， 这对 <code>SEO</code> 会有影响。 比如不允许爬取<code>JPEG</code>图片：<code>"Disallow": "/.jpeg$"</code>， 不允许访问<code>admin</code>目录:<code>"Disallow": "/admin"</code>, 具体和<code>robots.txt</code>的格式要求相同</li>
+</ul>
+
+<h2 id="configjson">config.json 文档配置</h2>
+
+<p>这是针对每个文档的配置，放在每个文档的根目录， 比如<code>docs/get_started/zh/config.json</code>， 各个文档相互独立，可以设置一样的来保持网站导航栏一致</p>
+
+<p>在这里面可以配置每个文档的导航栏， 以及页尾（<code>footer</code>）的内容, 也可以设置插件的<code>config</code>项，在当前文档会覆盖<code>site_config.json</code>中的配置，从而实现不同文档不同语言（国际化/i18n）或者样式等</p>
+
+<p>比如：</p>
+
+<pre><code class="json language-json">{
+    "import": "config_zh",
+    "id": "teedoc_page",
+    "class": "language_zh",
+    "navbar": {
+        "title": "teedoc",
+        "logo": {
+            "alt": "teedoc logo",
+            "src": "/static/image/logo.png"
+        },
+        "home_url": "/",
+        "items": [
+            {
+                "url": "/get_started/zh/",
+                "label": "安装使用",
+                "position": "left"
+            },
+            {
+                "url": "/develop/zh/",
+                "label": "开发",
+                "position": "left"
+            },
+            {
+                "url": "https://github.com/neutree/teedoc",
+                "label": "github",
+                "target": "_blank",
+                "position": "right"
+            },
+            {
+                "label": "语言: ",
+                "position": "right",
+                "type": "selection",
+                "items": [
+                    {
+                        "url": "/get_started/zh/",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/get_started/en/",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    },
+    "footer":{
+        "top":[
+            {
+                "label": "链接",
+                "items": [
+                    {
+                        "label": "使用 teedoc 构建",
+                        "url": "https://github.com/neutree/teedoc",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Copyright © 2021 Neucrack",
+                        "url": "https://neucrack.com",
+                        "target": "_blank"
+                    }
+                ]
+            },
+            {
+                "label": "源码",
+                "items": [
+                    {
+                        "label": "github",
+                        "url": "https://github.com/neutree/teedoc",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "本网站源文件",
+                        "url": "https://github.com/teedoc/teedoc.github.io",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ],
+        "bottom": [
+            {
+                "label": "*ICP备********号-1",
+                "url": "https://beian.miit.gov.cn",
+                "target": "_blank"
+            },
+            {
+                "label": "*公网安备**************号",
+                "url": "https://beian.miit.gov.cn/#/Integrated/index",
+                "target": "_blank"
+            }
+        ]
+    },
+    "plugins": {
+        "teedoc-plugin-search":{
+            "config": {
+                "search_hint": "搜索",
+                "input_hint": "输入关键词，多关键词空格隔开",
+                "loading_hint": "正在加载，请稍候。。。",
+                "download_err_hint": "下载文件失败，请刷新重试或检查网络",
+                "other_docs_result_hint": "来自其它文档的结果",
+                "curr_doc_result_hint": "当前文档搜索结果"
+            }
+        }
+    },
+    "show_source": "编辑本页"
+}
+</code></pre>
+
+<ul>
+<li><code>import</code>: 可以从模板文件导入配置，没有后缀的文件名。比如<code>site_config</code>中设置了<code>config_template_dir</code>为<code>./</code>，这里填<code>"import": "config_zh"</code>, 则代表从导入<code>site_config</code>同目录下的<code>config_zh.json</code>（优先）或者<code>config_zh.yaml</code>。<br />
+然后可以添加当前文档的配置，覆盖模板文件，同样的关键字，修改不同的内容即可，如果是数组(列表)，要替换模板文件的内容，需要在模板文件的数组项中增加<code>id</code>关键字，然后修改，如果不指定<code>id</code>关键字，则会追加到数组中。比如模板文件<code>config_zh</code>：</li>
+</ul>
+
+<pre><code class="json language-json">{
+    "navbar": {
+        "title": "teedoc",
+        "items": [
+            {
+                "url": "/get_started/zh/",
+                "label": "安装使用",
+                "position": "left"
+            },
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "url": "/zh",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/en",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+
+<p>具体某个文档的配置文件：</p>
+
+<pre><code class="json language-json">{
+    "import": "config_zh",
+    "navbar": {
+        "title": "teedoc123",
+        "items": [
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "url": "/get_started/zh",
+                        "label": "中文"
+                    },
+                    {
+                        "url": "/get_started/en",
+                        "label": "English"
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+
+<ul>
+<li><code>id</code>: 文档的 <code>id</code>， 一般情况下不需要写，会将<code>id</code>设置到<code>config.json</code> 目录下所有页面的<code>&lt;html&gt;</code>标签上。 比如这里设置了<code>teedoc_page</code>， 那么这个目录下所有页面都会变成<code>&lt;html id="teedoc_page"&gt; ... &lt;/html&gt;</code>。 如果<code>markdown</code>文件设置了<code>id</code>，则会覆盖这个值，即每个页面只能有一个<code>id</code>。</li>
+<li><code>class</code>: 文档的 <code>class</code>， 一般情况下不需要写，会将<code>class</code>设置到<code>config.json</code> 目录下所有页面的<code>&lt;html&gt;</code>标签上， 多个<code>class</code>用空格隔开。 比如这里设置了<code>language_zh</code>， 那么这个目录下所有页面都会变成<code>&lt;html class="language_zh"&gt; ... &lt;/html&gt;</code>。 如果<code>markdown</code>文件设置了<code>class</code>，则会追加，比如<code>config.json</code>中设置了<code>language_zh</code>， 在<code>README.md</code>中设置了<code>class: zh_readme</code>， 则最终是<code>class="language_zh zh_readme"</code>。 这个功能方便自定义每个页面的样式，或者不同文档的样式。</li>
+<li><code>navbar</code>: 导航栏设置，每个文档都可以单独设置导航栏，要想保持整个网站统一，修改每个配置相同即可。关键字<code>type</code>用于第一层，用来表示导航栏的这个标签的类别，取值有：<br />
+<ul><br />
+<li><code>link</code>: 普通链接，不写<code>type</code>关键字时默认是这个选项</li><br />
+<li><code>list</code>: 有子项，会以下拉菜单的形式显示<br /><br />
+<img src="../../assets/images/navbar.png" alt="" /></li><br />
+<li><code>selection</code>: 单选项，比如选择语言。 不写<code>type</code>关键字并且有<code>items</code>关键字时，默认是这个选项<br /><br />
+<img src="../../assets/images/navbar2.png" alt="" /></li><br />
+</ul></li>
+<li><code>footer</code>: 网站页脚，分为上下两个部分，上部又可以添加多个栏目，每个栏目里面可以有多个值</li>
+<li><code>plugins</code>: 配置插件的配置项，如果<code>site_config.json</code>中已经设置了，会覆盖，即子<code>config</code>的优先级更高</li>
+<li><code>show_source</code>: 在<code>site_config.json</code>中设置了<code>source</code>关键词的前提下，即文档源码路径， 比如<code>https://github.com/teedoc/teedoc.github.io/blob/main</code>，这里<code>main</code>是文档主分支，会在文档页面添加<code>Edit this page</code>按钮（链接），点击可跳转到对应文件源码。设置<code>"show_source": "编辑本页"</code>来定义按钮的文字内容为<code>编辑本页</code>，不设置默认为<code>Edit this page</code>, 如果希望文档没有这个按钮，则设置为<code>"show_source": false</code>；也可在文件(<code>md</code>或<code>ipynb</code>文件)的头信息中添加<code>show_source: 编辑本页</code>或者 <code>show_source: false</code> 来设置</li>
+</ul>
+
+<h2 id="sidebarjson">sidebar.json 文档目录（侧边栏）设置</h2>
+
+<p>这里面设置文档的目录，每个文档一份，相互独立</p>
+
+<p>文件路径使用相对路径，填文件名即可， <code>README.md</code> 会被自动转换成<code>index.html</code></p>
+
+<p>另外也可以不写<code>file</code>路径，直接<code>url</code>， 比如<code>"url": "/get_started/zh/"</code>, 同时可以设置<code>"target":"_blank"</code> 在新窗口打开，不设置则在当前窗口打开</p>
+
+<p>第一层 <code>items</code>中的项目，如果只有<code>label</code>，没有<code>url</code>，<code>file</code>和 <code>items</code>， 则会在侧边栏中添加一个分类标记,效果如下：<br />
+<img src="../../assets/images/sidebar.png" alt="" /></p>
+
+<p>另外, 如果希望目录默认展开, 添加<code>"collapsed": false</code>即可</p>
+
+<p>比如：</p>
+
+<pre><code class="json language-json">{
+    "items":[
+        {
+            "label": "teedoc 简介",
+            "file": "README.md"
+        },
+        {
+            "label": "安装 teedoc",
+            "file": "install/README.md"
+        },
+        {
+            "label": "开始写文档",
+            "file": "usage/start.md"
+        },
+        {
+            "label": "插件",
+            "file": "plugins/README.md",
+            "collapsed": false,
+            "items":[
+                {
+                    "label": "主题插件",
+                    "file": "plugins/themes.md"
+                },
+                {
+                    "label": "其它插件",
+                    "file": "plugins/others.md"
+                }
+            ]
+        },
+        {
+            "label": "markdown 语法",
+            "file": "syntax/syntax_markdown.md"
+        },
+        {
+            "label": "使用了 teedoc 的网站",
+            "file": "usage/sites.md"
+        },
+        {
+            "label": "更多样例",
+            "items":[
+                {
+                    "label": "二级子目录样例",
+                    "items":[
+                        {
+                            "label": "三级子目录样例",
+                            "items":[
+                                {
+                                    "label": "文章1",
+                                    "file": "more/example_docs/doc1.md"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "文章2",
+                            "file": "more/example_docs/doc2.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "这是一个链接",
+                    "url": "https://github.com/teedoc/teedoc",
+                    "target": "_blank"
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="markdown">Markdown 文档</h2>
+
+<p>需要先在<code>site_config.json</code>中确认有<code>markdown</code>解析插件启用了，比如<code>teedoc-plugin-markdown-parser</code>。</p>
+
+<p>在<code>config.json</code>对应的目录下建立文件夹或者文件， 比如<code>get_started/README.md</code> (<code>README.md</code>最终会生成<code>index.html</code>)， 然后编写内容：</p>
+
+<h3 id="markdown-2">Markdown 文件头</h3>
+
+<p>添加一个头</p>
+
+<pre><code class="markdown language-markdown">---
+title: teedoc
+keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
+desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
+tags: teedoc, markdown, 语法
+id: zh_readme
+class: zh_readme
+---
+</code></pre>
+
+<p>通过这些键值来设置文章信息：</p>
+
+<ul>
+<li><code>title</code>: 文章的标题</li>
+<li><code>keywords</code>: 关键词，多个关键词用英文逗号<code>,</code> 隔开，会被添加到<code>html</code>头中，方便搜索引擎爬取</li>
+<li><code>desc</code>: 页面描述，会被添加到<code>html</code>头中，方便搜索引擎爬取</li>
+<li><code>tags</code>: 给文章添加的标签， 和<code>keywords</code>不同的是，<code>keywords</code>是给搜索引擎看的，不会显示在页面，<code>tags</code>是会显示在页面的</li>
+<li><code>id</code>: 页面<code>id</code>， 会被添加到<code>html</code>标签中，比如<code>&lt;html id="zh_readme"&gt;...&lt;/html&gt;</code>, 可以不设置，会覆盖<code>config.json</code>中的设置</li>
+<li><code>class</code>: 页面<code>class</code>,多个用英文逗号<code>,</code>隔开，可以不设置，会覆盖<code>config.json</code>中的设置。比如可以通过设置这个值来达到设置特定页面的<code>css</code>样式</li>
+</ul>
+
+<h3 id="markdown-3">Markdown 文件内容</h3>
+
+<p>内容就是使用<code>Markdown</code>语法进行编写，因为标题会被转成<code>&lt;h1&gt;</code>标签，所以内容中建议从二级标题开始，这样一个页面只有一个<code>&lt;h1&gt;</code>标签，方便搜索引擎爬取，比如</p>
+
+<pre><code class="markdown language-markdown">---
+title: teedoc
+keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
+desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
+id: zh_readme
+class: zh_readme
+---
+
+
+## 标题一
+
+内容。。。
+
+## 标题二
+
+内容。。。
+</code></pre>
+
+<h2 id="-5">链接、图片等资源文件</h2>
+
+<p>放在文档目录下面的文件，如果是可是识别的文件，比如<code>*.md</code>， 则会转换成<code>*.html</code>， 如果不能识别，比如<code>*.jpg</code>， 则会原封不动地拷贝</p>
+
+<h3 id="-6">最简单和推荐的方法</h3>
+
+<p>资源文件可以放在文档对应的目录，比如文档<code>docs/get_started/zh</code>， 可以创建<code>docs/get_started/zh/assets/images/logo.png</code>,<br />
+然后在<code>docs/get_started/zh/README.md</code>中使用相对路径引用，即<code>![](assets/images/logo.png)</code></p>
+
+<h3 id="-7">进阶方法</h3>
+
+<p>这种情况适用于多份文档都引用同一个文件夹下（<code>url</code>）的资源， 方便维护多份文档，比如多语言翻译，或者减少 <code>CDN</code> 流量消耗</p>
+
+<p>使用文档路径外的资源，在<code>site_config.json</code> 中配置</p>
+
+<pre><code class="json language-json">{
+    "route": {
+        "docs": {
+            "/get_started/zh/": "docs/get_started/zh",
+        },
+        "assets": {
+            "/get_started/assets/": "docs/get_started/assets"
+        }
+    }
+}
+</code></pre>
+
+<p>这个设置会将<code>docs/get_started/assets</code>整个目录拷贝为<code>/get_started/assets</code><br />
+所以只需要在<code>docs/get_started/zh/README.md</code>中使用相对路径引用，即<code>![](../assets/images/logo.png)</code></p>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            <a href="/get_started/zh/install/index.html"><span class="icon"></span><span class="label">安装 teedoc</span></a>
+                        </div>
+                        <div id="next">
+                            <a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class="icon"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script src="/static/js/plugin_blog/main.js"></script>
+</html>

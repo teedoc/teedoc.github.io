@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html  class="language_zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="gitbook, teedoc">
+    <meta name="description" content="快速从 gitbook 转换为 teedoc, 摆脱 gitbook 单线程构建龟速">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/split.js"></script>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+    <title>快速从 gitbook 转换为 teedoc - teedoc</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.png" alt="teedoc logo"><h2>teedoc</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  href="">Language: 中文</a><ul><li class="active"><a  href="/get_started/zh/">中文</a></li>
+<li class=""><a  href="/get_started/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">开始写文档</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active no_link"><a><span class="label">更多样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">二级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="sidebar_splitter">
+                </div>
+            </div>
+            <div id="article">
+                <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>快速从 gitbook 转换为 teedoc</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                <div id="source_link"><a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/usage/gitbook2teedoc.md" target="_blank">编辑本页</a></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <p>介绍如何 快速从 gitbook 转换为 teedoc, 因为 gitbook 停止了维护, 有一些特性已经不符合现在使用,比如单线程构建, 十分缓慢.</p>
+
+<p>这里以<a href="https://github.com/lyy289065406/re0-web/tree/033f5dfd7c9d3b8654b3c1ea4dabfab8b3ebebb7">re0-web</a>这个项目为例:</p>
+
+<p>作者在 readme 中说构建一次需要 30 分钟, 但是看了一下源码, 文档数量并不是很多, 不应该需要这么长时间, 看了下作者用了 docker, 而且是在 windows 下, 自然就很慢了. 解决办法就是切换到 linux 构建, 会加快一些速度, 估计能在5分钟内构建完成.</p>
+
+<p>teedoc 有着多线程构建的优势, 同时其它功能和 UI 也能满足的情况下, 可以考虑切换到 teedoc (不过 teedoc 暂时不支持 epub 和 pdf 导出(2021-05-29), 如果支持了会在<a href="../index.html">这里</a>说明)</p>
+
+<p>成功转换后的效果: <a href="https://teedoc.github.io/re0-web-teedoc/">teedoc.github.io/re0-web-teedoc/</a></p>
+
+<h2 id="teedoc">新建 teedoc 工程</h2>
+
+<pre><code>mkdir re0-web-teedoc
+cd re0-web-teedoc
+teedoc init
+teedoc install
+</code></pre>
+
+<p>使用<code>teedoc serve</code>命令可以启动构建并起一个 http 服务, 访问<code>http://127.0.0.1:2333</code> 即可预览</p>
+
+<p>使用<code>teedoc build</code>命令可以构建一个可以部署到服务器的版本, 文件在<code>out</code>目录下, 构建前可以先删除 <code>out</code> 目录</p>
+
+<h2 id="-1">复制源文件</h2>
+
+<p><code>re0-web</code> 这个项目的源文件在<code>gitbook/markdown</code>目录下面, 资源文件(图片)都放在<code>gitbook/res</code>, 左侧目录文件在<code>gitbook/SUMMARY.md</code></p>
+
+<p>其它文件都不重要, 都是工程文件或者生成的文件, 所以我们只需要将它们复制过来</p>
+
+<p>比如创建文件夹<code>books/re0</code>, 然后将原工程 <code>gitbook/markdown/ch/</code>目录中的内容 复制到 <code>books/re0/ch/</code>目录中, 将原工程 <code>gitbook/markdown/jp/</code>目录中的内容 复制到 <code>books/re0/jp/</code>目录中, 原工程<code>gitbook/markdown/character.md</code> 和 <code>gitbook/README.md</code> 分别复制一份到<code>books/re0/ch/</code> 和 <code>gitbook/markdown/jp/</code>中</p>
+
+<p>另外, 为资源文件创建一个文件夹<code>books/res/</code>, 将原工程<code>gitbook/res/</code>目录下的所有文件拷贝到<code>books/res/</code>目录下</p>
+
+<h2 id="-2">为每份文档建立配置</h2>
+
+<p>从 <code>docs/get_started/zh/</code>目录下复制<code>config.json</code> 和 <code>sidebar.yaml</code> 文件到<code>books/re0/ch/</code>和<code>books/re0/jp/</code></p>
+
+<p>每个有<code>config.json</code> 的目录就相当于是 <strong>一份文档</strong>, 或者说 <strong>一本书籍</strong></p>
+
+<h2 id="site_configjson">修改 site_config.json</h2>
+
+<ul>
+<li>修改 route</li>
+</ul>
+
+<p>编辑<code>site_config.json</code>, 找到 <code>route</code>键值, 修改内容:</p>
+
+<pre><code class="json language-json">     "route": {
+        "docs": {
+            "/gitbook/book/markdown/ch/": "books/re0/ch",
+            "/gitbook/book/markdown/jp/": "books/re0/jp"
+        },
+        "pages": {
+            "/": "pages/index/zh",
+            "/en/": "pages/index/en"
+        },
+        "assets": {
+            "/static/": "static",
+            "/res/": "books/res"
+        },
+</code></pre>
+
+<p>这里<code>url</code>兼容了之前的路径<code>gitbook/book/markdown/</code> 和资源路径<code>/res/</code>. </p>
+
+<p>因为<code>re0-web</code>这个项目源文件的图片都是用的绝对路径<code>url</code>比如<code>&lt;img width="500" src="/res/img/article/chapter010/12.jpg" /&gt;</code>, 所以这里将<code>/res/</code>映射到了<code>books/res</code>文件夹;</p>
+
+<p>另外源文件内可以用相对路径, 但是目录必须在同一个份文档内, 比如在本文档(点击右上角编辑本页可以看到源码), <code>![](../assets/images/logo.png)</code>: <img src="../assets/images/logo.png" alt="" /></p>
+
+<p>因为<code>assets</code>目录也在<code>get_started/zh/</code>目录下, 所以可以直接引用, 但是超出这份文档范围的目录就不可以直接用相对路径引用了.</p>
+
+<p>但是也有办法实现, 比如在这里引用<code>get_started/assets/</code>目录下的资源,在<code>get_started/zh/</code>目录下也可以引用, 只需要巧妙地配置一下 <code>route</code>, 如下:<br />
+默认</p>
+
+<pre><code class="json language-json">    "route": {
+        "docs": {
+            "/get_started/zh/": "docs/get_started/zh",
+        },
+        "assets": {
+            "/get_started/assets/": "docs/get_started/assets"
+        },
+</code></pre>
+
+<ul>
+<li>修改其它</li>
+</ul>
+
+<p>修改 <code>title</code> <code>domain</code> <code>source</code>等等</p>
+
+<h2 id="-3">侧边栏目录</h2>
+
+<ul>
+<li>查看文档</li>
+</ul>
+
+<p>如果这时使用<code>teedoc serve</code> 其实就可以在 <code>http://127.0.0.1:2333/gitbook/book/markdown/ch/character.html</code> 看到文档了</p>
+
+<p>但是左边的目录还没有完成, 现在修改左边目录</p>
+
+<ul>
+<li>转换 SUMMARY.md</li>
+</ul>
+
+<p>进入<code>books/re0/ch/</code>, 前面我们前面复制了一个<code>sidebar.yaml</code>的文件, 现在我们需要将 gitbook 的<code>SUMMARY.md</code> 转换成这个文件格式</p>
+
+<p>找到之前的<code>gitbook</code>工程的<code>SUMMARY.md</code>文件, 执行</p>
+
+<pre><code class="shell language-shell">teedoc -f 'SUMMARY.md' summary2yaml
+</code></pre>
+
+<p>我们就得到了一个<code>sidebar.yaml</code>文件, 复制到<code>books/re0/ch/</code>目录下覆盖之前的<code>sidebar.yaml</code>即可</p>
+
+<ul>
+<li>修改 sidebar.yaml 的文件路径</li>
+</ul>
+
+<p>因为之前的目录结构可能和新工程的目录结构不太像, 所以需要修改一下<code>sidebar.yaml</code>中的文件路径, 比如:</p>
+
+<p><code>markdown/character.md</code> 修改成<code>character.md</code>, 即相对与文档(有<code>config.json</code>的目录)的路径<br />
+<code>markdown/ch/chapter010/README.md</code> 修改成 <code>chapter010/README.md</code>, 可以批量替换<code>markdown/ch/</code>为空, 在很多编辑器里面都可以做到,比如<code>vscode</code>按<code>Ctrl+H</code>键来修改</p>
+
+<p>如果希望链接(<code>url</code>)在新的窗口打开, 则添加一个<code>target: _blank</code>键值即可</p>
+
+<ul>
+<li>查看效果</li>
+</ul>
+
+<p>然后再执行<code>teedoc serve</code>访问<code>http://127.0.0.1:2333/gitbook/book/markdown/ch/index.html</code>就可以看到左边的目录了, 对于<code>jp</code>的目录同理可以得到</p>
+
+<h2 id="-4">编辑导航栏</h2>
+
+<p>导航栏需要根据需要编辑一下</p>
+
+<h3 id="configconfig_zhjson">编辑模板<code>config/config_zh.json</code></h3>
+
+<pre><code class="json language-json">{
+    "class": "language_zh",
+    "navbar": {
+        "title": "re0-web",
+        "logo": {
+            "alt": "re0-web logo",
+            "src": ""
+        },
+        "home_url": "/",
+        "items": [
+            {
+                "url": "/gitbook/book/markdown/ch/",
+                "label": "中文",
+                "position": "left"
+            },
+            {
+                "url": "/gitbook/book/markdown/jp/",
+                "label": "日本语",
+                "position": "left"
+            },
+            {
+                "url": "https://github.com/teedoc/re0-web-teedoc",
+                "label": "github",
+                "target": "_blank",
+                "position": "right"
+            },
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/jp/",
+                        "label": "日本语"
+                    }
+                ]
+            }
+        ]
+    },
+    "footer":{
+        "top":[
+            {
+                "label": "链接",
+                "items": [
+                    {
+                        "label": "使用 teedoc 构建",
+                        "url": "https://teedoc.neucrack.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "网站地图",
+                        "url": "/sitemap.xml"
+                    }
+                ]
+            },
+            {
+                "label": "源码",
+                "items": [
+                    {
+                        "label": "本网站源文件",
+                        "url": "https://github.com/teedoc/re-web-teedoc",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ],
+        "bottom": [
+        ]
+    },
+    "plugins": {
+        "teedoc-plugin-search":{
+            "config": {
+                "search_hint": "搜索",
+                "input_hint": "输入关键词，多关键词空格隔开",
+                "loading_hint": "正在加载，请稍候。。。",
+                "download_err_hint": "下载文件失败，请刷新重试或检查网络",
+                "other_docs_result_hint": "来自其它文档的结果",
+                "curr_doc_result_hint": "当前文档搜索结果"
+            }
+        }
+    },
+    "show_source": "编辑本文"
+}
+</code></pre>
+
+<p>另外一个 <code>config_en.json</code> 可以更名为 <code>config_jp.json</code>, 同理修改下内容, 顺便重命名<code>pages/index/en</code>为<code>pages/index/jp</code></p>
+
+<pre><code class="json language-json">{
+    "navbar": {
+        "title": "re0-web",
+        "logo": {
+            "alt": "re0-web logo",
+            "src": ""
+        },
+        "home_url": "/jp/",
+        "items": [
+            {
+                "url": "/gitbook/book/markdown/ch/",
+                "label": "中文",
+                "position": "left"
+            },
+            {
+                "url": "/gitbook/book/markdown/jp/",
+                "label": "日本语",
+                "position": "left"
+            },
+            {
+                "url": "https://github.com/neutree/re0-web-teedoc",
+                "label": "github",
+                "target": "_blank",
+                "position": "right"
+            },
+            {
+                "id": "language",
+                "label": "语言: ",
+                "position": "right",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/jp/",
+                        "label": "日本语"
+                    }
+                ]
+            }
+        ]
+    },
+    "footer":{
+        "top":[
+            {
+                "label": "Links",
+                "items": [
+                    {
+                        "label": "Site generated by teedoc",
+                        "url": "https://teedoc.neucrack.com",
+                        "target": "_blank"
+                    },
+                    {
+                        "label": "Sitemap",
+                        "url": "/sitemap.xml"
+                    }
+                ]
+            },
+            {
+                "label": "Source code",
+                "items": [
+                    {
+                        "label": "website source files",
+                        "url": "https://github.com/teedoc/re0-web-teedoc",
+                        "target": "_blank"
+                    }
+                ]
+            }
+        ],
+        "bottom": [
+        ]
+    }
+}
+</code></pre>
+
+<h3 id="configjson">修改每本书籍(/文档)的配置文件 config.json</h3>
+
+<ul>
+<li>修改 <code>books/re0/ch/config.json</code></li>
+</ul>
+
+<pre><code class="json language-json">{
+    "import": "config_zh",
+    "navbar": {
+        "items": [
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/gitbook/book/markdown/ch/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/gitbook/book/markdown/jp/",
+                        "label": "日本语"
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+
+<ul>
+<li>修改 <code>books/re0/jp/config.json</code></li>
+</ul>
+
+<pre><code class="json language-json">{
+    "import": "config_jp",
+    "navbar": {
+        "items": [
+            {
+                "id": "language",
+                "label": "Language: ",
+                "position": "right",
+                "items": [
+                    {
+                        "id": "zh",
+                        "url": "/gitbook/book/markdown/ch/",
+                        "label": "中文"
+                    },
+                    {
+                        "id": "en",
+                        "url": "/gitbook/book/markdown/jp/",
+                        "label": "日本语"
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+
+<h2 id="-5">编辑首页</h2>
+
+<p>编辑<code>pages/index/zh/README.md</code>, 根据需要修改即可</p>
+
+<h2 id="-6">部署</h2>
+
+<p>和 <code>gitbook</code> 一样, <code>teedoc build</code>生成的都是静态文件,并且放在 <code>out</code>文件夹下, 直接拷贝到服务器部署即可,更多请看<a href="./deploy.html">文档</a></p>
+
+<p>最终效果: <a href="https://teedoc.github.io/re0-web-teedoc/">teedoc.github.io/re0-web-teedoc/</a></p>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            <a href="/get_started/zh/usage/sites.html"><span class="icon"></span><span class="label">使用了 teedoc 的网站</span></a>
+                        </div>
+                        <div id="next">
+                            <a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class="icon"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script src="/static/js/plugin_blog/main.js"></script>
+</html>

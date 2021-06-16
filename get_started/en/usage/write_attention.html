@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html  >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="teedoc, document writing, points to note">
+    <meta name="description" content="teedoc, which converts markdown or jupyter notbook into html static web pages, introduces the points to note when writing documents with teedoc">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/split.js"></script>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+    <title>Points to note when writing documents - teedoc</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/en/"><img class="site_logo" src="/static/image/logo.png" alt="teedoc logo"><h2>teedoc</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class="active"><a  href="/get_started/en/">Install</a></li>
+<li class=""><a  href="/develop/en/">Develop</a></li>
+<li class=""><a  href="/blog/">blog</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  href="">语言: English</a><ul><li class=""><a  href="/get_started/zh/">中文</a></li>
+<li class="active"><a  href="/get_started/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/index.html"><span class="label">Introduction to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/install/index.html"><span class="label">Install teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/start.html"><span class="label">Start writing document</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/get_started/en/usage/write_attention.html"><span class="label">Pay attention to when writing documents</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/index.html"><span class="label">Plugin</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/plugins/themes.html"><span class="label">Theme Plugin</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/others.html"><span class="label">Other plugins</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_markdown.html"><span class="label">markdown syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_jupyter.html"><span class="label">Jupyter syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/blog.html"><span class="label">Blog</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy.html"><span class="label">Deployment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_github_pages.html"><span class="label">Deploy to github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_nginx.html"><span class="label">Use nginx to deploy to the server</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cdn.html"><span class="label">Use CDN to accelerate website</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/seo.html"><span class="label">SEO (Optimize for Search Engines)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/sites.html"><span class="label">Website using teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/gitbook2teedoc.html"><span class="label">Convert gitbook to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/problems.html"><span class="label">Common problem</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/more/history.html"><span class="label">Update history</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">More</span></li>
+<li class="not_active no_link"><a><span class="label">More samples</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Second-level subdirectory example</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sample three-level sub-directory</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc1.html"><span class="label">Article 1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc2.html"><span class="label">Article 2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">This is a external link</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="sidebar_splitter">
+                </div>
+            </div>
+            <div id="article">
+                <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>Points to note when writing documents</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul></ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                <div id="source_link"><a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/en/usage/write_attention.md" target="_blank">Edit this page</a></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <h2 id="relative-path-problem">Relative path problem</h2>
+
+<p>When writing the link path in <code>config.json</code>, try to write the specification, such as <code>/get_started/zh/</code> instead of <code>/get_started/zh</code></p>
+
+<p>That is, if the corresponding path is not a file, but a directory, you must add a <code>/</code> at the end to let the browser know that this is a directory,<br />
+In this way, we write relative paths in the <code>md</code> file, such as <code>../assets/image/screenshot.png</code>, which will be converted to <code>/get_started/assets/image/screenshot.png</code><br />
+If it is <code>/get_started/zh</code>, the browser will parse it as <code>/assets/image/screenshot.png</code>, which is the wrong address, and the picture will not be found!</p>
+
+<p>Of course, you can also choose to use an absolute path</p>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            <a href="/get_started/en/usage/start.html"><span class="icon"></span><span class="label">Start writing document</span></a>
+                        </div>
+                        <div id="next">
+                            <a href="/get_started/en/plugins/index.html"><span class="label">Plugin</span><span class="icon"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">Site generated by teedoc</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">website source files</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script src="/static/js/plugin_blog/main.js"></script>
+</html>

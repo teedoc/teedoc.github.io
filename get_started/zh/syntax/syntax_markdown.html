@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html  class="language_zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="teedoc, markdown, 语法">
+    <meta name="description" content="teedoc 的 markdown 语法介绍和实例">
+    <meta name="generator" content="teedoc">
+    <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        <script src="/static/js/theme_default/split.js"></script>
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+    <title>markdown 语法 - teedoc</title>
+</head>
+<body>
+    
+            <div id="navbar">
+                <div id="navbar_menu">
+                    <a class="site_title" href="/"><img class="site_logo" src="/static/image/logo.png" alt="teedoc logo"><h2>teedoc</h2></a>
+                    <a id="navbar_menu_btn"></a>
+                </div>
+                <div id="navbar_items">
+                    <div>
+                        <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+                    </div>
+                    <div>
+                        <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  href="">Language: 中文</a><ul><li class="active"><a  href="/get_started/zh/">中文</a></li>
+<li class=""><a  href="/get_started/en/">English</a></li>
+</ul></li>
+</ul>
+
+                        <ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+                    </div>
+                </div>
+            </div>
+    
+        <div id="wrapper">
+            
+            <div id="sidebar_wrapper">
+                <div id="sidebar">
+                    <div id="sidebar_title">
+                        
+                    </div>
+                    <ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">开始写文档</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active no_link"><a><span class="label">更多样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">二级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="sidebar_splitter">
+                </div>
+            </div>
+            <div id="article">
+                <div id="menu_wrapper">
+                                    <div id="menu">
+                                    </div>
+                                </div>
+                <div id="content_wrapper">
+                    <div id="content_body">
+                        <div id="article_head">
+                            <div id="article_title">
+                                <h1>markdown 语法</h1>
+                            </div>
+                            <div id="article_tags">
+                                <ul><li>teedoc</li>
+<li> markdown</li>
+<li> 语法</li>
+</ul>
+                            </div>
+                            <div id="article_info">
+                            <div>
+                                <span class="article_author"></span><span class="article_date"></span>
+                            </div>
+                            <div>
+                                <div id="source_link"><a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/syntax/syntax_markdown.md" target="_blank">编辑本页</a></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="article_content">
+                            <p>本文是使用<code>Markdown</code>编写的文档，使用<code>teedoc</code>生成的页面效果， <code>Markdown</code>文件见<a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/syntax/syntax_markdown.md">这里</a></p>
+
+<h2 id="markdown">Markdown 基本文件内容格式</h2>
+
+<p>需要先在<code>site_config.json</code>中确认有<code>markdown</code>解析插件启用了，比如<code>teedoc-plugin-markdown-parser</code>。</p>
+
+<p>在<code>config.json</code>对应的目录下建立文件夹或者文件， 比如<code>get_started/zh/syntax/syntax_markdown.md</code> (<code>README.md</code>最终会生成<code>index.html</code>)， 然后编写内容：</p>
+
+<h3 id="markdown-2">Markdown 文件头</h3>
+
+<p>添加一个头</p>
+
+<pre><code class="markdown language-markdown">---
+title: markdown 语法
+tags: teedoc, markdown, 语法
+keywords: teedoc, markdown, 语法
+desc: teedoc 的 markdown 语法介绍和实例
+---
+</code></pre>
+
+<p>通过这些键值来设置文章信息：</p>
+
+<ul>
+<li><code>title</code>: 文章的标题</li>
+<li><code>keywords</code>: 关键词，多个关键词用英文逗号<code>,</code> 隔开，会被添加到<code>html</code>头中，方便搜索引擎爬取，不会显示到页面</li>
+<li><code>desc</code>: 页面描述，会被添加到<code>html</code>头中，方便搜索引擎爬取</li>
+<li><code>tags</code>： 文章标签，会显示到页面</li>
+<li><code>id</code>: 页面<code>id</code>， 会被添加到<code>html</code>标签中，比如<code>&lt;html id="zh_readme"&gt;...&lt;/html&gt;</code>, 可以不设置，会覆盖<code>config.json</code>中的设置</li>
+<li><code>class</code>: 页面<code>class</code>,多个用英文逗号<code>,</code>隔开，可以不设置，会覆盖<code>config.json</code>中的设置。比如可以通过设置这个值来达到设置特定页面的<code>css</code>样式</li>
+</ul>
+
+<h3 id="markdown-3">Markdown 文件内容</h3>
+
+<p>内容就是使用<code>Markdown</code>语法进行编写，因为标题会被转成<code>&lt;h1&gt;</code>标签，所以内容中建议从二级标题开始，这样一个页面只有一个<code>&lt;h1&gt;</code>标签，方便搜索引擎爬取，比如</p>
+
+<pre><code class="markdown language-markdown">---
+title: teedoc
+keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
+desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
+id: zh_readme
+class: zh_readme
+---
+
+
+## 标题一
+
+内容。。。
+
+## 标题二
+
+内容。。。
+</code></pre>
+
+<p>一级标题（<code>#</code>）最好不要使用， 因为上面的<code>title</code>会自动生成一个一级标题（<code>&lt;h1&gt;</code>标签），一个页面最好只有一个一级标题，方便搜索引擎爬取收录</p>
+
+<p><code>keywords</code> 是生成的 <code>html</code> 页面的 <code>keywords</code>， 不会显示到页面，主要提供给搜索引擎使用<br />
+<code>desc</code> 是生成的 <code>html</code> 页面的 <code>description</code>， 不会显示到页面，主要提供给搜索引擎使用<br />
+<code>tags</code> 是给文章的标签，会显示在页面</p>
+
+<h2 id="-1">二级标题</h2>
+
+<h3 id="-2">三级标题</h3>
+
+<h4 id="-3">四级标题</h4>
+
+<h4 id="2">四级标题2</h4>
+
+<h4 id="3">四级标题3</h4>
+
+<h5 id="-4">五级标题</h5>
+
+<h6 id="-5">六级标题</h6>
+
+<p>最多 6 级标题</p>
+
+<h2 id="-6">链接</h2>
+
+<p><a href="../index.html">相对路径， index.html 文件</a>: <code>../README.md</code>， 会自动转换成<code>index.html</code></p>
+
+<p><a href="./syntax_markdown.html">相对路径，.html 文件</a>： <code>./syntax_markdown.md</code>， 会转成文档的 <code>.html</code> 结尾的链接</p>
+
+<p><a href="https://storage.googleapis.com/tensorflow_docs/docs-l10n/site/zh-cn/tutorials/quickstart/beginner.ipynb">绝对路径， http 文件</a>： <code>https://。。。/beginner.ipynb</code>，原链接，不会修改</p>
+
+<p><a href="./syntax_jupyter.html">相对路径，.html 文件</a>： <code>./syntax_jupyter.ipynb</code>， 会转成文档的 <code>.html</code> 结尾的链接</p>
+
+<h2 id="-7">列表</h2>
+
+<p>列表项:</p>
+
+<ul>
+<li>包子</li>
+<li>馒头</li>
+<li>茶叶蛋</li>
+</ul>
+
+<ul>
+<li>aaaaaaa<br />
+<ul><br />
+<li>二级列表</li><br />
+<li>二级列表</li><br />
+<li>二级列表</li><br />
+</ul></li>
+<li>bbbbbb</li>
+</ul>
+
+<h2 id="code">code</h2>
+
+<p>这是一段行内代码<code>print("hello")</code>，或者强调<code>teedoc</code></p>
+
+<pre><code class="python language-python">print("hello")
+
+print("world")
+</code></pre>
+
+<pre><code class="c language-c">#include "stdio.h"
+
+int main()
+{
+    printf("hello world");
+}
+</code></pre>
+
+<h2 id="-8">注释(引用块)</h2>
+
+<p>下面是一段注释</p>
+
+<blockquote>
+  <p>这里是一段注释 (<code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>)<br />
+  这是注释的第二行</p>
+</blockquote>
+
+<pre><code class="python language-python"># 这里是注释里面的代码段
+print("hello")
+</code></pre>
+
+<blockquote>
+  <p>注释</p>
+  
+  <blockquote>
+    <p>注释嵌套<br />
+    注释嵌套</p>
+  </blockquote>
+</blockquote>
+
+<h2 id="-9">警告</h2>
+
+<p>下面是一段警告信息</p>
+
+<blockquote class="spoiler">
+  <p>这是一段警告信息(<code>&lt;blockquote class="spoiler"&gt;&lt;/blockquote&gt;</code>)</p>
+</blockquote>
+
+<h2 id="-10">图片</h2>
+
+<p>要显示这张图片，需要在<code>site_config.json</code>中设置<code>route</code>键值</p>
+
+<p><img src="../../assets/images/logo.png" alt="这是一张图片" /><br />
+<img src="../assets/images/logo.png" alt="这是一张图片" /></p>
+
+<p><img src="../../assets/images/logo.png" alt="这是一张图片" /><img src="../assets/images/logo.png" alt="这是一张图片" /></p>
+
+<h2 id="-11">视频</h2>
+
+<pre><code class="html language-html">&lt;video src="https://****.com/***.mp4" controls="controls" preload="auto"&gt;your brower not support play video&lt;/video&gt;
+</code></pre>
+
+<p>这里没有放视频， 所以是空白, 放入正确的视频就可以播放了</p>
+
+<p><video src="" controls="controls" preload="auto">your brower or site not support play video</video></p>
+
+<h2 id="iframe">iframe 嵌入网页</h2>
+
+<iframe src="//player.bilibili.com/player.html?aid=52613549&bvid=BV144411J72P&cid=92076022&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:43vw;height:34vw;min-width: 85%;"> </iframe>
+
+<h2 id="-12">引用标记</h2>
+
+<p>我能干饭我自豪。<sup class="footnote-ref" id="fnref-干饭人"><a href="#fn-干饭人">1</a></sup></p>
+
+<p>这会在文章末尾进行注解</p>
+
+<h2 id="-13">划线</h2>
+
+<p>我是<strike>天神</strike>打工人啊</p>
+
+<h2 id="-14">表格</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Header 1</th>
+  <th><em>Header</em> 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Cell 1</code></td>
+  <td><a href="http://example.com">Cell 2</a> link</td>
+</tr>
+<tr>
+  <td>Cell 3</td>
+  <td><strong>Cell 4</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="-15">任务列表</h2>
+
+<ul>
+<li><input type="checkbox" class="task-list-item-checkbox" checked disabled> 任务1</li>
+<li><input type="checkbox" class="task-list-item-checkbox" checked disabled> 任务2</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> 任务3</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> 任务4</li>
+</ul>
+
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn-干饭人">
+<p>老子说道&#160;<a href="#fnref-干饭人" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+                        </div>
+                    </div>
+                    <div id="previous_next">
+                        <div id="previous">
+                            <a href="/get_started/zh/plugins/others.html"><span class="icon"></span><span class="label">其它插件</span></a>
+                        </div>
+                        <div id="next">
+                            <a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class="icon"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a id="to_top" href="#"></a>
+        <div id="doc_footer">
+                        
+            <div id="footer">
+                <div id="footer_top">
+                    <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+                </div>
+                <div id="footer_bottom">
+                    <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+                </div>
+            </div>
+                    </div>
+</body>
+<script src="/static/js/theme_default/tocbot.min.js"></script>
+<script src="/static/js/theme_default/main.js"></script>
+<script src="/static/css/theme_default/prism.min.js"></script>
+<script src="/static/js/custom.js"></script>
+<script src="/static/js/search/search_main.js"></script>
+<script src="/static/js/plugin_blog/main.js"></script>
+</html>
