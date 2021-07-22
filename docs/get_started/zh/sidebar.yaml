@@ -1,6 +1,7 @@
 items:
 -   label: teedoc 简介
     file: README.md
+-   label: 使用
 -   label: 安装 teedoc
     file: install/README.md
 -   label: 开始写文档
@@ -40,9 +41,10 @@ items:
 -   label: 更新历史
     file: more/history.md
 -   label: 更多
--   label: 更多样例
+-   label: 更多样例(目录默认展开)
+    collapsed: false
     items:
-    -   label: 二级子目录样例
+    -   label: 二级子目录
         items:
         -   label: 三级子目录样例
             items:

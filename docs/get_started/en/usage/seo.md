@@ -9,7 +9,7 @@ desc: How to use teedoc to do SEO (speed up search engines to include websites a
 
 ## Page keywords and description
 
-Add keywords and descriptions to each page, such as `.md` file header (source text on this page)
+Add keywords and descriptions to each page, it's ok if you don't add them, according the content if added, such as `.md` file header (source text on this page)
 ```markdown
 ---
 title: SEO (optimized for search engines)
@@ -36,6 +36,20 @@ Here is the introduction
 
 ## Directory Two
 
+```
+
+## Image alt info
+
+When Use image in markdown, try to add description info for image
+
+Wrong:
+```markdown
+![](url)
+```
+
+Correct:
+```markdown
+![description or label(alt info)](url)
 ```
 
 ## Sitemap

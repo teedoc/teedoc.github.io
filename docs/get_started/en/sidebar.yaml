@@ -1,6 +1,7 @@
 items:
 -   label: Introduction to teedoc
     file: README.md
+-   label: Usage
 -   label: Install teedoc
     file: install/README.md
 -   label: Start writing document
@@ -40,7 +41,8 @@ items:
 -   label: Update history
     file: more/history.md
 -   label: More
--   label: More samples
+-   label: More samples(not collapsed by default)
+    collapsed: false
     items:
     -   label: Second-level subdirectory example
         items:
