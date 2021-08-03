@@ -17,5 +17,4 @@ desc: teedoc, open source static doc site generator, convert markdown or jupyter
             <a href="/get_started/en/">Get started</a>
         </div>
     </div>
-
 </div>
