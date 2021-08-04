@@ -31,6 +31,12 @@
 #home_page .big_btn a:hover {
     box-shadow: 6px 4px 20px #0000002e;
 }
+.md_page #page_content > div {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    line-height: 2em;
+}
 .dark #home_page .big_btn a {
     background-color: #1b5638;
     color: #d2f9e5;
