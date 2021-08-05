@@ -25,7 +25,7 @@
     height: 2em;
     vertical-align: middle;
 }
-#big_btn_wrapper {
+.big_btn_wrapper {
     display: flex;
     justify-content: space-evenly;
     margin: 8em 1em;

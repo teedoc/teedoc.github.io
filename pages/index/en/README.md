@@ -16,7 +16,7 @@ id: home_page
             <h1><span>teedoc</span></h1>
             <h3>Concise and comprehensive website/document generator</h3>
         </div>
-        <div id="big_btn_wrapper">
+        <div class="big_btn_wrapper">
             <div class="big_btn">
                 <a href="#" id="learn_more">Learn More</a>
             </div>
@@ -116,6 +116,9 @@ id: home_page
         });
         $("#learn_more").on("click", function(){
             $.fn.fullpage.moveTo(2);
+        });
+        $("#to_top").on("click", function(){
+            $.fn.fullpage.moveTo(1);
         });
     });
 </script>

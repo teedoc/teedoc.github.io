@@ -17,7 +17,7 @@ id: home_page
             <h1><span>teedoc</span></h1>
             <h3>简而全的开源静态网站/文档/博客生成器</h3>
         </div>
-        <div id="big_btn_wrapper">
+        <div class="big_btn_wrapper">
             <div class="big_btn">
                 <a href="#" id="learn_more">了解更多</a>
             </div>
@@ -117,6 +117,9 @@ id: home_page
         });
         $("#learn_more").on("click", function(){
             $.fn.fullpage.moveTo(2);
+        });
+        $("#to_top").on("click", function(){
+            $.fn.fullpage.moveTo(1);
         });
     });
 </script>
