@@ -18,7 +18,82 @@ id: home_page
         </div>
         <div id="big_btn_wrapper">
             <div class="big_btn">
-                <a href="/get_started/en/">Get started</a>
+                <a href="#" id="learn_more">Learn More</a>
+            </div>
+            <div class="big_btn">
+                <a href="/get_started/zh/">Get started</a>
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_left">
+        <div>
+            <div class="dsc_left">
+                <h2>Write easily</h2>
+                <h2>Automatically generate</h2>
+            </div>
+            <div class="dsc_right">
+                Write with <img class="logo" src="/static/image/markdown.svg"> Markdown Or <img class="logo" src="/static/image/jupyter.svg">jupyter notebook ,</br>
+                automatically generate HTML pages
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_right">
+        <div>
+            <div class="dsc_left">
+                <img class="logo" src="/static/image/windows.svg"> <img class="logo" src="/static/image/linux.svg"> <img class="logo" src="/static/image/mac.svg"><br/>
+                Code by python, cross platform, install just by pip,</br>
+                <img class="logo" src="/static/image/plugin.svg"> support plugins
+            </div>
+            <div class="dsc_right">
+                <h2>Cross platform</h2>
+                <h2>Plugins support</h2>
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_left">
+        <div>
+            <div class="dsc_left">
+                <h2>Multiple docs</h2>
+                <h2>Blog</h2>
+            </div>
+            <div class="dsc_right">
+                <img class="logo" src="/static/image/books.svg"> Supoort multiple docs/version, each has its content(sidebar)</br>
+                <img class="logo" src="/static/image/blog.svg"> Support lite blog system
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_right">
+        <div>
+            <div class="dsc_left">
+                <img class="logo" src="/static/image/theme.svg"> Default theme for efficient read, and you can install theme plugin</br>
+                At the same time, it supports custom css and js, and can precisely control the style of any page element by specifying the id on the page
+            </div>
+            <div class="dsc_right">
+                <h2>Theme can be customized</h2>
+            </div>
+        </div>
+    </div>
+        <div class="section dsc_wrapper_left">
+        <div>
+            <div class="dsc_left">
+                <h2>Faster generate</h2>
+                <h2>Real-time preview</h2>
+            </div>
+            <div class="dsc_right">
+                <img class="logo" src="/static/image/speed.svg"> Build in parallel, make full use of processor performance, and document rendering in an instant</br>
+                <img class="logo" src="/static/image/browser.svg"> Support browser real-time preview and modification
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_right">
+        <div>
+            <div class="dsc_left">
+                <img class="logo" src="/static/image/server.svg"> All generated static pages, copy to the server to complete the deployment</br>
+                <img class="logo" src="/static/image/seo.svg"> SEO friendly, such as page keywords customization, sitemap automatic generation, etc.
+            </div>
+            <div class="dsc_right">
+                <h2>Simple to deploy</h2>
+                <h2>SEO friendly</h2>
             </div>
         </div>
     </div>
@@ -38,6 +113,9 @@ id: home_page
             dragAndMove: true,
             paddingBottom: nav_height + "px"
             // fixedElements: "#navbar"
+        });
+        $("#learn_more").on("click", function(){
+            $.fn.fullpage.moveTo(2);
         });
     });
 </script>
@@ -75,3 +153,4 @@ id: home_page
         createCanvas();
     });
 </script>
+

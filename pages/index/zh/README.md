@@ -19,7 +19,82 @@ id: home_page
         </div>
         <div id="big_btn_wrapper">
             <div class="big_btn">
+                <a href="#" id="learn_more">了解更多</a>
+            </div>
+            <div class="big_btn">
                 <a href="/get_started/zh/">开始使用</a>
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_left">
+        <div>
+            <div class="dsc_left">
+                <h2>简单书写</h2>
+                <h2>自动生成</h2>
+            </div>
+            <div class="dsc_right">
+                使用 <img class="logo" src="/static/image/markdown.svg"> Markdown 或者 <img class="logo" src="/static/image/jupyter.svg">jupyter notebook 书写，</br>
+                自动生成 HTML 页面
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_right">
+        <div>
+            <div class="dsc_left">
+                <img class="logo" src="/static/image/windows.svg"> <img class="logo" src="/static/image/linux.svg"> <img class="logo" src="/static/image/mac.svg"><br/>
+                使用 python 编写， 跨平台， 使用 pip 即可安装，</br>
+                <img class="logo" src="/static/image/plugin.svg"> 支持插件安装及自定义插件
+            </div>
+            <div class="dsc_right">
+                <h2>跨平台</h2>
+                <h2>插件支持</h2>
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_left">
+        <div>
+            <div class="dsc_left">
+                <h2>多文档</h2>
+                <h2>博客</h2>
+            </div>
+            <div class="dsc_right">
+                <img class="logo" src="/static/image/books.svg"> 支持多文档，每篇文档有单独的目录，也可以多版本</br>
+                <img class="logo" src="/static/image/blog.svg"> 同时支持轻量博客系统
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_right">
+        <div>
+            <div class="dsc_left">
+                <img class="logo" src="/static/image/theme.svg"> 默认主题为高效阅读而设计，提供主题插件支持</br>
+                同时支持自定义 css、js，能通过页面指定 id 精确控制任何一个页面元素的样式
+            </div>
+            <div class="dsc_right">
+                <h2>主题可定制</h2>
+            </div>
+        </div>
+    </div>
+        <div class="section dsc_wrapper_left">
+        <div>
+            <div class="dsc_left">
+                <h2>快速构建</h2>
+                <h2>实时预览</h2>
+            </div>
+            <div class="dsc_right">
+                <img class="logo" src="/static/image/speed.svg"> 并行构建，充分利用处理器性能，文档渲染就在一瞬间</br>
+                <img class="logo" src="/static/image/browser.svg"> 支持浏览器实时预览修改
+            </div>
+        </div>
+    </div>
+    <div class="section dsc_wrapper_right">
+        <div>
+            <div class="dsc_left">
+                <img class="logo" src="/static/image/server.svg"> 生成的都是静态页面，拷贝到服务器即可完成部署</br>
+                <img class="logo" src="/static/image/seo.svg"> SEO 友好，比如 页关键词自定义、sitemap自动生成等
+            </div>
+            <div class="dsc_right">
+                <h2>部署简单</h2>
+                <h2>SEO 友好</h2>
             </div>
         </div>
     </div>
@@ -39,6 +114,9 @@ id: home_page
             dragAndMove: true,
             paddingBottom: nav_height + "px"
             // fixedElements: "#navbar"
+        });
+        $("#learn_more").on("click", function(){
+            $.fn.fullpage.moveTo(2);
         });
     });
 </script>
