@@ -219,3 +219,19 @@ print("hello")
 
 
 
+## HTML
+
+```html
+<div class="hello">
+hello  <img src="../../assets/images/logo.png"/>
+</div>
+```
+
+注意这里没有空行, 效果如下
+
+<div class="hello">
+hello <br/> <img src="../../assets/images/logo.png"/>
+</div>
+
+
+
