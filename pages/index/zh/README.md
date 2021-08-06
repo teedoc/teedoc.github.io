@@ -12,7 +12,7 @@ id: home_page
 </div>
 
 <div id="fullpage">
-    <div class="section">
+    <div class="section" style="height: 100vh;">
         <div>
             <h1><span>teedoc</span></h1>
             <h3>简而全的开源静态网站/文档/博客生成器</h3>
