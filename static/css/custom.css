@@ -24,6 +24,7 @@
 #home_page .logo {
     height: 2em;
     vertical-align: middle;
+    filter: invert(56%) sepia(31%) saturate(171%) hue-rotate(196deg) brightness(87%) contrast(86%);
 }
 .big_btn_wrapper {
     display: flex;
@@ -55,6 +56,10 @@
 .dark #home_page .big_btn a:hover {
     box-shadow: 6px 4px 20px #000000;
     background-color: #2a7d53;
+}
+#home_page .dark #navbar {
+    background: #1f1f1f;
+    box-shadow: 0px 0px 5px 0px #000000;
 }
 
 .section {

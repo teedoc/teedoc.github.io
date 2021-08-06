@@ -127,12 +127,26 @@ id: home_page
 <canvas id="backgroundCanvas"  style="top:0; bottom:0; left:0; right:0; position:fixed; z-index: -99;">
 </canvas>
 <script>
-    function createCanvas(){
+    var isDark = false;
+    function createCanvas(dark = null){
         var c=document.getElementById("backgroundCanvas");
         c.height = document.body.clientHeight;
         c.width = document.body.clientWidth;
         var ctx=c.getContext("2d");
-        ctx.fillStyle="#f6f6f6";
+        if(dark == null){
+            if(getTheme() == "dark"){
+                dark = true;
+            }else{
+                dark = false;
+            }
+        }
+        if(dark){
+            ctx.fillStyle="#171717";
+            isDark = true;
+        }else{
+            ctx.fillStyle="#f6f6f6";
+            isDark = false;
+        }
         var rect = [
     [0.05, 0.3, 0.05, 0.03],
     [0.1, 0.6, 0.05, 0.03],
@@ -151,9 +165,12 @@ id: home_page
             ctx.fillRect(v[0] * c.width, v[1] * c.height, v[2] * c.width, v[3] * c.height);
         });
     }
-    createCanvas();
     $(window).resize(function() {
         createCanvas();
+    });
+    createCanvas();
+    $("#themes").on("click", function(){
+        createCanvas(!isDark);
     });
 </script>
 
