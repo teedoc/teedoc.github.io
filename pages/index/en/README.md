@@ -11,7 +11,7 @@ id: home_page
 </div>
 
 <div id="fullpage">
-    <div class="section">
+    <div class="section" style="height: 100vh;">
         <div>
             <h1><span>teedoc</span></h1>
             <h3>Concise and comprehensive website/document generator</h3>
