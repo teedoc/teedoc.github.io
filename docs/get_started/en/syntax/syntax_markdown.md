@@ -33,6 +33,7 @@ Use these keys to set article information:
 * `tags`: article tags, will be displayed on the page
 * `id`: page `id`, will be added to the `html` tag, such as `<html id="zh_readme">...</html>`, it can be left unset, it will overwrite `config.json` Settings in
 * `class`: page `class`, multiple separated by English comma`, `, you can not set it, it will overwrite the setting in `config.json`. For example, you can set the `css` style of a specific page by setting this value
+* `layout`: The layout template used by the page. By default, this key value is not needed. The configuration in the theme plugin will be used. You need to customize the layout of this page. You can set this parameter. The path is relative to the `site_config` layout_root_dir` path, `layout_root_dir` defaults to `layout`, so to use `layout/special_layout.html` only need to fill in `special_layout.html`. See [layout document](../usage/layout_template.md) for layout template syntax
 
 ### Markdown file content
 

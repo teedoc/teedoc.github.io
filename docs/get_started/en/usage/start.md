@@ -202,6 +202,7 @@ Fill in the `from` field with `pypi`, if the plug-in is downloaded locally, you 
 The configuration items are determined by the specific plug-in. For example, `teedoc-plugin-theme-default` has the `dark` option to choose whether to enable the dark theme
 * `rebuild_changes_delay`: After detecting file changes, how many seconds to delay automatically regenerating the document, the browser will automatically refresh the page, the default is `3` seconds, the shortest can be set to `0` seconds, you can use `teedoc -t 3 serve` or `teedoc --delay serve` to override this setting
 * `robots`: Customize the content of `robots.txt`, such as `"User-agent": "*"` means that all clients are allowed to crawl, which will have an impact on `SEO`. For example, crawling of `JPEG` pictures is not allowed: `"Disallow": "/.jpeg$"`, and access to the `admin` directory: `"Disallow": "/admin"` is not allowed, specifically and `robots.txt` Same format requirements
+* `layout_root_dir`: the root directory of the layout template, the default is `layout`, that is, when the layout template file is needed, it will automatically find it under this folder
 
 ## config.json document configuration
 

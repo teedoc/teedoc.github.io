@@ -202,6 +202,7 @@ teedoc -f ./SUMMARY.md summary2yaml
 配置项则由具体的插件决定，比如`teedoc-plugin-theme-default`就有`dark`选项来选择是否启用暗黑主题
 * `rebuild_changes_delay`: 检测到文件更改后，延迟多少秒自动重新生成该文档， 浏览器中会自动刷新页面，默认为`3`秒，最短可以设置为`0`秒, 可以使用`teedoc -t 3 serve` 或者 `teedoc --delay serve` 来覆盖这个设置
 * `robots`: 自定义`robots.txt`的内容， 比如 `"User-agent": "*"`代表允许所有客户端爬取， 这对 `SEO` 会有影响。 比如不允许爬取`JPEG`图片：`"Disallow": "/.jpeg$"`， 不允许访问`admin`目录:`"Disallow": "/admin"`, 具体和`robots.txt`的格式要求相同
+* `layout_root_dir`: 布局模板根目录, 默认为`layout`, 即需要布局模板文件时会自动到这个文件夹下面寻找
 
 ## config.json 文档配置
 

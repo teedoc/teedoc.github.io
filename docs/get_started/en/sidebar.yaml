@@ -21,6 +21,8 @@ items:
     file: syntax/syntax_jupyter.ipynb
 -   label: Blog
     file: usage/blog.md
+-   label: Customize layout
+    file: usage/layout_template.md
 -   label: Deployment
     file: usage/deploy.md
     items:
