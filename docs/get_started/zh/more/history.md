@@ -5,6 +5,9 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 ---
 
 
+## 2021-08-7 v1.17.1
+
+* 增加 布局模板(layout template) 自定义支持 (Jinja2)
 
 ## 2021-08-3 v1.16.1
 
