@@ -68,6 +68,7 @@
 .dsc_wrapper_left > div > div {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .dsc_wrapper_left .dsc_left {
     width: 50%;
@@ -83,6 +84,7 @@
 .dsc_wrapper_right > div > div {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .dsc_wrapper_right .dsc_right {
     width: 50%;
@@ -99,5 +101,11 @@
 @media screen and (max-width: 900px) {
     #navbar #navbar_items {
         display: none;
+    }
+    .dsc_wrapper_left > div > div {
+        flex-direction: column;
+    }
+    .dsc_wrapper_right > div > div {
+        flex-direction: column-reverse;
     }
 }

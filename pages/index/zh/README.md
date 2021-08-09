@@ -7,6 +7,7 @@ id: home_page
 ---
 
 <div>
+    <!-- <script src="/static/js/scrolloverflow.min.js"></script> -->
     <script src="/static/js/jquery.fullpage.min.js"></script>
     <link rel="stylesheet" href="/static/css/jquery.fullpage.min.css" type="text/css"/>
 </div>
@@ -111,8 +112,10 @@ id: home_page
             menu: '#navbar',
             navigation: true,
             css3: true,
-            dragAndMove: true,
+            // dragAndMove: true,
             paddingBottom: nav_height + "px"
+            // scrollOverflow: true,
+	        // scrollOverflowReset: true,
             // fixedElements: "#navbar"
         });
         $("#learn_more").on("click", function(){
@@ -169,8 +172,10 @@ id: home_page
     $(window).resize(function() {
         createCanvas();
     });
-    createCanvas();
     $("#themes").on("click", function(){
         createCanvas(!isDark);
     });
+    $().ready(function(){
+            createCanvas();
+        });
 </script>
