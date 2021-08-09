@@ -18,7 +18,7 @@ Convert documents in `Markdown` or `Jupyter Notebook` format into `HTML` static 
 * Build a personal or corporate website
 * Blog
 
-
+If you encounter problems during use, you can find similar problems in [here](https://github.com/teedoc/teedoc/issues) (you need to register and log in to github) to find similar issues, or create an issue
 
 
 ## Features

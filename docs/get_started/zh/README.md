@@ -19,6 +19,7 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 * 博客
 
 
+如果你在使用过程中遇到了问题, 可以在[这里](https://github.com/teedoc/teedoc/issues) (需要先注册并登录 github) 寻找相似问题, 或者创建 issue
 
 
 ## 特性
