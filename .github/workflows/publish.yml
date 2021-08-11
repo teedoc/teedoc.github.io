@@ -30,6 +30,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: build doc
+        id: build_doc
         run: |
           pip3 install setuptools
           pip3 install teedoc
@@ -40,11 +41,12 @@ jobs:
           teedoc build
           out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
           cp -rf .github $out_dir
+          echo ::set-output name=out_dir::$out_dir
       - name: Deploy 🚀 to github pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with: # more usage visit https://github.com/JamesIves/github-pages-deploy-action
           branch: gh-pages # The branch the action should deploy to.
-          folder: ${out_dir} # The folder the action should deploy.
+          folder: ${{ steps.build_doc.outputs.out_dir }} # The folder the action should deploy.
 
 # mannually scripts
           # cd $out_dir
