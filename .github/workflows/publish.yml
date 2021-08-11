@@ -39,20 +39,26 @@ jobs:
           teedoc install
           teedoc build
           out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
-          cp -rf .github $out_dir/
-          cd $out_dir
-          git init
-          git config user.name ${{ secrets.GIT_NAME }}
-          git config user.email ${{ secrets.GIT_EMAIL }}
-          git remote add upstream "git@github.com:${{ secrets.REPO }}.git"
-          git add -A
-          git commit -m "rebuild website ad $commit_info"
-          SSHPATH="$HOME/.ssh"
-          rm -rf "$SSHPATH"
-          mkdir -p "$SSHPATH"
-          echo "${{ secrets.ACCESS_KEY }}" > "$SSHPATH/id_rsa"
-          chmod 600 "$SSHPATH/id_rsa"
-          sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
-          git push upstream HEAD:gh-pages --force
+          cp -rf .github $out_dir
+          # cd $out_dir
+          # git init
+          # git config user.name ${{ secrets.GIT_NAME }}
+          # git config user.email ${{ secrets.GIT_EMAIL }}
+          # git remote add upstream "git@github.com:${{ secrets.REPO }}.git"
+          # git add -A
+          # git commit -m "rebuild website ad $commit_info"
+          # SSHPATH="$HOME/.ssh"
+          # rm -rf "$SSHPATH"
+          # mkdir -p "$SSHPATH"
+          # echo "${{ secrets.ACCESS_KEY }}" > "$SSHPATH/id_rsa"
+          # chmod 600 "$SSHPATH/id_rsa"
+          # sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
+          # git push upstream HEAD:gh-pages --force
+      - name: Deploy 🚀
+          uses: JamesIves/github-pages-deploy-action@4.1.4
+          with: # more usage visit https://github.com/JamesIves/github-pages-deploy-action
+            branch: gh-pages # The branch the action should deploy to.
+            folder: $out_dir # The folder the action should deploy.
+
           
           
