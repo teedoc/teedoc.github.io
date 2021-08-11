@@ -44,7 +44,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with: # more usage visit https://github.com/JamesIves/github-pages-deploy-action
           branch: gh-pages # The branch the action should deploy to.
-          folder: $out_dir # The folder the action should deploy.
+          folder: ${out_dir} # The folder the action should deploy.
 
 # mannually scripts
           # cd $out_dir
