@@ -94,15 +94,37 @@ Open the browser to visit: [http://127.0.0.1:2333](http://127.0.0.1:2333)
 At the same time, you can see that there is an additional `out` directory under the directory, which is the generated static website content, directly copy it to the server and use `nginx` or `apache` for deployment.
 
 
-## Create a new warehouse based on the template warehouse on github
+## Create a new warehouse based on the template warehouse on github and use the pages service to quickly create a website
 
+Using the teedoc official website template and the github pages function, you can quickly create a website of your own. You don't need to build and maintain your own server, you don't need to deploy an HTTPS certificate yourself, and you don't need any key configuration. It can be completed in 3 minutes.
 
-Visit [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
+However, the github pages service also has disadvantages, that is, some domestic network lines in China may not be accessible.
 
-Click `Use this template`
+### Create a warehouse based on a template
+
+* Visit [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io), click `Use this template`
 
 ![github use template](../../assets/images/github_use_template.jpg)
 
-Then fill in the new warehouse name and description, create a new warehouse of your own based on this warehouse, and now you have obtained the warehouse exactly the same as the official website of teedoc
 
-Then use `git clone your warehouse address` to clone to the local 
+* Set the name of the new warehouse to `username or organization name.github.io`, select the public warehouse, and then confirm the submission
+![create repo](../../assets/images/create_repo.jpg)
+
+> Then use `git clone your warehouse address` to clone to the local
+
+### Set up pages service
+
+* Wait for the automatic build to generate a new branch `gh-pages`, you can click on the `Actions` column to view the progress of the automatic build, if a green tick appears, it means it is OK, if a red cross appears, the build fails Yes, where is the problem, you can click in to view the log according to the screenshot method below (you must submit a screenshot of the log) and submit [issue](https://github.com/teedoc/teedoc.github.io/issues/ new) feedback
+
+![action status](../../assets/images/action_status.jpg)
+
+If there is an error, you can click to view the error log according to the following figure:
+![error0](../../assets/images/action_error.jpg)
+![error](../../assets/images/action_error_log.jpg)
+
+* Set the `pages` service of the warehouse and select the `gh-pages` branch. If there is no such branch, the previous step has not been completed or an error occurred. You can view the issue submission [issue](https://github.com/ teedoc/teedoc.github.io/issues/new) feedback
+![pages](../../assets/images/pages_settings.jpg)
+
+* Then visit `username or organization name.github.io`, you will find a webpage, the content is exactly the same as `teedoc.github.io`!
+
+

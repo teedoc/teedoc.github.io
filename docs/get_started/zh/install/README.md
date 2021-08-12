@@ -94,17 +94,39 @@ teedoc build
 同时可以看到目录下多了一个`out`目录，里面就是生成的静态网站内容，直接拷贝到服务器使用`nginx`或者`apache`进行部署即可
 
 
-## 在 github 上基于模板仓库创建新仓库
+## 在 github 上基于模板仓库创建新仓库 并使用 pages 服务快速创建网站
 
+使用 teedoc 官网模板, 使用 github pages 功能, 可以快速创建一个属于你自己的网站, 不需要自己搭建和维护服务器, 不需要自己部署 HTTPS 证书, 也不需要任何密钥配置, 3 分钟内就可以完成.
 
-访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
+不过 github pages 服务也有缺点, 就是中国国内某些网络线路可能无法访问
 
-点击 `Use this template`
+### 基于模板创建仓库
+
+* 访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)， 点击 `Use this template`
 
 ![github use template](../../assets/images/github_use_template.jpg)
 
-然后填写新的仓库名称和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 `teedoc`官网一模一样的仓库了
 
-然后使用`git clone 你的仓库地址`就可以克隆到本地了
+* 设置新仓库的名字为`用户名或者组织名.github.io`,  选择公开仓库, 然后确认提交
+![create repo](../../assets/images/create_repo.jpg)
+
+> 之后使用`git clone 你的仓库地址`就可以克隆到本地了
+
+### 设置 pages 服务
+
+* 等待自动构建生成新的分支`gh-pages`, 可以点击 `Actions` 栏目查看自动构建的进度, 如果有绿色的勾勾出现了就代表可以了, 如果出现了红色的叉叉则是构建失败了, 哪里出了什么问题, 可以按照下面的截图方法点进去查看日志(提交问题必须要日志截图)并提交 [issue](https://github.com/teedoc/teedoc.github.io/issues/new) 反馈
+
+![action status](../../assets/images/action_status.jpg)
+
+如果有错误, 可以按照下图点进去查看错误日志:
+![error0](../../assets/images/action_error.jpg)
+![error](../../assets/images/action_error_log.jpg)
+
+* 设置仓库的 `pages` 服务, 选择`gh-pages`分支, 如果没有这个分支, 则是上一步还没进行完或者出错了,可以查看问题提交 [issue](https://github.com/teedoc/teedoc.github.io/issues/new) 反馈
+![pages](../../assets/images/pages_settings.jpg)
+
+* 然后访问 `用户名或者组织名.github.io`, 就会发现有网页啦, 内容和`teedoc.github.io`的一模一样!
+
+
 
 
