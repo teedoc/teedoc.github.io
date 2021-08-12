@@ -23,6 +23,8 @@ title: markdown syntax
 tags: teedoc, markdown, syntax
 keywords: teedoc, markdown, syntax
 desc: teedoc's markdown syntax introduction and examples
+id: zh_readme
+class: zh_readme
 ---
 ```
 

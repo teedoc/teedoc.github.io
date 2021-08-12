@@ -75,7 +75,7 @@ The built document will be placed in the `out` directory, the program will not a
 
 ## Configuration file
 
-The configuration file can be a file in `json` or `yaml` format, choose the one you like
+The configuration file can be a file in `json` or `yaml` format, choose the one you like. Don't be afraid if you haven't touched it before, search for a tutorial and take 10 minutes to learn it.
 
 If your document directory has a lot of content, it is recommended to use the `yaml` format, which looks more concise
 
@@ -401,6 +401,44 @@ For the items in the first layer of `items`, if there is only `label` without `u
 And you can add option `"collapsed": false` to show sub directory by default
 
 such as:
+
+```yaml
+items:
+-   label: Introduction to teedoc
+    file: README.md
+-   label: Install teedoc
+    file: install/README.md
+-   label: Start writing document
+    file: usage/start.md
+-   label: Plugin
+    file: plugins/README.md
+    collapsed: false
+    items:
+    -   label: Theme Plugin
+        file: plugins/themes.md
+    -   label: Other plugins
+        file: plugins/others.md
+-   label: markdown syntax
+    file: syntax/syntax_markdown.md
+-   label: Website using teedoc
+    file: usage/sites.md
+-   label: More samples
+    items:
+    -   label: Second-level subdirectory example
+        items:
+        -   label: Sample three-level sub-directory
+            items:
+            -   label: Article 1
+                file: more/example_docs/doc1.md
+        -   label: Article 2
+            file: more/example_docs/doc2.md
+    -   label: This is a link
+        url: https://github.com/teedoc/teedoc
+        target: _blank
+```
+
+or `json` format
+
 ```json
 {
     "items":[
@@ -471,86 +509,3 @@ such as:
 }
 ```
 
-## Markdown documentation
-
-You need to confirm in `site_config.json` that there is a `markdown` parsing plugin enabled, such as `teedoc-plugin-markdown-parser`.
-
-Create a folder or file in the directory corresponding to `config.json`, such as `get_started/README.md` (`README.md` will eventually generate `index.html`), and then write the content:
-
-### Markdown header
-
-Add a header
-
-```markdown
----
-title: teedoc
-keywords: teedoc, markdown, jupyter notebook, html, document generation, alternative gitbook, website generation, static website
-desc: teedoc, convert markdown or jupyter notbook into html static webpage
-tags: teedoc, markdown
-id: zh_readme
-class: zh_readme
----
-```
-
-Use these keys to set article information:
-* `title`: the title of the article
-* `keywords`: Keywords, multiple keywords are separated by English commas `,`, will be added to the header of `html`, which is convenient for search engines to crawl
-* `desc`: page description, which will be added to the header of `html` for easy crawling by search engines
-* `tags`: tags added to the article. Unlike `keywords`, `keywords` is for search engines and will not be displayed on the page, but `tags` will be displayed on the page
-* `id`: page `id`, will be added to the `html` tag, such as `<html id="zh_readme">...</html>`, it can be left unset, it will overwrite `config.json` Settings in
-* `class`: page `class`, multiple separated by English comma`, `, it is not necessary to set it, it will overwrite the setting in `config.json`. For example, you can set the `css` style of a specific page by setting this value
-* `layout`: The layout template used by the page. By default, this key value is not needed. The configuration in the theme plugin will be used. You need to customize the layout of this page. You can set this parameter. The path is relative to the `site_config` layout_root_dir` path, `layout_root_dir` defaults to `layout`, so to use `layout/special_layout.html` only need to fill in `special_layout.html`. See [layout document](layout_template.md) for layout template syntax
-
-### Markdown file content
-
-The content is written using the `Markdown` grammar, because the title will be converted into the `<h1>` tag, so the content is recommended to start with the secondary title, so that a page has only one `<h1>` tag, which is convenient for search engines to crawl ,such as
-```markdown
----
-title: teedoc
-keywords: teedoc, markdown, jupyter notebook, html, document generation, alternative gitbook, website generation, static website
-desc: teedoc, convert markdown or jupyter notbook into html static webpage
-id: zh_readme
-class: zh_readme
----
-
-
-## Title One
-
-content. . .
-
-## Title Two
-
-content. . .
-```
-
-
-
-
-## Links, pictures and other resource files
-
-The file placed under the document directory, if it is a recognizable file, such as `*.md`, it will be converted to `*.html`, if it cannot be recognized, such as `*.jpg`, it will be copied as it is
-
-### The easiest and recommended way
-
-Resource files can be placed in the corresponding directory of the document, such as the document `docs/get_started/zh`, you can create `docs/get_started/zh/assets/images/logo.png`,
-Then use relative path references in `docs/get_started/zh/README.md`, namely `![](assets/images/logo.png)`
-
-### Advanced method
-
-This situation applies to multiple documents referencing resources under the same folder (`url`), which is convenient for maintaining multiple documents, such as multilingual translation, or reducing traffic consumption of `CDN`
-
-Use resources outside the document path, configure in `site_config.json`
-```json
-{
-    "route": {
-        "docs": {
-            "/get_started/zh/": "docs/get_started/zh",
-        },
-        "assets": {
-            "/get_started/assets/": "docs/get_started/assets"
-        }
-    }
-}
-```
-This setting will copy the entire directory of `docs/get_started/assets` to `/get_started/assets`
-So only need to use relative path reference in `docs/get_started/zh/README.md`, namely `![](../assets/images/logo.png)`

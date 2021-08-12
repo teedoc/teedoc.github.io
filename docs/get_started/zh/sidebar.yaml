@@ -1,28 +1,24 @@
 items:
 -   label: teedoc 简介
     file: README.md
--   label: 使用
+-   label: 使用了 teedoc 的网站
+    file: usage/sites.md
+-   label: 基本使用
 -   label: 安装 teedoc
     file: install/README.md
--   label: 开始写文档
+-   label: 文档结构和配置
     file: usage/start.md
+-   label: 编写文档内容
+    file: usage/write.md
+    items:
+    -   label: markdown 语法
+        file: syntax/syntax_markdown.md
+    -   label: Jupyter 语法
+        file: syntax/syntax_jupyter.ipynb
 -   label: 写文档时需注意
     file: usage/write_attention.md
--   label: 插件
-    file: plugins/README.md
-    items:
-    -   label: 主题插件
-        file: plugins/themes.md
-    -   label: 其它插件
-        file: plugins/others.md
--   label: markdown 语法
-    file: syntax/syntax_markdown.md
--   label: Jupyter 语法
-    file: syntax/syntax_jupyter.ipynb
 -   label: 博客
     file: usage/blog.md
--   label: 自定义页面模板
-    file: usage/layout_template.md
 -   label: 部署
     file: usage/deploy.md
     items:
@@ -32,17 +28,25 @@ items:
         file: usage/deploy_nginx.md
     -   label: 使用 CDN 加速网站
         file: usage/deploy_cdn.md
--   label: SEO(为搜索引擎优化)
-    file: usage/seo.md
--   label: 使用了 teedoc 的网站
-    file: usage/sites.md
--   label: 从 gitbook 转换为 teedoc
-    file: usage/gitbook2teedoc.md
 -   label: 常见问题
     file: usage/problems.md
+-   label: 进阶使用
+-   label: 插件
+    file: plugins/README.md
+    items:
+    -   label: 主题插件
+        file: plugins/themes.md
+    -   label: 其它插件
+        file: plugins/others.md
+-   label: SEO(为搜索引擎优化)
+    file: usage/seo.md
+-   label: 自定义页面模板
+    file: usage/layout_template.md
+-   label: 从 gitbook 转换为 teedoc
+    file: usage/gitbook2teedoc.md
+-   label: 更多
 -   label: 更新历史
     file: more/history.md
--   label: 更多
 -   label: 更多样例(目录默认展开)
     collapsed: false
     items:

@@ -34,6 +34,7 @@ teedoc install
 
 * Create a `config.json` in the `blog` folder you just configured, and use the same method as the `config.json` of the aforementioned document.
 * Create a new `README.md` file to write the homepage of the blog. For example, only the header information is written, but the content is not written. The generated web page will add the blog list after the file is rendered, where `date: false` represents Do not display the date on this page
+
 ```markdown
 ---
 

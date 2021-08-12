@@ -34,6 +34,7 @@ teedoc install
 
 * 在刚刚配置的`blog`文件夹中建立一个`config.json`，使用方法同前面说的文档的`config.json`相同。
 * 新建一个`README.md`文件，用来写博客的首页，比如只写头信息，不写内容，生成的网页会在这个文件渲染后的基础上添加博客列表，这里`date: false` 代表不在这个页面显示日期
+
 ```markdown
 ---
 

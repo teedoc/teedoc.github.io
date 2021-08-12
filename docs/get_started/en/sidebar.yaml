@@ -1,28 +1,24 @@
 items:
 -   label: Introduction to teedoc
     file: README.md
--   label: Usage
+-   label: Website using teedoc
+    file: usage/sites.md
+-   label: Baisc usage
 -   label: Install teedoc
     file: install/README.md
--   label: Start writing document
+-   label: Doc structure and config
     file: usage/start.md
--   label: Pay attention to when writing documents
-    file: usage/write_attention.md
--   label: Plugin
-    file: plugins/README.md
+-   label: Write content
+    file: usage/write.md
     items:
-    -   label: Theme Plugin
-        file: plugins/themes.md
-    -   label: Other plugins
-        file: plugins/others.md
--   label: markdown syntax
-    file: syntax/syntax_markdown.md
--   label: Jupyter syntax
-    file: syntax/syntax_jupyter.ipynb
+    -   label: markdown syntax
+        file: syntax/syntax_markdown.md
+    -   label: Jupyter syntax
+        file: syntax/syntax_jupyter.ipynb
+-   label: Pay attention to when writing
+    file: usage/write_attention.md
 -   label: Blog
     file: usage/blog.md
--   label: Customize layout
-    file: usage/layout_template.md
 -   label: Deployment
     file: usage/deploy.md
     items:
@@ -32,17 +28,25 @@ items:
         file: usage/deploy_nginx.md
     -   label: Use CDN to accelerate website
         file: usage/deploy_cdn.md
+-   label: Common problems
+    file: usage/problems.md
+-   label: Advanced use
+-   label: Plugins
+    file: plugins/README.md
+    items:
+    -   label: Theme Plugins
+        file: plugins/themes.md
+    -   label: Other plugins
+        file: plugins/others.md
 -   label: SEO (Optimize for Search Engines)
     file: usage/seo.md
--   label: Website using teedoc
-    file: usage/sites.md
+-   label: Customize layout
+    file: usage/layout_template.md
 -   label: Convert gitbook to teedoc
     file: usage/gitbook2teedoc.md
--   label: Common problem
-    file: usage/problems.md
+-   label: More
 -   label: Update history
     file: more/history.md
--   label: More
 -   label: More samples(not collapsed by default)
     collapsed: false
     items:

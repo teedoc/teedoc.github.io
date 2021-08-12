@@ -1,7 +1,7 @@
 ---
-title: 开始写文档
-keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站, 写文档
-desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页， 介绍了 teedoc 的基本使用
+title: 文档结构和配置
+keywords: teedoc, 目录结构, teedoc 文档配置, teedoc 文档结构, teeodc sidebar
+desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页， 介绍了 teedoc 的基本使用， 包括文档结构和配置
 ---
 
 
@@ -75,7 +75,7 @@ teedoc -d /home/teedoc/my_doc build
 
 ## 配置文件
 
-配置文件可以是 `json` 或者 `yaml` 格式的文件，选择你喜欢使用的即可
+配置文件可以是 `json` 或者 `yaml` 格式的文件，选择你喜欢使用的即可， 如果没接触过也不要害怕， 搜索一个教程花 10 分钟学习就能完全掌握。
 
 如果你的文档目录内容很多，建议使用`yaml`格式，看起来会更加简洁
 
@@ -402,6 +402,42 @@ teedoc -f ./SUMMARY.md summary2yaml
 另外, 如果希望目录默认展开, 添加`"collapsed": false`即可
 
 比如：
+```yaml
+items:
+-   label: teedoc 简介
+    file: README.md
+-   label: 安装 teedoc
+    file: install/README.md
+-   label: 开始写文档
+    file: usage/start.md
+-   label: 插件
+    file: plugins/README.md
+    collapsed: false
+    items:
+    -   label: 主题插件
+        file: plugins/themes.md
+    -   label: 其它插件
+        file: plugins/others.md
+-   label: markdown 语法
+    file: syntax/syntax_markdown.md
+-   label: 使用了 teedoc 的网站
+    file: usage/sites.md
+-   label: 更多样例
+    items:
+    -   label: 二级子目录样例
+        items:
+        -   label: 三级子目录样例
+            items:
+            -   label: 文章1
+                file: more/example_docs/doc1.md
+        -   label: 文章2
+            file: more/example_docs/doc2.md
+    -   label: 这是一个链接
+        url: https://github.com/teedoc/teedoc
+        target: _blank
+```
+
+或者 `json` 格式
 
 ```json
 {
@@ -472,91 +508,4 @@ teedoc -f ./SUMMARY.md summary2yaml
     ]
 }
 ```
-
-## Markdown 文档
-
-需要先在`site_config.json`中确认有`markdown`解析插件启用了，比如`teedoc-plugin-markdown-parser`。
-
-在`config.json`对应的目录下建立文件夹或者文件， 比如`get_started/README.md` (`README.md`最终会生成`index.html`)， 然后编写内容：
-
-### Markdown 文件头
-
-添加一个头
-
-```markdown
----
-title: teedoc
-keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
-desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
-tags: teedoc, markdown, 语法
-id: zh_readme
-class: zh_readme
----
-```
-
-通过这些键值来设置文章信息：
-* `title`: 文章的标题
-* `keywords`: 关键词，多个关键词用英文逗号`,` 隔开，会被添加到`html`头中，方便搜索引擎爬取
-* `desc`: 页面描述，会被添加到`html`头中，方便搜索引擎爬取
-* `tags`: 给文章添加的标签， 和`keywords`不同的是，`keywords`是给搜索引擎看的，不会显示在页面，`tags`是会显示在页面的
-* `id`: 页面`id`， 会被添加到`html`标签中，比如`<html id="zh_readme">...</html>`, 可以不设置，会覆盖`config.json`中的设置
-* `class`: 页面`class`,多个用英文逗号`,`隔开，可以不设置，会覆盖`config.json`中的设置。比如可以通过设置这个值来达到设置特定页面的`css`样式
-* `layout`: 页面使用的布局模板, 默认不需要这个键值, 会使用主题插件里面的配置,需要你需要自定义这个页面的布局, 可以设置这个参数, 路径相对于`site_config`中的`layout_root_dir`路径, `layout_root_dir` 默认为`layout`, 所以要使用`layout/special_layout.html` 只需要填写`special_layout.html`. 布局模板语法见[layout 文档](layout_template.md)
-
-### Markdown 文件内容
-
-内容就是使用`Markdown`语法进行编写，因为标题会被转成`<h1>`标签，所以内容中建议从二级标题开始，这样一个页面只有一个`<h1>`标签，方便搜索引擎爬取，比如
-```markdown
----
-title: teedoc
-keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站
-desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页
-id: zh_readme
-class: zh_readme
----
-
-
-## 标题一
-
-内容。。。
-
-## 标题二
-
-内容。。。
-```
-
-
-
-
-## 链接、图片等资源文件
-
-放在文档目录下面的文件，如果是可是识别的文件，比如`*.md`， 则会转换成`*.html`， 如果不能识别，比如`*.jpg`， 则会原封不动地拷贝
-
-### 最简单和推荐的方法
-
-资源文件可以放在文档对应的目录，比如文档`docs/get_started/zh`， 可以创建`docs/get_started/zh/assets/images/logo.png`,
-然后在`docs/get_started/zh/README.md`中使用相对路径引用，即`![](assets/images/logo.png)`
-
-### 进阶方法
-
-这种情况适用于多份文档都引用同一个文件夹下（`url`）的资源， 方便维护多份文档，比如多语言翻译，或者减少 `CDN` 流量消耗
-
-使用文档路径外的资源，在`site_config.json` 中配置
-```json
-{
-    "route": {
-        "docs": {
-            "/get_started/zh/": "docs/get_started/zh",
-        },
-        "assets": {
-            "/get_started/assets/": "docs/get_started/assets"
-        }
-    }
-}
-```
-这个设置会将`docs/get_started/assets`整个目录拷贝为`/get_started/assets`
-所以只需要在`docs/get_started/zh/README.md`中使用相对路径引用，即`![](../assets/images/logo.png)`
-
-
-
 
