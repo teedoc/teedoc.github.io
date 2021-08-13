@@ -108,7 +108,7 @@ However, the github pages service also has disadvantages, that is, some domestic
 
 ### Create a repository based on a template
 
-* Visit [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io), click `Use this template`
+* Visit [https://github.com/teedoc/template](https://github.com/teedoc/template) or [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io), click `Use this template`
 
 ![github use template](../../assets/images/github_use_template.jpg)
 

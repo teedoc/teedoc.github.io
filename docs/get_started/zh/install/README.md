@@ -107,7 +107,7 @@ teedoc build
 
 ### 基于模板创建仓库
 
-* 访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)， 点击 `Use this template`
+* 访问 [https://github.com/teedoc/template](https://github.com/teedoc/template) 或者 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)， 点击 `Use this template`
 
 ![github use template](../../assets/images/github_use_template.jpg)
 
