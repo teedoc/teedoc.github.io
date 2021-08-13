@@ -49,6 +49,12 @@ cd my_site
 teedoc init
 ```
 
+or
+
+```shell
+teedoc -d my_site init
+```
+
 This will automatically generate some basic files in the `my_site` directory
 
 
@@ -94,23 +100,23 @@ Open the browser to visit: [http://127.0.0.1:2333](http://127.0.0.1:2333)
 At the same time, you can see that there is an additional `out` directory under the directory, which is the generated static website content, directly copy it to the server and use `nginx` or `apache` for deployment.
 
 
-## Create a new warehouse based on the template warehouse on github and use the pages service to quickly create a website
+## Create a new repository based on the template repository on github and use the pages service to quickly create a website
 
 Using the teedoc official website template and the github pages function, you can quickly create a website of your own. You don't need to build and maintain your own server, you don't need to deploy an HTTPS certificate yourself, and you don't need any key configuration. It can be completed in 3 minutes.
 
 However, the github pages service also has disadvantages, that is, some domestic network lines in China may not be accessible.
 
-### Create a warehouse based on a template
+### Create a repository based on a template
 
 * Visit [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io), click `Use this template`
 
 ![github use template](../../assets/images/github_use_template.jpg)
 
 
-* Set the name of the new warehouse to `username or organization name.github.io`, select the public warehouse, and then confirm the submission
+* Set the name of the new repository to `username or organization name.github.io`, select the public repository, and then confirm the submission
 ![create repo](../../assets/images/create_repo.jpg)
 
-> Then use `git clone your warehouse address` to clone to the local
+> Then use `git clone your repository address` to clone to the local
 
 ### Set up pages service
 
@@ -122,7 +128,7 @@ If there is an error, you can click to view the error log according to the follo
 ![error0](../../assets/images/action_error.jpg)
 ![error](../../assets/images/action_error_log.jpg)
 
-* Set the `pages` service of the warehouse and select the `gh-pages` branch. If there is no such branch, the previous step has not been completed or an error occurred. You can view the issue submission [issue](https://github.com/ teedoc/teedoc.github.io/issues/new) feedback
+* Set the `pages` service of the repository and select the `gh-pages` branch. If there is no such branch, the previous step has not been completed or an error occurred. You can view the issue submission [issue](https://github.com/ teedoc/teedoc.github.io/issues/new) feedback
 ![pages](../../assets/images/pages_settings.jpg)
 
 * Then visit `username or organization name.github.io`, you will find a webpage, the content is exactly the same as `teedoc.github.io`!

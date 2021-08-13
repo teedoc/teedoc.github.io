@@ -49,6 +49,11 @@ cd my_site
 teedoc init
 ```
 
+或者
+```shell
+teedoc -d my_site init
+```
+
 这会在 `my_site` 目录下自动生成一些基础文件
 
 
