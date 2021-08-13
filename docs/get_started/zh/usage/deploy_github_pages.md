@@ -12,7 +12,7 @@ desc: teedoc 生成的网站部署到 github pages 服务, 使用 github 的免�
 
 ## 克隆模板仓库
 
-这里使用 teedoc 官网的源码作为模板, 访问 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
+这里使用 teedoc 官网的源码作为模板, 访问 [https://github.com/teedoc/template](https://github.com/teedoc/template) 或者 [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
 点击 `Use this template`
 ![github use template](../../assets/images/github_use_template.jpg)
 然后填写新的仓库名称（如果你不准备自定义域名，则仓库名字最好是`teedoc.github.io`将`teedoc`替换成你的用户名或者组织名）和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 `teedoc`官网一模一样的仓库了

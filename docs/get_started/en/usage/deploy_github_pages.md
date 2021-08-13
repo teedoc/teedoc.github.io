@@ -12,7 +12,7 @@ At the same time, we have also automated the page construction and push. Every t
 
 ## Clone the template warehouse
 
-Here we use the source code of teedoc official website as a template, visit [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
+Here we use the source code of teedoc official website as a template, visit [https://github.com/teedoc/template](https://github.com/teedoc/template) or [https://github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
 Click `Use this template`
 ![github use template](../../assets/images/github_use_template.jpg)
 Then fill in the new warehouse name (if you are not going to customize the domain name, the warehouse name is best to be `teedoc.github.io` and replace `teedoc` with your username or organization name) and description, and create a new one based on this warehouse Your own warehouse, now you have the same warehouse as the official website of `teedoc`
