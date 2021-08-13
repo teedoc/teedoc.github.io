@@ -22,7 +22,7 @@ id: home_page
                 <a href="#" id="learn_more">Learn More</a>
             </div>
             <div class="big_btn">
-                <a href="/get_started/zh/">Get started</a>
+                <a href="/get_started/en/">Get started</a>
             </div>
         </div>
     </div>
