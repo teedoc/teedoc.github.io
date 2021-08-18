@@ -212,7 +212,7 @@ goto [Markdown header](#Markdown-header), just need
 [Markdown header](#Markdown-header)
 ```
 
-Use minus sign `-` to replace space ` `, if there is a double quotation mark `"`, you need to use a single quotation mark `'` instead
+Use minus sign `-` to replace space ` `
 
 
 ## HTML
