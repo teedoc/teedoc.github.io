@@ -16,6 +16,8 @@ desc: teedoc 主题插件
             "from": "pypi",
             "config": {
                 "dark": true,
+                "default_dark": false,
+                "mobile_navbar_collapsed": true,
                 "env":{
                     "main_color": "#4caf7d",
                     "sidebar_width": "300px"
@@ -29,6 +31,9 @@ desc: teedoc 主题插件
     }
 ```
 
+* `dark`: 支持黑暗模式切换
+* `default_dark`: 是否默认为黑暗模式
+* `mobile_navbar_collapsed`: 移动设备导航栏默认折叠
 * `main_color`: 主题主颜色
 * `sidebar_width`: 侧边目录栏默认宽度, 可以是`"300px"`, `300`, `"30%"` 这样的格式
 * `css`: `css`文件 `URL`，可以覆盖默认的样式，会被插入到页面的`head`标签中

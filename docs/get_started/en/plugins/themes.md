@@ -17,6 +17,8 @@ Configure the plugin in `site_config.json`
             "from": "pypi",
             "config": {
                 "dark": true,
+                "default_dark": false,
+                "mobile_navbar_collapsed": true,
                 "env":{
                     "main_color": "#4caf7d",
                     "sidebar_width": "300px"
@@ -30,6 +32,9 @@ Configure the plugin in `site_config.json`
     }
 ```
 
+* `dark`: support dark mode switch
+* `default_dark`: default use dark mode
+* `mobile_navbar_collapsed`: collapse navbar by default on mobile phone
 * `main_color`: theme main color
 * `sidebar_width`: sidebar default width, format can be like`"300px"`, `300`, `"30%"`
 * `css`: `css` file `URL`, which can override the default style and will be inserted into the `head` tag of the page
