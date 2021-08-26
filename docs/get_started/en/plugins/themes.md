@@ -35,6 +35,7 @@ Configure the plugin in `site_config.json`
 * `dark`: support dark mode switch
 * `default_dark`: default use dark mode
 * `mobile_navbar_collapsed`: collapse navbar by default on mobile phone
+* `show_print_page`: show print page button, visitor click or push `Ctrl+P` to print
 * `main_color`: theme main color
 * `sidebar_width`: sidebar default width, format can be like`"300px"`, `300`, `"30%"`
 * `css`: `css` file `URL`, which can override the default style and will be inserted into the `head` tag of the page
