@@ -209,6 +209,15 @@ The plugin will be installed to the system as a `python` package
 * Then execute `teedoc serve` in the document root directory.
 
 
+## Pay attention
+
+Because the build will use multiple processes, so there are some places to pay attention to
+
+* Plug-in initialization: `__init__()` function **cannot** be overridden, plug-in initialization can use `on_init()` or `on_new_process_init()`;
+  * `on_init()` is called when the plugin is initialized, and general data can be initialized here. When multiple processes are created, the data of the plug-in will be copied to the new process for use. For some objects that cannot be directly copied by multiple processes, please initialize in `on_new_process_init()`
+  * `on_new_process_init()` is called when multiple processes are created, such as [here](https://github.com/teedoc/teedoc/blob/main/plugins/teedoc-plugin-markdown-parser/teedoc_plugin_markdown_parser/__init__.py ) In this function to initialize the `markdown` renderer instead of in the `on_init()`, because you don’t want to copy the `self.md_parser` object when a new process is created, but each new process is rebuilt independently Create an object
+* The same `__del__()` function cannot be used, but use `on_del()` or `on_new_process_del()` function
+* In [plugin.py](https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py) the functions behind `on_new_process_init()` may be in a new process (multi-process) Called, while the previous function will only be called in the main process
 
 
 ## Publish plugin

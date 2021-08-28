@@ -209,6 +209,16 @@ pip install .
 * 然后在文档根目录执行`teedoc serve`就可以了
 
 
+## 注意点
+
+因为构建是会用到多进程， 所以有些地方需要注意
+
+* 插件初始化： `__init__()`函数**不能**重写，插件的初始化可以使用`on_init()`或者`on_new_process_init()`；
+  * `on_init()`是在初始化插件时调用，一般的数据可以在这里面初始化。当多进程创建时，插件的数据会被拷贝到新的进程使用， 对于一些不能多进程直接拷贝使用的对象，请在`on_new_process_init()`中初始化
+  * `on_new_process_init()`是在创建多进程时调用， 比如[这里](https://github.com/teedoc/teedoc/blob/main/plugins/teedoc-plugin-markdown-parser/teedoc_plugin_markdown_parser/__init__.py)就在这个函数里面来初始化`markdown`渲染器而不是在`on_init()`中，因为不希望在新进程创建时对`self.md_parser`对象进行拷贝，而是每个新进程都独立重新创建一个对象
+* 同样`__del__()`函数也不能使用， 而是使用`on_del()`或者`on_new_process_del()`函数
+* 在[plugin.py](https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py)中`on_new_process_init()`后面的函数都是可能会在新进程（多进程）中调用的，前面的函数则只会在主进程中调用
+
 
 
 ## 发布插件
