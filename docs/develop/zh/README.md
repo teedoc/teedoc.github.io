@@ -51,6 +51,9 @@ python3 teedoc/teedoc_main.py  -p examples/teedoc_site serve
 在 vscode 中调试，直接调试单文件 `teedoc_debug.py` 文件即可
 
 
+## 参与贡献
+
+可以在 `github` `fork` 一份源码， 修改代码后， 提交`PR`(`pull request`) 即可
 
 
 
