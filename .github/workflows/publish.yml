@@ -38,6 +38,7 @@ jobs:
           export PATH=~/.local/bin/:$PATH
           commit_info=`git describe --all --always --long`
           out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
+          cat .github/workflows/publish.yml
           rm -rf out/
           teedoc install
           teedoc build
