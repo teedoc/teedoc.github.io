@@ -44,6 +44,7 @@ jobs:
           teedoc build
           echo "out dir: ${out_dir}"
           cp -rf .github $out_dir
+          cat ${out_dir}/.github/workflows/publish.yml
           echo ::set-output name=out_dir::$out_dir
       - name: Deploy 🚀 to github pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
