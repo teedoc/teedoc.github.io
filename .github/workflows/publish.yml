@@ -50,7 +50,6 @@ jobs:
           folder: ${{ steps.build_doc.outputs.out_dir }} # The folder the action should deploy.
           single-commit: true
           clean: true
-          clean-exclude: '[".github"]'
 
 # mannually scripts
           # cd $out_dir
