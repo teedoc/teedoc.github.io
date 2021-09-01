@@ -115,15 +115,14 @@ var _hmt = _hmt || [];
 
 [gitalk](https://github.com/gitalk/gitalk) 是一个基于 `github` `issue`问答系统的一个评论工具， 使用 `gitalk`，无需自建服务器，只需要注册一个`github`账号， 所有的数据会放在`github`的一个仓库的`issue`上。
 
+> 如果你遇到了问题， [这里](https://github.com/gitalk/gitalk/wiki/Q&A)也许有你要的答案
+
 要使用， 需要在`site_config`文件中添加插件
 ```json
     "teedoc-plugin-gitalk": {
         "from": "pypi",
         "config": {
-            "classes": [
-                "type_doc",
-                "type_blog"
-            ],
+            "contrainer": "comments-container",
             "env": {
                 "clientID": "********",
                 "clientSecret": "********",
@@ -135,7 +134,40 @@ var _hmt = _hmt || [];
     }
 ```
 
-* `classes`: 拥有这些类的页面需要添加评论， 默认`type_doc`和`type_blog`，这两个类是由`teedoc-plugin-theme-default`自动给文档页面和博客页面的`<body>`标签添加的
-* `clientID`和`clientSecret`: 需要在[github application](https://github.com/settings/applications/new) 中新建一个应用，可以得到`ID`和`Secret`
-* `repo`和`owner`: 就是仓库名和拥有者，比如这里用[github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)这个仓库的`issue`作为评论系统，就填`teedoc.github.io`和`teedoc`
-* `admin`: 就是拥有这个仓库写入权限的用户名
+* `contrainer`: 容纳评论的容器标签`id`，默认是`comments-container`, 在`teedoc-plugin-theme-default`插件里面文档页面和博客页面包含了这个标签
+* `env`: `gitalk` js 插件的配置项， 更多的参数看[这里](https://github.com/gitalk/gitalk#options)。
+  * `clientID`和`clientSecret`: 需要在[github application](https://github.com/settings/applications/new) 中新建一个应用，可以得到`ID`和`Secret`
+  * `repo`和`owner`: 就是仓库名和拥有者，比如这里用[github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)这个仓库的`issue`作为评论系统，就填`teedoc.github.io`和`teedoc`
+  * `admin`: 就是拥有这个仓库写入权限的用户名
+
+**每个页面开启评论需要管理员登录`gitalk`后访问页面，`gitalk`会自动创建 `issue`，并且添加标签`Gitalk`和标签`url路径`，(路径字符有`50`个字符的长度限制)**。 当然，也有批量创建的方法，这里就不介绍了，可以自行摸索。
+也可以先手动创建 `issue` 并且指定`issue`的标签`Gitalk`(首字母大写)，再添加另一个标签`页面的 url 路径`或者`自定义id`（标签是自定义`id`则需要在使用这个 `issue` 的页面设置页面 `id`）
+
+`env`参数除了在`site_config`设置， 也可在文章的`metadata`中设置，在设置前面加一个`gitalk-`前缀， 比如要设置`gitalk`生成的`issue`的`title`，就可以设置`gitalk-title`。以下是几个例子：
+
+* 如果你手动创建了一个 `issue`， 可以为某篇页面指定使用这个 `issue`, 为文章在 `metadata`中指定 `issue` 的 编号即可
+```markdown
+---
+title: *****
+gitalk-number: 2
+---
+```
+
+* 或者先手动创建 `issue`， 在页面中指定使用这个带特定标签`issue`，可以看看[官方的例子](https://github.com/gitalk/gitalk/issues/1)
+
+
+```markdown
+---
+title: *****
+id: Demo
+---
+```
+
+or
+
+```markdown
+---
+title: *****
+gitalk-id: Demo
+---
+```
