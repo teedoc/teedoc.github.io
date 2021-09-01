@@ -50,3 +50,7 @@ Then at runtime, the package will be imported from this path first (add this pat
 
 To debug in vscode, you can directly debug the single file `teedoc_debug.py`
 
+## Contribute
+
+You can `fork` a source code in `github`, after modifying the code, submit `PR`(`pull request`)
+

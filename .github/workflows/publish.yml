@@ -37,9 +37,10 @@ jobs:
           ls -al ~/.local/bin/
           export PATH=~/.local/bin/:$PATH
           commit_info=`git describe --all --always --long`
+          out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
           teedoc install
           teedoc build
-          out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
+          echo "out dir: ${out_dir}"
           cp -rf .github $out_dir
           echo ::set-output name=out_dir::$out_dir
       - name: Deploy 🚀 to github pages
@@ -47,6 +48,8 @@ jobs:
         with: # more usage visit https://github.com/JamesIves/github-pages-deploy-action
           branch: gh-pages # The branch the action should deploy to.
           folder: ${{ steps.build_doc.outputs.out_dir }} # The folder the action should deploy.
+          single-commit: true
+          clean: true
 
 # mannually scripts
           # cd $out_dir
