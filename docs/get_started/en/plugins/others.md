@@ -105,3 +105,34 @@ Here is a string of keys `90c693aa2************c14a50bb49`, copy this string of 
 ```
 
 After the website is deployed, you can see the visit information on the real-time visitor page of the Baidu statistics background
+
+
+## `teedoc-plugin-gitalk`: gitalk comment plugin
+
+[gitalk](https://github.com/gitalk/gitalk) is a comment tool based on the `github` `issue` question and answer system. Using `gitalk`, you don’t need to build your own server, you only need to register a `github` account , All the data will be put on the `issue` of a repository of `github`.
+
+To use it, you need to add a plug-in in the `site_config` file
+```json
+    "teedoc-plugin-gitalk": {
+        "from": "pypi",
+        "config": {
+            "classes": [
+                "type_doc",
+                "type_blog"
+            ],
+            "env": {
+                "clientID": "********",
+                "clientSecret": "********",
+                "repo": "repo name",
+                "owner": "orgnization name or user name",
+                "admin": ["user names have write access"]
+            }
+        }
+    }
+```
+
+* `classes`: Pages with these classes need to add comments, the default `type_doc` and `type_blog`, these two classes are automatically given to the document page and the blog page by the `<body> of the `teedoc-plugin-theme-default` `tag added
+* `clientID` and `clientSecret`: You need to create a new application in [github application](https://github.com/settings/applications/new) to get `ID` and `Secret`
+* `repo` and `owner`: are the name and owner of the repository, for example, [github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io) is used here `issue` as a comment system, just fill in `teedoc.github.io` and `teedoc`
+* `admin`: is the name of the user who has write access to this repository
+

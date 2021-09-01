@@ -110,3 +110,32 @@ var _hmt = _hmt || [];
 
 
 
+
+## `teedoc-plugin-gitalk`: gitalk 评论插件
+
+[gitalk](https://github.com/gitalk/gitalk) 是一个基于 `github` `issue`问答系统的一个评论工具， 使用 `gitalk`，无需自建服务器，只需要注册一个`github`账号， 所有的数据会放在`github`的一个仓库的`issue`上。
+
+要使用， 需要在`site_config`文件中添加插件
+```json
+    "teedoc-plugin-gitalk": {
+        "from": "pypi",
+        "config": {
+            "classes": [
+                "type_doc",
+                "type_blog"
+            ],
+            "env": {
+                "clientID": "********",
+                "clientSecret": "********",
+                "repo": "repo name",
+                "owner": "orgnization name or user name",
+                "admin": ["user names have write access"]
+            }
+        }
+    }
+```
+
+* `classes`: 拥有这些类的页面需要添加评论， 默认`type_doc`和`type_blog`，这两个类是由`teedoc-plugin-theme-default`自动给文档页面和博客页面的`<body>`标签添加的
+* `clientID`和`clientSecret`: 需要在[github application](https://github.com/settings/applications/new) 中新建一个应用，可以得到`ID`和`Secret`
+* `repo`和`owner`: 就是仓库名和拥有者，比如这里用[github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)这个仓库的`issue`作为评论系统，就填`teedoc.github.io`和`teedoc`
+* `admin`: 就是拥有这个仓库写入权限的用户名
