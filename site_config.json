@@ -68,6 +68,18 @@
             "from": "pypi",
             "config": {
             }
+        },
+        "teedoc-plugin-gitalk": {
+            "from": "pypi",
+            "config": {
+                "env": {
+                    "clientID": "9d215c8c4d2357fab5ba",
+                    "clientSecret": "1d641e9f45f74a620a262091409b1d719b626755",
+                    "repo": "teedoc.github.io",
+                    "owner": "teedoc",
+                    "admin": ["Neutree"]
+                }
+            }
         }
     },
     "rebuild_changes_delay": 1,
