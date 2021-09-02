@@ -147,6 +147,7 @@ var _hmt = _hmt || [];
 `env`参数除了在`site_config`设置， 也可在文章的`metadata`中设置，在设置前面加一个`gitalk-`前缀， 比如要设置`gitalk`生成的`issue`的`title`，就可以设置`gitalk-title`。以下是几个例子：
 
 * 如果你手动创建了一个 `issue`， 可以为某篇页面指定使用这个 `issue`, 为文章在 `metadata`中指定 `issue` 的 编号即可
+
 ```markdown
 ---
 title: *****
