@@ -140,7 +140,8 @@ var _hmt = _hmt || [];
   * `repo`和`owner`: 就是仓库名和拥有者，比如这里用[github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)这个仓库的`issue`作为评论系统，就填`teedoc.github.io`和`teedoc`
   * `admin`: 就是拥有这个仓库写入权限的用户名
 
-**每个页面开启评论需要管理员登录`gitalk`后访问页面，`gitalk`会自动创建 `issue`，并且添加标签`Gitalk`和标签`url路径`，(路径字符有`50`个字符的长度限制)**。 当然，也有批量创建的方法，这里就不介绍了，可以自行摸索。
+~~**每个页面开启评论需要管理员登录`gitalk`后访问页面，`gitalk`会自动创建 `issue`，并且添加标签`Gitalk`和标签`url路径`，(路径字符有`50`个字符的长度限制)**。 当然，也有批量创建的方法，这里就不介绍了，可以自行摸索。~~ 已经更新成任何人都可以创建 Issue 了
+
 也可以先手动创建 `issue` 并且指定`issue`的标签`Gitalk`(首字母大写)，再添加另一个标签`页面的 url 路径`或者`自定义id`（标签是自定义`id`则需要在使用这个 `issue` 的页面设置页面 `id`）
 
 `env`参数除了在`site_config`设置， 也可在文章的`metadata`中设置，在设置前面加一个`gitalk-`前缀， 比如要设置`gitalk`生成的`issue`的`title`，就可以设置`gitalk-title`。以下是几个例子：
