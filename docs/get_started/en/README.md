@@ -43,6 +43,8 @@ If you encounter problems during use, you can find similar problems in [here](ht
 - [x] Multi-threaded construction, faster construction speed
 - [x] Blog support
 - [x] Switch from gitbook is easy, just config `route` and convert `SUMMARY.md` by `summary2yaml` command
+- [x] Comments(Plugins), e.g. `gitalk`
+
 
 ## Demo
 

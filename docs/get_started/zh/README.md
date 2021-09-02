@@ -44,6 +44,7 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 - [x] 多线程构建，更快的构建速度
 - [x] 博客支持
 - [x] gitbook 切换过来友好, 只需要设置好 `route` 和使用命令(`summary2yaml`)转换目录文件(`SUMMARY.md`)即可
+- [x] 评论(插件), 比如 `gitalk`
 
 ## 演示
 
