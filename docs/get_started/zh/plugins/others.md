@@ -128,8 +128,10 @@ var _hmt = _hmt || [];
                 "clientSecret": "********",
                 "repo": "repo name",
                 "owner": "orgnization name or user name",
-                "admin": ["user names have write access"]
-            }
+                "admin": ["user names have write access"],
+                "main_color": "#4caf7d",
+                "second_color": "#0a7d43"
+            },
         }
     }
 ```
@@ -139,6 +141,8 @@ var _hmt = _hmt || [];
   * `clientID`和`clientSecret`: 需要在[github application](https://github.com/settings/applications/new) 中新建一个应用，可以得到`ID`和`Secret`
   * `repo`和`owner`: 就是仓库名和拥有者，比如这里用[github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)这个仓库的`issue`作为评论系统，就填`teedoc.github.io`和`teedoc`
   * `admin`: 就是拥有这个仓库写入权限的用户名
+  * `main_color`: 评论主要外观颜色, 可以不设置
+  * `second_color`: 评论次要外观颜色, 可以不设置
 
 ~~**每个页面开启评论需要管理员登录`gitalk`后访问页面，`gitalk`会自动创建 `issue`，并且添加标签`Gitalk`和标签`url路径`，(路径字符有`50`个字符的长度限制)**。 当然，也有批量创建的方法，这里就不介绍了，可以自行摸索。~~ 已经更新成任何人都可以创建 Issue 了
 
@@ -172,3 +176,54 @@ title: *****
 gitalk-id: Demo
 ---
 ```
+
+## `teedoc-plugin-assets`: assets 资源添加插件
+
+可以通过这个插件向页面自由添加资源， 比如`css`和`js`资源文件
+
+比如已经添加了资源文件的路径映射，并且有`/static/css/custom.css`和`/static/css/custom.js`两个文件， 需要将其分别添加到页面头部和尾部,
+同时还希望在头部添加一个`meta`标签
+
+`site_config.json`:
+
+```json
+{
+    "route": {
+            "assets": {
+                "/static/": "static",
+            },
+        },
+    "plugins": {
+        "teedoc-plugin-assets":{
+            "from": "pypi",
+            "config": {
+                "header_items": [
+                    "/static/css/custom.css",
+                    "<meta name=\"plugin-assets\" content=\"example meta item\">"
+                ],
+                "footer_items": [
+                    "/static/css/custom.js"
+                ],
+                "env":{
+                    "main_color": "#000000"
+                }
+            }
+        },
+    }
+}
+```
+如果是`css`和`js`文件，可以这样直接写`url`， 也可以写`http`开头的链接。
+
+这里`env`里面的变量会替换到资源文件中， 在资源文件中通过`${变量名}`来使用
+
+`custom.css`:
+
+```css
+a {
+    color: ${main_color}
+}
+```
+
+
+
+

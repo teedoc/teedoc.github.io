@@ -1,6 +1,6 @@
 
 #navbar h2 {
-    color: #4caf7d;
+    color: ${main_color};
 }
 #page_footer {
     margin-top: 0;
@@ -10,7 +10,7 @@
     font-size: 6em;
     text-align: center;
     font-family: sans-serif;
-    color: #4caf7d;
+    color: ${main_color};
 }
 #home_page h3 {
     width: 100%;
@@ -33,7 +33,7 @@
 }
 #home_page .big_btn a {
     padding: 2em;
-    background-color: #4caf7d;
+    background-color: ${main_color};
     font-size: 1.3em;
     border-radius: 10px;
     transition: 0.4s;

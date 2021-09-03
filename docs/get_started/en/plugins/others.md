@@ -135,6 +135,9 @@ To use it, you need to add a plug-in in the `site_config` file
   * `clientID` and `clientSecret`: You need to create a new application in [github application](https://github.com/settings/applications/new) to get `ID` and `Secret`
   * `repo` and `owner`: are the name and owner of the repository, for example, [github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io) is used here `issue` as a comment system, just fill in `teedoc.github.io` and `teedoc`
   * `admin`: is the name of the user who has write access to this repository
+  * `main_color`: the main appearance color of comments, optional
+  * `second_color`: the secondary appearance color of comments, optional
+
 
 ~~**To open a comment on each page, the administrator needs to log in to `gitalk` to access the page, `gitalk` will automatically create an issue, and add the label `Gitalk` and the label `url path`, (the path characters are `50` characters in length limit).** Of course, there are also methods for batch creation, which are not introduced here, and you can explore it yourself.~~ Now issue can be created automatically
 
@@ -169,3 +172,51 @@ title: *****
 gitalk-id: Demo
 ---
 ```
+
+## `teedoc-plugin-assets`: assets add plugin
+
+You can freely add resources to the page through this plug-in, such as `css` and `js` resource files
+
+For example, the path mapping of resource files has been added, and there are two files `/static/css/custom.css` and `/static/css/custom.js`, which need to be added to the head and tail of the page respectively.
+At the same time, I also hope to add a `meta` tag to the head
+
+`site_config.json`:
+
+```json
+{
+    "route": {
+            "assets": {
+                "/static/": "static",
+            },
+        },
+    "plugins": {
+        "teedoc-plugin-assets":{
+            "from": "pypi",
+            "config": {
+                "header_items": [
+                    "/static/css/custom.css",
+                    "<meta name=\"plugin-assets\" content=\"example meta item\">"
+                ],
+                "footer_items": [
+                    "/static/css/custom.js"
+                ],
+                "env":{
+                    "main_color": "#000000"
+                }
+            }
+        },
+    }
+}
+```
+For `css` and `js` files, you can write `url` directly like this, or you can write a link at the beginning of `http`.
+
+Here the variables in `env` will be replaced in the resource file, and used in the resource file by `${variable name}`
+
+`custom.css`:
+
+```css
+a {
+    color: ${main_color}
+}
+```
+
