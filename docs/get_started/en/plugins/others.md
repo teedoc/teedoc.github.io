@@ -107,7 +107,7 @@ Here is a string of keys `90c693aa2************c14a50bb49`, copy this string of 
 After the website is deployed, you can see the visit information on the real-time visitor page of the Baidu statistics background
 
 
-## `teedoc-plugin-gitalk`: gitalk comment plugin
+## `teedoc-plugin-comments-gitalk`: gitalk comment plugin
 
 [gitalk](https://github.com/gitalk/gitalk) is a comment tool based on the `github` `issue` question and answer system. Using `gitalk`, you don’t need to build your own server, you only need to register a `github` account , All the data will be put on the `issue` of a repository of `github`.
 

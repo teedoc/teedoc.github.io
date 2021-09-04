@@ -111,7 +111,7 @@ var _hmt = _hmt || [];
 
 
 
-## `teedoc-plugin-gitalk`: gitalk 评论插件
+## `teedoc-plugin-comments-gitalk`: gitalk 评论插件
 
 [gitalk](https://github.com/gitalk/gitalk) 是一个基于 `github` `issue`问答系统的一个评论工具， 使用 `gitalk`，无需自建服务器，只需要注册一个`github`账号， 所有的数据会放在`github`的一个仓库的`issue`上。
 
@@ -119,7 +119,7 @@ var _hmt = _hmt || [];
 
 要使用， 需要在`site_config`文件中添加插件
 ```json
-    "teedoc-plugin-gitalk": {
+    "teedoc-plugin-comments-gitalk": {
         "from": "pypi",
         "config": {
             "contrainer": "comments-container",
