@@ -67,7 +67,7 @@
             "config": {
             }
         },
-        "teedoc-plugin-gitalk": {
+        "teedoc-plugin-comments-gitalk": {
             "from": "pypi",
             "config": {
                 "env": {
