@@ -216,6 +216,7 @@ such as:
     "import": "config_zh",
     "id": "teedoc_page",
     "class": "language_zh",
+    "locale": "en_US",
     "navbar": {
         "title": "teedoc",
         "logo": {
@@ -322,6 +323,7 @@ such as:
 Then you can add the configuration of the current document, overwrite the template file, the same keywords, and modify different content. If it is an array (list), to replace the content of the template file, you need to add `id` to the array item of the template file. Keyword, then modify, if the `id` keyword is not specified, it will be appended to the array. For example, the template file `config_zh`:
 ```json
 {
+    "locale": "en_US",
     "navbar": {
         "title": "teedoc",
         "items": [
@@ -377,6 +379,11 @@ The configuration file of a specific document:
 ```
 * `id`: The `id` of the document. Generally, there is no need to write it. The `id` will be set to the `<html>` tags of all pages in the `config.json` directory. For example, if `teedoc_page` is set here, all pages in this directory will become `<html id="teedoc_page"> ... </html>`. If the `markdown` file has set `id`, this value will be overwritten, that is, each page can only have one `id`.
 * `class`: The `class` of the document, generally you don't need to write it. Set the `class` to the `<html>` tags of all pages in the `config.json` directory, and use spaces for multiple `class` Separate. For example, if `language_zh` is set here, all pages in this directory will become `<html class="language_zh"> ... </html>`. If `class` is set in the `markdown` file, it will be appended. For example, if `language_zh` is set in `config.json`, and `class: zh_readme` is set in `README.md`, the final result is `class=" language_zh zh_readme"`. This function is convenient to customize the style of each page or the style of different documents.
+* `locale`: locale code, can found from [here](https://www.science.co.il/language/Locale-codes.php), for example: `zh`, `zh_CN`, `en_US`, `ja` etc. Or get by program `babel`:
+```
+pip install babel
+pybabel --list-locales
+```
 * `navbar`: Navigation bar settings, each document can be individually set up the navigation bar, if you want to keep the entire website unified, you can modify each configuration to be the same. The keyword `type` is used in the first layer and is used to indicate the category of this label in the navigation bar. The values are:
    * `link`: normal link, this option is the default when you don’t write the `type` keyword
    * `list`: There are sub-items, which will be displayed in the form of a drop-down menu

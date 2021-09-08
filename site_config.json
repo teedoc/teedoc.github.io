@@ -25,6 +25,11 @@
             "/blog/": "blog"
         }
     },
+    "translate": {
+        "/get_started/zh/": [
+            "/get_started/en/"
+        ]
+    },
     "executable": {
         "python": "python3",
         "pip": "pip3"

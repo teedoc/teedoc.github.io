@@ -62,15 +62,14 @@ desc: teedoc 主题插件
 比如在`config.json`中设置
 ```json
 {
-    "class": "language_zh",
+    "class": "md_page",
     "navbar": {
         ...
     }
 }
 ```
 
-则这个文档下面所有生成的页面的`html`标签都会包含这个类， 比如`language_zh`会让右边页面目录的标题从罗马数字变成中文`一、二、三...`
+则这个文档下面所有生成的页面的`html`标签都会包含这个类， 比如`md_page`普通 markdown 文件渲染成 html 页面，可以加上这个类，会居中显示而不是左对齐
 
 `class`有：
-* `language_zh`： 会让右边页面目录的标题从罗马数字变成中文`一、二、三...`
 * `md_page`: 普通 markdown 文件渲染成 html 页面，可以加上这个类，会居中显示而不是左对齐

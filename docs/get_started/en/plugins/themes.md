@@ -63,16 +63,15 @@ The theme supports several commonly used `class` and `id`, which can be set in `
 For example, set in `config.json`
 ```json
 {
-     "class": "language_zh",
+     "class": "md_page",
      "navbar": {
          ...
      }
 }
 ```
 
-Then the `html` tags of all generated pages under this document will contain this class. For example, `language_zh` will change the title of the page directory on the right from Roman numerals to Chinese `one, two, three...`
+Then the `html` tags of all generated pages under this document will contain this class. For example, `md_page` will make the content displayed in the center instead of left-aligned
 
 `class` has:
-* `language_zh`: Change the title of the page directory on the right from Roman numerals to Chinese `one, two, three...`
 * `md_page`: Ordinary markdown files are rendered into html pages, you can add this class, it will be displayed in the center instead of left-aligned
 
