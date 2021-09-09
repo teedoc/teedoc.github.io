@@ -1,6 +1,7 @@
 {
     "import": "config_zh",
     "class": "language_zh",
+    "locale": "zh_CN",
     "navbar": {
         "items": [
             {

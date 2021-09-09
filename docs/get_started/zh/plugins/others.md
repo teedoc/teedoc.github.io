@@ -51,7 +51,7 @@ desc: teedoc 其它插件
 ```
 
 
-不同文档的提示内容可以在对应的文档`config.json`中配置，以方便做多语言支持（国际化/i18n）
+不同文档的提示内容可以在对应的文档`config.json`中配置，以方便做多语言支持（国际化/i18n）, 当然，插件默认支持了`中文``英文`和`日文`， 翻译在[这里](https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-search/teedoc_plugin_search/locales)， 当默认找不到会使用`英文`， 手动设置下面这边变量会覆盖插件自带的翻译
 
 支持的配置如下：
 
@@ -224,6 +224,35 @@ a {
     color: ${main_color}
 }
 ```
+
+
+## `teedoc-plugin-google-translate`: Google 页面翻译插件
+
+功能和 `Chrome` 的鼠标右键翻译此页面 功能一样
+
+翻译前：
+
+![google translate](../../assets/images/google_translate0.png)
+
+翻译后：
+
+![google translate](../../assets/images/google_translate.png)
+
+
+
+```json
+"config": {
+    "lang": "auto",
+    "doc_types": ["page", "doc", "blog"],
+    "domain": "/"
+}
+```
+
+* `lang`: 需要被翻译的页面的语言， 默认**建议不要设置**， 或者设置为文档的`locale`一致， 比如`locale`为`zh_CN`，则这个可以设置为`zh-CN`
+* `doc_types`: 要展示在那些类型的文档页面中，`["page", "doc", "blog"]` 中的 0 个 到 3 个，
+* `domain`: 从哪个网址下载`google translate`的源码，默认是`"/"`, 代表从本网站下载，也可以设置成 `translate.google.com` 或者 `translate.google.cn`
+> 主要是考虑到中国地区不开代理无法下载请求的某些文件，实际还是要请求`translate.googleapis.com`的， 在制作插件时发现就算设置成`translate.google.cn`，有个`js`文件请求了`google.com`的域名下的一个`cleardot.gif`文件，导致网络请求卡住很久直到超时才能加载翻译，所以把那个`js`文件（`element_main.js`）修改并放到了本地，这样就可以很快地访问了。
+> 但是这样也有风险，由于代码和 `Google`服务器的代码分离了，万一哪天`Google`更新了代码，我们也需要跟着手动更新（虽然大概率不会改），到时欢迎更新修改并提交 PR
 
 
 

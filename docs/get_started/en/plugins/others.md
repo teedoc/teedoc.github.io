@@ -50,7 +50,7 @@ To use, add to the `plugins` keyword in `site_config.json`:
 ```
 
 
-The prompt content of different documents can be configured in the corresponding document `config.json` to facilitate multi-language support (internationalization/i18n)
+The prompt content of different documents can be configured in the corresponding document `config.json` to facilitate multi-language support (internationalization/i18n). Of course, the plugin supports `Chinese`, `English` and `Japanese` by default, the translation is [here](https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-search/teedoc_plugin_search/locales), when it is not found by default, `English` will be used. Manually setting the following variables will overwrite the translation that comes with the plug-in
 
 The supported configurations are as follows:
 
@@ -220,4 +220,33 @@ a {
     color: ${main_color}
 }
 ```
+
+
+## `teedoc-plugin-google-translate`: Google page translation plugin
+
+The function is the same as that of the right mouse button of `Chrome` to translate this page
+
+Before translation:
+
+![google translate](../../assets/images/google_translate0.png)
+
+After translation:
+
+![google translate](../../assets/images/google_translate.png)
+
+
+
+```json
+"config": {
+    "lang": "auto",
+    "doc_types": ["page", "doc", "blog"],
+    "domain": "/"
+}
+```
+
+* `lang`: The language of the page that needs to be translated. By default, it is not recommended to set it, or set it to the same `locale` of the document. For example, if `locale` is `zh_CN`, this can be set to `zh-CN `
+* `doc_types`: Which types of document pages should be displayed, 0 to 3 of `["page", "doc", "blog"]`,
+* `domain`: From which URL to download the source code of `google translate`, the default is `"/"`, which means to download from this website, it can also be set to `translate.google.com` or `translate.google.cn`
+> Mainly considering that some files cannot be downloaded without a proxy in China, it is actually necessary to request `translate.googleapis.com`. When making the plug-in, I found that even if it is set to `translate.google.cn`, there is a ` The js` file requested a `cleardot.gif` file under the domain name of `google.com`, which caused the network request to be stuck for a long time until it timed out to load the translation, so the `js` file (`element_main.js`) was modified and Put it locally so that it can be accessed quickly.
+> But this is also risky. Because the code and the code of the `Google` server are separated, in case `Google` updates the code one day, we also need to update it manually (although it will not change with a high probability), then welcome to update and modify. Submit PR
 
