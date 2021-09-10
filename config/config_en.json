@@ -31,20 +31,9 @@
             },
             {
                 "id": "language",
-                "label": "语言: ",
+                "label": "Language: ",
                 "position": "right",
-                "items": [
-                    {
-                        "id": "zh",
-                        "url": "/",
-                        "label": "中文"
-                    },
-                    {
-                        "id": "en",
-                        "url": "/en/",
-                        "label": "English"
-                    }
-                ]
+                "type": "language"
             }
         ]
     },

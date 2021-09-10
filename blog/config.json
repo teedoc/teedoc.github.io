@@ -1,26 +1,3 @@
 {
-    "import": "config_zh",
-    "class": "language_zh",
-    "locale": "zh_CN",
-    "navbar": {
-        "items": [
-            {
-                "id": "language",
-                "label": "Language: ",
-                "position": "right",
-                "items": [
-                    {
-                        "id": "zh",
-                        "url": "/blog/",
-                        "label": "中文"
-                    },
-                    {
-                        "id": "en",
-                        "url": "/blog/",
-                        "label": "中文"
-                    }
-                ]
-            }
-        ]
-    }
+    "import": "config_zh"
 }
