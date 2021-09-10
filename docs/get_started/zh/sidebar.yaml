@@ -42,6 +42,8 @@ items:
     file: usage/seo.md
 -   label: 自定义页面模板
     file: usage/layout_template.md
+-   label: 国际化(i18n/翻译)
+    file: usage/i18n.md
 -   label: 从 gitbook 转换为 teedoc
     file: usage/gitbook2teedoc.md
 -   label: 更多

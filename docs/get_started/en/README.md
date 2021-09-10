@@ -35,7 +35,7 @@ If you encounter problems during use, you can find similar problems in [here](ht
 - [x] Control the style accurate to the page through css (implemented by customizing the id and class of each page)
 - [x] Multi-level directory support(infinite levels)
 - [x] Multi-language support (manual translation) (Internationalization/i18n)
-- [ ] Multilingual support (automatic translation)
+- [x] Multilingual support (translation plugin)
 - [x] Multi-version support (implementation method is the same as multi-language)
 - [x] Search support
 - [x] SEO friendly

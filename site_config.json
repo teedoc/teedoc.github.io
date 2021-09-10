@@ -9,13 +9,10 @@
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
-            "/get_started/en/": "docs/get_started/en",
-            "/develop/zh/": "docs/develop/zh",
-            "/develop/en/": "docs/develop/en"
+            "/develop/zh/": "docs/develop/zh"
         },
         "pages": {
-            "/": "pages/index/zh",
-            "/en/": "pages/index/en"
+            "/": "pages/index/zh"
         },
         "assets": {
             "/static/": "static",
@@ -26,12 +23,25 @@
         }
     },
     "translate": {
-        "/get_started/zh/": [ {
-                "locale": "ja",
-                "url": "/get_started/ja/",
-                "src": "docs/get_started/ja"
-            }
-        ]
+        "docs": {
+            "/get_started/zh/": [ {
+                    "url": "/get_started/en/",
+                    "src": "docs/get_started/en"
+                }
+            ],
+            "/develop/zh/": [ {
+                    "url": "/develop/en/",
+                    "src": "docs/develop/en"
+                }
+            ]
+        },
+        "pages": {
+            "/": [ {
+                    "url": "/en/",
+                    "src": "pages/index/en"
+                }
+            ]
+        }
     },
     "executable": {
         "python": "python3",

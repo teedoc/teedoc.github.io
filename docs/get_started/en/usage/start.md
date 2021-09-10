@@ -73,6 +73,8 @@ The built document will be placed in the `out` directory, the program will not a
 * `config.json`: In addition to `site_config.json`, each document directory can have `config.json` to configure document related pages
 * `sidebar.json`: document directory
 
+Before looking at how to use the configuration file, you must keep in mind that the configuration file is very simple. **The configuration file has only two file names**, a unique document configuration file `site_config` and each document's own configuration file `config`
+
 ## Configuration file
 
 The configuration file can be a file in `json` or `yaml` format, choose the one you like. Don't be afraid if you haven't touched it before, search for a tutorial and take 10 minutes to learn it.
@@ -134,19 +136,37 @@ The configuration file is in `json` format, for example:
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
-            "/get_started/en/": "docs/get_started/en",
             "/develop/zh/": "docs/develop/zh",
-            "/develop/en/": "docs/develop/en"
         },
         "pages": {
             "/": "pages/index/zh",
-            "/en/": "pages/index/en"
         },
         "assets": {
             "/static/": "static",
             "/get_started/assets/": "docs/get_started/assets"
         },
         "/blog/": "blog"
+    },
+    "translate": {
+        "docs": {
+            "/get_started/zh/": [ {
+                    "url": "/get_started/en/",
+                    "src": "docs/get_started/en"
+                }
+            ],
+            "/develop/zh/": [ {
+                    "url": "/develop/en/",
+                    "src": "docs/develop/en"
+                }
+            ]
+        },
+        "pages": {
+            "/": [ {
+                    "url": "/en/",
+                    "src": "pages/index/en"
+                }
+            ]
+        }
     },
     "executable": {
         "python": "python3",
@@ -194,6 +214,8 @@ The `key` represents the `url` of the document in the final generated website, a
 For example, the source document `docs/get_started/zh/README.md` will generate the file `out/get_started/zh/index.html` after construction. If it is not a `md` file (ie unsupported file), it will be left intact Copy files automatically, and finally the `out` directory is the generated website
 
 The same is true for `pages`, `assets` will not perform document conversion and directly copy to the corresponding directory
+
+* `translate`: Translate, specify the `url` and file path of the translated version corresponding to the document. Similarly, the `config` and `sidebar` configuration files are required under the path of the translated version, and `locale` is specified in the `config` file To achieve the specified document language to be translated, for example, Chinese can be `zh`, `zh_CN`, `zh_TW`, English is `en`, `en_US`, etc. The translated `sidebar` and the document path need to be consistent with the source document. If there is no translation, you can leave the translation file. When the user visits a page that has not been translated, it will jump to `no_tanslate.html` to indicate that there is no translation. For more details, please see [ Internationalization i18n](./i18n.md)
 
 * `executable`: executable program settings, here you can set the executable program names of `python` and `pip`, which will be used when installing the plug-in
 * `plugins`: Plug-in configuration, mainly composed of name, source, and configuration items.
@@ -385,10 +407,12 @@ pip install babel
 pybabel --list-locales
 ```
 * `navbar`: Navigation bar settings, each document can be individually set up the navigation bar, if you want to keep the entire website unified, you can modify each configuration to be the same. The keyword `type` is used in the first layer and is used to indicate the category of this label in the navigation bar. The values are:
-   * `link`: normal link, this option is the default when you don’t write the `type` keyword
-   * `list`: There are sub-items, which will be displayed in the form of a drop-down menu
+  * `link`: normal link, this option is the default when you don’t write the `type` keyword
+  * `list`: There are sub-items, which will be displayed in the form of a drop-down menu
 ![](../../assets/images/navbar.png)
-   * `selection`: Single option, such as language selection. When the `type` keyword is not written and there is the `items` keyword, this option is the default
+  * `selection`: Single option, such as language selection. When the `type` keyword is not written and there is the `items` keyword, this option is the default
+![](../../assets/images/navbar2.png)
+  * `language`: If `translate` is set in `site_config`, the `items` of type `language` will be automatically filled in the language list, so we don't need to write the language list manually! The effect is the same as `selection` (in fact, the internal code is to automatically replace the `language` type with `selection`)
 ![](../../assets/images/navbar2.png)
 * `footer`: website footer, divided into upper and lower parts, and multiple columns can be added to the upper part, and each column can have multiple values
 * `plugins`: Configure the configuration items of the plug-in, if it has been set in the `site_config.json`, it will be overwritten, that is, the priority of the child `config` is higher

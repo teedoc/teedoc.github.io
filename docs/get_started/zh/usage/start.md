@@ -73,6 +73,8 @@ teedoc -d /home/teedoc/my_doc build
 * `config.json`: 除了`site_config.json`外，每个文档目录下都可以有`config.json`用来配置文档相关页面
 * `sidebar.json`: 文档目录
 
+在看如何使用配置文件之前， 一定要牢记， 配置文件很简单， **配置文件共只有两个文件名**， 一个唯一的文档配置文件`site_config` 和 每个文档自己的配置文件`config`
+
 ## 配置文件
 
 配置文件可以是 `json` 或者 `yaml` 格式的文件，选择你喜欢使用的即可， 如果没接触过也不要害怕， 搜索一个教程花 10 分钟学习就能完全掌握。
@@ -134,19 +136,37 @@ teedoc -f ./SUMMARY.md summary2yaml
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
-            "/get_started/en/": "docs/get_started/en",
             "/develop/zh/": "docs/develop/zh",
-            "/develop/en/": "docs/develop/en"
         },
         "pages": {
             "/": "pages/index/zh",
-            "/en/": "pages/index/en"
         },
         "assets": {
             "/static/": "static",
             "/get_started/assets/": "docs/get_started/assets"
         },
         "/blog/": "blog"
+    },
+    "translate": {
+        "docs": {
+            "/get_started/zh/": [ {
+                    "url": "/get_started/en/",
+                    "src": "docs/get_started/en"
+                }
+            ],
+            "/develop/zh/": [ {
+                    "url": "/develop/en/",
+                    "src": "docs/develop/en"
+                }
+            ]
+        },
+        "pages": {
+            "/": [ {
+                    "url": "/en/",
+                    "src": "pages/index/en"
+                }
+            ]
+        }
     },
     "executable": {
         "python": "python3",
@@ -195,6 +215,7 @@ teedoc -f ./SUMMARY.md summary2yaml
 
 `pages`同理，`assets`则不会进行文档转换，直接拷贝到相应的目录
 
+* `translate`: 翻译， 指定文档对应的翻译版本的`url`和文件路径， 同样，在翻译版本的路径下需要有`config`和`sidebar`配置文件，并且`config`文件中指定`locale`来达到指定被翻译的文档语言， 比如中文可以是`zh`, `zh_CN`, `zh_TW`， 英文是`en`， `en_US` 等。翻译的`sidebar`，以及文档路径需要和源文档一致，如果没有翻译可以不放翻译文件，用户访问没有翻译的页面时会跳转到`no_tanslate.html`提示没有翻译，更多详情请看[国际化 i18n](./i18n.md)
 * `executable`: 可执行程序设置， 这里可以设置`python`和`pip`的可执行程序名，在安装插件时会用到
 * `plugins`: 插件配置， 主要有名字， 来源， 配置项组成。
 名字可以在[github](https://github.com) 搜索`teedoc-plugin`来找到开源的插件，也欢迎你参与编写插件（只需要动 `Python` 语法即可）； 
@@ -390,6 +411,8 @@ pybabel --list-locales
   * `list`: 有子项，会以下拉菜单的形式显示
 ![](../../assets/images/navbar.png)
   * `selection`: 单选项，比如选择语言。 不写`type`关键字并且有`items`关键字时，默认是这个选项
+![](../../assets/images/navbar2.png)
+  * `language`: 如果在 `site_config`中设置了`translate`, 则会自动将`language`类型的`items`填充为语言列表，这样就不用我们手动写语言列表了！ 效果和`selection`一样(其实内部代码就是将`language`类型自动替换为`selection`)
 ![](../../assets/images/navbar2.png)
 * `footer`: 网站页脚，分为上下两个部分，上部又可以添加多个栏目，每个栏目里面可以有多个值
 * `plugins`: 配置插件的配置项，如果`site_config.json`中已经设置了，会覆盖，即子`config`的优先级更高
