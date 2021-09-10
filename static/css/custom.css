@@ -108,4 +108,8 @@
     .dsc_wrapper_right > div > div {
         flex-direction: column-reverse;
     }
+    #home_page .big_btn a {
+        padding: 1em;
+        font-size: 1em;
+    }
 }
