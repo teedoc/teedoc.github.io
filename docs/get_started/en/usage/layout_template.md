@@ -17,6 +17,8 @@ Here is a list of all supported variables:
 
 ### page head info
 
+* `lang`: language, e.g. `en`, or `zh-CN`
+* `metadata`: metadata from doc metadata, dict type
 * `page_id`: page id , a string, set in doc config and doc metadata
 * `page_classes`: page classes, a list, set in doc config and doc metadata
 * `keywords`: keywords, a list, set in doc metadata
