@@ -1,7 +1,18 @@
 布局模板 - 自定义 HTML 布局
 ==========
 
-## 布局模板使用方法
+## 布局模板基础使用方法
+
+可以使用主题自带的模板，比如错误页面，可以直接使用`404.html`， 只需要在`metadata`中添加`layout`键值即可
+
+```markdown
+---
+layout: 404.html
+---
+```
+
+
+## 自定义布局模板
 
 首先写布局模板文件, 支持 `Jinja2` 语法, 写法可以参考默认[主题插件的布局模板的写法](https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-theme-default/teedoc_plugin_theme_default/templates).
 
@@ -10,10 +21,28 @@
 另一个就是放到布局模板文件夹(默认文档根目录`layout`)下, 然后单独对特定的页面使用特定的布局模板, 在文章头部`metadata`处添加`layout`键值:
 `layout`: 页面使用的布局模板, 默认不需要这个键值, 会使用主题插件里面的配置,需要你需要自定义这个页面的布局, 可以设置这个参数, 路径相对于`site_config`中的`layout_root_dir`路径, `layout_root_dir` 默认为`layout`, 所以要使用`layout/special_layout.html` 只需要填写`special_layout.html`
 
+可以基于主题的模板修改，或者继承主题的模板，比如小改一下`404.html`页面的`body`部分，只需在`layout`目录下新建一个`my_404.html`， 注意文件名不能和内置的文件名冲突， 如果冲突会提示`generate html fail: maximum recursion depth exceeded in comparison`:
+```markdown
+{% extends "404.html" %}
 
-这里列出了所有的支持的变量:
+{% block body_404 %}
+
+这里是 body
+{{ body|safe }}
+
+{% endblock%}
+```
+
+然后在`404.md`中使用这个模板
+```markdown
+---
+layout: my_404.html
+---
+```
 
 ## jinja2 模板变量
+
+这里列出了所有的支持的变量:
 
 ### page head info
 

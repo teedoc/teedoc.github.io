@@ -1,19 +1,48 @@
 layout template - customize HTML layout
 ==========
 
-## How to use the layout template
+## Basic usage of layout template
 
-First write the layout template file, support the `Jinja2` grammar, the writing method can refer to the default [writing of the layout template of the theme plugin](https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-theme- default/teedoc_plugin_theme_default/templates).
+You can use the template that comes with the theme, such as error pages, you can use `404.html` directly, just add the key value of `layout` in `metadata`
+
+```markdown
+---
+layout: 404.html
+---
+```
+
+
+## Customize layout template
+
+First write the layout template file, which supports the `Jinja2` grammar, and the writing method can refer to the default [writing of the layout template of the theme plugin](https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-theme- default/teedoc_plugin_theme_default/templates).
 
 The template file can be placed in two places, one is placed in the theme plug-in, the plug-in author can do this;
 
 The other is to put it in the layout template folder (the default document root directory `layout`), and then use a specific layout template for a specific page separately, and add the `layout` key value at the article header `metadata`:
 `layout`: The layout template used by the page. This key value is not required by default. The configuration in the theme plugin will be used. You need to customize the layout of this page. You can set this parameter. The path is relative to the `layout_root_dir in `site_config` `Path, `layout_root_dir` defaults to `layout`, so to use `layout/special_layout.html` only need to fill in `special_layout.html`
 
+You can modify the template based on the theme, or inherit the template of the theme, such as slightly changing the `body` part of the `404.html` page, just create a new `my_404.html` in the `layout` directory. Note that the file name cannot be the same Built-in file name conflict, if conflict, it will prompt `generate html fail: maximum recursion depth exceeded in comparison`:
+```markdown
+{% extends "404.html" %}
+
+{% block body_404 %}
+
+Here is body
+{{ body|safe }}
+
+{% endblock%}
+```
+
+Then use this template in `404.md`
+```markdown
+---
+layout: my_404.html
+---
+```
+
+## jinja2 template variables
 
 Here is a list of all supported variables:
-
-## jinja2 template vars
 
 ### page head info
 

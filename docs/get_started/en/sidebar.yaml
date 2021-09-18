@@ -44,6 +44,8 @@ items:
     file: usage/layout_template.md
 -   label: Internationalization(i18n/Translate)
     file: usage/i18n.md
+-   label: Customize 404 page
+    file: usage/404.md
 -   label: Convert gitbook to teedoc
     file: usage/gitbook2teedoc.md
 -   label: More

@@ -4,6 +4,10 @@ keywords: teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook,
 desc: teedoc's update history
 ---
 
+## 2021-09-18 v1.23.1
+
+* Add 404.html template, support i18n
+
 ## 2021-09-8 v1.19.0
 
 * Add i18n support for plugins and templates

@@ -44,6 +44,8 @@ items:
     file: usage/layout_template.md
 -   label: 国际化(i18n/翻译)
     file: usage/i18n.md
+-   label: 自定义404页面
+    file: usage/404.md
 -   label: 从 gitbook 转换为 teedoc
     file: usage/gitbook2teedoc.md
 -   label: 更多

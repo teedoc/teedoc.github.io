@@ -62,7 +62,7 @@
         "teedoc-plugin-google-translate":{
             "from": "pypi",
             "config": {
-                "doc_types": ["blog"]
+                "doc_types": ["blog", "page", "doc"]
             }
         },
         "teedoc-plugin-theme-default":{
