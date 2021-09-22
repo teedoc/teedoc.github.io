@@ -44,7 +44,12 @@ desc: teedoc 其它插件
     "teedoc-plugin-search":{
         "from": "pypi",
         "config": {
-            "search_hint": "Search"
+            "search_hint": "Search",
+            "env": {
+                "main_color": "#4caf7d",
+                "main_color_dark": "#1b4c33",
+                "hint_shadow_color": "rgba(76, 175, 125, 0.38)"
+            }
         }
     }
 }
@@ -74,7 +79,10 @@ desc: teedoc 其它插件
 * `download_err_hint`: 下载搜索所需的文件失败提示，需要用户刷新浏览器重试或者网络环境无法下载文件， 默认`Download error, please check network and refresh again`
 * `other_docs_result_hint`: 搜索结果提示，其它文档中的搜索结果， 默认`Result from other docs`
 * `curr_doc_result_hint`: 搜索结果提示，当前浏览的文档中的搜索结果， 默认`Result from current doc`
-
+* `env`: 替换部分颜色， 包括
+  * `main_color`: 主颜色， 默认`"#4caf7d"`
+  * `main_color_dark`: 黑色主题主颜色， 默认`"#1b4c33"`
+  * `hint_shadow_color`: 阴影颜色，默认`rgba(76, 175, 125, 0.38)`
 
 ## `teedoc-plugin-baidu-tongji`: 百度统计
 

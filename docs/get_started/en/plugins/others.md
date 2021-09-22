@@ -43,7 +43,12 @@ To use, add to the `plugins` keyword in `site_config.json`:
     "teedoc-plugin-search":{
         "from": "pypi",
         "config": {
-            "search_hint": "Search"
+            "search_hint": "Search",
+            "env": {
+                "main_color": "#4caf7d",
+                "main_color_dark": "#1b4c33",
+                "hint_shadow_color": "rgba(76, 175, 125, 0.38)"
+            }
         }
     }
 }
@@ -73,7 +78,10 @@ The supported configurations are as follows:
 * `download_err_hint`: The download of the file required for the search fails, the user needs to refresh the browser to try again or the network environment cannot download the file, the default is `Download error, please check network and refresh again`
 * `other_docs_result_hint`: search result hint, search result in other documents, default `Result from other docs`
 * `curr_doc_result_hint`: search result hint, the search result in the currently browsed document, default `Result from current doc`
-
+* `env`: Replace some colors, including
+   * `main_color`: main color, default `"#4caf7d"`
+   * `main_color_dark`: main color of black theme, default `"#1b4c33"`
+   * `hint_shadow_color`: shadow color, default `rgba(76, 175, 125, 0.38)`
 
 ## `teedoc-plugin-baidu-tongji`: Baidu Analytics
 
