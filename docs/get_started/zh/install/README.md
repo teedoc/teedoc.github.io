@@ -54,6 +54,8 @@ teedoc init
 teedoc -d my_site init
 ```
 
+选择`1`，也就是`minimal`模板进行生成， 也可以直接`teedoc -d my_site --template=minimal init`进行生成
+
 这会在 `my_site` 目录下自动生成一些基础文件
 
 

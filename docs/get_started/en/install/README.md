@@ -39,7 +39,7 @@ If not, please check if the `Python` executable directory is not added to the en
 For example, it may be in `~/.local/bin`
 
 
-## New Construction
+## New Project
 
 Create an empty directory to store the document project
 
@@ -54,6 +54,8 @@ or
 ```shell
 teedoc -d my_site init
 ```
+
+Select `1`, which is the `minimal` template to generate, or you can directly generate it with `teedoc -d my_site --template=minimal init`
 
 This will automatically generate some basic files in the `my_site` directory
 
