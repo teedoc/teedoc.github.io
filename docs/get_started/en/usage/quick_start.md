@@ -132,6 +132,24 @@ content
 Content two
 ```
 
+If there is no `metadata area`, at least one first-level title is required as the article title, such as:
+```markdown
+# Article title
+
+## Title One
+
+Content One
+```
+or
+```markdown
+Article title
+===
+
+## Title One
+
+Content One
+```
+
 * Add sidebar link in `sidebar.yaml`
 
 ```markdown
