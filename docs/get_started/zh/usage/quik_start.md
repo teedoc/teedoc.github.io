@@ -116,7 +116,24 @@ teedoc build
 
 ## 添加一篇文档
 
-* 在本文件所在目录创建 `markdown`（以  `.md` 结尾的）文件，比如 `first.md`
+* 在本文件所在目录创建 `markdown`（以  `.md` 结尾的）文件，比如 `first.md`，添加内容
+
+每篇文章开头都可以有一个`元数据区`， 用以配置文章的相关配置， 至少需要一个`title`即标题，更多配置项和文档格式请[阅读文档](../syntax/syntax_markdown.md)
+
+```markdown
+---
+title: title
+---
+
+## 标题
+
+内容
+
+## 标题二
+
+内容二
+```
+
 * 在 `sidebar.yaml` 中添加侧边栏链接
 
 ```markdown

@@ -114,7 +114,24 @@ There are several important files in the project:
 
 ## Add a document
 
-* Create a `markdown` (end with `.md`) file in the directory where this file is located, such as `first.md`
+* Create a `markdown` (end with `.md`) file in the directory where this file is located, such as `first.md`, and add content
+
+At the beginning of each article, there can be a `metadata area` to configure the related configuration of the article. At least one `title` is required. For more configuration items and document formats, please [read the document](../syntax/syntax_markdown.md)
+
+```markdown
+---
+title: title
+---
+
+## Title
+
+content
+
+## Title Two
+
+Content two
+```
+
 * Add sidebar link in `sidebar.yaml`
 
 ```markdown
