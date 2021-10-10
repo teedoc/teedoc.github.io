@@ -20,7 +20,7 @@ sudo apt install python3 python3-pip git
 
 ## 安装 teedoc
 
-打开终端，输入：
+打开终端(`Windows`按`Ctrl+R`输入`cmd`)，输入：
 
 ```shell
 pip3 install teedoc
