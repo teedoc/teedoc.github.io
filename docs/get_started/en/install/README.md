@@ -71,7 +71,7 @@ git clone https://gitee.com/teedoc/teedoc.gitee.io my_site
 
 ## Install plugin
 
-This will install the plugin according to the plugin settings of `plugins` in `site_config.sjon`
+This will install the plugin according to the plugin settings of `plugins` in `site_config.json`
 
 ```shell
 cd my_site

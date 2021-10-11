@@ -73,7 +73,7 @@ git clone https://gitee.com/teedoc/teedoc.gitee.io my_site
 
 ## 安装插件
 
-这会根据`site_config.sjon`中的`plugins`的插件设置安装插件
+这会根据`site_config.json`中的`plugins`的插件设置安装插件
 
 ```shell
 cd my_site
