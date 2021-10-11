@@ -5,7 +5,7 @@ items:
     file: usage/sites.md
 -   label: Baisc usage
 -   label: Quick start
-    file: usage/quik_start.md
+    file: usage/quick_start.md
 -   label: Install teedoc
     file: install/README.md
 -   label: Doc structure and config

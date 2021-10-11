@@ -5,7 +5,7 @@ items:
     file: usage/sites.md
 -   label: 基本使用
 -   label: 快速开始
-    file: usage/quik_start.md
+    file: usage/quick_start.md
 -   label: 安装 teedoc
     file: install/README.md
 -   label: 文档结构和配置
