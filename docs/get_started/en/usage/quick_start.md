@@ -108,6 +108,8 @@ At the same time, you can see that there is an additional `out` directory under 
 
 ## Document structure
 
+Because `teedoc` is specially designed for multi-document system, **There is a basic concept, each document project contains multiple documents, and each document has its own configuration file named config** You need to keep in mind first
+
 There are several important files in the project:
 * The project root directory has a `site_config.json` file, which is the main configuration of the project
 * There can be multiple documents in the project, set in the `route` configuration item of `site_config`, each document directory must have `config.json` and `sidebar.json` (`json` file can also be `yaml `File), `config` file is responsible for the configuration items of this document, such as the document name, multiple documents can use `import` to share a template
@@ -159,6 +161,59 @@ items:
 -label: First
     file: first.md
 ```
+
+## Use pictures
+
+There are three ways to use pictures in `.md` files:
+
+* Directly quote `url`, such as `https://teedoc.github.io/static/image/logo.png` or `/static/image/logo.png`
+
+* The relative path refers to the picture file. For example, `./assets/logo.png`. For example
+```
+doc1
+├── assets
+     └── logo.png
+├── config.json
+├── README.md
+└── sidebar.yaml
+```
+This is a document in the project, there are `config` configuration files and `sidebar` files below.
+Directly quote `![logo](./assets/logo.png)` in the `README.md` file.
+**It should be noted that you can only refer to the pictures of the folder in the current document**, and you cannot use relative paths to refer to pictures outside of this document
+
+* If you need to refer to the resources of the path outside the current document, you can set the path mapping (`route`) to achieve, for example, there are files in the `docs` directory:
+```
+docs
+└── assets
+     └── logo.png
+      doc1
+      ├── config.json
+      ├── README.md
+      └── sidebar.yaml
+static
+```
+When we quote `![logo](../assets/logo.png)` in the `README.md` file, we will find that the image cannot be displayed
+
+To make this kind of reference available, you need to set it in `site_config`
+```json
+"route": {
+    "docs": {
+        "/doc1/": "docs/doc1"
+    },
+    "assets": {
+        "/static/": "static",
+        "/assets/": "docs/assets"
+    }
+}
+```
+This setting can be used.
+> The reason is: We set the document under `docs/doc1` to render and copy it to the directory `out/doc1`, and copy `docs/assets` to `out/docs/assets`, so the file under `out/doc1` The document directly uses the relative path to reference the resource files in the `out/assets` directory
+
+## Locale setting
+
+Set the document Locale so that certain pages and texts are displayed in the corresponding language, for example, the search plugin will generate corresponding search prompts based on the document Locale, etc.
+
+In the `config/config.json` file, modify `"locale": "en"` to the actual Locale used, such as `zh`, `zh_CN`, `zh_TW`, `en_US`, `ja`, etc., more See more [i18n document](i18n.md)
 
 ## More examples
 

@@ -110,6 +110,8 @@ teedoc build
 
 ## 文档结构
 
+因为 `teedoc` 特别为 多文档系统 设计， **有个基本概念， 每个文档工程包含了多份文档， 每份文档都有自己的配置文件名为 config** 需要先牢记
+
 工程里面有几个重要文件：
 * 工程根目录有`site_config.json`文件， 是工程的主要配置
 * 工程里面可以有多份文档，在`site_config`的`route`配置项中设置，每份文档目录下面必须有`config.json`和`sidebar.json`(`json`文件也可以是`yaml`文件)， `config`文件负责这份文档的配置项，比如文档名称，多份文档可以使用`import`公用一份模板
@@ -162,6 +164,59 @@ items:
 -   label: First
     file: first.md
 ```
+
+## 使用图片
+
+在`.md`文件中使用图片，有三种方法：
+
+* 直接引用 `url`， 比如 `https://teedoc.github.io/static/image/logo.png` 或者 `/static/image/logo.png`
+
+* 相对路径引用图片文件。 比如 `./assets/logo.png`. 比如
+```
+doc1
+├── assets
+     └── logo.png
+├── config.json
+├── README.md
+└── sidebar.yaml
+```
+这是工程中的一份文档，下面有`config`配置文件和`sidebar`文件.
+直接在`README.md`文件中引用`![logo](./assets/logo.png)` 即可。
+**需要注意的是， 只能引用当前文档内文件夹的图片**，不能用相对路径引用这份文档以外的图片
+
+* 如果需要引用当前这份文档之外的路径的资源，可以通过设置路径映射（`route`）实现，比如在`docs`目录下有文件：
+```
+docs
+└── assets
+     └── logo.png
+      doc1
+      ├── config.json
+      ├── README.md
+      └── sidebar.yaml
+static
+```
+我们在`README.md`文件中引用`![logo](../assets/logo.png)` ，会发现图片没法显示
+
+要让这种引用能够使用， 需要在`site_config`中设置
+```json
+"route": {
+    "docs": {
+        "/doc1/": "docs/doc1"
+    },
+    "assets": {
+        "/static/": "static",
+        "/assets/": "docs/assets"
+    }
+}
+```
+这样设置就可以使用了。 
+> 原因是： 我们设置了`docs/doc1`下的文档渲染后拷贝到`out/doc1`目录，`docs/assets`拷贝到`out/docs/assets`，所以在`out/doc1`下面的文档直接使用相对路径就可以引用`out/assets`目录的资源文件了
+
+## 设置地区
+
+设置文档地区，以让某些页面和文字显示为对应的语言， 比如搜索插件会根据文档地区生成对应的搜索提示等
+
+在`config/config.json`文件中，修改`"locale": "en"`为实际使用的地区， 比如`zh`, `zh_CN`, `zh_TW`, `en_US`, `ja`等， 更多看[i18n文档](i18n.md)
 
 ## 更多例子
 

@@ -34,3 +34,10 @@ teedoc install
 如果仍然有问题, 可以到 github [提交 issue](https://github.com/teedoc/teedoc/issues/new)
 
 
+## OSError: [Errno 28] inotify watch limit reached
+
+只会在使用`teedoc serve`时出现， 即文件监测数量达到了系统设置的上限。
+一般发生在有软件大量检测了文件，常见的情况有：
+* 编辑器如`vscode`打开了有非常多文件的文件夹， 关掉这类软件或者少打开文件（夹）一般就能解决问题
+* 文档项目内的文档确实太多了，达到了监测的上限，这种情况一般很少出现，如果出现了，需要设置系统的监测上限值，具体方法请自行搜索
+
