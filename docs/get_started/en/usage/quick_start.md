@@ -207,7 +207,7 @@ To make this kind of reference available, you need to set it in `site_config`
 }
 ```
 This setting can be used.
-> The reason is: We set the document under `docs/doc1` to render and copy it to the directory `out/doc1`, and copy `docs/assets` to `out/docs/assets`, so the file under `out/doc1` The document directly uses the relative path to reference the resource files in the `out/assets` directory
+> The reason is: We set the document under `docs/doc1` to render and copy it to the directory `out/doc1`, and copy `docs/assets` to `out/assets`, so the file under `out/doc1` The document directly uses the relative path to reference the resource files in the `out/assets` directory
 
 ## Locale setting
 

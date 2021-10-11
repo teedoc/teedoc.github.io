@@ -210,7 +210,7 @@ static
 }
 ```
 这样设置就可以使用了。 
-> 原因是： 我们设置了`docs/doc1`下的文档渲染后拷贝到`out/doc1`目录，`docs/assets`拷贝到`out/docs/assets`，所以在`out/doc1`下面的文档直接使用相对路径就可以引用`out/assets`目录的资源文件了
+> 原因是： 我们设置了`docs/doc1`下的文档渲染后拷贝到`out/doc1`目录，`docs/assets`拷贝到`out/assets`，所以在`out/doc1`下面的文档直接使用相对路径就可以引用`out/assets`目录的资源文件了
 
 ## 设置地区
 
