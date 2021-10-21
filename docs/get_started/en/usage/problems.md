@@ -37,6 +37,6 @@ If problems remain exists, [create issue](https://github.com/teedoc/teedoc/issue
 
 It only appears when using `teedoc serve`, that is, the number of files monitored has reached the upper limit set by the system.
 It usually happens when a large number of files are detected by the software, and the common situations are as follows:
-* An editor such as `vscode` opens a folder with a lot of files. Turning off this kind of software or opening fewer files (folders) will usually solve the problem
+* An editor such as `vscode` opens a folder with a lot of files. Turning off this kind of software or opening fewer files (folders) will usually solve the problem, refer to [error ENOSPC](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
 * There are indeed too many documents in the document project, reaching the upper limit of monitoring. This situation is generally rare. If it occurs, you need to set the upper limit of the system’s monitoring. Please search for the specific method.
 
