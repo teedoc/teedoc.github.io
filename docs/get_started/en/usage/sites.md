@@ -11,7 +11,7 @@ desc: teedoc, convert markdown or jupyter notbook into html static webpage, use 
 | [MaixPy](https://maixpy.sipeed.com)                 | Edge AI Computing Python SDK | [sipeed/MaixPy_DOC](https://github.com/sipeed/MaixPy_DOC) |
 | [Sipeed Wiki](https://wiki.sipeed.com)              | Sipeed Official Wiki | [sipeed/sipeed_wiki](https://github.com/sipeed/sipeed_wiki) |
 | [teedoc.github.io/re0-web-teedoc/](https://teedoc.github.io/re0-web-teedoc/)   | example site converted from gitbook site | [teedoc/re0-web-teedoc](https://github.com/teedoc/re0-web-teedoc) |
-| [QuecPython](https://python.quectel.com/doc/)       | QuecPython documentation center | [quecpython/Community-document](https://github.com/quecpython/Community-document) |
+| [QuecPython](https://python.quectel.com/doc/)       | QuecPython documentation center | [gitee](https://gitee.com/quecpython/Community-document) [github](https://github.com/quecpython/Community-document) |
 | [cozylife](https://www.cozylife.app/)               | One-stop smart hardware development and IoT cloud service platform | - |
 | [BPI Steam Doc](https://bpi-steam.com/)             | BananaPi, Steam team documentation (Wiki), including open source software and open source hardware information, AIOT information, etc. | [BPI-STEAM/BPI-Doc](https://github.com/BPI-STEAM/BPI-Doc) |
 | [udbg](https://udbg.github.io/) |  Dynamic binary analysis tools based on Lua | [udbg/udbg.github.io](https://github.com/udbg/udbg.github.io) |
