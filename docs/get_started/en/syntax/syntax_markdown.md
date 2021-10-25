@@ -142,6 +142,18 @@ print("hello")
 >> Comment nesting
 
 
+Use markdown grammar in blockquotes
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>  *Everything* is going according to **plan**.
+> ```c
+> printf("hello");
+> ```
+
 
 ## caveat
 

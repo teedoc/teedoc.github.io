@@ -148,6 +148,18 @@ print("hello")
 >> 注释嵌套
 >> 注释嵌套
 
+在块引用中使用 markdown 语法
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>  *Everything* is going according to **plan**.
+> ```c
+> printf("hello");
+> ```
+
 
 
 ## 警告
