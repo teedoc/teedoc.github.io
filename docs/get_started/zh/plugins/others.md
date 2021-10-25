@@ -116,7 +116,23 @@ var _hmt = _hmt || [];
 部署好网站后，就可以在百度统计后台实时访客页面看到访问信息了
 
 
+## `teedoc-plugin-google-analytics`: Google 分析
 
+在每个页面添加[Google 分析](https://analytics.google.com/)的代码，将访问信息发送到 Google，就可以在后台看到访问统计信息了
+
+在 Google 分析 注册登录后，在管理页面添加网站，然后会有一个 `ID`，以`UA-`开头， 比如`UA-123456789-1`
+
+然后在`site_config.json`中的`plugins`关键词中添加：
+```json
+"plugins": {
+    "teedoc-plugin-google-analytics":{
+        "from": "pypi",
+        "config": {
+            "id": "这里填资源 ID"
+        }
+    }
+}
+```
 
 
 ## `teedoc-plugin-comments-gitalk`: gitalk 评论插件

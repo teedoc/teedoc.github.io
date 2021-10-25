@@ -115,6 +115,24 @@ Here is a string of keys `90c693aa2************c14a50bb49`, copy this string of 
 After the website is deployed, you can see the visit information on the real-time visitor page of the Baidu statistics background
 
 
+## `teedoc-plugin-google-analytics`: Google Analytics
+
+Add the code of [Google Analytics](https://analytics.google.com/) on each page, send the visit information to Google, and you can see the visit statistics in the background
+
+After registering and logging in to Google Analytics, add a website on the management page, and then there will be an `ID` starting with `UA-`, such as `UA-123456789-1`
+
+Then add in the `plugins` keyword in `site_config.json`:
+```json
+"plugins": {
+     "teedoc-plugin-google-analytics":{
+         "from": "pypi",
+         "config": {
+             "id": "Fill in the resource ID here"
+         }
+     }
+}
+```
+
 ## `teedoc-plugin-comments-gitalk`: gitalk comment plugin
 
 [gitalk](https://github.com/gitalk/gitalk) is a comment tool based on the `github` `issue` question and answer system. Using `gitalk`, you don’t need to build your own server, you only need to register a `github` account , All the data will be put on the `issue` of a repository of `github`.
