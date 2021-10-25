@@ -31,8 +31,8 @@ jobs:
       - name: sync shell cmd
         run: |
           GITEE_GIT_ADDR="git@gitee.com:teedoc/teedoc.git"
-          git checkout gh-pages
           git fetch --unshallow
+          git checkout gh-pages
           SSHPATH="$HOME/.ssh"
           rm -rf "$SSHPATH"
           mkdir -p "$SSHPATH"
