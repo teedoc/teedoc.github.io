@@ -69,7 +69,17 @@ desc: teedoc 主题插件
 }
 ```
 
+或者在`md`文件头添加
+```markdown
+---
+title: title
+class: heading_no_counter
+---
+```
+
+
 则这个文档下面所有生成的页面的`html`标签都会包含这个类， 比如`md_page`普通 markdown 文件渲染成 html 页面，可以加上这个类，会居中显示而不是左对齐
 
 `class`有：
 * `md_page`: 普通 markdown 文件渲染成 html 页面，可以加上这个类，会居中显示而不是左对齐
+* `heading_no_counter`: 取消标题自动编号

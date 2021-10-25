@@ -70,8 +70,16 @@ For example, set in `config.json`
 }
 ```
 
+Or add in the header of the `md` file
+```markdown
+---
+title: title
+class: heading_no_counter
+---
+```
+
 Then the `html` tags of all generated pages under this document will contain this class. For example, `md_page` will make the content displayed in the center instead of left-aligned
 
 `class` has:
 * `md_page`: Ordinary markdown files are rendered into html pages, you can add this class, it will be displayed in the center instead of left-aligned
-
+* `heading_no_counter`: Cancel automatic heading numbering

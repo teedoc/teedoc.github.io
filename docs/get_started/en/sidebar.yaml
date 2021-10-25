@@ -64,6 +64,12 @@ items:
                 file: more/example_docs/doc1.md
         -   label: Article 2
             file: more/example_docs/doc2.md
+    -   label: Heading auto count
+        items:
+        -   label: Multi h1 titile in page
+            file: more/example_docs/multi_h1.md
+        -   label: Cancel heading auto count
+            file: more/example_docs/heading_no_counter.md
     -   label: This is a external link
         url: https://github.com/teedoc/teedoc
         target: _blank

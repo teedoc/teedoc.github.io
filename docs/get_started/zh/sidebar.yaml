@@ -64,6 +64,12 @@ items:
                 file: more/example_docs/doc1.md
         -   label: 文章2
             file: more/example_docs/doc2.md
+    -   label: 文章标题自动编号
+        items:
+        -   label: 页面有多个一级标题
+            file: more/example_docs/multi_h1.md
+        -   label: 标题不自动编号
+            file: more/example_docs/heading_no_counter.md
     -   label: 这是一个外部链接
         url: https://github.com/teedoc/teedoc
         target: _blank
