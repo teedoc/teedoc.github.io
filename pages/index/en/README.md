@@ -58,7 +58,7 @@ id: home_page
                 <h2>Blog</h2>
             </div>
             <div class="dsc_right">
-                <img class="logo" src="/static/image/books.svg"> Supoort multiple docs/version, each has its content(sidebar)</br>
+                <img class="logo" src="/static/image/books.svg"> Supoort multiple docs/version, each has its content(sidebar). Say bye bye to large number of domains for your docs</br>
                 <img class="logo" src="/static/image/blog.svg"> Support lite blog system
             </div>
         </div>

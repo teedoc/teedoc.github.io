@@ -119,7 +119,7 @@ After the website is deployed, you can see the visit information on the real-tim
 
 Add the code of [Google Analytics](https://analytics.google.com/) on each page, send the visit information to Google, and you can see the visit statistics in the background
 
-After registering and logging in to Google Analytics, add a website on the management page, and then there will be an `ID` starting with `UA-`, such as `UA-123456789-1`
+After registering and logging in to Google Analytics, add a website on the management page, and then there will be an `ID` starting with `UA-` or `G-`, such as `UA-123456789-1` or `G-AABBCCDDJJOOKK`
 
 Then add in the `plugins` keyword in `site_config.json`:
 ```json

@@ -59,7 +59,7 @@ id: home_page
                 <h2>博客</h2>
             </div>
             <div class="dsc_right">
-                <img class="logo" src="/static/image/books.svg"> 支持多文档，每篇文档有单独的目录，也可以多版本</br>
+                <img class="logo" src="/static/image/books.svg"> 支持多文档，每篇文档有单独的目录，也可以多版本。你的大量文档再也不用散落在各个域名下了！</br>
                 <img class="logo" src="/static/image/blog.svg"> 同时支持轻量博客系统
             </div>
         </div>
