@@ -279,5 +279,42 @@ a {
 > 但是这样也有风险，由于代码和 `Google`服务器的代码分离了，万一哪天`Google`更新了代码，我们也需要跟着手动更新（虽然大概率不会改），到时欢迎更新修改并提交 PR
 
 
+## `teedoc-plugin-ad-hint`: 广告或者重要消息全局提示
+
+效果：
+
+![hint](../../assets/images/hint.jpg)
+
+使用：
+
+在`site_config`中添加插件
+
+```json
+"teedoc-plugin-ad-hint": {
+    "from": "pypi",
+    "config": {
+        "type": "hint",
+        "content": "内容，支持 html 语法，不要使用英文单引号",
+        "show_after_s": 432000
+    }
+}
+```
+
+配置：默认配置代码在[这里](https://github.com/teedoc/teedoc/blob/e909be61546e3817b872bd5005b9b867c6843e60/plugins/teedoc-plugin-ad-hint/teedoc_plugin_ad_hint/__init__.py#L22)
+
+* `type`: 默认 `"hint"`, 目前只支持`hint`
+* `label`: 默认 `"New"`, 会自动在导航栏添加一个标签，点击会显示顶部提示内容，这里设置标签显示的内容
+* `content`: 默认 `""`, 内容，`hint`类别的内容会显示在顶部
+* `show_times`: 默认 `2`,  设置用户访问多少次页面后提示不在自动显示，如果值 `<= 0` 则永远显示
+* `show_after_s`: 默认 `432000`,  设置下次再自动显示的时间，单位是秒，默认是 `5` 天
+* `color`: 默认 `"#a0421d"`, 字体颜色
+* `link_color`: 默认 `"#e53935"`, 链接（`<a>`标签）字体颜色
+* `link_bg_color`: 默认 `"#e6ae5c"`, 链接（`<a>`标签）背景颜色
+* `bg_color`: 默认 `"#ffcf89"`, 背景颜色
+* `color_hover`: 默认 `"white"`, 鼠标悬浮时的字体颜色
+* `bg_color_hover`: 默认 `"#f57c00"`, 鼠标悬浮时的背景颜色
+* `close_color`: 默认 `"#eab971"`， 关闭按钮背景颜色
+
+
 
 
