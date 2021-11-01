@@ -10,7 +10,7 @@ items:
     file: install/README.md
 -   label: Doc structure and config
     file: usage/start.md
--   label: Write content
+-   label: Write content(Syntax)
     file: usage/write.md
     items:
     -   label: markdown syntax

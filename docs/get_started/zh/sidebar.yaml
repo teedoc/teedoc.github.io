@@ -10,7 +10,7 @@ items:
     file: install/README.md
 -   label: 文档结构和配置
     file: usage/start.md
--   label: 编写文档内容
+-   label: 编写文档内容(语法)
     file: usage/write.md
     items:
     -   label: markdown 语法

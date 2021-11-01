@@ -12,7 +12,8 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 将 `Markdown` 或者 `Jupyter Notebook` 格式的文档转换为 `HTML` 静态网页
 
 以下场景可使用`teedoc`：
-* 建文档网站，并且最好支持放多份文档，和自定义页面
+* 建文档网站，并且最好支持放多份文档（比如你有一本叫`Python学习`和`C++学习`两本书，它们都有单独的目录, `teedoc`则是书库）
+* 文档和网页页面共存，支持自定义`HTML`页面
 * 建`WiKi`网站
 * 建个人或者企业知识库
 * 建个人或者企业网站
@@ -24,13 +25,13 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 
 ## 特性
 
+- [x] 多文档支持， 将多种文档和网页放到同一个站点
 - [x] 使用简单， 跨平台，只依赖 `Python3`
 - [x] 不需要数据库，网站全静态页面
 - [x] 部署简单， 生成的网站是全静态页面，直接拷贝到服务器或者上传到三方机构即可部署
-- [x] 书写简单，使用 Markdown 语法编写
-- [x] Jupyter notebook 支持
+- [x] 书写简单，使用 [Markdown 语法](./syntax/syntax_markdown.md)编写
+- [x] [Jupyter notebook 支持](./syntax/syntax_jupyter.ipynb)
 - [x] HTML 支持，可直接使用 HTML 编写页面，自由度大
-- [x] 多文档支持
 - [x] 插件支持
 - [x] 多主题支持（由插件实现）
 - [x] 通过 css 控制精确到页的样式（通过自定义每页的 id 和 class 实现）
@@ -67,7 +68,8 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 * docusaurus: teedoc 的 UI 布局几乎和它类似，不过它使用 vue 写的， teedoc 是原生 js, 如果你用的是 vue 可以考虑用这个
 * gitbook: 曾经很好用的工具，但是官方不维护了，转向商业了，不建议再使用
 * docsify: 只需要一个页面，markdown 在浏览器渲染，而不是预先渲染成 HTML， 好处就是轻量，但是 SEO 不太友好，可以用它的 SSR 功能， nodejs 编写
-* readthedocs: 很多开源项目使用的工具， 和 gitbook 一样也有网站服务，注册登录就可以开始写文档，也可以下载软件自己生成网站，对 RST 格式支持友好
+* readthedocs(Sphinx): 其实是用了用 Sphinx 做为生成工具，Python 官网文档就是这个工具生成的， 很多开源项目使用的工具，readthedocs 只是一个公开文档的网站，你不用自己搭建网站，注册登录就可以开始写文档，对 RST 格式支持友好
+* mkdoc: 也是一个 python 写的工具，简单易上手，插件也多，和 teedoc 相比存在时间更长，但是不支持多文档，不如 teedoc 和 docusaurus
 
 
 ## 一些使用建议

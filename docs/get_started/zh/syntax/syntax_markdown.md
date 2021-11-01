@@ -252,4 +252,80 @@ hello <br/> <img src="../../assets/images/logo.png"/>
 </div>
 
 
+## 数学
+
+支持`tex`和`Latex`语法，以及`MathML`标签
+
+两种写法，
+* 一种是行内内嵌，用`$`符号将方程包起来，比如
+```markdown
+质能方程 $E=mc^2$大家很熟悉吧
+```
+> 效果:
+> 质能方程 $E=mc^2$大家很熟悉吧
+
+* 另一种，块方程，用`$$`将方程包起来，比如
+```markdown
+$$
+E=mc^2
+$$
+```
+> 效果:
+> $$
+> E=mc^2
+> $$
+
+其他例子：
+常见：
+```markdown
+When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$
+```
+
+> When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+> $$
+> x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+> $$
+
+除法式：
+
+```markdown
+$$
+\require{enclose}
+\begin{array}{r}
+                13  \\[-3pt]
+4 \enclose{longdiv}{52} \\[-3pt]
+     \underline{4}\phantom{2} \\[-3pt]
+                12  \\[-3pt]
+     \underline{12}\\0
+\end{array}\\
+$$
+```
+
+> $$
+> \require{enclose}
+> \begin{array}{r}
+>                 13  \\[-3pt]
+> 4 \enclose{longdiv}{52} \\[-3pt]
+>      \underline{4}\phantom{2} \\[-3pt]
+>                 12  \\[-3pt]
+>      \underline{12}\\0
+> \end{array}\\
+> $$
+
+
+加框：
+
+```markdown
+$$
+\bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+$$
+```
+
+> $$
+> \bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+> $$
+
 

@@ -12,13 +12,32 @@ Configure the plugin in `site_config.json`
         "teedoc-plugin-markdown-parser":{
             "from": "pypi",
             "config": {
-                "toc_depth": 3
+                "parse_files": ["md"],
+                "mathjax": {
+                    "enable": true,
+                    "file_name": "tex-mml-chtml",
+                    "config": {
+                        "loader": {
+                            "load": ["output/svg"]
+                        },
+                        "tex": {
+                            "inlineMath": [["$", "$"], ["\\(", "\\)"]]
+                        },
+                        "svg": {
+                            "fontCache": "global"
+                        }
+                    }
+                }
             }
-        },
+        }
     }
 ```
 
-* `toc_depth`: The depth of the article table of contents (right column), the default is `3`, which means to `h3` that is `### three-level heading` in `markdown`
+* `parse_files`: File formats involved in parsing
+* `mathjax`: Mathematical formula rendering support
+   * `enable`: Whether to enable
+   * `file_name`: `js` file name, which defines the default functions, the default is `tex-mml-chtml`, [reference here](http://docs.mathjax.org/en/latest/web/components/ index.html)
+   * `config`: `mathjax` configuration, [mathjax](https://www.mathjax.org/) configuration, see [here](http://docs.mathjax.org/en/latest for specific configuration items /web/configuration.html)
 
 ## `teedoc-plugin-jupyter-notebook-parser`: jupyter notebook parsing plugin
 

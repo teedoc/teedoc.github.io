@@ -12,7 +12,8 @@ Source code: [https://github.com/teedoc/teedoc](https://github.com/teedoc/teedoc
 Convert documents in `Markdown` or `Jupyter Notebook` format into `HTML` static web pages
 
 `teedoc` can be used in the following scenarios:
-* Build a document website, and it’s best to support multiple documents and custom pages
+* Build a document website, and it is best to support multiple documents (for example, you have two books called `Python Learning` and `C++ Learning`, they have separate directories, and `teedoc` is the library)
+* Documents and web pages coexist, support custom `HTML` pages
 * Build a `WiKi` website
 * Build a personal or corporate knowledge base
 * Build a personal or corporate website
@@ -23,13 +24,13 @@ If you encounter problems during use, you can find similar problems in [here](ht
 
 ## Features
 
+- [x] Multi-document support
 - [x] Simple to use, cross-platform, only dependent on `Python3`
 - [x] No database required, all static pages of the website
 - [x] The deployment is simple, the generated website is a fully static page, which can be directly copied to the server or uploaded to a third party organization for deployment
-- [x] Easy to write, using Markdown syntax
-- [x] Jupyter notebook support
+- [x] Easy to write, using [Markdown syntax](./syntax/syntax_markdown.md)编写
+- [x] [Jupyter notebook support]((./syntax/syntax_jupyter.ipynb))
 - [x] HTML support, you can directly use HTML to write pages, with great freedom
-- [x] Multi-document support
 - [x] Plug-in support
 - [x] Multi-theme support (implemented by plug-in)
 - [x] Control the style accurate to the page through css (implemented by customizing the id and class of each page)

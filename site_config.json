@@ -51,7 +51,9 @@
         "teedoc-plugin-markdown-parser":{
             "from": "pypi",
             "config": {
-                "toc_depth": 3
+                "mathjax": {
+                    "enable": true
+                }
             }
         },
         "teedoc-plugin-jupyter-notebook-parser":{

@@ -244,3 +244,80 @@ hello  <img src="../../assets/images/logo.png"/>
 hello <br/> <img src="../../assets/images/logo.png"/>
 </div>
 
+
+## math
+
+Supports `tex` and `Latex` syntax, and `MathML` tag
+
+Two ways of writing,
+* One is inline inline, wrap the equation with `$` symbol, for example
+```markdown
+The mass-energy equation $E=mc^2$ is familiar to everyone, right?
+```
+> Effect:
+> Mass-energy equation $E=mc^2$ everyone is familiar with
+
+* Another type, block equation, wrap the equation with `$$`, such as
+```markdown
+$$
+E=mc^2
+$$
+```
+> Effect:
+> $$
+> E=mc^2
+> $$
+
+Other examples:
+common:
+```markdown
+When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$
+```
+
+> When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+> $$
+> x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+> $$
+
+Division method:
+
+```markdown
+$$
+\require{enclose}
+\begin{array}{r}
+                13 \\[-3pt]
+4 \enclose{longdiv}{52} \\[-3pt]
+     \underline{4}\phantom{2} \\[-3pt]
+                12 \\[-3pt]
+     \underline{12}\\0
+\end{array}\\
+$$
+```
+
+> $$
+> \require{enclose}
+> \begin{array}{r}
+> 13 \\[-3pt]
+> 4 \enclose{longdiv}{52} \\[-3pt]
+> \underline{4}\phantom{2} \\[-3pt]
+> 12 \\[-3pt]
+> \underline{12}\\0
+> \end{array}\\
+> $$
+
+
+Framed:
+
+```markdown
+$$
+\bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+$$
+```
+
+> $$
+> \bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+> $$
+
