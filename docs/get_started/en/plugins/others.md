@@ -295,3 +295,40 @@ After translation:
 > Mainly considering that some files cannot be downloaded without a proxy in China, it is actually necessary to request `translate.googleapis.com`. When making the plug-in, I found that even if it is set to `translate.google.cn`, there is a ` The js` file requested a `cleardot.gif` file under the domain name of `google.com`, which caused the network request to be stuck for a long time until it timed out to load the translation, so the `js` file (`element_main.js`) was modified and Put it locally so that it can be accessed quickly.
 > But this is also risky. Because the code and the code of the `Google` server are separated, in case `Google` updates the code one day, we also need to update it manually (although it will not change with a high probability), then welcome to update and modify. Submit PR
 
+
+## `teedoc-plugin-ad-hint`: Global tips for advertisements or important news
+
+Effect:
+
+![hint](../../assets/images/hint.jpg)
+
+use:
+
+Add plugin in `site_config`
+
+```json
+"teedoc-plugin-ad-hint": {
+    "from": "pypi",
+    "config": {
+        "type": "hint",
+        "content": "Content, support html syntax, do not use English single quotes",
+        "show_after_s": 432000
+    }
+}
+```
+
+Configuration: The default configuration code is [here](https://github.com/teedoc/teedoc/blob/e909be61546e3817b872bd5005b9b867c6843e60/plugins/teedoc-plugin-ad-hint/teedoc_plugin_ad_hint/__init__.py#L22)
+
+* `type`: default `"hint"`, currently only supports `hint`
+* `label`: By default `"New"`, a label will be automatically added to the navigation bar, click to display the top prompt content, here set the content displayed by the label
+* `content`: default `""`, content, the content of the `hint` category will be displayed at the top
+* `show_times`: default `2`, set how many times the user visits the page, the prompt will not be displayed automatically, if the value is `<= 0`, it will always be displayed
+* `show_after_s`: default `432000`, set the time to be automatically displayed next time, the unit is seconds, the default is `5` days
+* `color`: default `"#a0421d"`, font color
+* `link_color`: default `"#e53935"`, link (`<a>` tag) font color
+* `link_bg_color`: default `"#e6ae5c"`, link (`<a>` tag) background color
+* `bg_color`: default `"#ffcf89"`, background color
+* `color_hover`: default `"white"`, the font color when hovering the mouse
+* `bg_color_hover`: default `"#f57c00"`, the background color when the mouse is hovering
+* `close_color`: default `"#eab971"`, close button background color
+
