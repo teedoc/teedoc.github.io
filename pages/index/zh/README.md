@@ -99,6 +99,16 @@ id: home_page
             </div>
         </div>
     </div>
+    <div class="section" style="height: 100vh;">
+        <div class="big_btn_wrapper">
+            <div class="big_btn">
+                <a href="/get_started/zh/">查看详细介绍</a>
+            </div>
+            <div class="big_btn">
+                <a href="/get_started/zh/usage/quick_start.html">快速上手</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div>

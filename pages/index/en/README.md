@@ -98,6 +98,16 @@ id: home_page
             </div>
         </div>
     </div>
+    <div class="section" style="height: 100vh;">
+        <div class="big_btn_wrapper">
+            <div class="big_btn">
+                <a href="/get_started/zh/">More Detail</a>
+            </div>
+            <div class="big_btn">
+                <a href="/get_started/zh/usage/quick_start.html">Quick Start</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div>
