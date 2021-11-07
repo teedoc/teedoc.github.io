@@ -7,7 +7,7 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 
 官网: [teedoc.neucrack.com](https://teedoc.neucrack.com/) 或 [teedoc.github.io](https://teedoc.github.io/)
 本文档源文件: [github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)
-源码: [https://github.com/teedoc/teedoc](https://github.com/teedoc/teedoc) 欢迎 star
+源码: [https://github.com/teedoc/teedoc](https://github.com/teedoc/teedoc) 如果你喜欢这个项目，请务必登录 [github](https://github.com/teedoc/teedoc) 给项目点个 **star**
 
 将 `Markdown` 或者 `Jupyter Notebook` 格式的文档转换为 `HTML` 静态网页
 
@@ -21,6 +21,8 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 
 
 如果你在使用过程中遇到了问题, 可以在[这里](https://github.com/teedoc/teedoc/issues) (需要先注册并登录 github) 寻找相似问题, 或者创建 issue
+
+也可以加 [QQ群 566531359](https://jq.qq.com/?_wv=1027&k=2FdCPllm) 讨论
 
 
 ## 特性
