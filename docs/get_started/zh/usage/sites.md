@@ -11,7 +11,6 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 |[Sipeed Wiki](https://wiki.sipeed.com)  | Sipeed 官方Wiki | [sipeed/sipeed_wiki](https://github.com/sipeed/sipeed_wiki) |
 |[teedoc.github.io/re0-web-teedoc/](https://teedoc.github.io/re0-web-teedoc/) | 从 gitbook 转到 teedoc 的示例网站 | [teedoc/re0-web-teedoc](https://github.com/teedoc/re0-web-teedoc) |
 |[QuecPython](https://python.quectel.com/doc/) | QuecPython 文档中心 | [gitee](https://gitee.com/quecpython/Community-document) [github](https://github.com/quecpython/Community-document)  |
-|[cozylife](https://www.cozylife.app/) | 一站式智能硬件开发及物联网云服务平台 | - |
 | [BPI Steam Doc](https://bpi-steam.com/)             | BananaPi, Steam团队的文档（Wiki），包含了开源软件和开源硬件资料，AIOT资料等等 | [BPI-STEAM/BPI-Doc](https://github.com/BPI-STEAM/BPI-Doc) |
 | [udbg](https://udbg.github.io/) |  基于Lua的二进制调试/分析工具 | [udbg/udbg.github.io](https://github.com/udbg/udbg.github.io) |
 
