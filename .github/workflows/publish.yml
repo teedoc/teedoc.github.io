@@ -43,14 +43,18 @@ jobs:
           echo "out dir: ${out_dir}"
           cp -rf .github $out_dir
           echo ::set-output name=out_dir::$out_dir
+          remote_addr=`git remote get-url --push origin`
           cd $out_dir
           user_name=`git log -1 --pretty=format:'%an'`
           user_email=`git log -1 --pretty=format:'%ae'`
+          echo "user ${user_name}, email: ${user_email}"
+          git config --global init.defaultBranch gh-pages
           git init
           git config user.name ${user_name}
           git config user.email ${user_email}
           git add -A
           git commit -m "rebuild website ad $commit_info"
+          git remote add origin ${remote_addr}
           git push origin HEAD:gh-pages --force
 
       # - name: Deploy 🚀 to github pages
