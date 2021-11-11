@@ -44,6 +44,7 @@ jobs:
           cp -rf .github $out_dir
           echo ::set-output name=out_dir::$out_dir
           remote_addr=`git remote get-url --push origin`
+          echo "remote addr: ${remote_addr}"
           cd $out_dir
           user_name=`git log -1 --pretty=format:'%an'`
           user_email=`git log -1 --pretty=format:'%ae'`
