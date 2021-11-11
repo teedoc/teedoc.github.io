@@ -43,15 +43,25 @@ jobs:
           echo "out dir: ${out_dir}"
           cp -rf .github $out_dir
           echo ::set-output name=out_dir::$out_dir
-      - name: Deploy 🚀 to github pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with: # more usage visit https://github.com/JamesIves/github-pages-deploy-action
-          branch: gh-pages # The branch the action should deploy to.
-          folder: ${{ steps.build_doc.outputs.out_dir }} # The folder the action should deploy.
-          single-commit: true
-          clean: true
-          clean-exclude: |
-            - .github
+          cd $out_dir
+          user_name=`git log -1 --pretty=format:'%an'`
+          user_email=`git log -1 --pretty=format:'%ae'`
+          git init
+          git config user.name ${user_name}
+          git config user.email ${user_email}
+          git add -A
+          git commit -m "rebuild website ad $commit_info"
+          git push origin HEAD:gh-pages --force
+
+      # - name: Deploy 🚀 to github pages
+      #   uses: JamesIves/github-pages-deploy-action@4.1.4
+      #   with: # more usage visit https://github.com/JamesIves/github-pages-deploy-action
+      #     branch: gh-pages # The branch the action should deploy to.
+      #     folder: ${{ steps.build_doc.outputs.out_dir }} # The folder the action should deploy.
+      #     single-commit: true
+      #     clean: true
+      #     clean-exclude: |
+      #       - .github
 
 # mannually scripts
           # cd $out_dir
