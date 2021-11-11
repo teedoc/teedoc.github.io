@@ -6,6 +6,12 @@ visit: [teedoc.neucrack.com](https://teedoc.neucrack.com/) or [teedoc.github.io]
 
 ## build locally
 
+* Install Python3 first
+
+```
+sudo apt install python3 python3-pip
+```
+
 * Install teedoc
 
 ```
