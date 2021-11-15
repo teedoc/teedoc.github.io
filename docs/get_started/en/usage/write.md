@@ -25,7 +25,7 @@ desc: teedoc's markdown syntax introduction and examples
 ---
 ```
 
-* Check [Markdown Syntax](../syntax/syntax_markdown) to learn more about the syntax and details of using `Markdown` to write documents. If you have used `Markdown`, it is strongly recommended to spend 2 minutes browsing it!
+* Check [Markdown Syntax](../syntax/syntax_markdown.md) to learn more about the syntax and details of using `Markdown` to write documents. If you have used `Markdown`, it is strongly recommended to spend 2 minutes browsing it!
 * If you need to link the document to the left directory, configure it in `sidebar.json` or `sidebar.yaml`
 
 

@@ -25,7 +25,7 @@ desc: teedoc 的 markdown 语法介绍和实例
 ---
 ```
 
-* 查看[Markdown 语法](../syntax/syntax_markdown)了解更多使用`Markdown`编写文档的语法和细节， 如果你使用过`Markdown`， 也强烈建议花 2 分钟浏览一遍！
+* 查看[Markdown 语法](../syntax/syntax_markdown.md)了解更多使用`Markdown`编写文档的语法和细节， 如果你使用过`Markdown`， 也强烈建议花 2 分钟浏览一遍！
 * 如果你需要将文档链接到左侧目录， 则在`sidebar.json`或者`sidebar.yaml`中配置
 
 
