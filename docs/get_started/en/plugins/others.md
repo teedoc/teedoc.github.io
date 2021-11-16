@@ -307,13 +307,16 @@ use:
 Add plugin in `site_config`
 
 ```json
-"teedoc-plugin-ad-hint": {
-    "from": "pypi",
-    "config": {
-        "type": "hint",
-        "content": "Content, support html syntax, do not use English single quotes",
-        "show_after_s": 432000
-    }
+"plugins": {
+     "teedoc-plugin-ad-hint": {
+         "from": "pypi",
+         "config": {
+             "type": "hint",
+             "label": "☆",
+             "content": "content",
+             "show_after_s": 432000
+         }
+     }
 }
 ```
 
@@ -331,4 +334,35 @@ Configuration: The default configuration code is [here](https://github.com/teedo
 * `color_hover`: default `"white"`, the font color when hovering the mouse
 * `bg_color_hover`: default `"#f57c00"`, the background color when the mouse is hovering
 * `close_color`: default `"#eab971"`, close button background color
+
+### i18n
+
+If the document has multiple languages, you can configure the plugin in `site_config`:
+```json
+"plugins": {
+     "teedoc-plugin-ad-hint": {
+         "from": "pypi",
+         "config": {
+             "type": "hint",
+             "label": "☆",
+             "content": "content",
+             "show_after_s": 432000
+         }
+     }
+}
+```
+
+Then overwrite the settings in the document `config` in different languages
+```json
+"plugins": {
+     "teedoc-plugin-ad-hint": {
+         "config": {
+             "label": "🦀",
+             "content": "Content, support html syntax, do not use English single quotes",
+         }
+     }
+}
+```
+
+Try to use the same `config` template file for documents in the same language. In the specific document `config`, `import` makes it easier to configure
 

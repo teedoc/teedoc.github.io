@@ -301,21 +301,24 @@ a {
 
 ## `teedoc-plugin-ad-hint`: 广告或者重要消息全局提示
 
-效果：
+### 效果
 
 ![hint](../../assets/images/hint.jpg)
 
-使用：
+### 使用
 
 在`site_config`中添加插件
 
 ```json
-"teedoc-plugin-ad-hint": {
-    "from": "pypi",
-    "config": {
-        "type": "hint",
-        "content": "内容，支持 html 语法，不要使用英文单引号",
-        "show_after_s": 432000
+"plugins": {
+    "teedoc-plugin-ad-hint": {
+        "from": "pypi",
+        "config": {
+            "type": "hint",
+            "label": "☆",
+            "content": "内容，支持 html 语法，不要使用英文单引号",
+            "show_after_s": 432000
+        }
     }
 }
 ```
@@ -335,6 +338,34 @@ a {
 * `bg_color_hover`: 默认 `"#f57c00"`, 鼠标悬浮时的背景颜色
 * `close_color`: 默认 `"#eab971"`， 关闭按钮背景颜色
 
+### 国际化
 
+如果文档有多语言，可以在`site_config`中配置插件:
+```json
+"plugins": {
+    "teedoc-plugin-ad-hint": {
+        "from": "pypi",
+        "config": {
+            "type": "hint",
+            "label": "☆",
+            "content": "content",
+            "show_after_s": 432000
+        }
+    }
+}
+```
 
+然后在不同语言的文档`config`中覆盖设置
+```json
+"plugins": {
+    "teedoc-plugin-ad-hint": {
+        "config": {
+            "label": "🦀",
+            "content": "内容，支持 html 语法，不要使用英文单引号",
+        }
+    }
+}
+```
+
+同一个语言的文档尽量使用同一份`config`模板文件, 在具体的文档`config`中`import`，更容易配置
 

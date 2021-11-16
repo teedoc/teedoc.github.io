@@ -92,5 +92,13 @@
             }
         ]
     },
+    "plugins": {
+        "teedoc-plugin-ad-hint": {
+            "config": {
+                "label": "☆",
+                "content": "这是一个支持国际化的消息示例</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀"
+            }
+        }
+    },
     "show_source": "编辑本页"
 }

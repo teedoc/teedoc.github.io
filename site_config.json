@@ -98,7 +98,7 @@
             "config": {
                 "type": "hint",
                 "label": "☆",
-                "content": "<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀",
+                "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀",
                 "show_after_s": 432000
             }
         },

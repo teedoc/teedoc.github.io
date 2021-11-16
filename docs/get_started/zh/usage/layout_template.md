@@ -55,6 +55,7 @@ layout: my_404.html
 * `header_items`: tags in head(`<head></head>`) tag, a string list
 * `title`: page title, can be null, string, set in doc metadata
 * `site_name`: site name, string, set in site config
+* `js_vars`: js variables set and used by plugins, a dict object
 
 ### navbar
 
