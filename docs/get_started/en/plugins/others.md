@@ -327,6 +327,7 @@ Configuration: The default configuration code is [here](https://github.com/teedo
 * `content`: default `""`, content, the content of the `hint` category will be displayed at the top
 * `show_times`: default `2`, set how many times the user visits the page, the prompt will not be displayed automatically, if the value is `<= 0`, it will always be displayed
 * `show_after_s`: default `432000`, set the time to be automatically displayed next time, the unit is seconds, the default is `5` days
+* `date`: default `null`, hint message's update date time, if hint content is updated, set this to make hint auto show, format:`2021-11-07 14:23:00`, if date set `>` now time, the hint will always auto show
 * `color`: default `"#a0421d"`, font color
 * `link_color`: default `"#e53935"`, link (`<a>` tag) font color
 * `link_bg_color`: default `"#e6ae5c"`, link (`<a>` tag) background color

@@ -99,7 +99,8 @@
                 "type": "hint",
                 "label": "☆",
                 "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀",
-                "show_after_s": 432000
+                "show_after_s": 432000,
+                "date": "2021-11-16 14:40"
             }
         },
         "teedoc-plugin-comments-gitalk": {
