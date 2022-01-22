@@ -32,6 +32,7 @@ jobs:
         run: |
           git fetch --unshallow
           git checkout gh-pages
+          if [[ "${{ secrets.SERVERCHAIN_KEY }}x" != "x" ]]; then curl "https://sctapi.ftqq.com/${{ secrets.SERVERCHAIN_KEY }}.send?title=正在部署teedoc网站到服务器"; else echo "no server chain key"; fi
           SSHPATH="$HOME/.ssh"
           rm -rf "$SSHPATH"
           mkdir -p "$SSHPATH"
