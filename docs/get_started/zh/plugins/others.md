@@ -185,6 +185,7 @@ var _hmt = _hmt || [];
   * `clientID`和`clientSecret`: 需要在[github application](https://github.com/settings/applications/new) 中新建一个应用，可以得到`ID`和`Secret`
   * `repo`和`owner`: 就是仓库名和拥有者，比如这里用[github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io)这个仓库的`issue`作为评论系统，就填`teedoc.github.io`和`teedoc`
   * `admin`: 就是拥有这个仓库写入权限的用户名
+  * `adminAutoCreate`: 是否在管理员访问页面的时候就立刻创建 issue
   * `main_color`: 评论主要外观颜色, 可以不设置
   * `second_color`: 评论次要外观颜色, 可以不设置
 

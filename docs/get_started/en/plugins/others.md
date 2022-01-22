@@ -180,6 +180,7 @@ To use it, you need to add a plug-in in the `site_config` file
   * `clientID` and `clientSecret`: You need to create a new application in [github application](https://github.com/settings/applications/new) to get `ID` and `Secret`
   * `repo` and `owner`: are the name and owner of the repository, for example, [github.com/teedoc/teedoc.github.io](https://github.com/teedoc/teedoc.github.io) is used here `issue` as a comment system, just fill in `teedoc.github.io` and `teedoc`
   * `admin`: is the name of the user who has write access to this repository
+  * `adminAutoCreate`: Automatically create issue when first time administrator visit page or not
   * `main_color`: the main appearance color of comments, optional
   * `second_color`: the secondary appearance color of comments, optional
 
