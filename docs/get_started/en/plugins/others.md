@@ -158,6 +158,17 @@ Then add in the `plugins` keyword in `site_config.json`:
 
 > If you encounter a problem, [here](https://github.com/gitalk/gitalk/wiki/Q&A) may have the answer you want
 
+### Config github
+
+Go to [github developers settings](https://github.com/settings/developers),
+* Add one Oauth Apps
+* Then generate secrets, we got client ID and secrets
+* Fill in `Homepage URL` with url, e.g. `https://teedoc.github.io`
+* Fill in `Authorization callback URL` with `https://teedoc.github.io/`
+
+
+### Config doc
+
 To use it, you need to add a plug-in in the `site_config` file
 ```json
     "teedoc-plugin-gitalk": {

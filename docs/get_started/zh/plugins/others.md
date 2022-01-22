@@ -161,6 +161,20 @@ var _hmt = _hmt || [];
 
 > 如果你遇到了问题， [这里](https://github.com/gitalk/gitalk/wiki/Q&A)也许有你要的答案
 
+
+### 配置 github
+
+首先到 [github 开发者设置](https://github.com/settings/developers)里面,
+* 添加 一个 Oauth Apps
+* 然后生成 secrets， 就获得了 client ID 和 secrets
+* 填写 `Homepage URL` 为 主页 url，比如`https://teedoc.github.io`
+* 填写 `Authorization callback URL`为首页`https://teedoc.github.io/`
+
+
+### 配置文档
+
+
+
 要使用， 需要在`site_config`文件中添加插件
 ```json
     "teedoc-plugin-comments-gitalk": {
