@@ -68,7 +68,7 @@ desc: teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter
 * 对 `Python` 熟悉？ 可以随时自定义插件和功能
 
 其它类似工具：
-* `docusaurus`: `teedoc` 的 `UI` 布局几乎和它类似，不过它使用 `vue` 写的， `teedoc` 是原生 `js`, 如果你用的是 `vue` 可以考虑用这个
+* `docusaurus`: `teedoc` 的 `UI` 布局几乎和它类似，不过它使用 `ract` 写的， `teedoc` 是原生 `js`, 如果你用的是 `ract` 可以考虑用这个
 * `gitbook`: 曾经很好用的工具，但是官方不维护了，转向商业了，不建议再使用
 * `docsify`: 只需要一个页面，`markdown` 在浏览器渲染，而不是预先渲染成 `HTML`， 好处就是轻量，但是 `SEO` 不太友好，可以用它的 `SSR` 功能， `nodejs` 编写
 * `readthedocs(Sphinx)`: 其实是用了用 `Sphinx` 做为生成工具，`Python` 官网文档就是这个工具生成的， 很多开源项目使用的工具，`readthedocs` 只是一个公开文档的网站，你不用自己搭建网站，注册登录就可以开始写文档，对 `RST` 格式支持友好
