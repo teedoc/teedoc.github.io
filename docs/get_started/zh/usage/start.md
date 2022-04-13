@@ -93,7 +93,7 @@ teedoc -f ./config.json json2yaml
 
 
 ```shell
-teedoc -f ./config.json yaml2json
+teedoc -f ./config.yaml yaml2json
 ```
 
 
