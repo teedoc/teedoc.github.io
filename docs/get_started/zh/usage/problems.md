@@ -6,7 +6,7 @@ desc: 使用 teedoc 时的常见问题
 ---
 
 
-
+可以在[github issue](https://github.com/teedoc/teedoc/issues?q=) 查看大家提过的问题以及解决方法， 可以提交问题， 也欢迎发现问题修改代码并提交PR
 
 
 ## jinja2.exceptions.TemplateNotFound: base.html.j2

@@ -6,6 +6,7 @@ desc: Problems when use teedoc
 ---
 
 
+You can view the problems and solutions already mentioned at [github issue](https://github.com/teedoc/teedoc/issues?q=), and you can also submit problems, and you are welcome to find problems, modify the code and submit PR
 
 ## jinja2.exceptions.TemplateNotFound: base.html.j2
 

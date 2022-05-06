@@ -19,6 +19,7 @@ Configure the plugin in `site_config.json`
                 "dark": true,
                 "default_dark": false,
                 "mobile_navbar_collapsed": true,
+                "toc_depth": 4,
                 "env":{
                     "main_color": "#4caf7d",
                     "sidebar_width": "300px"
@@ -35,6 +36,7 @@ Configure the plugin in `site_config.json`
 * `dark`: support dark mode switch
 * `default_dark`: default use dark mode
 * `mobile_navbar_collapsed`: collapse navbar by default on mobile phone
+* `toc_depth`: table of article conent's depth, default to `4`, that is show `H1~H4` headers
 * `show_print_page`: show print page button, visitor click or push `Ctrl+P` to print
 * `main_color`: theme main color
 * `sidebar_width`: sidebar default width, format can be like`"300px"`, `300`, `"30%"`
