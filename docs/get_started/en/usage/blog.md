@@ -61,8 +61,11 @@ desc: teedoc generates static blog pages
 author: neucrack
 date: 2021-03-14
 tags: hello, blog, teedoc
+cover: ./assets/cover.jpg
 
 ---
+
+Also can use image: ![image](./assets/img.jpg)
 
 This is an introduction to the test, which will be displayed in the list. Use `<!-- more -->` to separate the text
 
