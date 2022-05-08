@@ -5,6 +5,7 @@ desc: teedoc 生成静态博客页面
 author: neucrack
 date: 2021-03-14
 tags: hello, blog, teedoc
+cover: ./assets/snake.jpg
 ---
 
 
