@@ -321,3 +321,54 @@ $$
 > \bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
 > $$
 
+## mermaid support
+
+Use mermaid syntax to draw diagrams, more details and usage please see [official website](https://mermaid-js.github.io/)
+
+<pre class="language-markdown">
+<code>
+```mermaid
+sequenceDiagram
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+</code>
+</pre>
+
+Or use `html` directly:
+
+```html
+<div class="mermaid">
+sequenceDiagram
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+</div>
+```
+
+After rendering, the result will be:
+
+```mermaid
+sequenceDiagram
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+
+

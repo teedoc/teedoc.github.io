@@ -199,7 +199,6 @@ print("hello")
 我能干饭我自豪。[^干饭人]
 
 [^干饭人]: 老子说道
-
 这会在文章末尾进行注解
 
 
@@ -327,5 +326,56 @@ $$
 > $$
 > \bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
 > $$
+
+
+## mermaid 支持
+
+使用 mermaid 可以画很多类型的图表， 详细的语法和支持请看[官网](https://mermaid-js.github.io/)
+
+<pre class="language-markdown">
+<code>
+```mermaid
+sequenceDiagram
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+</code>
+</pre>
+
+或者直接 `html`:
+
+```html
+<div class="mermaid">
+sequenceDiagram
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+</div>
+```
+
+效果：
+
+```mermaid
+sequenceDiagram
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+      John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
 
 
