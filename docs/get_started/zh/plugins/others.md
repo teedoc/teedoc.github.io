@@ -13,6 +13,9 @@ desc: teedoc 其它插件
             "from": "pypi",
             "config": {
                 "parse_files": ["md"],
+                "mermaid": true,
+                "mermaid_use_cdn": false,
+                "mermaid_cdn_url": "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js",
                 "mathjax": {
                     "enable": true,
                     "file_name": "tex-mml-chtml",
@@ -34,6 +37,9 @@ desc: teedoc 其它插件
 ```
 
 * `parse_files`: 参与解析的文件格式
+* `mermaid`: 是否开启 mermaid 插件
+* `mermaid_use_cdn`: 是否使用 CDN 加载 mermaid 插件
+* `mermaid_cdn_url`: CDN 地址, `mermaid_use_cdn` 为 `true` 时才有用
 * `mathjax`: 数学公式渲染支持
   * `enable`:  是否启用
   * `file_name`： `js`文件名， 定义了默认有哪些功能，默认`tex-mml-chtml`, [参考这里](http://docs.mathjax.org/en/latest/web/components/index.html)

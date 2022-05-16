@@ -13,6 +13,9 @@ Configure the plugin in `site_config.json`
             "from": "pypi",
             "config": {
                 "parse_files": ["md"],
+                "mermaid": true,
+                "mermaid_use_cdn": false,
+                "mermaid_cdn_url": "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js",
                 "mathjax": {
                     "enable": true,
                     "file_name": "tex-mml-chtml",
@@ -34,6 +37,9 @@ Configure the plugin in `site_config.json`
 ```
 
 * `parse_files`: File formats involved in parsing
+* `mermaid`: Enable mermaid plugin
+* `mermaid_use_cdn`: Use CDN for mermaid
+* `mermaid_cdn_url`: CDN url for mermaid, only used when `mermaid_use_cdn` is `true`
 * `mathjax`: Mathematical formula rendering support
    * `enable`: Whether to enable
    * `file_name`: `js` file name, which defines the default functions, the default is `tex-mml-chtml`, [reference here](http://docs.mathjax.org/en/latest/web/components/ index.html)
