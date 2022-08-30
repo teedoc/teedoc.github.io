@@ -33,7 +33,7 @@ teedoc-list-files -r my_doc jpg
 ```
 
 
-如果你想要彻底删除问价及其历史记录，参考 [github 文档](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) 或者 [gitee 文档](https://gitee.com/help/articles/4232#article-header2)
+如果你想要彻底删除文件及其历史记录，参考 [github 文档](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) 或者 [gitee 文档](https://gitee.com/help/articles/4232#article-header2)
 
 
 
