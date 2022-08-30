@@ -50,6 +50,8 @@ items:
     file: usage/404.md
 -   label: 从 gitbook 转换为 teedoc
     file: usage/gitbook2teedoc.md
+-   label: 查找大文件
+    file: usage/list_files_by_size.md
 -   label: 更多
 -   label: 更新历史
     file: more/history.md
