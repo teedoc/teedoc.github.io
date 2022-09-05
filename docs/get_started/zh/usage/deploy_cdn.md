@@ -34,6 +34,8 @@ teedoc-upload --cloud qiniu --bucket my-bucket --access_key ******** --secret_ke
 teedoc-upload --cloud qiniu --bucket my-bucket --access_key ******** --secret_key **** --old ./old_out ./out
 ```
 
+另外这些储存桶可能会有一些问题，比如七牛云不能支持不带`html`结尾的链接，比如`/test`不能自动转到`/test.html`，以及默认没有打开访问`/`自动转到`/index.html`，以及`404.html`不能直接从储存桶里面读取，需要手工上传到七牛云的配置里面，总之体验非常糟糕，所以这种方式用起来本来理论上最简单粗暴自己不用搭服务器而且和CDN 是同一家服务，比较方便，但是却有这些没做好的地方，也许未来解决了这几个问题就好用了（编辑于2022-09-05），像 github 的pages 服务就没这些问题，就是国内访问慢或者访问不了，或者尝试下其它云。
+
 
 ### 方法二：自己创建一个源服务器（源网站）
 
