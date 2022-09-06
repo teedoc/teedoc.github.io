@@ -28,6 +28,8 @@ items:
         file: usage/deploy_github_pages.md
     -   label: 使用 nginx 部署到服务器
         file: usage/deploy_nginx.md
+    -   label: 部署到云服务商
+        file: usage/deploy_cloud.md
     -   label: 使用 CDN 加速网站
         file: usage/deploy_cdn.md
 -   label: 常见问题

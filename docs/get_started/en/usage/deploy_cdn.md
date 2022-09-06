@@ -18,24 +18,6 @@ Then the steps are as follows:
 
 ## create origin server
 
-### Method 1: Upload the file to the service provider's bucket (server)
-
-Directly use the space of these service providers (it can be regarded as a server), generally there are free quotas, upload the website directly to the space of the service provider, the service provider will assign a temporary domain name, enable `CDN` to access directly, Simple.
-
-However, to upload files, you need to use the specified tools provided by the service provider, not general tools (such as `scp`).
-
-`teedoc` provides the `teedoc-upload` tool for uploading to common servers, currently only supports Qiniu cloud, welcome PR or upload directly with the service provider's tools.
-````
-teedoc-upload --cloud qiniu --bucket my-bucket --access_key ******** --secret_key **** ./out
-````
-
-In addition, this tool also provides uploading files with different content from the last time, provided that the last `out` directory needs to be preserved
-````
-teedoc-upload --cloud qiniu --bucket my-bucket --access_key ******** --secret_key **** --old ./old_out ./out
-````
-
-
-### Method 2: Create an origin server (source website) by yourself
 
 Create the source server by yourself. After the source server is updated, the service provider automatically updates to each node.
 
