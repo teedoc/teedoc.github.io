@@ -15,6 +15,7 @@ desc: teedoc 生成的网站部署到服务器
 
 * [部署到 github pages](./deploy_github_pages.md)
 * [使用 nginx 部署到自建服务器](./deploy_nginx.md)
+* [部署到云服务商](./deploy_cloud.md)
 * [使用 CDN 加速网站](./deploy_cdn.md)
 
 

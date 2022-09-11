@@ -16,26 +16,17 @@ First find a CDN provider, such as Alibaba Cloud, Tencent Cloud and Qiniu Cloud.
 
 Then the steps are as follows:
 
-## method one
-
-Directly use the space of these providers, usually there is a free quota, upload this website directly to the space of the service provider, the service provider will assign a temporary domain name, enable the `CDN` and you can directly access it, it is very simple.
-
-But the disadvantage is that it must be re-uploaded every time it is updated, which is not easy to handle. It can be solved simply by using method two.
+## create origin server
 
 
-## Method Two
+Create the source server by yourself. After the source server is updated, the service provider automatically updates to each node.
 
-Create the source server by yourself. After the source server is updated, the service provider will automatically synchronize the updates to each node
-
-### Create an origin server (origin website)
-
-Follow the previous method to build a website and get `domain name A`, such as `teedoc.github.io`
+Create a website according to the previous method and get `domain name A`, such as `teedoc.github.io`
 
 
-### Add CDN acceleration to the website
+## Add CDN acceleration to website
 
-If you are a domestic service provider in China, you need to have a filed `domain name B`
+If it is a service provider in China, you need to have a registered `domain name B` first, then register and log in, add a `CDN` service, and set the back-to-origin site to the previously established website `domain name A`.
 
-, Then register and log in, add a `CDN` service, set the back-to-origin site to the previously established website `domain name A`
+Then visit `domain name B`, the service provider will automatically pull the webpage from `domain name A` and synchronize it to each node in the country or the world, and then the user will be redirected to the `IP` of the node closest to the user when they visit `domain name B`. to ensure the fastest browsing speed
 
-Then visit `domain name B`, the service provider will automatically pull webpages from `domain name A` to synchronize to various nodes in the country or the world, and then the user will be redirected to the `IP` of the node nearest to the user when accessing `domain name B`, To ensure the fastest browsing speed

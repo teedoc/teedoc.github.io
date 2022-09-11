@@ -28,6 +28,8 @@ items:
         file: usage/deploy_github_pages.md
     -   label: 使用 nginx 部署到服务器
         file: usage/deploy_nginx.md
+    -   label: 部署到云服务商
+        file: usage/deploy_cloud.md
     -   label: 使用 CDN 加速网站
         file: usage/deploy_cdn.md
 -   label: 常见问题
@@ -50,6 +52,10 @@ items:
     file: usage/404.md
 -   label: 从 gitbook 转换为 teedoc
     file: usage/gitbook2teedoc.md
+-   label: 查找大文件
+    file: usage/list_files_by_size.md
+-   label: 找出两目录的不同文件
+    file: usage/compare_dirs.md
 -   label: 更多
 -   label: 更新历史
     file: more/history.md

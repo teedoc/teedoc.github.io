@@ -28,6 +28,8 @@ items:
         file: usage/deploy_github_pages.md
     -   label: Use nginx to deploy to the server
         file: usage/deploy_nginx.md
+    -   label: Deploy to cloud service
+        file: usage/deploy_cloud.md
     -   label: Use CDN to accelerate website
         file: usage/deploy_cdn.md
 -   label: Common problems
@@ -50,6 +52,10 @@ items:
     file: usage/404.md
 -   label: Convert gitbook to teedoc
     file: usage/gitbook2teedoc.md
+-   label: Find big files
+    file: usage/list_files_by_size.md
+-   label: list difference in two dir
+    file: usage/compare_dirs.md
 -   label: More
 -   label: Update history
     file: more/history.md
