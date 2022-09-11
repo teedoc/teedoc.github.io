@@ -371,4 +371,165 @@ sequenceDiagram
   Bob-->>John: Jolly good!
 ```
 
+## Tabset support
 
+> Experimental function, because it is not a standard Markdown syntax, currently only supported by teedoc, so choose to use it according to your needs
+> Of course, generalization of the format to other parsers is also welcome
+
+Effect:
+
+.. tabset::tab title (optional)
+    :id: tabset1
+
+    ## Label one
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+
+    ## Label two
+
+    Content 2, you can use Markdown syntax
+    ```java
+      public class Main {
+          public static void main(String[] args) {
+              System.out.println("Hello World");
+          }
+      }
+    ```
+
+When selecting a tag in a page, the corresponding tag in the tag page with the same `id` will be automatically selected, but not if the `id` is different or the `id` is not set.
+
+.. tabset::
+    :id: tabset1
+
+    ## Label one
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+
+    ## Label two
+
+    Content 2, you can use Markdown syntax
+    ```java
+      public class Main {
+          public static void main(String[] args) {
+              System.out.println("Hello World");
+          }
+      }
+    ```
+
+.. tabset::
+
+    ## Label one
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+
+    ## Label two
+
+    Content 2, you can use Markdown syntax
+    ```java
+      public class Main {
+          public static void main(String[] args) {
+              System.out.println("Hello World");
+          }
+      }
+    ```
+
+Source code:
+```
+Effect:
+(note that a blank line is required here)
+.. tabset::tab title (optional)
+    :id: tabset1
+
+    ## Label one
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+
+    ## Label two
+
+    Content 2, you can use Markdown syntax
+    ```java
+      public class Main {
+          public static void main(String[] args) {
+              System.out.println("Hello World");
+          }
+      }
+    ```
+```
+
+## Details page support
+
+> Experimental function, because it is not a standard Markdown syntax, currently only supported by teedoc, so choose to use it according to your needs
+> Of course, generalization of the format to other parsers is also welcome
+
+This is a `Markdown` syntax for `HTML5` `details` tags, `HTML` is written like this:
+```html
+<details>
+  <summary>Title, click to expand</summary>
+  <div class="details-content">
+    <p>This is the content</p>
+  </div>
+</details>
+````
+
+Effect:
+
+.. details::Title, click to expand
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+
+.. details:: title, expanded by default
+    :open:true
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+
+Source code:
+```
+.. details::Title, click to expand
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+
+.. details:: title, expanded by default
+    :open:true
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println("Hello World")
+      }
+    ```
+```
