@@ -2,6 +2,9 @@
 #navbar h2 {
     color: ${main_color};
 }
+#navbar .site_logo {
+    margin-right: 0.5em;
+}
 #page_footer {
     margin-top: 0;
 }
@@ -16,10 +19,15 @@
     width: 100%;
     text-align: center;
 }
-#home_page #navbar {
+#navbar {
     background: white;
     z-index: 98;
     box-shadow: 0px 0px 5px 0px #e4e4e4;
+}
+.dark #navbar {
+    background: #161616;
+    z-index: 98;
+    box-shadow: 0px 0px 5px 0px #0000002e;
 }
 #home_page .logo {
     height: 2em;
