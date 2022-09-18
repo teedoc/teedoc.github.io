@@ -68,7 +68,7 @@
             }
         },
         "teedoc-plugin-theme-default":{
-            "from": "E:/main/projects/teedoc/plugins/teedoc-plugin-theme-default",
+            "from": "pypi",
             "config": {
                 "dark": true,
                 "env":{
