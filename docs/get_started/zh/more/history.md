@@ -8,6 +8,59 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 
 所有详细的更新历史可以看[代码提交列表](https://github.com/teedoc/teedoc/commits/main)
 
+## 2022-9-16 v1.31.0
+
+* 支持直接在 html 文件中使用 jinja2 模板，而不需要在 md 文件中使用 layout，更多信息请看文档的 html 语法部分。
+
+## 2022-9-16 v1.30.1
+
+* 优化侧边栏
+* Markdown 增加 mermaid 支持
+* 忽略所有临时文件
+* 更新 markdown 解析器 mistune 到 V2
+* 增加 `teedoc-list-files` 工具，用于按文件大小列出文件
+* 增加 `teedoc-compare` 工具，用于比较两个目录的文件差异
+* 增加 `teedoc-upload` 工具，用于上传文件到远程服务器，支持腾讯云和七牛云
+* 优化构建日志
+* 新增 Markdown 语法：
+  * `tabset` (jupyter 暂不支持)
+  * `details`(jupyter 暂不支持)
+  * 支持自定义标题 ID 语法 `{#id}`
+* 元数据头完全支持 `yaml` 格式，增加 `update` 键用于生成更新历史表格
+* 新的 teedoc logo
+* 修复长目录无法完全显示的 bug
+* 移除 `teedoc install` 命令中安装本地插件的功能
+* 优化最后修改日期显示
+
+## 2022-05-08
+
+* 更新主题插件，支持移动端显示页面目录
+* 更新博客插件，支持在简介中显示图片，支持 `cover` 元数据键
+
+
+## 2022-01-06 v1.26.0
+
+* 增加 `teedoc serve --fast` 模式，这个模式下，只会复制静态资源，不会构建页面，这样你就可以访问页面了，页面会在你访问的时候构建。同时后台会构建所有页面。
+
+## 2022-01-06 v1.25.0
+
+* teedoc-plugin-theme-default 插件支持 `redirect.html` 模板，这个模板用于重定向页面，比如我们想让 `/maixpy` 和 `/maixpy.html` 重定向到 `/soft/maixpy.html`，只需要在 `/soft/maixpy.md` 文件中加入
+
+```markdown
+---
+layout: redirect
+redirect_url: /soft/maixpy/zh/
+---
+```
+
+* 将 http 服务从 http.server 更换为 flask，以便更好的兼容更多的设备
+
+
+## 2021-09-18 v1.24.0
+
+* teedoc-plugin-ad-hint 现在支持在特定文档中配置，而不只是全局配置，这样就可以实现消息国际化了，不同语言的文档各自设置自己的就好了
+* (开发者)插件现在可以通过 `js_vars` 变量向前端传递变量了
+
 ## 2021-09-18 v1.23.1
 
 * 增加 404.html 模板， 并支持 i18n

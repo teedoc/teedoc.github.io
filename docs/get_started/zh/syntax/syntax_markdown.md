@@ -3,6 +3,17 @@ title: markdown 语法
 tags: teedoc, markdown, 语法
 keywords: teedoc, markdown, 语法
 desc: teedoc 的 markdown 语法介绍和实例
+update:
+  - date: 2021-09-19
+    version: 插件 v2.10.3
+    author: neucrack
+    content:
+      - 元数据头完全支持 yaml 格式
+      - 支持 <code>update</code> 元数据头，用于生成更新历史表格
+      - 支持 <code>{#id}</code> 语法自定义标题 id
+      - 支持 <code>tabset</code> 语法
+      - 支持 <code>details</code> 语法
+      - 支持上下标语法
 ---
 
 > 本文是使用`Markdown`编写的文档，使用`teedoc`生成的页面效果， `Markdown`文件源码见[这里](https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/syntax/syntax_markdown.md)
