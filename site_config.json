@@ -68,7 +68,7 @@
             }
         },
         "teedoc-plugin-theme-default":{
-            "from": "pypi",
+            "from": "E:/main/projects/teedoc/plugins/teedoc-plugin-theme-default",
             "config": {
                 "dark": true,
                 "env":{
@@ -113,7 +113,8 @@
                     "owner": "teedoc",
                     "admin": ["Neutree"],
                     "main_color": "#4caf7d",
-                    "second_color": "#0a7d43"
+                    "second_color": "#0a7d43",
+                    "adminAutoCreate": false
                 }
             }
         },

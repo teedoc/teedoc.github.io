@@ -11,12 +11,14 @@ items:
 -   label: 文档结构和配置
     file: usage/start.md
 -   label: 编写文档内容(语法)
-    file: usage/write.md
+    collapsed: false
     items:
     -   label: markdown 语法
         file: syntax/syntax_markdown.md
     -   label: Jupyter 语法
         file: syntax/syntax_jupyter.ipynb
+    -   label: HTML 语法
+        file: syntax/syntax_html.html
 -   label: 写文档时需注意
     file: usage/write_attention.md
 -   label: 博客

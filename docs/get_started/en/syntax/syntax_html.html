@@ -1,0 +1,46 @@
+{% extends "article.html" %}
+
+{% block title %}
+<h1>Write content directly from HTML files</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Use HTML syntax directly</h2>
+<p>
+    Write content directly in HTML syntax.
+</p>
+<p>This file is written directly in html, click on the source code at the top right <code>edit this page</code>view</p>
+
+<h2>Also supports <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja2</a> syntax</h2>
+
+<pre class="line-numbers language-markdown">
+<code class="language-markdown">
+{% raw %}
+{% extends "article.html" %}
+Note that "article.html" needs to be enclosed in quotation marks, otherwise it will prompt that the article cannot be found
+
+{% block title %}
+<h1>Write content directly from HTML files</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Use HTML syntax directly</h2>
+{% endblock %}
+{%endraw%}
+</code></pre>
+
+Here you can see that this page inherits from <code>article.html</code> and modifies <code>title</code> and <code>content</code> so that the navigation bar and side can be preserved bar, and use themes too.
+
+For the specific content that can be modified, you can view the source code of the template, the templates that can be used, and refer to the template files provided by the theme, such as the template files of the default theme at <a href="https://github.com/teedoc/teedoc/tree/main" /plugins/teedoc-plugin-theme-default/teedoc_plugin_theme_default/templates" target="_blank">here</a>
+
+And the variables that the page can use refer to the variable description in <a href="../usage/layout_template.html">Custom Page Template</a>.
+
+<h2>html files are used as template files</h2>
+
+In addition to writing pages directly in html, you can also write a template in html first, put it in the <code>layout</code> directory, and use this template in the <code>.md</code> file.
+The content in the <code>.md</code> file will be passed to <code>html</code> in the <code>body</code> variable, directly through <code>{% raw %}{{ body| safe }}{% endraw %}</code> use,
+Here <code>safe</code> means no escaping, so that html can be written directly in the <code>.md</code> file.
+
+See <a href="../usage/layout_template.html">Custom Page Templates</a> for more custom template content.
+
+{% endblock %}

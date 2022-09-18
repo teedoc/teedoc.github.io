@@ -1,0 +1,50 @@
+{% extends "article.html" %}
+
+{% block title %}
+<h1>直接使用 HTML 文件编写内容</h1>
+{% endblock %}
+
+{% block content %}
+<h2>直接使用 HTML 语法</h2>
+<p>
+    直接用 HTML 语法编写内容。
+</p>
+<p>本文件就是用 html 直接写的，源码点击右上方<code>编辑本页</code>查看</p>
+
+<h2>同时支持 <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja2</a> 语法</h2>
+
+<pre class="line-numbers language-markdown">
+<code class="language-markdown">
+{% raw %}
+{% extends "article.html" %}
+注意这里 "article.html" 需要用引号引起来，不然会提示找不到 article
+
+{% block title %}
+<h1>直接使用 HTML 文件编写内容</h1>
+{% endblock %}
+
+{% block content %}
+<h2>直接使用 HTML 语法</h2>
+{% endblock %}
+{% endraw %}
+</code></pre>
+
+这里能看到本页面继承与<code>article.html</code>并且对<code>title</code>和<code>content</code>做了修改，这样就能保留导航栏和侧边栏，以及使用主题了。
+
+具体能修改那些内容可以查看模板的源码，能够使用的模板，参考主题提供的模板文件，比如默认主题的模板文件在<a href="https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-theme-default/teedoc_plugin_theme_default/templates" target="_blank">这里</a>
+
+以及页面能够使用的变量参考<a href="../usage/layout_template.html">自定义页面模板</a>中的变量说明。
+
+<h2>html 文件作为模板文件使用</h2>
+
+除了直接用 html 写页面以外，你也可以先用 html 写好模板，放到<code>layout</code>目录下，在<code>.md</code>文件中使用这个模板。
+<code>.md</code>文件中的内容会以<code>body</code>变量传到<code>html</code>中，直接通过<code>{% raw %}{{ body|safe }}{% endraw %}</code>使用，
+这里<code>safe</code>表示不转义，这样在<code>.md</code>文件中就可以直接写 html 了。
+
+更多自定义模板内容查看<a href="../usage/layout_template.html">自定义页面模板</a>。
+
+{% endblock %}
+
+
+
+
