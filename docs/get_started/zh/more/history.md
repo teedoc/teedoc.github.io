@@ -37,6 +37,9 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 * 更新主题插件，支持移动端显示页面目录
 * 更新博客插件，支持在简介中显示图片，支持 `cover` 元数据键
 
+## 2022-09-19
+
+* 增加了`teedoc-plugin-thumbs-up`插件，用于支持点赞功能，详细请看插件说明页面
 
 ## 2022-01-06 v1.26.0
 

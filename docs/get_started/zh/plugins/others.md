@@ -391,3 +391,54 @@ a {
 
 同一个语言的文档尽量使用同一份`config`模板文件, 在具体的文档`config`中`import`，更容易配置
 
+## `teedoc-plugin-thumbs-up`: 点赞插件
+
+用这个插件可以实现页面显示点赞按钮，可以统计点赞次数，效果如下
+![thumbs_up.png](../../assets/images/thumbs_up.png)
+
+### 基本使用
+
+在`site_config`中添加插件：
+```json
+"plugins": {
+    "teedoc-plugin-thumbs-up": {
+        "from": "pypi",
+        "config": {
+            "url": "https://xxxx.xxxx.com:80",
+            "show_up_count": true,
+            "show_down_count": false
+        }
+    }
+}
+```
+
+需要注意的是，因为网页是纯静态页面，使用这个插件需要配合服务器使用，统计信息储存在服务器上。
+
+服务器使用`pip install teedoc-plugin-thumbs-up`命令安装插件后使用`teedoc-thumbs-up-server`命令来运行服务，可以用`--port`参数来指定端口，更多参数使用`teedoc-thumbs-up-server --help`查看
+> 建议用 nginx 等代理服务器代理这个服务。
+> 另外如果你的网站是 https 协议，那这个服务也需要是 https 服务，可以申请免费的证书后用 nginx 配置
+
+需要注意的是，这个服务只是个简单的例程，不完全保证服务安全性，建议仔细阅读这个服务器代码修改定制你自己的服务器脚本，代码：[teedoc-plugin-thumbs-up/server](https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-thumbs-up/server)
+
+### 国际化
+
+和其它插件一样，在不同语言的文档`config`中覆盖设置，参数见[插件源码默认配置](https://github.com/teedoc/teedoc/blob/a8b93a4f29330b018c2e38589786b33d00854309/plugins/teedoc-plugin-thumbs-up/teedoc_plugin_thumbs_up/__init__.py#L24)
+```json
+"plugins": {
+    "teedoc-plugin-thumbs-up": {
+        "config": {
+            "label_up": "有帮助",
+            "label_down": "没帮助",
+            "msg_already_voted": "您已经投过票了",
+            "msg_thanks": "感谢您的反馈",
+            "msg_down_prompt": "感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）",
+            "msg_down_prompt_error": "消息最少需要 10 个字， 最多 256 个字",
+            "msg_error": "请求服务器出现错误!"
+        }
+    }
+}
+```
+
+
+
+

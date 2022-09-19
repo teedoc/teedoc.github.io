@@ -385,3 +385,52 @@ Then overwrite the settings in the document `config` in different languages
 
 Try to use the same `config` template file for documents in the same language. In the specific document `config`, `import` makes it easier to configure
 
+
+## `teedoc-plugin-thumbs-up`: thumbs up plugin
+
+With this plugin, you can display the like button on the page, and you can count the number of likes. The effect is as follows
+![thumbs_up.png](../../assets/images/thumbs_up.png)
+
+### Basic usage
+
+Add the plugin in `site_config`:
+```json
+"plugins": {
+    "teedoc-plugin-thumbs-up": {
+        "from": "pypi",
+        "config": {
+            "url": "https://xxxx.xxxx.com:80",
+            "show_up_count": true,
+            "show_down_count": false
+        }
+    }
+}
+```
+
+It should be noted that because the web page is a purely static page, the use of this plug-in needs to be used with the server, and the statistical information is stored on the server.
+
+The server uses the `pip install teedoc-plugin-thumbs-up` command to install the plugin and then use the `teedoc-thumbs-up-server` command to run the service. You can use the `--port` parameter to specify the port, and more parameters use `teedoc' -thumbs-up-server --help`View
+> It is recommended to proxy this service with a proxy server such as nginx.
+> In addition, if your website is https protocol, then this service also needs to be https service, you can apply for a free certificate and configure it with nginx
+
+It should be noted that this service is just a simple routine and does not fully guarantee the security of the service. It is recommended to read the server code carefully to modify and customize your own server script. Code: [teedoc-plugin-thumbs-up/server](https ://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-thumbs-up/server)
+
+### i18n
+
+Like other plugins, override the settings in the document `config` in different languages. For parameters, see [Plugin Source Default Configuration](https://github.com/teedoc/teedoc/blob/a8b93a4f29330b018c2e38589786b33d00854309/plugins/teedoc-plugin-thumbs- up/teedoc_plugin_thumbs_up/__init__.py#L24)
+```json
+"plugins": {
+    "teedoc-plugin-thumbs-up": {
+        "config": {
+            "label_up": "Helpful",
+            "label_down": "Not helpful",
+            "msg_already_voted": "You have already voted",
+            "msg_thanks": "Thanks for your feedback",
+            "msg_down_prompt": "Thanks for the feedback, please tell us where we can improve? (minimum 10 words)",
+            "msg_down_prompt_error": "Message requires a minimum of 10 words and a maximum of 256 words",
+            "msg_error": "There was an error requesting the server!"
+        }
+    }
+}
+```
+
