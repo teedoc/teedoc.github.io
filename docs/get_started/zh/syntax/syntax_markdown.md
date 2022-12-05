@@ -91,6 +91,7 @@ update:
     version: 1.0.0
     content: 更新了xxx
 ```
+* `update_open`: 是否默认展开更新记录，默认为 `true`，关闭设置为`false`即可。（由主题插件支持）
 
 ### Markdown 文件内容
 

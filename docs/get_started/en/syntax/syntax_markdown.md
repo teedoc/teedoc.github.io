@@ -91,6 +91,7 @@ update:
     version: 1.0.0
     content: updated xxx
 ```
+* `update_open`: display update history or not, default `true`, set to `false` will collapse update history(supported by theme plugin)
 
 ### Markdown content
 
