@@ -9,7 +9,8 @@
     "route": {
         "docs": {
             "/get_started/zh/": "docs/get_started/zh",
-            "/develop/zh/": "docs/develop/zh"
+            "/develop/zh/": "docs/develop/zh",
+            "/more/": "docs/more"
         },
         "pages": {
             "/": "pages/index/zh"
@@ -33,7 +34,12 @@
                     "url": "/develop/en/",
                     "src": "docs/develop/en"
                 }
-            ]
+            ],
+            "/more/": [ {
+                "url": "/more/en/",
+                "src": "docs/more/en"
+            }
+        ]
         },
         "pages": {
             "/": [ {
