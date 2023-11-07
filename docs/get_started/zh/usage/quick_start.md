@@ -119,6 +119,7 @@ teedoc build
 ## 添加一篇文档
 
 * 在本文件所在目录创建 `markdown`（以  `.md` 结尾的）文件，比如 `first.md`，添加内容
+> 注意每份文档下的 `README.md` 会被自动转成`index.html`页面，也可以改成`index.html`使用 `html` 语法编写，**`README.md`和`index.html`必须至少有一个**。否则访问文档会出现`404`错误。
 
 每篇文章开头都可以有一个`元数据区`， 用以配置文章的相关配置， 至少需要一个`title`即标题，更多配置项和文档格式请[阅读文档](../syntax/syntax_markdown.md)
 
