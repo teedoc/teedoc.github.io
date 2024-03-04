@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="teedoc, 部署">
+    
+    
+    <meta name="description" content="teedoc 生成的网站部署到 github pages 服务, 使用 github 的免费服务器部署网站">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>部署 teedoc 生成的网站到 github pages - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "这是一个支持国际化的消息示例</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: 中文 简体</a><ul><li class=""><a  href="/get_started/en/usage/deploy_github_pages.html">English</a></li>
+<li class="active"><a  href="/get_started/zh/usage/deploy_github_pages.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">基本使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/quick_start.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">文档结构和配置</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">编写文档内容(语法)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_html.html"><span class="label">HTML 语法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="active_parent with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cloud.html"><span class="label">部署到云服务商</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">进阶使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/layout_template.html"><span class="label">自定义页面模板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/i18n.html"><span class="label">国际化(i18n/翻译)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/404.html"><span class="label">自定义404页面</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/list_files_by_size.html"><span class="label">查找大文件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/compare_dirs.html"><span class="label">找出两目录的不同文件</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">更多样例(目录默认展开)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">二级子目录</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">文章标题自动编号</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/multi_h1.html"><span class="label">页面有多个一级标题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/heading_no_counter.html"><span class="label">标题不自动编号</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>部署 teedoc 生成的网站到 github pages</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/usage/deploy_github_pages.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>因为 <code>github</code> 提供免费的 <code>pages</code> 服务, 我们只需要将<code>html</code>页面提交到<code>gh-pages</code>分支, 然后在项目设置里面开启<code>pages</code>服务即可.</p>
+<p>同时, 我们也将页面构建和推送做了自动化, 每次向仓库提交代码/文档, 都会触发<code>github action</code>自动构建并推送到<code>gh-pages</code>页面, 十分简单方便可靠!</p>
+<h2 id="%E5%85%8B%E9%9A%86%E6%A8%A1%E6%9D%BF%E4%BB%93%E5%BA%93">克隆模板仓库</h2>
+<p>这里使用 teedoc 官网的源码作为模板, 访问 <a href="https://github.com/teedoc/template"  target="_blank">https://github.com/teedoc/template</a> 或者 <a href="https://github.com/teedoc/teedoc.github.io"  target="_blank">https://github.com/teedoc/teedoc.github.io</a><br />
+点击 <code>Use this template</code><br />
+<img src="../../assets/images/github_use_template.jpg" alt="github use template" /><br />
+然后填写新的仓库名称（如果你不准备自定义域名，则仓库名字最好是<code>teedoc.github.io</code>将<code>teedoc</code>替换成你的用户名或者组织名）和描述，基于这个仓库新建一个你自己的仓库，现在你获得了和 <code>teedoc</code>官网一模一样的仓库了</p>
+<blockquote>
+<p>会发现有一个<code>.github/workflows</code>的目录，这个就是<code>github action</code>的配置文件，我们利用这个功能来实现：<br />
+当我们更新仓库的源文件时， <code>github action</code>自动根据这个配置文件的命令构建生成静态网页，然后推送到这个仓库的<code>gh-pages</code>分支</p>
+</blockquote>
+<blockquote>
+<p>其中<code>sync_code_to_gitee.yml</code> 和 <code>sync_pages_to_gitee.yml</code> 是用来将代码同步到 <code>gitee</code> 的, 可以将他们删除, 需要时请自行研究</p>
+</blockquote>
+<h2 id="%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA">自动触发构建</h2>
+<p>仓库每提交一次修改，会自动触发构建，构建完成后<code>gh-pages</code>分支就会出现生成的<code>html</code>页面, 可以在<code>Actions</code>栏看到进度和日志</p>
+<p>如果是绿色的勾， 就代表成功了，否则就是失败了，可以点进去看构建日志报了什么错，一般都是前面的值填错了</p>
+<p><img src="../../assets/images/github_action.jpg" alt="" /></p>
+<h2 id="%E8%AE%BE%E7%BD%AE-pages-%E6%9C%8D%E5%8A%A1">设置 pages 服务</h2>
+<p>然后在设置里面找到 <code>pages</code> 服务设置，打开即可，然后访问对应的域名，可以勾选 <code>Enforce HTTPS</code>来使能<code>HTTPS</code>（推荐）<br />
+比如这里是<code>https://teedoc.github.io/</code></p>
+<blockquote class="spoiler warning">
+<p> 注意如果根路径不是<code>/</code>，而且没有自定义域名（自定义域名见后面的介绍），比如<code>https://teedoc.github.io/my_site/</code>， 则需要在<code>site_config.json</code>中配置<code>&quot;site_root_url&quot;:&quot;/my_site/&quot;</code></p>
+</blockquote>
+<p><img src="../../assets/images/github_pages.jpg" alt="" /></p>
+<h2 id="Pages-%E6%9C%8D%E5%8A%A1%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D">Pages 服务自定义域名</h2>
+<p>部署好后会有一个默认的域名，比如<code>teedoc.github.io</code>， 如果想使用自己的域名，比如<code>teedoc.neucrack.com</code>，即需要自定义域名。</p>
+<p>在<code>site_config.json</code>文件中设置了网站根目录映射的文件目录，比如这里是<code>pages/index/zh</code>目录：</p>
+
+<pre class="language-json"><code class="language-json">        &quot;pages&quot;: {
+            &quot;/&quot;: &quot;pages/index/zh&quot;,
+            &quot;/en/&quot;: &quot;pages/index/en&quot;
+        },
+</code></pre>
+<p>在这个目录新建一个文件，取名<code>CNAME</code>注意没有后缀，然后写入自定义的域名比如<code>teedoc.neucrack.com</code>保存文件，提交即可</p>
+<blockquote>
+<p>你可能在设置里面看到了<code>custom domain</code>的设置，但是需要像这里说的设置<code>CNAME</code>文件才能保持一直生效，不然下次提交自定义域名就失效了</p>
+</blockquote>
+<h2 id="%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E8%BF%9B%E9%98%B6%E9%85%8D%E7%BD%AE">自动构建进阶配置</h2>
+<p>在<code>.github/workflows/publish.yml</code> 文件中配置了构建的流程, 主要包含了构建文档, 和推送文档到<code>gh-pages</code>分支, 可以根据情况修改脚本.</p>
+<p>推送文档到<code>gh-pages</code>分支用了, <a href="https://github.com/JamesIves/github-pages-deploy-action"  target="_blank">github-pages-deploy-action</a> 这个 <code>github actioin</code> 插件, 更多进阶的用法请阅读这个插件的文档</p>
+<p>一般用上面的方式就足够了, 甚至不用配置任何参数就可以使用, 另外, <code>publish.yml</code> 底部提供了不用插件的推送写法, 如果你需要, 可以复制到上面使用, 使用时可能需要用到以下知识点:</p>
+<ul>
+<li>生成 ssh 密钥</li>
+</ul>
+<p>在本地生成一对<code>key</code>（windows下需要先安装相关软件，请自行安装（安装git就会有））</p>
+
+<pre class="language-none"><code class="language-none">ssh-keygen -t rsa -f key.txt 
+</code></pre>
+<p>得到了<code>key.txt</code>和 <code>key.key.pub</code>两个文件</p>
+<ul>
+<li>设置密钥</li>
+</ul>
+<p>到文档项目的设置里面设置<code>ssh</code>密钥, 添加一个<code>ssh</code>密钥， 拷贝 <code>key.txt.pub</code> 中的内容，注意是<code>pub</code>文件，即公钥，选中<strong>允许写入权限</strong>, 名字随便取<br />
+<img src="../../assets/images/github_deploy_key.jpg" alt="" /></p>
+<p>然后点击<code>Secrets</code>，设置秘密键值对， 需要设置的变量有：</p>
+<ul>
+<li><code>ACCESS_KEY</code>: 复制<code>key.txt</code>中的内容</li>
+<li><code>GIT_EMAIL</code>: 设置一个<code>git</code>提交邮箱，设置你的<code>github</code>邮箱即可</li>
+<li><code>GIT_NAME</code>: 设置一个<code>git</code>提交名字，设置你的<code>github</code>名字即可</li>
+<li><code>REPO</code>: 仓库地址， 设置为<code>组织名/仓库名</code>或者<code>用户名/仓库名</code>，比如<code>teedoc/teedoc.github.io</code>即可</li>
+</ul>
+<p><img src="../../assets/images/github_secrets.jpg" alt="" /></p>
+<p>当然, 这些变量也可以通过优化脚本直接从提交记录中获得(除了<code>ACCESS_KEY</code>), 有兴趣可以优化, 也欢迎提交 PR</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/zh/usage/deploy.html">
+                            <span class="icon"></span>
+                            <span class="label">部署</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/zh/usage/deploy_nginx.html">
+                            <span class="label">使用 nginx 部署到服务器</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

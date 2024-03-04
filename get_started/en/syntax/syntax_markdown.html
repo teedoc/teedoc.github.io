@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="teedoc, markdown, syntax">
+    
+    
+    <meta name="description" content="teedoc's markdown syntax introduction and examples">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>markdown syntax - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["teedoc", "markdown", "syntax"], "date": "2021-09-19", "update": [{"date": "2021-09-19", "version": "Plugin v2.10.3", "author": "neucrack", "content": ["Metadata fully support yaml format", "Support <code>update</code> meta key to generate update history table", "Support customize header ID with <code>{#id}</code> syntax", "Support <code>tabset</code> syntax", "Support <code>details</code> syntax", "Support subscript and superscript syntax"]}], "ts": 1632009600, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/en/">Install</a></li>
+<li class=""><a  href="/develop/en/">Develop</a></li>
+<li class=""><a  href="/blog/">blog</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: English</a><ul><li class="active"><a  href="/get_started/en/syntax/syntax_markdown.html">English</a></li>
+<li class=""><a  href="/get_started/zh/syntax/syntax_markdown.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/index.html"><span class="label">Introduction to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/sites.html"><span class="label">Website using teedoc</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Baisc usage</span></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/install/index.html"><span class="label">Install teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/start.html"><span class="label">Doc structure and config</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">Write content(Syntax)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/get_started/en/syntax/syntax_markdown.html"><span class="label">markdown syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_jupyter.html"><span class="label">Jupyter syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_html.html"><span class="label">HTML syntax</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/write_attention.html"><span class="label">Pay attention to when writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/blog.html"><span class="label">Blog</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy.html"><span class="label">Deployment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_github_pages.html"><span class="label">Deploy to github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_nginx.html"><span class="label">Use nginx to deploy to the server</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cloud.html"><span class="label">Deploy to cloud service</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cdn.html"><span class="label">Use CDN to accelerate website</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/problems.html"><span class="label">Common problems</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Advanced use</span></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/index.html"><span class="label">Plugins</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/plugins/themes.html"><span class="label">Theme Plugins</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/others.html"><span class="label">Other plugins</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/seo.html"><span class="label">SEO (Optimize for Search Engines)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/layout_template.html"><span class="label">Customize layout</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/i18n.html"><span class="label">Internationalization(i18n/Translate)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/404.html"><span class="label">Customize 404 page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/gitbook2teedoc.html"><span class="label">Convert gitbook to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/list_files_by_size.html"><span class="label">Find big files</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/compare_dirs.html"><span class="label">list difference in two dir</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">More</span></li>
+<li class="not_active with_link"><a href="/get_started/en/more/history.html"><span class="label">Update history</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">More samples(not collapsed by default)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Second-level subdirectory example</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sample three-level sub-directory</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc1.html"><span class="label">Article 1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc2.html"><span class="label">Article 2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Heading auto count</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/multi_h1.html"><span class="label">Multi h1 titile in page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/heading_no_counter.html"><span class="label">Cancel heading auto count</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">This is a external link</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>markdown syntax</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>teedoc</li>
+                            
+                                <li>markdown</li>
+                            
+                                <li>syntax</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2021-09-19">
+                                    2021-09-19
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/en/syntax/syntax_markdown.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>Update history</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Version</th>
+                                                <th>Author</th>
+                                                <th>Update content</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2021-09-19</td>
+                                                    <td>Plugin v2.10.3</td>
+                                                    <td>neucrack</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>Metadata fully support yaml format</li>
+                                                        
+                                                            <li>Support <code>update</code> meta key to generate update history table</li>
+                                                        
+                                                            <li>Support customize header ID with <code>{#id}</code> syntax</li>
+                                                        
+                                                            <li>Support <code>tabset</code> syntax</li>
+                                                        
+                                                            <li>Support <code>details</code> syntax</li>
+                                                        
+                                                            <li>Support subscript and superscript syntax</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>This article is a document written using <code>Markdown</code>, using the page effect generated by <code>teedoc</code>, the source code of <code>Markdown</code> file can be found <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/en/syntax/syntax_markdown.md"  target="_blank">here</a></p>
+</blockquote>
+<h2 id="Markdown-using-brief">Markdown using brief</h2>
+<p>The file placed under the document directory, if it is a recognized file, such as <code>*.md</code>, it will be converted to <code>*.html</code>, if it is not recognized, such as <code>*.jpg</code>, it will be copied intact into the output folder (<code>out</code>).</p>
+<p>The default <code>Markdown</code> parsing is done by the plugin <code>teedoc-plugin-markdown-parser</code>, which is used by default in the template project.</p>
+<p>If you need to link the documentation to the left directory, configure it in <code>sidebar.json</code> or <code>sidebar.yaml</code>.</p>
+<p>If you have used <code>Markdown</code>, it is also highly recommended to spend 2 minutes browsing it!</p>
+<h2 id="Markdown-basic-content-format">Markdown basic content format</h2>
+<p>You need to confirm that a <code>markdown</code> parser plugin is enabled in <code>site_config.json</code>, such as <code>teedoc-plugin-markdown-parser</code>.</p>
+<p>Create a folder or file in the directory corresponding to <code>config.json</code>, such as <code>get_started/zh/syntax/syntax_markdown.md</code> (<code>README.md</code> will eventually generate <code>index.html</code>), pay attention to use <code>UTF- 8</code> file encoding (do not use <code>Windows</code> default Notepad), it is recommended to use <a href="https://code.visualstudio.com/"  target="_blank">vscode</a> + <code>Markdown Preview Enhanced</code> plugin, the default file will be <code>UTF-8</code>Encoding, if not, you can also click the encoding in the lower right corner and click the pop-up option <code>Save with encoding</code> and select <code>UTF-8</code> to change the encoding.<br />
+<img src="../../assets/images/vscode_status_bar.png" alt="vscode_status_bar" /></p>
+<h3 id="Markdown-metadata-header">Markdown metadata header</h3>
+<p>Each <code>md</code> file can add a header, also called <code>metadata</code> (metadata in Chinese). The article information is set through these key values, and the format is <code>yaml</code> format. Of course, this file header is optional, or you can Do not write</p>
+
+<pre class="language-markdown"><code class="language-markdown">---
+title: markdown syntax
+tags: teedoc, markdown, syntax
+keywords: teedoc, markdown, syntax
+desc: teedoc's markdown syntax introduction and examples
+id: zh_readme
+class: zh_readme
+draft: false
+# Start with a # sign to indicate a comment
+---
+</code></pre>
+<ul>
+<li><code>title</code>: the title of the article, can be used if there is no metadata header</li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown"># Article title
+</code></pre>
+<p>or</p>
+
+<pre class="language-markdown"><code class="language-markdown">article title
+===
+</code></pre>
+<ul>
+<li><code>keywords</code>: Keywords, multiple keywords separated by commas <code>,</code> will be added to the <code>html</code> header, which is convenient for search engines to crawl, and will not be displayed on the page. Can also be written in <code>yaml</code> list format</li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown">keywords:
+  - teedoc
+  - markdown
+  - grammar
+</code></pre>
+<ul>
+<li><code>desc</code>: The page description will be added to the <code>html</code> header and will not be displayed on the page, which is convenient for search engines to crawl</li>
+<li><code>tags</code>: article tags, which will be displayed on the page. Multiple tags are separated by commas <code>,</code>, or they can be written in the format of <code>yaml</code> list, same as <code>keywords</code></li>
+<li><code>id</code>: The <code>id</code> of the page, which will be added to the <code>html</code> tag, such as <code>&lt;html id=&quot;zh_readme&quot;&gt;...&lt;/html&gt;</code>, usually not needed, usually in a single page for a certain page It may be used when customizing <code>css</code> alone, it will override the settings in <code>config.json</code></li>
+<li><code>class</code>: page <code>class</code>, separated by commas <code>,</code>, can not be set, it will override the settings in <code>config.json</code>. For example, you can set the <code>css</code> style of a specific page by setting this value. For specific supported styles, see <a href="../plugins/themes.html"  >theme plugin documentation</a></li>
+<li><code>layout</code>: The layout template used by the page. By default, the configuration in the theme plugin will be used. If you need to customize the layout of this page, you can set this parameter. The path is relative to the path set by <code>layout_root_dir</code> in <code>site_config</code>, <code>layout_root_dir</code> defaults to <code>layout</code>, so to use <code>layout/special_layout.html</code> just fill in <code>special_layout.html</code>. For layout template syntax see <a href="../usage/layout_template.html"  >layout documentation</a></li>
+<li><code>date</code>: the last update date, the format is <code>2022-09-15</code><ul>
+<li>If not set: The last modification time of the file will be used by default. If it is a <code>git</code> repository, it will automatically get the time of the last commit of the page from <code>git</code>. The system reads the last modified time (this is most likely inaccurate). In addition, if <code>update</code> is filled with a value, the latest modification date in <code>update</code> will be used</li>
+<li>If you don't want to show the last modified date, disable it by setting the value to <code>false</code></li>
+<li>If the <code>update</code> value is set, the value in <code>date</code> will still be used first</li>
+</ul>
+</li>
+<li><code>update</code>: update history, an update history table will be generated at the beginning of the article, format:</li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown">update:
+  - date: 2022-09-15
+    author: author1
+    version: 1.1.0
+    content: updated xxx
+  - date: 2022-08-05
+    author: author2
+    version: 1.0.0
+    content: updated xxx
+</code></pre>
+<ul>
+<li><code>update_open</code>: display update history or not, default <code>true</code>, set to <code>false</code> will collapse update history(supported by theme plugin)</li>
+<li><code>draft</code>: Whether it is a draft, the default is <code>false</code>. If set to <code>true</code>, this file will be ignored when generating the page.</li>
+</ul>
+<h3 id="Markdown-content">Markdown content</h3>
+<p>The content is written in <code>Markdown</code> syntax, because the main title will be converted into a <code>&lt;h1&gt;</code> tag, so it is recommended to start with the second-level title in the content. Such a page has only one <code>&lt;h1&gt;</code> tag, which is convenient for search engines to crawl take, such as</p>
+
+<pre class="language-markdown"><code class="language-markdown">---
+title: teedoc
+---
+
+## Title one
+
+content. . .
+
+## title two
+
+content. . .
+</code></pre>
+<h2 id="title">title</h2>
+<h3 id="Level-3-heading">Level 3 heading</h3>
+<h4 id="Level-4-heading">Level 4 heading</h4>
+<h4 id="Level-4-Heading-2">Level 4 Heading 2</h4>
+<h4 id="Level-4-Heading-3">Level 4 Heading 3</h4>
+<h5 id="Level-5-heading">Level 5 heading</h5>
+<h6 id="Level-6-heading">Level 6 heading</h6>
+<h3 id="custom-id">Title custom id</h3>
+<p>Here the custom <code>id</code> is <code>custom-id</code></p>
+<p>Up to level 6 headings</p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">### Level 3 heading
+
+#### Level 4 heading
+
+#### Level 4 Heading 2
+
+#### Level 4 Heading 3
+
+##### Level 5 heading
+
+###### Level 6 heading
+
+### Title custom id {#custom-id}
+Here the custom `id` is `custom-id`
+</code></pre>
+</div>
+</details>
+<h2 id="emphasis%2C-italics%2C-strikethrough">emphasis, italics, strikethrough</h2>
+<p>We only know that <strong>Earth</strong> has the environment for humans to live, and <del>Mars</del>, and maybe <em>other planets</em>.</p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">We only know that **Earth** has the environment for humans to live, and ~~Mars~~, and maybe *other planets*.
+</code></pre>
+</div>
+</details>
+<h2 id="separator">separator</h2>
+<p>delimiter</p>
+
+<pre class="language-markdown"><code class="language-markdown">---
+***
+</code></pre>
+<hr />
+<hr />
+<h2 id="Link">Link</h2>
+<p><a href="../index.html"  >relative path, README.md file</a>: <code>../README.md</code>, will be automatically converted to <code>index.html</code><br />
+<a href="./syntax_markdown.html"  >relative path, md file</a>: <code>./syntax_markdown.md</code>, will be converted to a link at the end of <code>.html</code> of the document<br />
+<a href="https://storage.googleapis.com/tensorflow_docs/docs-l10n/site/en-us/tutorials/quickstart/beginner.ipynb"  target="_blank">absolute path, http file</a>: <code>https://. . . /beginner.ipynb</code>, the original link, will not be modified<br />
+<a href="./syntax_jupyter.html"  >relative path, ipynb file</a>: <code>./syntax_jupyter.ipynb</code>, will be converted to a link at the end of <code>.html</code> of the document</p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">[relative path, README.md file](../index.html)
+[relative path, md file](./syntax_markdown.html)
+[absolute path, http file](https://storage.googleapis.com/tensorflow_docs/docs-l10n/site/en-us/tutorials/quickstart/beginner.ipynb)
+[relative path, ipynb file](./syntax_jupyter.html)
+</code></pre>
+</div>
+</details>
+<h2 id="list">list</h2>
+<p>List item:</p>
+<ul>
+<li><p>steamed stuffed bun</p>
+</li>
+<li><p>Steamed bun</p>
+</li>
+<li><p>Tea eggs</p>
+</li>
+<li><p>aaaaaaa</p>
+<ul>
+<li>Secondary list</li>
+<li>Secondary list</li>
+<li>Secondary list<ul>
+<li>Three-level list</li>
+<li>Three-level list</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>*bbbbbb</p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">List item:
+* steamed stuffed bun
+* Steamed bun
+* Tea eggs
+
+* aaaaaaa
+  * Secondary list
+  * Secondary list
+  * Secondary list
+    * Three-level list
+    * Three-level list
+*bbbbbb
+</code></pre>
+</div>
+</details>
+<h2 id="code-snippet">code snippet</h2>
+<p>This is an inline code <code>print(&quot;hello&quot;)</code>, or emphasis <code>teedoc</code></p>
+
+<pre class="language-python"><code class="language-python">print(&quot;hello&quot;)
+
+print(&quot;world&quot;)
+</code></pre>
+
+<pre class="language-c"><code class="language-c">#include &quot;stdio.h&quot;
+
+int main()
+{
+    printf(&quot;hello world&quot;);
+}
+</code></pre>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">     This is an inline code `print(&quot;hello&quot;)`, or emphasis `teedoc`
+     ```python
+       print(&quot;hello&quot;)
+
+       print(&quot;world&quot;)
+     ```
+
+     ```c
+       #include &quot;stdio.h&quot;
+
+       int main()
+       {
+           printf(&quot;hello world&quot;);
+       }
+     ```
+</code></pre>
+</div>
+</details>
+<h2 id="Comment-%28quote-block%29">Comment (quote block)</h2>
+<p>Below is a note</p>
+<blockquote>
+<p>Here is a comment (<code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>)<br />
+this is the second line of the comment</p>
+</blockquote>
+
+<pre class="language-python"><code class="language-python"># Here is the code snippet in the comment
+print(&quot;hello&quot;)
+</code></pre>
+<blockquote>
+<p>Notes<br />
+comment nesting<br />
+comment nesting</p>
+</blockquote>
+<p>Use markdown syntax in block quotes</p>
+<blockquote>
+<h4 id="The-quarterly-results-look-great%21">The quarterly results look great!</h4>
+<ul>
+<li>Revenue was off the chart.</li>
+<li>Profits were higher than ever.</li>
+</ul>
+<p><em>Everything</em> is going according to <strong>plan</strong>.</p>
+
+<pre class="language-c"><code class="language-c">printf(&quot;hello&quot;);
+</code></pre>
+</blockquote>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">     Below is a note
+     &gt; Here is a comment (`&lt;blockquote&gt;&lt;/blockquote&gt;`)
+     &gt; this is the second line of the comment
+     ```python
+     # Here is the code snippet in the comment
+     print(&quot;hello&quot;)
+     ```
+     &gt; Notes
+     &gt; comment nesting
+     &gt; comment nesting
+
+     Use markdown syntax in block quotes
+
+     &gt; #### The quarterly results look great!
+     &gt;
+     &gt; - Revenue was off the chart.
+     &gt; - Profits were higher than ever.
+     &gt;
+     &gt; *Everything* is going according to **plan**.
+     &gt; ```c
+     &gt; printf(&quot;hello&quot;);
+     &gt; ```
+</code></pre>
+</div>
+</details>
+<h2 id="warn">warn</h2>
+<p>The following is a warning message</p>
+<blockquote class="spoiler warning">
+<p> This is a warning message (<code>&lt;blockquote class=&quot;spoiler&quot;&gt;&lt;/blockquote&gt;</code>)</p>
+</blockquote>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">&gt;! This is a warning message (`&lt;blockquote class=&quot;spoiler&quot;&gt;&lt;/blockquote&gt;`)
+</code></pre>
+</div>
+</details>
+<h2 id="Emoji">Emoji</h2>
+<p>The <code>emoji</code> syntax is not currently supported, but you can directly copy the emoji from the <code>emoji</code> to the document, for example:<br />
+🍊 🍇 😀 😅 😇</p>
+<h2 id="superscript">superscript</h2>
+<p>H<sub>2</sub>O, y = x<sup>2</sup></p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">H~2~O, y = x^2^
+</code></pre>
+</div>
+</details>
+<h2 id="picture">picture</h2>
+<p>Resource files will be copied to the output folder (<code>out</code>), so the most important thing is how to reference them in the documentation</p>
+<ul>
+<li>The easiest and recommended method<br />
+Use relative paths:<br />
+Resource files can be placed in the corresponding directory of the document, such as document <code>docs/get_started/zh</code>, you can create <code>docs/get_started/zh/assets/images/logo.png</code>,<br />
+Then use relative path references in <code>docs/get_started/en/README.md</code>, i.e. <code>![](assets/images/logo.png)</code></li>
+<li>Advanced method<br />
+This situation is suitable for multiple documents referencing resources in the same folder (<code>url</code>), which is convenient for maintaining multiple documents, such as multilingual translation, or reducing <code>CDN</code> traffic consumption.<br />
+Use resources outside the document path, configured in <code>site_config.json</code>
+<pre class="language-json"><code class="language-json">{
+    &quot;route&quot;: {
+        &quot;docs&quot;: {
+            &quot;/get_started/en/&quot;: &quot;docs/get_started/en&quot;,
+        },
+        &quot;assets&quot;: {
+            &quot;/get_started/assets/&quot;: &quot;docs/get_started/assets&quot;
+        }
+    }
+}
+</code></pre>
+This setting will copy the entire directory of <code>docs/get_started/assets</code> to <code>/get_started/assets</code><br />
+So just use relative path references in <code>docs/get_started/en/README.md</code>, i.e. <code>![](../assets/images/logo.png)</code></li>
+</ul>
+<p>To display this image, you need to set the <code>route</code> key in <code>site_config.json</code></p>
+<p><img src="../../assets/images/logo.png" alt="This is an image" /><br />
+<img src="../assets/images/logo.png" alt="This is an image" /></p>
+<p><img src="../../assets/images/logo.png" alt="This is an image" /><img src="../assets/images/logo.png" alt="This is an image" /></p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">![This is an image](../../assets/images/logo.png)
+![This is an image](../assets/images/logo.png)
+
+![This is an image](../../assets/images/logo.png)![This is an image](../assets/images/logo.png)
+</code></pre>
+</div>
+</details>
+<h2 id="video">video</h2>
+<p>Use the HTML <code>video</code> tag directly:</p>
+
+<pre class="language-html"><code class="language-html">&lt;video src=&quot;https://****.com/***.mp4&quot; controls=&quot;controls&quot; preload=&quot;auto&quot;&gt;your brower not support play video&lt;/video&gt;
+</code></pre>
+<p>There is no video here, so it is blank, put in the correct video and it can be played</p>
+<p><video src="" controls="controls" preload="auto">your brower or site not support play video</video></p>
+<h2 id="iframe-embedded-web-page">iframe embedded web page</h2>
+<p>The code shared by the general video platform can be used directly, you can set the width and height slightly</p>
+<iframe src="//player.bilibili.com/player.html?aid=52613549&bvid=BV144411J72P&cid=92076022&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen=" true" style="width:43vw;height:34vw;min-width: 85%;"> </iframe>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-html"><code class="language-html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=52613549&amp;bvid=BV144411J72P&amp;cid=92076022&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot; true&quot; style=&quot;width:43vw;height:34vw;min-width: 85%;&quot;&gt; &lt;/iframe&gt;
+</code></pre>
+</div>
+</details>
+<h2 id="quote-mark">quote mark</h2>
+<p>I can cook I am proud. <sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup></p>
+<p>This will be annotated at the end of the article</p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">I can cook I am proud. [^ dry rice man]
+
+[^ Dry Rice Man]: Lao Tzu said
+This will be annotated at the end of the article
+</code></pre>
+</div>
+</details>
+<h2 id="sheet">sheet</h2>
+<table>
+<thead>
+<tr>
+  <th>Header 1</th>
+  <th><em>Header</em> 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Cell 1</code></td>
+  <td><a href="http://example.com"  target="_blank">Cell 2</a> link</td>
+</tr>
+<tr>
+  <td>Cell 3</td>
+  <td><strong>Cell 4</strong></td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">| Header 1 | *Header* 2 |
+| -------- | -------- |
+| `Cell 1` | [Cell 2](http://example.com) link |
+| Cell 3 | **Cell 4** |
+</code></pre>
+</div>
+</details>
+<h2 id="task-list">task list</h2>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Mission 1</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Mission 2</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Mission 3</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>Mission 4</li>
+</ul>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">- [x] Mission 1
+- [x] Mission 2
+- [ ] Mission 3
+- [ ] Mission 4
+</code></pre>
+</div>
+</details>
+<h2 id="Title-link-%28in-page-jump%29">Title link (in-page jump)</h2>
+<p>For example, to jump to the title [iframe embedded web page] (#iframe-embedded web page), just</p>
+
+<pre class="language-markdown"><code class="language-markdown">[iframe embedded web page](#iframe-embedded web page)
+</code></pre>
+<p>Here spaces are replaced with a minus sign <code>-</code>.<br />
+In addition, if the title can also customize the <code>id</code>, such as</p>
+
+<pre class="language-markdown"><code class="language-markdown">## iframe embedded web page {#iframe-embed}
+</code></pre>
+<h2 id="HTML">HTML</h2>
+<p>You can write <code>HTML</code> directly in the <code>md</code> file:</p>
+<div class="hello">
+hello <br/> <img src="../../assets/images/logo.png"/>
+</div>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content"><p>Note that there are no blank lines</p>
+
+<pre class="language-html"><code class="language-html">&lt;div class=&quot;hello&quot;&gt;
+hello &lt;img src=&quot;../../assets/images/logo.png&quot;/&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+</details>
+<h2 id="math">math</h2>
+<p>Supports <code>tex</code> and <code>Latex</code> syntax, as well as <code>MathML</code> tags</p>
+<p>two spellings,</p>
+<ul>
+<li>One is inline, wrap the equation with the <code>$</code> symbol, such as</li>
+</ul>
+<p>The mass-energy equation $E=mc^2$ is familiar to everyone, right?</p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">The mass-energy equation $E=mc^2$ is familiar to everyone, right?
+</code></pre>
+</div>
+</details>
+<ul>
+<li>Another, block equation, wrap the equation with <code>$$</code>, such as</li>
+</ul>
+$$
+E=mc^2
+$$<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">$$
+E=mc^2
+$$
+</code></pre>
+</div>
+</details>
+<p>Other examples:<br />
+common:</p>
+<p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are<br />
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$</p>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$
+</code></pre>
+</div>
+</details>
+<p>Divide by:</p>
+$$
+\require{enclose}
+\begin{array}{r}
+                13 \\[-3pt]
+4 \enclose{longdiv}{52} \\[-3pt]
+     \underline{4}\phantom{2} \\[-3pt]
+                12 \\[-3pt]
+     \underline{12}\\0
+\end{array}\\
+$$<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">$$
+\require{enclose}
+\begin{array}{r}
+                13 \\[-3pt]
+4 \enclose{longdiv}{52} \\[-3pt]
+    \underline{4}\phantom{2} \\[-3pt]
+                12 \\[-3pt]
+    \underline{12}\\0
+\end{array}\\
+$$
+</code></pre>
+</div>
+</details>
+<p>Boxed:</p>
+$$
+\bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+$$<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">$$
+\bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+$$
+</code></pre>
+</div>
+</details>
+<h2 id="mermaid-support">mermaid support</h2>
+<p>Use mermaid to draw many types of charts. For detailed syntax and support, please see <a href="https://mermaid-js.github.io/"  target="_blank">official website</a></p>
+
+<div class="mermaid">sequenceDiagram
+  Alice-&gt;&gt;John: Hello John, how are you?
+  loop Healthcheck
+      John-&gt;&gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John--&gt;&gt;Alice: Great!
+  John-&gt;&gt;Bob: How about you?
+  Bob--&gt;&gt;John: Jolly good!
+</div>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">    ```mermaid
+    sequenceDiagram
+      Alice-&gt;&gt;John: Hello John, how are you?
+      loop Healthcheck
+          John-&gt;&gt;John: Fight against hypochondria
+      end
+      Note right of John: Rational thoughts!
+      John--&gt;&gt;Alice: Great!
+      John-&gt;&gt;Bob: How about you?
+      Bob--&gt;&gt;John: Jolly good!
+    ```
+</code></pre>
+<p>Or directly <code>html</code>:</p>
+
+<pre class="language-html"><code class="language-html">&lt;div class=&quot;mermaid&quot;&gt;
+sequenceDiagram
+  Alice-&gt;&gt;John: Hello John, how are you?
+  loop Healthcheck
+      John-&gt;&gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John--&gt;&gt;Alice: Great!
+  John-&gt;&gt;Bob: How about you?
+  Bob--&gt;&gt;John: Jolly good!
+&lt;/div&gt;
+</code></pre>
+</div>
+</details>
+<h2 id="Tab-page-%28tabset%29-support">Tab page (tabset) support</h2>
+<blockquote>
+<p>Because it is not a standard Markdown syntax, currently only supported by teedoc, so choose to use it according to your needs<br />
+Of course, generalization of the format to other parsers is also welcome</p>
+</blockquote>
+<p>Effect:</p>
+<div class="tabset tabset-id-tabset1">
+<div class="tabset-title">tab title (optional)</div>
+<div class="tabset-content"><div class="tabset-tab"><span class="tabset-tab-label tabset-tab-active" idx=0>Label one</span>
+<span class="tabset-tab-label " idx=1>Label two</span>
+</div>
+<div class="tabset-text-container"><div class="tabset-text tabset-text-active" idx=0><p>Content 1, you can use Markdown syntax</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+<div class="tabset-text " idx=1><p>Content 2, you can use Markdown syntax</p>
+
+<pre class="language-java"><code class="language-java">  public class Main {
+      public static void main(String[] args) {
+          System.out.println(&quot;Hello World&quot;);
+      }
+  }
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>When selecting a tag in a page, the corresponding tag in the tag page with the same <code>id</code> will be automatically selected, but not if the <code>id</code> is different or the <code>id</code> is not set.</p>
+<div class="tabset tabset-id-tabset1">
+<div class="tabset-content"><div class="tabset-tab"><span class="tabset-tab-label tabset-tab-active" idx=0>Label one</span>
+<span class="tabset-tab-label " idx=1>Label two</span>
+</div>
+<div class="tabset-text-container"><div class="tabset-text tabset-text-active" idx=0><p>Content 1, you can use Markdown syntax</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+<div class="tabset-text " idx=1><p>Content 2, you can use Markdown syntax</p>
+
+<pre class="language-java"><code class="language-java">  public class Main {
+      public static void main(String[] args) {
+          System.out.println(&quot;Hello World&quot;);
+      }
+  }
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset ">
+<div class="tabset-content"><div class="tabset-tab"><span class="tabset-tab-label tabset-tab-active" idx=0>Label one</span>
+<span class="tabset-tab-label " idx=1>Label two</span>
+</div>
+<div class="tabset-text-container"><div class="tabset-text tabset-text-active" idx=0><p>Content 1, you can use Markdown syntax</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+<div class="tabset-text " idx=1><p>Content 2, you can use Markdown syntax</p>
+
+<pre class="language-java"><code class="language-java">  public class Main {
+      public static void main(String[] args) {
+          System.out.println(&quot;Hello World&quot;);
+      }
+  }
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">Effect:
+(note that a blank line is required here)
+.. tabset::tab title (optional)
+    :id: tabset1
+    (note that it must be aligned with the above tabset or more spaces)
+    ## Label one
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println(&quot;Hello World&quot;)
+      }
+    ```
+
+    ## Label two
+
+    Content 2, you can use Markdown syntax
+    ```java
+      public class Main {
+          public static void main(String[] args) {
+              System.out.println(&quot;Hello World&quot;);
+          }
+      }
+    ```
+</code></pre>
+</div>
+</details>
+<h2 id="Details-page-%28details%29-support">Details page (details) support</h2>
+<blockquote>
+<p>Because it is not a standard Markdown syntax, currently only supported by teedoc, so choose to use it according to your needs<br />
+Of course, generalization of the format to other parsers is also welcome</p>
+</blockquote>
+<p>This is a <code>Markdown</code> syntax for <code>HTML5</code> <code>details</code> tags, <code>HTML</code> is written like this:</p>
+
+<pre class="language-html"><code class="language-html">&lt;details&gt;
+  &lt;summary&gt;Title, click to expand&lt;/summary&gt;
+  &lt;div class=&quot;details-content&quot;&gt;
+    &lt;p&gt;This is the content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+</code></pre>
+<p>Effect:</p>
+<details>
+<summary>Title, click to expand</summary>
+<div class="details-content"><p>Content 1, you can use Markdown syntax</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+</details>
+<details open>
+<summary>title, expanded by default</summary>
+<div class="details-content"><p>Content 1, you can use Markdown syntax</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+</details>
+<details>
+<summary>Markdown source code, click to expand</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">.. details::Title, click to expand
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println(&quot;Hello World&quot;)
+      }
+    ```
+
+.. details:: title, expanded by default
+    :open:true
+
+    Content 1, you can use Markdown syntax
+    ```kotlin
+      fun main() {
+          println(&quot;Hello World&quot;)
+      }
+    ```
+</code></pre>
+</div>
+</details>
+<section class="footnotes">
+<ol>
+<li id="fn-1"><p>Lao Tzu said<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+</ol>
+</section>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/en/usage/start.html">
+                            <span class="icon"></span>
+                            <span class="label">Doc structure and config</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/en/syntax/syntax_jupyter.html">
+                            <span class="label">Jupyter syntax</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">Site generated by teedoc</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">website source files</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="teedoc, markdown, jupyter notebook, html, 文档生成, 替代gitbook, 网站生成, 静态网站, 静态博客, 开源文档生成工具">
+    
+    
+    <meta name="description" content="teedoc，开源静态文档网站生成工具, 将 markdown 或者 jupyter notbook 转换成 html 静态网页， 用于个人或企业建站，建博客，建资料库，wiki等">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>开源静态文档网站生成工具 teedoc - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "这是一个支持国际化的消息示例</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": "2024-03-04", "update": [], "ts": 1709525151, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: 中文 简体</a><ul><li class=""><a  href="/get_started/en/index.html">English</a></li>
+<li class="active"><a  href="/get_started/zh/index.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">基本使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/quick_start.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">文档结构和配置</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">编写文档内容(语法)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_html.html"><span class="label">HTML 语法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cloud.html"><span class="label">部署到云服务商</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">进阶使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/layout_template.html"><span class="label">自定义页面模板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/i18n.html"><span class="label">国际化(i18n/翻译)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/404.html"><span class="label">自定义404页面</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/list_files_by_size.html"><span class="label">查找大文件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/compare_dirs.html"><span class="label">找出两目录的不同文件</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">更多样例(目录默认展开)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">二级子目录</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">文章标题自动编号</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/multi_h1.html"><span class="label">页面有多个一级标题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/heading_no_counter.html"><span class="label">标题不自动编号</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>开源静态文档网站生成工具 teedoc</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2024-03-04">
+                                    2024-03-04
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/README.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>官网: <a href="https://teedoc.neucrack.com/"  target="_blank">teedoc.neucrack.com</a> 或 <a href="https://teedoc.github.io/"  target="_blank">teedoc.github.io</a><br />
+本文档源文件: <a href="https://github.com/teedoc/teedoc.github.io"  target="_blank">github.com/teedoc/teedoc.github.io</a><br />
+源码: <a href="https://github.com/teedoc/teedoc"  target="_blank">https://github.com/teedoc/teedoc</a> 如果你喜欢这个项目，请务必登录 <a href="https://github.com/teedoc/teedoc"  target="_blank">github</a> 给项目点个 <strong>star</strong></p>
+<p>将 <code>Markdown</code> 或者 <code>Jupyter Notebook</code> 格式的文档转换为 <code>HTML</code> 静态网页</p>
+<p>以下场景可使用<code>teedoc</code>：</p>
+<ul>
+<li>建文档网站，并且最好支持放多份文档（比如你有一本叫<code>Python学习</code>和<code>C++学习</code>两本书，它们都有单独的目录, <code>teedoc</code>则是书库）</li>
+<li>文档和网页页面共存，支持自定义<code>HTML</code>页面</li>
+<li>建<code>WiKi</code>网站</li>
+<li>建个人或者企业知识库</li>
+<li>建个人或者企业网站</li>
+<li>博客</li>
+</ul>
+<p>如果你在使用过程中遇到了问题, 可以在<a href="https://github.com/teedoc/teedoc/issues"  target="_blank">这里</a> (需要先注册并登录 github) 寻找相似问题, 或者创建 issue</p>
+<p>也可以加 <a href="https://jq.qq.com/?_wv=1027&amp;k=2FdCPllm"  target="_blank">QQ群 566531359</a> 讨论</p>
+<h2 id="%E7%89%B9%E6%80%A7">特性</h2>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>多文档支持， 将多种文档和网页放到同一个站点</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>使用简单， 跨平台，只依赖 <code>Python3</code></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>不需要数据库，网站全静态页面</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>部署简单， 生成的网站是全静态页面，直接拷贝到服务器或者上传到三方机构即可部署</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>书写简单，使用 <a href="./syntax/syntax_markdown.html"  >Markdown 语法</a>编写</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/><a href="./syntax/syntax_jupyter.html"  >Jupyter notebook 支持</a></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>HTML 支持，可直接使用 HTML 编写页面， 并且支持 Jinja2 模板语法，自由度大</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>插件支持，默认提供了一些插件比如顶栏通知、搜索、评论、统计、google翻译页面等</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>多主题支持（由插件实现）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>通过 css 控制精确到页的样式（通过自定义每页的 id 和 class 实现）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>多级目录支持（无穷级）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>多语言支持（手动翻译）(国际化/i18n)</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>多语言支持（翻译插件）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>多版本支持（实现方法同多语言）</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>搜索支持</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>SEO 友好</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>实时预览更改</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>并行构建，更快的构建速度</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>博客支持</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>gitbook 切换过来友好, 只需要设置好 <code>route</code> 和使用命令(<code>summary2yaml</code>)转换目录文件(<code>SUMMARY.md</code>)即可</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>评论(插件), 比如 <code>gitalk</code></li>
+</ul>
+<h2 id="%E6%BC%94%E7%A4%BA">演示</h2>
+<p><a href="https://teedoc.github.io/"  target="_blank">本网站</a>即采用 <code>teedoc</code> 生成，你现在看到的就是生成后的网站的样子。</p>
+<p>另外还有其它网站使用了<code>teedoc</code>，具体请看<a href="./usage/sites.html"  >这里</a></p>
+<h2 id="%E7%B1%BB%E4%BC%BC%E7%9A%84%E5%B7%A5%E5%85%B7">类似的工具</h2>
+<p>实际上这种类型的工具已经有很多了，但是每一个又稍微不同，按照自己的需求选择一个就好了</p>
+<p>如果你有选择困难症，那么符合以下部分条件，都建议使用 teedoc：</p>
+<ul>
+<li>用来做文档网站，或者想把企业或组织官网+手里的多份文档统一放到一个网站？还各种语言的网站？ 用 <code>teedoc</code> 吧</li>
+<li>使用 <code>Jupyter notebook</code> 写文档或代码？ 果断选择 <code>teedoc</code></li>
+<li>功能符合你的需求吗？</li>
+<li>界面符合你的审美吗（可以自定义 <code>css</code>， 或者换主题插件）</li>
+<li>对 <code>Python</code> 熟悉？ 可以随时自定义插件和功能</li>
+</ul>
+<p>其它类似工具：</p>
+<ul>
+<li><code>docusaurus</code>: <code>teedoc</code> 的 <code>UI</code> 布局几乎和它类似，不过它使用 <code>ract</code> 写的， <code>teedoc</code> 是原生 <code>js</code>, 如果你精通 <code>ract</code> 可以考虑用这个，新手可能用起来比较吃力</li>
+<li><code>gitbook</code>: 曾经很好用的工具，但是官方不维护了，现在只有商业化网站了，转向商业了，不建议再使用，特别是国内可能无法访问</li>
+<li><code>docsify</code>: 只需要一个页面，<code>markdown</code> 在浏览器渲染，而不是预先渲染成 <code>HTML</code>， 好处就是轻量，但是 <code>SEO</code> 不太友好，可以用它的 <code>SSR</code> 功能， <code>nodejs</code> 编写</li>
+<li><code>readthedocs(Sphinx)</code>: 其实是用了用 <code>Sphinx</code> 做为生成工具，<code>Python</code> 官网文档就是这个工具生成的， 很多开源项目使用的工具，<code>readthedocs</code> 只是一个公开文档的网站，你不用自己搭建网站，注册登录就可以开始写文档，对 <code>RST</code> 格式支持友好，如果你的文档比较单一可以考虑使用</li>
+<li><code>mkdoc</code>: 也是一个 <code>python</code> 写的工具，简单易上手，插件也多，如果你的文档是单一语言的文档，可以使用这个工具</li>
+</ul>
+<h2 id="%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E5%BB%BA%E8%AE%AE">一些使用建议</h2>
+<ul>
+<li>在 footer 添加 <a href="https://github.com/teedoc/teedoc"  target="_blank">使用 teedoc 生成</a>， 帮助更多人发现 teedoc，促进项目的成长</li>
+<li>使用模板项目开始一个新的文档项目，可以先跑起来，然后再根据自己的需求修改，这样上手更快哦</li>
+</ul>
+<h2 id="%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</h2>
+<p>查看<a href="./usage/quick_start.html"  >快速开始</a>来安装并使用吧！</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/zh/usage/sites.html">
+                            <span class="label">使用了 teedoc 的网站</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

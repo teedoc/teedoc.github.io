@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="tensorflow gpu jupyterlab docker deepin ubuntu linux 环境 安装 NVIDIA 驱动 docker">
+    
+    
+    <meta name="description" content="Tensorflow Linux 下 GPU + Docker 环境安装">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>TensorFlow Linux GPU + jupyterlab 环境安装 （Docker） (Ubuntu Deepin Manjaro) - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "这是一个支持国际化的消息示例</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: 中文 简体</a><ul><li class=""><a  href="/get_started/en/more/example_docs/doc2.html">English</a></li>
+<li class="active"><a  href="/get_started/zh/more/example_docs/doc2.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">基本使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/quick_start.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">文档结构和配置</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">编写文档内容(语法)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_html.html"><span class="label">HTML 语法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cloud.html"><span class="label">部署到云服务商</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">进阶使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/layout_template.html"><span class="label">自定义页面模板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/i18n.html"><span class="label">国际化(i18n/翻译)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/404.html"><span class="label">自定义404页面</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/list_files_by_size.html"><span class="label">查找大文件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/compare_dirs.html"><span class="label">找出两目录的不同文件</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">更多样例(目录默认展开)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent no_link"><a><span class="label">二级子目录</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">文章标题自动编号</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/multi_h1.html"><span class="label">页面有多个一级标题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/heading_no_counter.html"><span class="label">标题不自动编号</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>TensorFlow Linux GPU + jupyterlab 环境安装 （Docker） (Ubuntu Deepin Manjaro)</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/more/example_docs/doc2.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>版权声明：本文为 neucrack 的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br />
+原文链接：<a href="https://neucrack.com/p/116"  target="_blank">https://neucrack.com/p/116</a></p>
+</blockquote>
+<p>这里使用 docker ， 安装环境更加简单（只需要装 NVIDIA 驱动，不需要装cuda，当然也不用为cuda版本烦恼）稳定～<br />
+而且可以同时运行多个 docker，比如同时运行多个 jupyterlab 给不同人使用</p>
+<h2 id="%E5%AE%89%E8%A3%85docker">安装docker</h2>
+<p>安装 docker，<strong>版本必须是19.03及以上</strong>（可以使用<code>docker --version</code> 查看），如果版本低于这个版本，后面使用<code>nvidia-docker</code> 驱动就会失败，会提示找不到<code>--gpu all</code> 参数</p>
+<h3 id="%E5%AE%89%E8%A3%85">安装</h3>
+<ul>
+<li>如果是Manjaro， 直接<code>yay -S docker</code></li>
+<li>其他发行版：</li>
+</ul>
+<p>参见官方教程：<a href="https://docs.docker.com/install/linux/docker-ce/debian/"  target="_blank">https://docs.docker.com/install/linux/docker-ce/debian/</a></p>
+<blockquote>
+<p>deepin 是基于 debian 9.0<br />
+如果是 deepin 则需要修改 <code>sudo vim /usr/share/python-apt/templates/Deepin.info</code> 里面的unstable为stable<br />
+并使用命令<code>sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/debian stretch stable&quot;</code></p>
+</blockquote>
+<h3 id="%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86">设置代理</h3>
+<p>如果下载慢，可能需要设置代理， 也可以不使用官方镜像，使用国内的镜像，比如 daocloud 镜像加速</p>
+<p>docker 代理设置参考： <a href="https://neucrack.com/p/286"  target="_blank">https://neucrack.com/p/286</a></p>
+<p>pull 镜像的时候可以设置代理让拉取更快， 创建容器时建议将代理去掉</p>
+<h3 id="%E8%AE%BE%E7%BD%AE%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AEdocker%EF%BC%88%E9%9D%9Eroot%EF%BC%89">设置当前用户可以访问docker（非root）</h3>
+<p>参考这里： <a href="https://docs.docker.com/install/linux/linux-postinstall/"  target="_blank">https://docs.docker.com/install/linux/linux-postinstall/</a></p>
+
+<pre class="language-none"><code class="language-none">sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker # 或者重新开启终端即可，如果未生效，可重启
+</code></pre>
+<h3 id="%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">常用命令</h3>
+<p><code>docker images</code>: 列出镜像列表<br />
+<code>docker run [options] image_name [command]</code>：从镜像新建一个容器<br />
+<code>docker ps</code>: 正在运行的容器<br />
+<code>docker ps -a</code>: 所有容器，包括没有正在运行的<br />
+<code>docker rm container_name</code>：删除容器<br />
+<code>docker rmi image_name</code>：删除镜像<br />
+<code>docker start container_name</code>：启动容器<br />
+<code>docker attatch container_name</code>：附着到容器里<br />
+<code>docker exec conrainer_name [comand]</code>：在容器中执行命令<br />
+<code>docker logs container_name</code>: 查看容器执行log</p>
+<p><code>docker build -t image_name .</code>：从 Dockerfile 构建一个镜像</p>
+<h3 id="docker-run-%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0">docker run 常用参数</h3>
+<p><code>-it</code>：启用交互式终端<br />
+<code>-rm</code>：及时删除，不保存容器，即退出后就删除<br />
+<code>--gpus all</code>：启用所有GPU支持<br />
+<code>-p port1:port2</code>：宿主机和容器端口映射，port1为宿主机的端口<br />
+<code>-v volume1:volume2</code>：宿主机和容器的磁盘映射， volume1是宿主机的文件夹，比如映射<code>/home/${USER}/notes</code>到<code>/tf/notes</code><br />
+<code>--name name</code>：给容器取名，如果没有这个参数，名字就是随机生成的<br />
+<code>--device device:container_device</code>：挂在设备，比如<code>/dev/ttyUSB0:/dev/ttyUSB0</code><br />
+<code>--network=host</code>： 使用宿主机的网络<br />
+<code>--restart</code>: 自动启动, 可以用这个设置开机自启, 如果run的时候忘了可以用<code>docker update --restart=always 容器名</code>来更新</p>
+
+<pre class="language-none"><code class="language-none">no:		                     不自动重启容器. (默认value)
+on-failure:               容器发生error而退出(容器退出状态不为0)重启容器
+unless-stopped: 	在容器已经stop掉或Docker stoped/restarted的时候才重启容器
+always:                  在容器已经stop掉或Docker stoped/restarted的时候才重启容器
+</code></pre>
+<h2 id="%E5%AE%89%E8%A3%85%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8">安装显卡驱动</h2>
+<p>显卡安装部分独立写了一篇， 参考<a href="https://neucrack.com/p/252"  target="_blank">Linux Nvidia显卡安装</a></p>
+<h2 id="%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F">安装镜像</h2>
+<p>参考官方文档：<a href="https://www.tensorflow.org/install/docker"  target="_blank">https://www.tensorflow.org/install/docker</a></p>
+<p>比如我这里Ubuntu：（一定看文档，可能会不一样，有更新）</p>
+<ul>
+<li>安装 <a href="https://github.com/NVIDIA/nvidia-docker"  target="_blank">nvidia-docker</a></li>
+</ul>
+<p>按照 <code>readme</code> 中的<code>installation guide</code> 安装即可， 比如 <code>Ubuntu</code>：</p>
+
+<pre class="language-none"><code class="language-none"># Add the package repositories
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+</code></pre>
+<p>如果是deepin，则需要改一下系统版本</p>
+
+<pre class="language-none"><code class="language-none">distribution=&quot;ubuntu18.04&quot;
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+</code></pre>
+<p>如果是 Manjaro， 只需要命令 <code>yay -S nvidia-docker</code> 即可！（如果遇到下载慢，可以使用poipo设置全局代理，参考<a href="https://neucrack.com/p/275"  target="_blank">终端代理设置方法</a>）</p>
+<ul>
+<li>测试 nvidia-docker 以及cuda能不能使用起来</li>
+</ul>
+<p>使用<code>nvidia/cuda</code>这个镜像，这个镜像只是用来测试，用完也可以删掉，如果没有设置代理，不想花费太多时间拉取镜像，可以不用这个镜像，直接使用<code>tensorflow/tensorflow:latest-gpu-py3</code>这个镜像或者<code>neucrack/tensorflow-gpu-py3-jupyterlab</code>(或 <code>daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab</code>)这个镜像（推荐）（在前者的基础上装了jupyterlab， 而且做了更好的用户权限管理）</p>
+
+<pre class="language-none"><code class="language-none">lspci | grep -i nvidia
+docker run --gpus all --rm nvidia/cuda nvidia-smi
+</code></pre>
+<p>比如：</p>
+
+<pre class="language-none"><code class="language-none">➜  ~ sudo docker run --gpus all --rm nvidia/cuda nvidia-smi
+Tue Mar 10 15:57:12 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 440.64       Driver Version: 440.64       CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 106...  Off  | 00000000:01:00.0  On |                  N/A |
+| 33%   39C    P0    27W / 120W |    310MiB /  6075MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
++-----------------------------------------------------------------------------+
+
+</code></pre>
+
+<pre class="language-none"><code class="language-none">Wed Mar 11 02:04:26 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 430.40       Driver Version: 430.40       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:04:00.0 Off |                  N/A |
+| 35%   41C    P5    25W / 250W |      0MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:81:00.0 Off |                  N/A |
+| 39%   36C    P5    19W / 250W |      0MiB / 11178MiB |      2%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre>
+<p>如果驱动版本太低，这里就会提示需要更新驱动</p>
+<p>同时注意到cuda版本是10.2，可能tensorflow只支持到10.1，如果是在宿主机上直接装tensorflow就会报错不支持，这里用docker的好处就体现了，不用理会，只需要保证驱动装好就可以了</p>
+<p>deepin 出现了错误</p>
+
+<pre class="language-none"><code class="language-none">docker: Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused &quot;process_linux.go:449: container init caused \&quot;process_linux.go:432: running prestart hook 0 caused \\\&quot;error running hook: exit status 1, stdout: , stderr: nvidia-container-cli: ldcache error: open failed: /sbin/ldconfig.real: no such file or directory\\\\n\\\&quot;\&quot;&quot;: unknown.
+</code></pre>
+<p>参考这里的解决方法：<a href="https://github.com/NVIDIA/nvidia-docker/issues/614"  target="_blank">https://github.com/NVIDIA/nvidia-docker/issues/614</a> ，解决：</p>
+
+<pre class="language-none"><code class="language-none">ln -s /sbin/ldconfig /sbin/ldconfig.real
+</code></pre>
+<p>docker 出现错误：<code>nvidia-container-cli: initialization error: cuda error: unknown error</code><br />
+重启系统得到解决</p>
+<h2 id="%E8%BF%90%E8%A1%8C-tensorflow-with-GPU">运行 tensorflow with GPU</h2>
+<p>拉取镜像，直接拉取</p>
+
+<pre class="language-none"><code class="language-none">docker pull neucrack/tensorflow-gpu-py3-jupyterlab
+# docker pull tensorflow/tensorflow:latest-gpu-py3-jupyter
+# docker pull tensorflow/tensorflow
+# docker pull tensorflow/tensorflow:latest-gpu
+</code></pre>
+<p>国内可以使用放在 daocloud 的镜像，速度会快一些：</p>
+
+<pre class="language-none"><code class="language-none">docker pull daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab
+</code></pre>
+<p>执行测试语句：</p>
+
+<pre class="language-none"><code class="language-none">docker run --gpus all -it --rm neucrack/tensorflow-gpu-py3-jupyterlab python -c &quot;import tensorflow as tf; print('-----version:{}, gpu:{}, 1+2={}'.format(tf.__version__, tf.test.is_gpu_available(), tf.add(1, 2).numpy()) );&quot;
+</code></pre>
+<blockquote>
+<p>如果使用了daocloud，镜像名需要修改成<code>daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab</code></p>
+</blockquote>
+<p>如果没问题，就会出现以下输出（会伴随一大堆调试信息，也可能有警告信息，可以仔细看一下）：</p>
+
+<pre class="language-none"><code class="language-none">-----version:2.1.0, gpu:True, 1+2=3
+</code></pre>
+<h2 id="Jupyterlab">Jupyterlab</h2>
+
+<pre class="language-none"><code class="language-none">docker run --gpus all --name jupyterlab-gpu -it -p 8889:8889 -e USER_NAME=$USER -e USER_ID=`id -u $USER` -e GROUP_NAME=`id -gn $USER` -e GROUP_ID=`id -g $USER` -v /home/${USER}:/tf neucrack/tensorflow-gpu-py3-jupyterlab
+</code></pre>
+<blockquote>
+<p>如果使用了daocloud，镜像名需要修改成<code>daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab</code></p>
+</blockquote>
+<p>然后就能用浏览器在<code>http://127.0.0.1:8889/</code>地址使用 <code>jupyterlab</code>了，而且目录对应了设置的<code>/home/${USER}</code>目录</p>
+<p><img src="../../../assets/images/jupyterlab.jpg" alt="jupyterlab" /><br />
+<img src="../../../assets/images/jupyterlab_1.jpg" alt="jupyterlab.png" /></p>
+<p>退出直接<code>Ctrl+C</code>即可<br />
+这个容器创建后会一直存在于电脑里，可以使用<code>docker ps -a</code>查看到，下次启动使用</p>
+
+<pre class="language-none"><code class="language-none">docker start jupyterlab_gpu
+</code></pre>
+<p>也可以附着到容器：</p>
+
+<pre class="language-none"><code class="language-none">docker attatch jupyterlab_gpu
+</code></pre>
+<p>停止容器：</p>
+
+<pre class="language-none"><code class="language-none">docker stop jupyterlab_gpu
+</code></pre>
+<p>删除容器：</p>
+
+<pre class="language-none"><code class="language-none">docker rm jupyterlab_gpu
+</code></pre>
+<p>修改 user 和 root 密码, 这样就可以使用 <code>sudo</code> 命令了</p>
+
+<pre class="language-none"><code class="language-none">docker exec -it jupyterlab_gpu /bin/bash
+passwd $USER
+passwd root
+</code></pre>
+<p>如果需要每次都重新新建一个容器，用完就删除，只需要在<code>run</code>命令后面添加一个<code>-rm</code>参数即可</p>
+<h2 id="%E5%85%B6%E5%AE%83%E9%97%AE%E9%A2%98">其它问题</h2>
+<ul>
+<li>运行程序时提示： ResourceExhaustedError: OOM when allocating tensor with shape[784,128]</li>
+</ul>
+<p>使用<code>nvidia-smi</code>查看内存使用情况</p>
+<p>tensorflow会一次性申请（几乎）所有显存：</p>
+
+<pre class="language-none"><code class="language-none">➜  ~ nvidia-smi
+Fri Mar 20 09:18:48 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 435.21       Driver Version: 435.21       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  Off  | 00000000:04:00.0  On |                  N/A |
+|  0%   48C    P2    60W / 250W |  10726MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 108...  Off  | 00000000:81:00.0 Off |                  N/A |
+|  0%   47C    P2    58W / 250W |    197MiB / 11178MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0      3099      G   /usr/lib/xorg/Xorg                            21MiB |
+|    0     40037      C   /usr/bin/python3                           10693MiB |
+|    1     40037      C   /usr/bin/python3                             185MiB |
++-----------------------------------------------------------------------------+
+
+</code></pre>
+<p>有可能是使用显存的进程太多了，可以适当退出一些进程；<br />
+也有可能申请内存重复了 ，可以尝试重启容器解决</p>
+<ul>
+<li>一直运行没有结果</li>
+</ul>
+<p>重启docker 容器解决，总之遇事不决，重启解决。。</p>
+<ul>
+<li>提示<code>could not retrieve CUDA device count: CUDA_ERROR_NOT_INITIALIZED</code></li>
+</ul>
+<p>可能使用了多进程, 新的进程直接拷贝了当前进程的环境,导致错误, 解决办法是<strong>父进程需要引入</strong>, 在子进程中需要使用的时候单独import,而不是写到全局, 参考这里: <a href="https://abcdabcd987.com/python-multiprocessing/"  target="_blank">https://abcdabcd987.com/python-multiprocessing/</a></p>
+<ul>
+<li><code>ImportError: libGL.so.1: cannot open shared object file: No such file or directory</code></li>
+</ul>
+
+<pre class="language-none"><code class="language-none">apt install libgl1-mesa-glx
+</code></pre>
+<ul>
+<li><code>Failed to get convolution algorithm. This is probably because cuDNN failed to initialize</code></li>
+</ul>
+<p>显卡内存不足，检查是不是被其它程序占用了，如果多张显卡，可以设置环境变量<code>CUDA_VISIBLE_DEVICES</code>来设置将要使用的显卡， 比如这里共有三张显卡， 下标分别是<code>0</code>，<code>1</code>，<code>2</code>， 选择第三张卡则设置为<code>2</code></p>
+
+<pre class="language-python"><code class="language-python">import os
+
+os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = '2'
+
+</code></pre>
+<h2 id="%E5%8F%82%E8%80%83">参考</h2>
+<ul>
+<li><p><a href="https://blog.csdn.net/liuzk2014/article/details/83190267"  target="_blank">https://blog.csdn.net/liuzk2014/article/details/83190267</a></p>
+</li>
+<li><p><a href="https://devtalk.nvidia.com/default/topic/1047416/linux/nvidia-driver-is-not-loaded-ubuntu-18-10-/"  target="_blank">https://devtalk.nvidia.com/default/topic/1047416/linux/nvidia-driver-is-not-loaded-ubuntu-18-10-/</a></p>
+</li>
+<li><p><a href="https://github.com/tensorflow/tensorflow/issues/394"  target="_blank">https://github.com/tensorflow/tensorflow/issues/394</a></p>
+</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/zh/more/example_docs/doc1.html">
+                            <span class="icon"></span>
+                            <span class="label">文章1</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/zh/more/example_docs/multi_h1.html">
+                            <span class="label">页面有多个一级标题</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

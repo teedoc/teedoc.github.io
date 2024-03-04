@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>teedoc plugin development - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/get_started/en/">Install</a></li>
+<li class="active"><a  href="/develop/en/">Develop</a></li>
+<li class=""><a  href="/blog/">blog</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: English</a><ul><li class="active"><a  href="/develop/en/plugins.html">English</a></li>
+<li class=""><a  href="/develop/zh/plugins.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/develop/en/index.html"><span class="label">teedoc development</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/develop/en/plugins.html"><span class="label">Plugins development</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>teedoc plugin development</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="Last modify date: 2021-08-28">
+                                    2021-08-28
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/develop/en/plugins.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>The plug-in development of <code>teedoc</code> is very simple. At present, you only need to modify the template according to the template to realize the new function. If you know about <code>python</code> <code>html</code> <code>css</code> <code>js</code>, it will be easier.</p>
+<p>The operating principle of the plugin is that <code>teedoc</code> provides <a href="https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py"  target="_blank">plugin API</a>, write a <code>python</code> package, inherit this class, and rewrite The required method (<code>API</code>) is fine, the specific meaning of each method is detailed in the <a href="https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py"  target="_blank">plugin API</a> file Annotation</p>
+<blockquote>
+<p>If you find that the API is unreasonable, you can <a href="https://github.com/teedoc/teedoc/issues"  target="_blank">submit issue</a> to initiate a discussion and improve together~</p>
+</blockquote>
+<h2 id="Reference-template">Reference template</h2>
+<p>You can refer to <a href="https://github.com/teedoc/teedoc/tree/main/plugins"  target="_blank">default plugin</a></p>
+<h2 id="Plug-in-directory-structure">Plug-in directory structure</h2>
+<p>Here is <a href="https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-baidu-tongji"  target="_blank">teedoc-plugin-baidu-tongji</a> as an example</p>
+<ul>
+<li>Create a directory, the directory name is the same as the plug-in name, it is recommended to start with <code>teedoc-plugin-</code> for easy search</li>
+<li>Then create a <code>setup.py</code> file, this is the general configuration file of the <code>python</code> package, the most important thing in the file is to execute the <code>setuptools.setup()</code> function, the parameters mainly include the following several, more can be <code>python</code> official document search</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">setup(
+    name='teedoc-plugin-baidu-tongji',
+    version=&quot;1.0.2&quot;,
+    author='Neucrack',
+    author_email='xxx@xxx.com',
+    description='baidu tongji plugin for teedoc',
+    long_description=long_description, # can read from README.md
+    long_description_content_type=&quot;text/markdown&quot;,
+    url='https://github.com/Neutree/teedoc',
+    license='MIT',
+    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[
+
+        # Indicate who your project is intended for
+        'Intended Audience :: Developers',
+
+        # Pick your license as you wish (should match &quot;license&quot; above)
+        'License :: OSI Approved :: MIT License',
+
+        # Specify the Python versions you support here. In particular, ensure
+        # that you indicate whether you support Python 2, Python 3 or both.
+        'Programming Language :: Python :: 3'
+    ],
+
+    keywords='teedoc baidu tongji',
+
+    # List run-time dependencies here. These will be installed by pip when
+    # your project is installed. For an analysis of &quot;install_requires&quot; vs pip's
+    # requirements files see:
+    # https://packaging.python.org/en/latest/requirements.html
+    install_requires=install_requires,
+
+    # List additional groups of dependencies here (e.g. development
+    # dependencies). You can install these using the following syntax,
+    # for example:
+    # $ pip install -e .[dev,test]
+    extras_require={
+        #'dev': ['check-manifest'],
+        #'test': ['coverage'],
+    },
+
+    # You can just specify the packages manually here if your project is
+    # simple. Or you can use find_packages().
+    packages=packages,
+
+    # If there are data files included in your packages that need to be
+    # installed, specify them here. If using Python 2.6 or less, then these
+    # have to be included in MANIFEST.in as well.
+    package_data={
+        &quot;teedoc_plugin_baidu_tongji&quot;: ['assets/*'],
+    },
+
+    # Although'package_data' is the preferred approach, in some case you may
+    # need to place data files outside of your packages. See:
+    # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files # noqa
+    # In this case,'data_file' will be installed into'&lt;sys.prefix&gt;/my_data'
+    data_files=[
+        ],
+
+    # To provide executable scripts, use entry points in preference to the
+    # &quot;scripts&quot; keyword. Entry points provide cross-platform support and allow
+    # pip to create the appropriate form of executable for the target platform.
+    entry_points={
+        #'console_scripts': [
+        # #'gui_scripts': [
+        #'teedoc=teedoc-plugin-markdown-parser.main:main',
+        # ],
+    },
+)
+</code></pre>
+<ul>
+<li>Create package</li>
+</ul>
+<p>You need to create another subfolder to store the source code. The file name is just to replace the minus sign <code>-</code> in the project name with an underscore <code>_</code>, because the package name in the <code>python</code> code requires that the minus sign cannot be used, for example, here is <code>teedoc_plugin_baidu_tongji</code></p>
+<p>Then create a new file <code>__init__.py</code></p>
+<ul>
+<li>Edit <code>__init__.py</code></li>
+</ul>
+<p>To realize the function of Baidu statistics, it is actually necessary to add a script specified by Baidu statistics to the <code>&lt;head&gt;&lt;/head&gt;</code> tags of all pages, that is, the <code>&lt;script&gt;&lt;/script&gt;</code> tag. At the same time, from the document Get the statistical number (<code>code</code>) in the configuration, the code is as follows:</p>
+
+<pre class="language-python"><code class="language-python">import os, sys
+from teedoc import Plugin_Base
+from teedoc import Fake_Logger
+
+
+
+class Plugin(Plugin_Base):
+    name = &quot;teedoc-plugin-baidu-tongji&quot;
+    desc = &quot;baidu tongji support for teedoc&quot;
+    defautl_config = {
+    }
+
+    def on_init(self, config, doc_src_path, site_config, logger = None):
+        '''
+            @config a dict object
+            @logger teedoc.logger.Logger object
+        '''
+        self.logger = Fake_Logger() if not logger else logger
+        self.doc_src_path = doc_src_path
+        self.site_config = site_config
+        self.config = Plugin.defautl_config
+        self.config.update(config)
+        self.logger.i(&quot;-- plugin &lt;{}&gt; init&quot;.format(self.name))
+        self.logger.i(&quot;-- plugin &lt;{}&gt; config: {}&quot;.format(self.name, self.config))
+
+        # set site_root_url env value
+        if not &quot;code&quot; in config:
+            self.logger.e('can not find config[&quot;code&quot;] in plugin {}'.format(self.name))
+            return
+        baidu_tongji_code ='''&lt;script&gt;
+var _hmt = _hmt || [];
+(function() {{
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;https://hm.baidu.com/hm.js?{}&quot;;
+  var s = document.getElementsByTagName(&quot;script&quot;)[0];
+  s.parentNode.insertBefore(hm, s);
+}})();
+&lt;/script&gt;'''.format(config[&quot;code&quot;])
+        self.html_header_items = [baidu_tongji_code]
+
+
+    def on_add_html_header_items(self):
+        return self.html_header_items
+</code></pre>
+<p>You can see that <code>class Plugin(Plugin_Base):</code> inherits the <code>Plugin_Base</code> class, and then rewrites the <code>on_init</code> and <code>on_add_html_header_items</code> methods. When the document is built by <code>teedoc</code>, these two functions will be called at the right time.</p>
+<p>We obtained the Baidu statistics of the <code>code</code> from the <code>config</code> in the <code>on_init</code> initialization function, then generated the content of the <code>&lt;script&gt;</code> tag and stored it in the <code>html_header_items</code>, and then returned it in the <code>on_add_html_header_items</code> function , So that <code>teedoc</code> will add this tag to the <code>&lt;head&gt;</code> tag of all <code>HTML</code> pages</p>
+<ul>
+<li>resource</li>
+</ul>
+<p>Can be in <code>setup.py</code></p>
+
+<pre class="language-python"><code class="language-python">    package_data={
+        &quot;teedoc_plugin_baidu_tongji&quot;: ['assets/*'],
+    },
+</code></pre>
+<p>Specify the <code>assets</code> directory and all files under it as the package data file to copy to the installation path, and then you can use the relative path (<code>assets/</code>) to access in <code>__init__.py</code>, which can be accessed in <code>on_copy_files of</code>API<code>Copy this file to the output directory in</code>, you can see the method of <a href="https://github.com/teedoc/teedoc/blob/main/plugins/teedoc-plugin-search/teedoc_plugin_search/__init__.py"  target="_blank">teedoc_plugin_search</a>, in fact Is returning a dictionary</p>
+
+<pre class="language-python"><code class="language-python">self.assets_abs_path = os.path.join(), &quot;assets&quot;)
+{
+    &quot;/static/js/search/search_main.js&quot;: os.path.join(os.path.dirname(os.path.abspath(__file__), &quot;assets&quot;, &quot;search_main.js&quot;)
+}
+</code></pre>
+<p>The keyword is the target path to be copied to, and the value is the absolute path of the file, and then we can refer to it in other <code>HTML</code> pages through the path <code>/static/js/search/search_main.js</code></p>
+<h2 id="Test-plugin">Test plugin</h2>
+<p>Two methods,</p>
+<h3 id="One-is-to-directly-let-%3Ccode%3Eteedoc%3C/code%3E-call-the-source-code">One is to directly let <code>teedoc</code> call the source code</h3>
+<p>It is recommended to use this method for debugging. Modifying the code only needs to re-execute <code>teedoc serve</code> to take effect</p>
+<ul>
+<li>Modify a copy of the <code>site_config.json</code> file in the document root directory, and specify the source of the plug-in as the directory path</li>
+</ul>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+        &quot;teedoc-plugin-baidu-tongji&quot;:{
+            &quot;from&quot;: &quot;Path&quot;,
+            &quot;config&quot;: {
+                &quot;code&quot;: &quot;9cb07365532534256c346c838181a&quot;
+            }
+        }
+    },
+</code></pre>
+<p>Then execute <code>teedoc serve</code> in the document root directory.</p>
+<h3 id="Another-way-is-to-install-the-plug-in-directly-to-the-system-and-let-%3Ccode%3Eteedoc%3C/code%3E-call-the-package">Another way is to install the plug-in directly to the system and let <code>teedoc</code> call the package</h3>
+<p>Using this method, you need to go through the following steps every time you change the code to modify the code, which is more troublesome than the above method. You can use this method to test the usability before releasing the plug-in.</p>
+<ul>
+<li>Install plugin</li>
+</ul>
+<p>After the plug-in is written, execute it in the plug-in root directory (the directory with the <code>setpu.py</code> file)</p>
+
+<pre class="language-shell"><code class="language-shell">pip install.
+</code></pre>
+<p>Pay attention to the <code>.</code> symbol not to be ignored</p>
+<p>The plugin will be installed to the system as a <code>python</code> package</p>
+<ul>
+<li>Then execute <code>teedoc serve</code> in the document root directory.</li>
+</ul>
+<h2 id="Pay-attention">Pay attention</h2>
+<p>Because the build will use multiple processes, so there are some places to pay attention to</p>
+<ul>
+<li>Plug-in initialization: <code>__init__()</code> function <strong>cannot</strong> be overridden, plug-in initialization can use <code>on_init()</code> or <code>on_new_process_init()</code>;<ul>
+<li><code>on_init()</code> is called when the plugin is initialized, and general data can be initialized here. When multiple processes are created, the data of the plug-in will be copied to the new process for use. For some objects that cannot be directly copied by multiple processes, please initialize in <code>on_new_process_init()</code></li>
+<li><code>on_new_process_init()</code> is called when multiple processes are created, such as <a href="https://github.com/teedoc/teedoc/blob/main/plugins/teedoc-plugin-markdown-parser/teedoc_plugin_markdown_parser/__init__.py"  target="_blank">here</a> In this function to initialize the <code>markdown</code> renderer instead of in the <code>on_init()</code>, because you don’t want to copy the <code>self.md_parser</code> object when a new process is created, but each new process is rebuilt independently Create an object</li>
+</ul>
+</li>
+<li>The same <code>__del__()</code> function cannot be used, but use <code>on_del()</code> or <code>on_new_process_del()</code> function</li>
+<li>In <a href="https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py"  target="_blank">plugin.py</a> the functions behind <code>on_new_process_init()</code> may be in a new process (multi-process) Called, while the previous function will only be called in the main process</li>
+</ul>
+<h2 id="Publish-plugin">Publish plugin</h2>
+<p>The release method of the plug-in is the release method of the ordinary <code>python</code> package, published to <a href="https://pypi.org/"  target="_blank">pypi.org</a></p>
+<ul>
+<li>Execute the command in the root directory of the plug-in to generate the release package:</li>
+</ul>
+
+<pre class="language-shell"><code class="language-shell">python setup.py bdist_wheel sdist
+</code></pre>
+<ul>
+<li><p>Register an account at <a href="https://pypi.org/"  target="_blank">pypi.org</a></p>
+</li>
+<li><p>Then upload to <code>pypi.org</code></p>
+</li>
+</ul>
+
+<pre class="language-shell"><code class="language-shell">twine upload dist/*
+</code></pre>
+<ul>
+<li>Then users can directly fill in your plugin name in <code>site_config.json</code> to use</li>
+</ul>
+<p>It can also be installed via <code>pip</code>:</p>
+
+<pre class="language-shell"><code class="language-shell">pip install your plugin name
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/develop/en/index.html">
+                            <span class="icon"></span>
+                            <span class="label">teedoc development</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">Site generated by teedoc</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">website source files</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

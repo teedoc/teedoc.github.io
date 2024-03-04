@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="">
+    
+    
+    <meta name="description" content="">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>teedoc 插件开发 - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "这是一个支持国际化的消息示例</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": null, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class=""><a  href="/get_started/zh/">安装使用</a></li>
+<li class="active"><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: 中文 简体</a><ul><li class=""><a  href="/develop/en/plugins.html">English</a></li>
+<li class="active"><a  href="/develop/zh/plugins.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/develop/zh/index.html"><span class="label">teedoc 开发</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/develop/zh/plugins.html"><span class="label">插件开发</span><span class=""></span></a></li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>teedoc 插件开发</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2021-08-28">
+                                    2021-08-28
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/develop/zh/plugins.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p><code>teedoc</code> 的插件开发很简单， 目前只需要根据模板修改一下就可以实现新的功能， 如果会 <code>python</code> <code>html</code> <code>css</code> <code>js</code> 则会更加简单。</p>
+<p>插件的运行原理就是<code>teedoc</code> 提供<a href="https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py"  target="_blank">插件 API</a>， 写一个<code>python</code>包， 继承这个类， 重写需要的方法（<code>API</code>）即可， 具体每个方法的含义在<a href="https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py"  target="_blank">插件 API</a>文件中有详细的注释说明</p>
+<blockquote>
+<p>如果发现 API 有不合理的地方， 可以<a href="https://github.com/teedoc/teedoc/issues"  target="_blank">提交 issue</a> 来发起讨论， 一起完善~</p>
+</blockquote>
+<h2 id="%E5%8F%82%E8%80%83%E6%A8%A1%E6%9D%BF">参考模板</h2>
+<p>可以参考<a href="https://github.com/teedoc/teedoc/tree/main/plugins"  target="_blank">默认的插件</a></p>
+<h2 id="%E6%8F%92%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">插件目录结构</h2>
+<p>这里以<a href="https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-baidu-tongji"  target="_blank">teedoc-plugin-baidu-tongji</a> 为例</p>
+<ul>
+<li>创建一个目录， 目录名和插件名相同， 建议以<code>teedoc-plugin-</code>开头，方便大家搜索到</li>
+<li>然后创建一个<code>setup.py</code>文件， 这个是<code>python</code>包的通用配置文件， 文件中最重要的就是执行<code>setuptools.setup()</code>函数， 参数主要包含了一下几个，更多可以到<code>python</code>官方文档查找</li>
+</ul>
+
+<pre class="language-python"><code class="language-python">setup(
+    name='teedoc-plugin-baidu-tongji',
+    version=&quot;1.0.2&quot;,
+    author='Neucrack',
+    author_email='xxx@xxx.com',
+    description='baidu tongji plugin for teedoc',
+    long_description=long_description, # can read from README.md
+    long_description_content_type=&quot;text/markdown&quot;,
+    url='https://github.com/Neutree/teedoc',
+    license='MIT',
+    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[
+
+        # Indicate who your project is intended for
+        'Intended Audience :: Developers',
+
+        # Pick your license as you wish (should match &quot;license&quot; above)
+        'License :: OSI Approved :: MIT License',
+
+        # Specify the Python versions you support here. In particular, ensure
+        # that you indicate whether you support Python 2, Python 3 or both.
+        'Programming Language :: Python :: 3'
+    ],
+
+    keywords='teedoc baidu tongji',
+
+    # List run-time dependencies here.  These will be installed by pip when
+    # your project is installed. For an analysis of &quot;install_requires&quot; vs pip's
+    # requirements files see:
+    # https://packaging.python.org/en/latest/requirements.html
+    install_requires=install_requires,
+
+    # List additional groups of dependencies here (e.g. development
+    # dependencies). You can install these using the following syntax,
+    # for example:
+    # $ pip install -e .[dev,test]
+    extras_require={
+        # 'dev': ['check-manifest'],
+        # 'test': ['coverage'],
+    },
+
+    # You can just specify the packages manually here if your project is
+    # simple. Or you can use find_packages().
+    packages=packages,
+
+    # If there are data files included in your packages that need to be
+    # installed, specify them here.  If using Python 2.6 or less, then these
+    # have to be included in MANIFEST.in as well.
+    package_data={
+        &quot;teedoc_plugin_baidu_tongji&quot; : ['assets/*'],
+    },
+
+    # Although 'package_data' is the preferred approach, in some case you may
+    # need to place data files outside of your packages. See:
+    # http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files # noqa
+    # In this case, 'data_file' will be installed into '&lt;sys.prefix&gt;/my_data'
+    data_files=[
+        ],
+
+    # To provide executable scripts, use entry points in preference to the
+    # &quot;scripts&quot; keyword. Entry points provide cross-platform support and allow
+    # pip to create the appropriate form of executable for the target platform.
+    entry_points={
+        # 'console_scripts': [
+        # # 'gui_scripts': [
+        #     'teedoc=teedoc-plugin-markdown-parser.main:main',
+        # ],
+    },
+)
+</code></pre>
+<ul>
+<li>创建包</li>
+</ul>
+<p>需要再创建一个子文件夹，用来存放源码，文件名将项目名称中的减号<code>-</code>替换成下划线<code>_</code>即可， 因为<code>python</code>代码中要求包名不能用减号， 比如这里是<code>teedoc_plugin_baidu_tongji</code></p>
+<p>然后在里面新建一个文件<code>__init__.py</code></p>
+<ul>
+<li>编辑<code>__init__.py</code></li>
+</ul>
+<p>要实现百度统计的功能， 实际就是向所有页面的<code>&lt;head&gt;&lt;/head&gt;</code>标签中添加一段百度统计指定的脚本即可，即<code>&lt;script&gt;&lt;/script&gt;</code>标签， 同时， 从文档配置中获取统计编号（<code>code</code>）， 代码如下：</p>
+
+<pre class="language-python"><code class="language-python">import os, sys
+from teedoc import Plugin_Base
+from teedoc import Fake_Logger
+
+
+
+class Plugin(Plugin_Base):
+    name = &quot;teedoc-plugin-baidu-tongji&quot;
+    desc = &quot;baidu tongji support for teedoc&quot;
+    defautl_config = {
+    }
+
+    def on_init(self, config, doc_src_path, site_config, logger = None):
+        '''
+            @config a dict object
+            @logger teedoc.logger.Logger object
+        '''
+        self.logger = Fake_Logger() if not logger else logger
+        self.doc_src_path = doc_src_path
+        self.site_config = site_config
+        self.config = Plugin.defautl_config
+        self.config.update(config)
+        self.logger.i(&quot;-- plugin &lt;{}&gt; init&quot;.format(self.name))
+        self.logger.i(&quot;-- plugin &lt;{}&gt; config: {}&quot;.format(self.name, self.config))
+
+        # set site_root_url env value
+        if not &quot;code&quot; in config:
+            self.logger.e('can not find config[&quot;code&quot;] in plugin {}'.format(self.name))
+            return
+        baidu_tongji_code = '''&lt;script&gt;
+var _hmt = _hmt || [];
+(function() {{
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;https://hm.baidu.com/hm.js?{}&quot;;
+  var s = document.getElementsByTagName(&quot;script&quot;)[0]; 
+  s.parentNode.insertBefore(hm, s);
+}})();
+&lt;/script&gt;'''.format(config[&quot;code&quot;])
+        self.html_header_items = [baidu_tongji_code]
+
+
+    def on_add_html_header_items(self):
+        return self.html_header_items
+</code></pre>
+<p>可以看到<code>class Plugin(Plugin_Base):</code>继承了<code>Plugin_Base</code>类， 然后重写了<code>on_init</code>和<code>on_add_html_header_items</code>方法， <code>teedoc</code>构建文档时，会在合适的时机调用这两个函数。</p>
+<p>我们在<code>on_init</code>初始化函数中从<code>config</code>中获取到了百度统计的<code>code</code>，然后生成了<code>&lt;script&gt;</code>标签的内容存放到了<code>html_header_items</code>中， 然后在<code>on_add_html_header_items</code>函数中将其返回，这样<code>teedoc</code>就会将这个标签添加到所有<code>HTML</code>页面的<code>&lt;head&gt;</code>标签中了</p>
+<ul>
+<li>资源文件</li>
+</ul>
+<p>可以在<code>setup.py</code>中</p>
+
+<pre class="language-python"><code class="language-python">    package_data={
+        &quot;teedoc_plugin_baidu_tongji&quot; : ['assets/*'],
+    },
+</code></pre>
+<p>指定将<code>assets</code>目录及其下所有文件作为包数据文件拷贝到安装路径， 然后就可以在<code>__init__.py</code>中使用相对路径(<code>assets/</code>)访问到了，可以在<code>API</code>的 <code>on_copy_files</code>中将这个文件拷贝到输出目录， 可以看<a href="https://github.com/teedoc/teedoc/blob/main/plugins/teedoc-plugin-search/teedoc_plugin_search/__init__.py"  target="_blank">teedoc_plugin_search</a>的做法， 其实就是返回了一个字典</p>
+
+<pre class="language-python"><code class="language-python">self.assets_abs_path = os.path.join(), &quot;assets&quot;)
+{
+    &quot;/static/js/search/search_main.js&quot;: os.path.join(os.path.dirname(os.path.abspath(__file__), &quot;assets&quot;, &quot;search_main.js&quot;)
+}
+</code></pre>
+<p>关键字是要拷贝到的目标路径，值是文件的绝对路径， 然后我们就可以在其它<code>HTML</code>页面中通过<code>/static/js/search/search_main.js</code>这个路径引用到了</p>
+<h2 id="%E6%B5%8B%E8%AF%95%E6%8F%92%E4%BB%B6">测试插件</h2>
+<p>两种方法，</p>
+<h3 id="%E4%B8%80%E7%A7%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E8%AE%A9%3Ccode%3Eteedoc%3C/code%3E%E8%B0%83%E7%94%A8%E6%BA%90%E7%A0%81">一种是直接让<code>teedoc</code>调用源码</h3>
+<p>调试建议使用这种方法， 修改代码只需要重新执行<code>teedoc serve</code>就可以生效</p>
+<ul>
+<li>修改一份文档根目录的<code>site_config.json</code>文件，指定插件的来源为目录路径</li>
+</ul>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+        &quot;teedoc-plugin-baidu-tongji&quot;:{
+            &quot;from&quot;: &quot;路径&quot;,
+            &quot;config&quot;: {
+                &quot;code&quot;: &quot;9cb07365532534256c346c838181a&quot;
+            }
+        }
+    },
+</code></pre>
+<p>然后在文档根目录执行<code>teedoc serve</code>就可以了</p>
+<h3 id="%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95%E6%98%AF%E7%9B%B4%E6%8E%A5%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%88%B0%E7%B3%BB%E7%BB%9F%EF%BC%8C%E8%AE%A9%3Ccode%3Eteedoc%3C/code%3E%E8%B0%83%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%8C%85">另一种方法是直接安装插件到系统，让<code>teedoc</code>调用软件包</h3>
+<p>使用这种方法， 修改代码需要每次更改代码都要来一遍下面的步骤，比上面一种方法麻烦，在发布插件前可以用这种方式测试一下可用性即可</p>
+<ul>
+<li>安装插件</li>
+</ul>
+<p>插件写好了通过在插件根目录（有<code>setpu.py</code>文件的目录）下执行</p>
+
+<pre class="language-shell"><code class="language-shell">pip install .
+</code></pre>
+<p>注意<code>.</code>符号不要忽略</p>
+<p>插件就会作为一个<code>python</code>包被安装到系统</p>
+<ul>
+<li>然后在文档根目录执行<code>teedoc serve</code>就可以了</li>
+</ul>
+<h2 id="%E6%B3%A8%E6%84%8F%E7%82%B9">注意点</h2>
+<p>因为构建是会用到多进程， 所以有些地方需要注意</p>
+<ul>
+<li>插件初始化： <code>__init__()</code>函数<strong>不能</strong>重写，插件的初始化可以使用<code>on_init()</code>或者<code>on_new_process_init()</code>；<ul>
+<li><code>on_init()</code>是在初始化插件时调用，一般的数据可以在这里面初始化。当多进程创建时，插件的数据会被拷贝到新的进程使用， 对于一些不能多进程直接拷贝使用的对象，请在<code>on_new_process_init()</code>中初始化</li>
+<li><code>on_new_process_init()</code>是在创建多进程时调用， 比如<a href="https://github.com/teedoc/teedoc/blob/main/plugins/teedoc-plugin-markdown-parser/teedoc_plugin_markdown_parser/__init__.py"  target="_blank">这里</a>就在这个函数里面来初始化<code>markdown</code>渲染器而不是在<code>on_init()</code>中，因为不希望在新进程创建时对<code>self.md_parser</code>对象进行拷贝，而是每个新进程都独立重新创建一个对象</li>
+</ul>
+</li>
+<li>同样<code>__del__()</code>函数也不能使用， 而是使用<code>on_del()</code>或者<code>on_new_process_del()</code>函数</li>
+<li>在<a href="https://github.com/teedoc/teedoc/blob/main/teedoc/plugin.py"  target="_blank">plugin.py</a>中<code>on_new_process_init()</code>后面的函数都是可能会在新进程（多进程）中调用的，前面的函数则只会在主进程中调用</li>
+</ul>
+<h2 id="%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6">发布插件</h2>
+<p>插件的发布方式就是普通<code>python</code>包的发布方式， 发布到<a href="https://pypi.org/"  target="_blank">pypi.org</a></p>
+<ul>
+<li>在插件根目录执行命令生成发布包：</li>
+</ul>
+
+<pre class="language-shell"><code class="language-shell">python setup.py bdist_wheel sdist
+</code></pre>
+<ul>
+<li><p>在<a href="https://pypi.org/"  target="_blank">pypi.org</a>注册账号</p>
+</li>
+<li><p>然后上传到<code>pypi.org</code></p>
+</li>
+</ul>
+
+<pre class="language-shell"><code class="language-shell">twine upload dist/*
+</code></pre>
+<ul>
+<li>然后用户就可以在<code>site_config.json</code>中直接填写你的插件名来使用了</li>
+</ul>
+<p>也可以通过<code>pip</code>安装：</p>
+
+<pre class="language-shell"><code class="language-shell">pip install 你的插件名
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/develop/zh/index.html">
+                            <span class="icon"></span>
+                            <span class="label">teedoc 开发</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

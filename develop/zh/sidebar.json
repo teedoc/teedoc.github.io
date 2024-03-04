@@ -1,0 +1,13 @@
+{
+    "items":[
+        {
+            "label": "teedoc 开发",
+            "file": "README.md"
+        },
+        {
+            "label": "插件开发",
+            "file": "plugins.md"
+        }
+    ]
+}
+

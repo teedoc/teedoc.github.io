@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://teedoc.neucrack.com/sitemap.xml

@@ -1,0 +1,70 @@
+.gt-container .gt-btn {
+  border: 1px solid #4caf7d;
+  background-color: #4caf7d;
+}
+
+.gt-container .gt-btn-preview {
+    color: #4caf7d;
+}
+.dark .gt-container .gt-btn-preview {
+  color: white;
+}
+
+.gt-container .gt-header-controls-tip {
+  color: #4caf7d;
+}
+
+.gt-container .gt-svg svg {
+  fill: #4caf7d;
+}
+
+.gt-container a:hover {
+  color: #0a7d43;
+  border-color: #0a7d43;
+}
+
+.gt-container .gt-link {
+  border-bottom: 1px dotted #4caf7d;
+}
+
+.gt-container a {
+  color: #4caf7d;
+}
+
+.gt-container .gt-popup .gt-action.is--active::before {
+  background: #4caf7d;
+}
+
+.gt-container .gt-btn-preview:hover {
+  border-color: #0a7d43;
+  color: #4caf7d;
+}
+
+.gt-container .gt-user .is--poping .gt-ico svg {
+  fill: #4caf7d;
+}
+
+.gt-container .gt-btn-public:hover {
+  background-color: #0a7d43;
+  border-color: #0a7d43;
+}
+
+.gt-container .gt-comment-username {
+  color: #4caf7d;
+}
+
+.gt-container .gt-btn-preview {
+  background-color: transparent;
+}
+
+.dark .gt-container .gt-comment-admin .gt-comment-content,
+.dark .gt-container .gt-header-textarea {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.dark .gt-container .gt-comment-content:hover {
+    -webkit-box-shadow: 0 0.625em 3.75em 0 #000000;
+    box-shadow: 0 0.625em 3.75em 0 #000000;
+}
+

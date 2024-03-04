@@ -1,0 +1,101 @@
+# This is a basic workflow to help you get started with Actions
+
+name: publish pages
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a set of commands using the runners shell
+      - name: build doc
+        id: build_doc
+        run: |
+          git fetch --unshallow # fetch all history
+          pip3 install setuptools
+          pip3 install teedoc
+          ls -al ~/.local/bin/
+          export PATH=~/.local/bin/:$PATH
+          commit_info=`git describe --all --always --long`
+          out_dir=out`python3 -c 'import json; f=open("site_config.json");config=json.load(f);print(config["site_root_url"])'`
+          teedoc install
+          teedoc build
+          echo "out dir: ${out_dir}"
+          cp -rf .github $out_dir
+          echo ::set-output name=out_dir::$out_dir
+          remote_addr=`git remote get-url --push origin`
+          echo "remote addr: ${remote_addr}"
+          cd $out_dir
+          user_name=`git log -1 --pretty=format:'%an'`
+          user_email=`git log -1 --pretty=format:'%ae'`
+          git config --global init.defaultBranch gh-pages
+          git init
+          git config user.name ${user_name}
+          git config user.email ${user_email}
+          git add -A
+          git commit -m "rebuild website ad $commit_info"
+          if [[ "${{ secrets.ACCESS_KEY }}x" == "x" ]]; then
+            remote_addr=`echo $remote_addr|  awk -F'://' '{print $2}'`
+            remote_addr=https://${user_name}:${{ secrets.GITHUB_TOKEN }}@${remote_addr}
+          else
+            SSHPATH="$HOME/.ssh"
+            rm -rf "$SSHPATH"
+            mkdir -p "$SSHPATH"
+            echo "${{ secrets.ACCESS_KEY }}" > "$SSHPATH/id_rsa"
+            chmod 600 "$SSHPATH/id_rsa"
+            sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
+            domain=`echo $remote_addr|  awk -F'/' '{print $3}'`
+            user_org=`echo $remote_addr|  awk -F'/' '{print $4}'`
+            repo=`echo $remote_addr|  awk -F'/' '{print $5}'`
+            remote_addr=git@${domain}:${user_org}/${repo}.git
+          fi
+          git remote add origin ${remote_addr}
+          git push origin HEAD:gh-pages --force
+
+      # - name: Deploy 🚀 to github pages
+      #   uses: JamesIves/github-pages-deploy-action@4.1.4
+      #   with: # more usage visit https://github.com/JamesIves/github-pages-deploy-action
+      #     branch: gh-pages # The branch the action should deploy to.
+      #     folder: ${{ steps.build_doc.outputs.out_dir }} # The folder the action should deploy.
+      #     single-commit: true
+      #     clean: true
+      #     clean-exclude: |
+      #       - .github
+
+# mannually scripts
+          # cd $out_dir
+          # git init
+          # git config user.name ${{ secrets.GIT_NAME }}
+          # git config user.email ${{ secrets.GIT_EMAIL }}
+          # git remote add upstream "git@github.com:${{ secrets.REPO }}.git"
+          # git add -A
+          # git commit -m "rebuild website ad $commit_info"
+          # SSHPATH="$HOME/.ssh"
+          # rm -rf "$SSHPATH"
+          # mkdir -p "$SSHPATH"
+          # echo "${{ secrets.ACCESS_KEY }}" > "$SSHPATH/id_rsa"
+          # chmod 600 "$SSHPATH/id_rsa"
+          # sudo sh -c "echo StrictHostKeyChecking no >>/etc/ssh/ssh_config"
+          # git push upstream HEAD:gh-pages --force
+          

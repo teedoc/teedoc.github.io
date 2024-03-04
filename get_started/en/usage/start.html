@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="teedoc, markdown, jupyter notebook, html, document generation, alternative gitbook, website generation, static website, document writing">
+    
+    
+    <meta name="description" content="teedoc, convert markdown or jupyter notbook into html static web pages, introduce the basic use of teedoc">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>start writing document - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/en/">Install</a></li>
+<li class=""><a  href="/develop/en/">Develop</a></li>
+<li class=""><a  href="/blog/">blog</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: English</a><ul><li class="active"><a  href="/get_started/en/usage/start.html">English</a></li>
+<li class=""><a  href="/get_started/zh/usage/start.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/index.html"><span class="label">Introduction to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/sites.html"><span class="label">Website using teedoc</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Baisc usage</span></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/install/index.html"><span class="label">Install teedoc</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/get_started/en/usage/start.html"><span class="label">Doc structure and config</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Write content(Syntax)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_markdown.html"><span class="label">markdown syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_jupyter.html"><span class="label">Jupyter syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_html.html"><span class="label">HTML syntax</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/write_attention.html"><span class="label">Pay attention to when writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/blog.html"><span class="label">Blog</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy.html"><span class="label">Deployment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_github_pages.html"><span class="label">Deploy to github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_nginx.html"><span class="label">Use nginx to deploy to the server</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cloud.html"><span class="label">Deploy to cloud service</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cdn.html"><span class="label">Use CDN to accelerate website</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/problems.html"><span class="label">Common problems</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Advanced use</span></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/index.html"><span class="label">Plugins</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/plugins/themes.html"><span class="label">Theme Plugins</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/others.html"><span class="label">Other plugins</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/seo.html"><span class="label">SEO (Optimize for Search Engines)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/layout_template.html"><span class="label">Customize layout</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/i18n.html"><span class="label">Internationalization(i18n/Translate)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/404.html"><span class="label">Customize 404 page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/gitbook2teedoc.html"><span class="label">Convert gitbook to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/list_files_by_size.html"><span class="label">Find big files</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/compare_dirs.html"><span class="label">list difference in two dir</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">More</span></li>
+<li class="not_active with_link"><a href="/get_started/en/more/history.html"><span class="label">Update history</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">More samples(not collapsed by default)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Second-level subdirectory example</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sample three-level sub-directory</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc1.html"><span class="label">Article 1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc2.html"><span class="label">Article 2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Heading auto count</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/multi_h1.html"><span class="label">Multi h1 titile in page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/heading_no_counter.html"><span class="label">Cancel heading auto count</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">This is a external link</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>start writing document</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/en/usage/start.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="Build-and-Preview">Build and Preview</h2>
+<p>Execute in the document directory with <code>site_config.json</code></p>
+
+<pre class="language-none"><code class="language-none">teedoc serve
+</code></pre>
+<p>After displaying <code>Starting server at 0.0.0.0:2333 ....</code>, it is fine</p>
+<p>Open the browser to visit: <a href="http://127.0.0.1:2333"  target="_blank">http://127.0.0.1:2333</a></p>
+<p>Modify the file in real time. After saving the file, it will automatically rebuild the file after <code>3</code> seconds by default, and then the browser will automatically refresh</p>
+<blockquote>
+<p>The delay time of automatic refresh can be set, you can add the <code>-t</code> parameter, for example, <code>teedoc -t 0 serve</code> is set to a <code>0</code> second delay,<br />
+It can also be set in the document configuration, see the description of the configuration parameter <code>rebuild_changes_delay</code> below</p>
+</blockquote>
+<p>If you only need to build and generate HTML pages, you only need to execute</p>
+
+<pre class="language-none"><code class="language-none">teedoc build
+</code></pre>
+<blockquote class="spoiler warning">
+<p> Note that if you are finally generating the release version of the document, you must use the <code>build</code> command to generate the website page, the page generated by the <code>serve</code> command can only be used for local preview, there will be redundant preview related code, which is not suitable Used in production deployment</p>
+</blockquote>
+<p>In addition, you can also specify the parameter <code>-d</code> or <code>--dir</code> to specify the document directory, so that you do not need to execute commands under the document directory, such as</p>
+
+<pre class="language-none"><code class="language-none">teedoc -d /home/teedoc/my_doc build
+</code></pre>
+<h2 id="Build-document-delete">Build document delete</h2>
+<p>The built document will be placed in the <code>out</code> directory, the program will not actively delete it, if you need to clear it, please delete it manually</p>
+<h2 id="Document-directory-structure">Document directory structure</h2>
+
+<pre class="language-none"><code class="language-none">├─.github
+├─docs
+│ ├─develop
+│ │ ├─en
+│ │ └─zh
+│ └─get_started
+│ ├─assets
+│ ├─en
+│ └─zh
+├─pages
+│ └─index
+│ ├─en
+│ └─zh
+├─static
+│
+└─site_config.json
+</code></pre>
+<ul>
+<li><code>.github</code>: automatic build script, how to use it in later chapters</li>
+<li><code>docs</code>: document, contains multiple documents, each document is a separate folder</li>
+<li><code>pages</code>: pages, including homepages, 404 pages, etc.</li>
+<li><code>static</code>: static file folder, such as storing pictures</li>
+<li><code>site_config.json</code>: website configuration file</li>
+<li><code>config.json</code>: In addition to <code>site_config.json</code>, each document directory can have <code>config.json</code> to configure document related pages</li>
+<li><code>sidebar.json</code>: document directory</li>
+</ul>
+<p>Before looking at how to use the configuration file, you must keep in mind that the configuration file is very simple. <strong>The configuration file has only two file names</strong>, a unique document configuration file <code>site_config</code> and each document's own configuration file <code>config</code></p>
+<h2 id="Configuration-file">Configuration file</h2>
+<p>The configuration file can be a file in <code>json</code> or <code>yaml</code> format, choose the one you like. Don't be afraid if you haven't touched it before, search for a tutorial and take 10 minutes to learn it.</p>
+<p>If your document directory has a lot of content, it is recommended to use the <code>yaml</code> format, which looks more concise</p>
+<p><code>teedoc</code> provides commands for converting between <code>json</code> and <code>yaml</code> formats</p>
+<h3 id="From-json-to-yaml">From json to yaml</h3>
+
+<pre class="language-none"><code class="language-none">teedoc -f ./config.json json2yaml
+</code></pre>
+<h3 id="From-yaml-to-json">From yaml to json</h3>
+
+<pre class="language-none"><code class="language-none">teedoc -f ./config.json yaml2json
+</code></pre>
+<h3 id="From-gitbook-SUMMARY.md-to-json">From gitbook SUMMARY.md to json</h3>
+
+<pre class="language-shell"><code class="language-shell">teedoc -f ./SUMMARY.md summary2json
+</code></pre>
+<h3 id="From-gitbook-SUMMARY.md-to-yaml">From gitbook SUMMARY.md to yaml</h3>
+
+<pre class="language-shell"><code class="language-shell">teedoc -f ./SUMMARY.md summary2yaml
+</code></pre>
+<h2 id="site_config.json-Site-configuration">site_config.json Site configuration</h2>
+<p>Website configuration items, such as website name, page routing, plug-in configuration, etc.</p>
+<p>The following sample configuration file looks like there are many configuration items, don’t be scared, in fact it is very simple, the main configuration items, mastered, thinking is easy</p>
+<p>The configuration file is in <code>json</code> format, for example:</p>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;site_name&quot;: &quot;teedoc&quot;,
+    &quot;site_slogon&quot;: &quot;happy to write&quot;,
+    &quot;site_root_url&quot;: &quot;/&quot;,
+    &quot;site_domain&quot;: &quot;teedoc.github.io&quot;,
+    &quot;site_protocol&quot;: &quot;https&quot;,
+    &quot;config_template_dir&quot;: &quot;./&quot;,
+    &quot;source&quot;: &quot;https://github.com/teedoc/teedoc.github.io/blob/main&quot;,
+    &quot;route&quot;: {
+        &quot;docs&quot;: {
+            &quot;/get_started/zh/&quot;: &quot;docs/get_started/zh&quot;,
+            &quot;/develop/zh/&quot;: &quot;docs/develop/zh&quot;,
+        },
+        &quot;pages&quot;: {
+            &quot;/&quot;: &quot;pages/index/zh&quot;,
+        },
+        &quot;assets&quot;: {
+            &quot;/static/&quot;: &quot;static&quot;,
+            &quot;/get_started/assets/&quot;: &quot;docs/get_started/assets&quot;
+        },
+        &quot;/blog/&quot;: &quot;blog&quot;
+    },
+    &quot;translate&quot;: {
+        &quot;docs&quot;: {
+            &quot;/get_started/zh/&quot;: [ {
+                    &quot;url&quot;: &quot;/get_started/en/&quot;,
+                    &quot;src&quot;: &quot;docs/get_started/en&quot;
+                }
+            ],
+            &quot;/develop/zh/&quot;: [ {
+                    &quot;url&quot;: &quot;/develop/en/&quot;,
+                    &quot;src&quot;: &quot;docs/develop/en&quot;
+                }
+            ]
+        },
+        &quot;pages&quot;: {
+            &quot;/&quot;: [ {
+                    &quot;url&quot;: &quot;/en/&quot;,
+                    &quot;src&quot;: &quot;pages/index/en&quot;
+                }
+            ]
+        }
+    },
+    &quot;executable&quot;: {
+        &quot;python&quot;: &quot;python3&quot;,
+        &quot;pip&quot;: &quot;pip3&quot;
+    },
+    &quot;plugins&quot;: {
+        &quot;teedoc-plugin-markdown-parser&quot;:{
+            &quot;from&quot;: &quot;pypi&quot;,
+            &quot;config&quot;: {
+            }
+        },
+        &quot;teedoc-plugin-theme-default&quot;:{
+            &quot;from&quot;: &quot;pypi&quot;,
+            &quot;config&quot;: {
+                &quot;dark&quot;: true,
+                &quot;env&quot;:{
+                    &quot;main_color&quot;: &quot;#4caf7d&quot;
+                },
+                &quot;css&quot;: &quot;/static/css/custom.css&quot;,
+                &quot;js&quot;: &quot;/static/js/custom.js&quot;
+            }
+        }
+    }
+}
+
+</code></pre>
+<ul>
+<li><code>site_name</code>: site name</li>
+<li><code>site_slogon</code>: website slogan</li>
+<li><code>site_root_url</code>: website root directory path, use the default value <code>/</code>; if you need to put the generated content in the website folder (not the root directory folder), you can set</li>
+<li><code>site_domain</code>: website domain name, currently used place: generate <code>sitemap.xml</code> and <code>robots.txt</code></li>
+<li><code>site_protocol</code>: website protocol, <code>http</code> or <code>https</code>, currently used place: generate <code>sitemap.xml</code> and <code>robots.txt</code></li>
+<li><code>config_template_dir</code>: <code>config</code> template file, <code>config.json</code> or <code>config.yaml</code> in other document directories can be <code>import</code> the files in it, the default location is the directory where <code>site_config</code> is located</li>
+<li><code>source</code>: document source path, such as <code>https://github.com/teedoc/teedoc.github.io/blob/main</code>, where <code>main</code> is the main branch of the document, and <code>Edit this page' will be added to the document page</code>Button (link), click to jump to the source code of the corresponding file. You can leave it blank to not add a link. In addition, you can add <code>&quot;show_source&quot;: &quot;Edit this page&quot;</code> in <code>config.json</code> to define the text content of the button as <code>Edit this page</code>, if you want the document to have no such button, set it to <code>&quot;show_source&quot;: false</code>; you can also add <code>show_source: edit this page</code> or <code>show_source: false</code> in the header information of the file (<code>md</code> or <code>ipynb</code> file) to set</li>
+<li><code>route</code>: Web page routing, including routing of documents, pages and resource files, such as routing of documents</li>
+</ul>
+
+<pre class="language-json"><code class="language-json">&quot;docs&quot;: {
+    &quot;/get_started/zh/&quot;: &quot;docs/get_started/zh&quot;,
+    &quot;/get_started/en/&quot;: &quot;docs/get_started/en&quot;,
+    &quot;/develop/zh/&quot;: &quot;docs/develop/zh&quot;,
+    &quot;/develop/en/&quot;: &quot;docs/develop/en&quot;
+},
+</code></pre>
+<p>The <code>key</code> represents the <code>url</code> of the document in the final generated website, and the following value is the corresponding source document path.<br />
+For example, the source document <code>docs/get_started/zh/README.md</code> will generate the file <code>out/get_started/zh/index.html</code> after construction. If it is not a <code>md</code> file (ie unsupported file), it will be left intact Copy files automatically, and finally the <code>out</code> directory is the generated website</p>
+<p>The same is true for <code>pages</code>, <code>assets</code> will not perform document conversion and directly copy to the corresponding directory</p>
+<ul>
+<li><p><code>translate</code>: Translate, specify the <code>url</code> and file path of the translated version corresponding to the document. Similarly, the <code>config</code> and <code>sidebar</code> configuration files are required under the path of the translated version, and <code>locale</code> is specified in the <code>config</code> file To achieve the specified document language to be translated, for example, Chinese can be <code>zh</code>, <code>zh_CN</code>, <code>zh_TW</code>, English is <code>en</code>, <code>en_US</code>, etc. The translated <code>sidebar</code> and the document path need to be consistent with the source document. If there is no translation, you can leave the translation file. When the user visits a page that has not been translated, it will jump to <code>no_tanslate.html</code> to indicate that there is no translation. For more details, please see <a href="./i18n.html"  > Internationalization i18n</a></p>
+</li>
+<li><p><code>executable</code>: executable program settings, here you can set the executable program names of <code>python</code> and <code>pip</code>, which will be used when installing the plug-in</p>
+</li>
+<li><p><code>plugins</code>: Plug-in configuration, mainly composed of name, source, and configuration items.</p>
+</li>
+</ul>
+<p>For the name, you can search for <code>teedoc-plugin</code> in <a href="https://github.com"  target="_blank">github</a> to find open source plug-ins. You are also welcome to participate in writing plug-ins (you only need to use the <code>Python</code> syntax);<br />
+Fill in the <code>from</code> field with <code>pypi</code>, if the plug-in is downloaded locally, you can also fill in the folder path, or you can fill in the <code>git</code> path directly, such as <code>git+https://github.com/*****/* *****.git</code><br />
+The configuration items are determined by the specific plug-in. For example, <code>teedoc-plugin-theme-default</code> has the <code>dark</code> option to choose whether to enable the dark theme</p>
+<ul>
+<li><code>rebuild_changes_delay</code>: After detecting file changes, how many seconds to delay automatically regenerating the document, the browser will automatically refresh the page, the default is <code>3</code> seconds, the shortest can be set to <code>0</code> seconds, you can use <code>teedoc -t 3 serve</code> or <code>teedoc --delay serve</code> to override this setting</li>
+<li><code>robots</code>: Customize the content of <code>robots.txt</code>, such as <code>&quot;User-agent&quot;: &quot;*&quot;</code> means that all clients are allowed to crawl, which will have an impact on <code>SEO</code>. For example, crawling of <code>JPEG</code> pictures is not allowed: <code>&quot;Disallow&quot;: &quot;/.jpeg$&quot;</code>, and access to the <code>admin</code> directory: <code>&quot;Disallow&quot;: &quot;/admin&quot;</code> is not allowed, specifically and <code>robots.txt</code> Same format requirements</li>
+<li><code>layout_root_dir</code>: the root directory of the layout template, the default is <code>layout</code>, that is, when the layout template file is needed, it will automatically find it under this folder</li>
+<li><code>layout_i18n_dirs</code>: The international translation directory of <code>layout</code>, which can be a path such as <code>locales</code>, and in some special cases, multiple paths such as <code>[&quot;locales1&quot;, &quot;locales2]</code> can also be set. The content of the file can be referred to [i18n](./i18n.md#plug-in internationalization) production</li>
+</ul>
+<h2 id="config.json-document-configuration">config.json document configuration</h2>
+<p>This is the configuration for each document, placed in the root directory of each document, such as <code>docs/get_started/zh/config.json</code>, each document is independent of each other, you can set the same to keep the website navigation bar consistent</p>
+<p>Here you can configure the navigation bar of each document and the content of the footer (<code>footer</code>), and you can also set the <code>config</code> item of the plug-in. The current document will override the configuration in <code>site_config.json</code> to achieve different Documents in different languages ​​(internationalization/i18n) or styles, etc.</p>
+<p>such as:</p>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;import&quot;: &quot;config_zh&quot;,
+    &quot;id&quot;: &quot;teedoc_page&quot;,
+    &quot;class&quot;: &quot;language_zh&quot;,
+    &quot;locale&quot;: &quot;en_US&quot;,
+    &quot;navbar&quot;: {
+        &quot;title&quot;: &quot;teedoc&quot;,
+        &quot;logo&quot;: {
+            &quot;alt&quot;: &quot;teedoc logo&quot;,
+            &quot;src&quot;: &quot;/static/image/logo.png&quot;
+        },
+        &quot;home_url&quot;: &quot;/&quot;,
+        &quot;items&quot;: [
+            {
+                &quot;url&quot;: &quot;/get_started/zh/&quot;,
+                &quot;label&quot;: &quot;Installation and Use&quot;,
+                &quot;position&quot;: &quot;left&quot;
+            },
+            {
+                &quot;url&quot;: &quot;/develop/zh/&quot;,
+                &quot;label&quot;: &quot;Development&quot;,
+                &quot;position&quot;: &quot;left&quot;
+            },
+            {
+                &quot;url&quot;: &quot;https://github.com/neutree/teedoc&quot;,
+                &quot;label&quot;: &quot;github&quot;,
+                &quot;target&quot;: &quot;_blank&quot;,
+                &quot;position&quot;: &quot;right&quot;
+            },
+            {
+                &quot;label&quot;: &quot;Language: &quot;,
+                &quot;position&quot;: &quot;right&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;url&quot;: &quot;/get_started/zh/&quot;,
+                        &quot;label&quot;: &quot;Chinese&quot;
+                    },
+                    {
+                        &quot;url&quot;: &quot;/get_started/en/&quot;,
+                        &quot;label&quot;: &quot;English&quot;
+                    }
+                ]
+            }
+        ]
+    },
+    &quot;footer&quot;:{
+        &quot;top&quot;:[
+            {
+                &quot;label&quot;: &quot;Link&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;label&quot;: &quot;Use teedoc to build&quot;,
+                        &quot;url&quot;: &quot;https://github.com/neutree/teedoc&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    },
+                    {
+                        &quot;label&quot;: &quot;Copyright © 2021 Neucrack&quot;,
+                        &quot;url&quot;: &quot;https://neucrack.com&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    }
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;Source&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;label&quot;: &quot;github&quot;,
+                        &quot;url&quot;: &quot;https://github.com/neutree/teedoc&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    },
+                    {
+                        &quot;label&quot;: &quot;Source files of this website&quot;,
+                        &quot;url&quot;: &quot;https://github.com/teedoc/teedoc.github.io&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    }
+                ]
+            }
+        ],
+        &quot;bottom&quot;: [
+            {
+                &quot;label&quot;: &quot;*ICP备********号-1&quot;,
+                &quot;url&quot;: &quot;https://beian.miit.gov.cn&quot;,
+                &quot;target&quot;: &quot;_blank&quot;
+            },
+            {
+                &quot;label&quot;: &quot;*Public Network Security No. ************&quot;,
+                &quot;url&quot;: &quot;https://beian.miit.gov.cn/#/Integrated/index&quot;,
+                &quot;target&quot;: &quot;_blank&quot;
+            }
+        ]
+    },
+    &quot;plugins&quot;: {
+        &quot;teedoc-plugin-search&quot;:{
+            &quot;config&quot;: {
+                &quot;search_hint&quot;: &quot;Search&quot;,
+                &quot;input_hint&quot;: &quot;Enter keywords, separate multiple keywords with spaces&quot;,
+                &quot;loading_hint&quot;: &quot;Loading, please wait...&quot;,
+                &quot;download_err_hint&quot;: &quot;Failed to download the file, please refresh and try again or check the network&quot;,
+                &quot;other_docs_result_hint&quot;: &quot;Results from other documents&quot;,
+                &quot;curr_doc_result_hint&quot;: &quot;Current document search result&quot;
+            }
+        }
+    },
+    &quot;show_source&quot;: &quot;Edit this page&quot;
+}
+</code></pre>
+<ul>
+<li><code>import</code>: You can import the configuration from the template file, the file name without suffix. For example, <code>site_config</code> set <code>config_template_dir</code> to <code>./</code>, fill in <code>&quot;import&quot;: &quot;config_zh&quot;</code> here, it means to import <code>config_zh.json</code> (priority) or <code>config_zh in the same directory as</code>site_config<code>.yaml</code>.</li>
+</ul>
+<p>Then you can add the configuration of the current document, overwrite the template file, the same keywords, and modify different content. If it is an array (list), to replace the content of the template file, you need to add <code>id</code> to the array item of the template file. Keyword, then modify, if the <code>id</code> keyword is not specified, it will be appended to the array. For example, the template file <code>config_zh</code>:</p>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;locale&quot;: &quot;en_US&quot;,
+    &quot;navbar&quot;: {
+        &quot;title&quot;: &quot;teedoc&quot;,
+        &quot;items&quot;: [
+            {
+                &quot;url&quot;: &quot;/get_started/zh/&quot;,
+                &quot;label&quot;: &quot;安装使用&quot;,
+                &quot;position&quot;: &quot;left&quot;
+            },
+            {
+                &quot;id&quot;: &quot;language&quot;,
+                &quot;label&quot;: &quot;Language: &quot;,
+                &quot;position&quot;: &quot;right&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;url&quot;: &quot;/zh&quot;,
+                        &quot;label&quot;: &quot;中文&quot;
+                    },
+                    {
+                        &quot;url&quot;: &quot;/en&quot;,
+                        &quot;label&quot;: &quot;English&quot;
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+<p>The configuration file of a specific document:</p>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;import&quot;: &quot;config_zh&quot;,
+    &quot;navbar&quot;: {
+        &quot;title&quot;: &quot;teedoc123&quot;,
+        &quot;items&quot;: [
+            {
+                &quot;id&quot;: &quot;language&quot;,
+                &quot;label&quot;: &quot;Language: &quot;,
+                &quot;position&quot;: &quot;right&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;url&quot;: &quot;/get_started/zh&quot;,
+                        &quot;label&quot;: &quot;中文&quot;
+                    },
+                    {
+                        &quot;url&quot;: &quot;/get_started/en&quot;,
+                        &quot;label&quot;: &quot;English&quot;
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+<ul>
+<li><code>id</code>: The <code>id</code> of the document. Generally, there is no need to write it. The <code>id</code> will be set to the <code>&lt;html&gt;</code> tags of all pages in the <code>config.json</code> directory. For example, if <code>teedoc_page</code> is set here, all pages in this directory will become <code>&lt;html id=&quot;teedoc_page&quot;&gt; ... &lt;/html&gt;</code>. If the <code>markdown</code> file has set <code>id</code>, this value will be overwritten, that is, each page can only have one <code>id</code>.</li>
+<li><code>class</code>: The <code>class</code> of the document, generally you don't need to write it. Set the <code>class</code> to the <code>&lt;html&gt;</code> tags of all pages in the <code>config.json</code> directory, and use spaces for multiple <code>class</code> Separate. For example, if <code>language_zh</code> is set here, all pages in this directory will become <code>&lt;html class=&quot;language_zh&quot;&gt; ... &lt;/html&gt;</code>. If <code>class</code> is set in the <code>markdown</code> file, it will be appended. For example, if <code>language_zh</code> is set in <code>config.json</code>, and <code>class: zh_readme</code> is set in <code>README.md</code>, the final result is <code>class=&quot; language_zh zh_readme&quot;</code>. This function is convenient to customize the style of each page or the style of different documents.</li>
+<li><code>locale</code>: locale code, can found from <a href="https://www.science.co.il/language/Locale-codes.php"  target="_blank">here</a>, for example: <code>zh</code>, <code>zh_CN</code>, <code>en_US</code>, <code>ja</code> etc. Or get by program <code>babel</code>:</li>
+</ul>
+
+<pre class="language-none"><code class="language-none">pip install babel
+pybabel --list-locales
+</code></pre>
+<ul>
+<li><code>navbar</code>: Navigation bar settings, each document can be individually set up the navigation bar, if you want to keep the entire website unified, you can modify each configuration to be the same. The keyword <code>type</code> is used in the first layer and is used to indicate the category of this label in the navigation bar. The values are:<ul>
+<li><code>link</code>: normal link, this option is the default when you don’t write the <code>type</code> keyword</li>
+<li><code>list</code>: There are sub-items, which will be displayed in the form of a drop-down menu</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../assets/images/navbar.png" alt="" /></p>
+<ul>
+<li><code>selection</code>: Single option, such as language selection. When the <code>type</code> keyword is not written and there is the <code>items</code> keyword, this option is the default</li>
+</ul>
+<p><img src="../../assets/images/navbar2.png" alt="" /></p>
+<ul>
+<li><code>language</code>: If <code>translate</code> is set in <code>site_config</code>, the <code>items</code> of type <code>language</code> will be automatically filled in the language list, so we don't need to write the language list manually! The effect is the same as <code>selection</code> (in fact, the internal code is to automatically replace the <code>language</code> type with <code>selection</code>)</li>
+</ul>
+<p><img src="../../assets/images/navbar2.png" alt="" /></p>
+<ul>
+<li><code>footer</code>: website footer, divided into upper and lower parts, and multiple columns can be added to the upper part, and each column can have multiple values</li>
+<li><code>plugins</code>: Configure the configuration items of the plug-in, if it has been set in the <code>site_config.json</code>, it will be overwritten, that is, the priority of the child <code>config</code> is higher</li>
+<li><code>show_source</code>: Under the premise that the keyword <code>source</code> is set in <code>site_config.json</code>, it is the source code path of the document, such as <code>https://github.com/teedoc/teedoc.github.io/blob/main</code> , Where <code>main</code> is the main branch of the document, and the <code>Edit this page</code> button (link) will be added to the document page, click to jump to the corresponding file source code. Set <code>&quot;show_source&quot;: &quot;Edit this page&quot;</code> to define the text content of the button as <code>Edit this page</code>, if you don't set it, the default is <code>Edit this page</code>, if you want the document to have this button, set it to <code>&quot;show_source&quot;: false</code>; you can also add <code>show_source: edit this page</code> or <code>show_source: false</code> in the header information of the file (<code>md</code> or <code>ipynb</code> file) to set</li>
+</ul>
+<h2 id="sidebar.json-Document-directory-%28sidebar%29-settings">sidebar.json Document directory (sidebar) settings</h2>
+<p>There is a directory for setting documents, one for each document, independent of each other</p>
+<p>The file path uses a relative path, just fill in the file name, <code>README.md</code> will be automatically converted to <code>index.html</code></p>
+<p>In addition, you can also directly <code>url</code> without writing the path of <code>file</code>, such as <code>&quot;url&quot;: &quot;/get_started/zh/&quot;</code>, at the same time you can set <code>&quot;target&quot;:&quot;_blank&quot;</code> to open in a new window, otherwise Open in current window</p>
+<p>For the items in the first layer of <code>items</code>, if there is only <code>label</code> without <code>url</code>, <code>file</code> and <code>items</code>, a classification mark will be added to the sidebar, and the effect is as follows:<br />
+<img src="../../assets/images/sidebar.png" alt="" /></p>
+<p>And you can add option <code>&quot;collapsed&quot;: false</code> to show sub directory by default</p>
+<p>such as:</p>
+
+<pre class="language-yaml"><code class="language-yaml">items:
+-   label: Introduction to teedoc
+    file: README.md
+-   label: Install teedoc
+    file: install/README.md
+-   label: Start writing document
+    file: usage/start.md
+-   label: Plugin
+    file: plugins/README.md
+    collapsed: false
+    items:
+    -   label: Theme Plugin
+        file: plugins/themes.md
+    -   label: Other plugins
+        file: plugins/others.md
+-   label: markdown syntax
+    file: syntax/syntax_markdown.md
+-   label: Website using teedoc
+    file: usage/sites.md
+-   label: More samples
+    items:
+    -   label: Second-level subdirectory example
+        items:
+        -   label: Sample three-level sub-directory
+            items:
+            -   label: Article 1
+                file: more/example_docs/doc1.md
+        -   label: Article 2
+            file: more/example_docs/doc2.md
+    -   label: This is a link
+        url: https://github.com/teedoc/teedoc
+        target: _blank
+</code></pre>
+<p>or <code>json</code> format</p>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;items&quot;:[
+        {
+            &quot;label&quot;: &quot;Introduction to teedoc&quot;,
+            &quot;file&quot;: &quot;README.md&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Install teedoc&quot;,
+            &quot;file&quot;: &quot;install/README.md&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Start writing document&quot;,
+            &quot;file&quot;: &quot;usage/start.md&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Plugin&quot;,
+            &quot;file&quot;: &quot;plugins/README.md&quot;,
+            &quot;collapsed&quot;: false,
+            &quot;items&quot;:[
+                {
+                    &quot;label&quot;: &quot;Theme Plugin&quot;,
+                    &quot;file&quot;: &quot;plugins/themes.md&quot;
+                },
+                {
+                    &quot;label&quot;: &quot;Other plugins&quot;,
+                    &quot;file&quot;: &quot;plugins/others.md&quot;
+                }
+            ]
+        },
+        {
+            &quot;label&quot;: &quot;markdown syntax&quot;,
+            &quot;file&quot;: &quot;syntax/syntax_markdown.md&quot;
+        },
+        {
+            &quot;label&quot;: &quot;Website using teedoc&quot;,
+            &quot;file&quot;: &quot;usage/sites.md&quot;
+        },
+        {
+            &quot;label&quot;: &quot;More samples&quot;,
+            &quot;items&quot;:[
+                {
+                    &quot;label&quot;: &quot;Second-level subdirectory example&quot;,
+                    &quot;items&quot;:[
+                        {
+                            &quot;label&quot;: &quot;Sample three-level sub-directory&quot;,
+                            &quot;items&quot;:[
+                                {
+                                    &quot;label&quot;: &quot;Article 1&quot;,
+                                    &quot;file&quot;: &quot;more/example_docs/doc1.md&quot;
+                                }
+                            ]
+                        },
+                        {
+                            &quot;label&quot;: &quot;Article 2&quot;,
+                            &quot;file&quot;: &quot;more/example_docs/doc2.md&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;label&quot;: &quot;This is a link&quot;,
+                    &quot;url&quot;: &quot;https://github.com/teedoc/teedoc&quot;,
+                    &quot;target&quot;: &quot;_blank&quot;
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/en/install/index.html">
+                            <span class="icon"></span>
+                            <span class="label">Install teedoc</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/en/syntax/syntax_markdown.html">
+                            <span class="label">markdown syntax</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">Site generated by teedoc</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">website source files</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>
