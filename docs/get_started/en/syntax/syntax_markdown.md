@@ -49,6 +49,7 @@ keywords: teedoc, markdown, syntax
 desc: teedoc's markdown syntax introduction and examples
 id: zh_readme
 class: zh_readme
+draft: false
 # Start with a # sign to indicate a comment
 ---
 ```
@@ -92,6 +93,7 @@ update:
     content: updated xxx
 ```
 * `update_open`: display update history or not, default `true`, set to `false` will collapse update history(supported by theme plugin)
+* `draft`: Whether it is a draft, the default is `false`. If set to `true`, this file will be ignored when generating the page.
 
 ### Markdown content
 

@@ -49,6 +49,7 @@ keywords: teedoc, markdown, 语法
 desc: teedoc 的 markdown 语法介绍和实例
 id: zh_readme
 class: zh_readme
+draft: false
 # 以 # 号开头表示注释
 ---
 ```
@@ -92,6 +93,7 @@ update:
     content: 更新了xxx
 ```
 * `update_open`: 是否默认展开更新记录，默认为 `true`，关闭设置为`false`即可。（由主题插件支持）
+* `draft`: 是否为草稿，默认为`false`，如果设置为`true`，则在生成页面时会忽略此文件。
 
 ### Markdown 文件内容
 
