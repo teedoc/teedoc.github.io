@@ -18,6 +18,18 @@ class: heading_no_counter
 ---
 ```
 
+如果你想取消所有文档标题自动编号，则在`site_config.json`中配置插件`heading_no_counter`为`true`，比如
+```json
+    "plugins": {
+        "teedoc-plugin-theme-default":{
+            "from": "pypi",
+            "config": {
+                "heading_no_counter": true
+            }
+        }
+    }
+```
+
 
 
 

@@ -19,6 +19,8 @@ desc: teedoc 主题插件
                 "default_dark": false,
                 "mobile_navbar_collapsed": true,
                 "toc_depth": 4,
+                "show_print_page": true,
+                "heading_no_counter": false,
                 "env":{
                     "main_color": "#4caf7d",
                     "sidebar_width": "300px"
@@ -37,6 +39,12 @@ desc: teedoc 主题插件
 * `mobile_navbar_collapsed`: 移动设备导航栏默认折叠
 * `toc_depth`: 文章目录显示的层级，默认为`4`，即显示`H1~H4`
 * `show_print_page`: 显示打印页面按钮， 用户点击或者使用`Ctrl+P`可以打印页面
+* `heading_no_counter`: 取消标题自动编号， 如果设置为`true`，则文档所有标题都不会自动编号，如果你要单独取消某篇文档标题自动编号，则在文档头部添加
+```markdown
+---
+class: heading_no_counter
+---
+```
 * `main_color`: 主题主颜色
 * `sidebar_width`: 侧边目录栏默认宽度, 可以是`"300px"`, `300`, `"30%"` 这样的格式
 * `css`: `css`文件 `URL`，可以覆盖默认的样式，会被插入到页面的`head`标签中

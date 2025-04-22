@@ -18,6 +18,18 @@ class: heading_no_counter
 ---
 ```
 
+If you want to cancel the automatic numbering of all document titles, set the plugin `heading_no_counter` to `true` in `site_config.json`, for example
+```json
+    "plugins": {
+        "teedoc-plugin-theme-default":{
+            "from": "pypi",
+            "config": {
+                "heading_no_counter": true
+            }
+        }
+    }
+```
+
 
 
 
