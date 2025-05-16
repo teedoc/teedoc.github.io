@@ -16,7 +16,13 @@ For example, on `Ubuntu`:
 sudo apt install python3 python3-pip git
 ```
 
-`Windows` and `macOS` please go to [Official Website Download](https://www.python.org/downloads/)
+For **Windows** and **macOS**, please visit the [official website](https://www.python.org/downloads/) to download Python.
+**During installation, make sure to check the option** `Add python.exe to PATH`.
+
+Then, open a new terminal (on **Windows**, press `Ctrl+R`, type `cmd`, and press Enter):
+
+1. Type `python --version`. If you see something like `Python 3.**.**`, it means Python has been successfully installed.
+2. Type `pip --version`. If you see something like `pip **.*.*`, it means the `pip` tool has been successfully installed.
 
 
 ## Install teedoc

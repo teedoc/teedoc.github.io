@@ -16,7 +16,11 @@ desc: teedoc， 将 markdown 或者 jupyter notbook 转换成 html 静态网页�
 sudo apt install python3 python3-pip git
 ```
 
-`Windows` 和 `macOS`请到[官网下载](https://www.python.org/downloads/)
+`Windows` 和 `macOS`请到[官网下载](https://www.python.org/downloads/)，**安装时注意勾上`将 python.exe 加入到系统环境变量(PATH)`选项**。
+
+然后新打开一个终端(`Windows`按`Ctrl+R`输入`cmd`) :
+1. 输入`python --version`，能看到`Python 3.**.**`这样的字样就代表 `Python` 安装成功了。
+2. 输入`pip --version`，能看到`pip **.*.*`这样的字样就代表 `pip` 工具安装成功了。
 
 
 ## 安装 teedoc
