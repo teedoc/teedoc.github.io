@@ -1,0 +1,83 @@
+items:
+-   label: Introduction to teedoc
+    file: README.md
+-   label: Website using teedoc
+    file: usage/sites.md
+-   label: Baisc usage
+-   label: Quick start
+    file: usage/quick_start.md
+-   label: Install teedoc
+    file: install/README.md
+-   label: Doc structure and config
+    file: usage/start.md
+-   label: Write content(Syntax)
+    collapsed: false
+    items:
+    -   label: markdown syntax
+        file: syntax/syntax_markdown.md
+    -   label: Jupyter syntax
+        file: syntax/syntax_jupyter.ipynb
+    -   label: HTML syntax
+        file: syntax/syntax_html.html
+-   label: Pay attention to when writing
+    file: usage/write_attention.md
+-   label: Blog
+    file: usage/blog.md
+-   label: Deployment
+    file: usage/deploy.md
+    items:
+    -   label: Deploy to github
+        file: usage/deploy_github_pages.md
+    -   label: Use nginx to deploy to the server
+        file: usage/deploy_nginx.md
+    -   label: Deploy to cloud service
+        file: usage/deploy_cloud.md
+    -   label: Use CDN to accelerate website
+        file: usage/deploy_cdn.md
+-   label: Common problems
+    file: usage/problems.md
+-   label: Advanced use
+-   label: Plugins
+    file: plugins/README.md
+    items:
+    -   label: Theme Plugins
+        file: plugins/themes.md
+    -   label: Other plugins
+        file: plugins/others.md
+-   label: SEO (Optimize for Search Engines)
+    file: usage/seo.md
+-   label: Customize layout
+    file: usage/layout_template.md
+-   label: Internationalization(i18n/Translate)
+    file: usage/i18n.md
+-   label: Customize 404 page
+    file: usage/404.md
+-   label: Convert gitbook to teedoc
+    file: usage/gitbook2teedoc.md
+-   label: Find big files
+    file: usage/list_files_by_size.md
+-   label: list difference in two dir
+    file: usage/compare_dirs.md
+-   label: More
+-   label: Update history
+    file: more/history.md
+-   label: More samples(not collapsed by default)
+    collapsed: false
+    items:
+    -   label: Second-level subdirectory example
+        items:
+        -   label: Sample three-level sub-directory
+            items:
+            -   label: Article 1
+                file: more/example_docs/doc1.md
+        -   label: Article 2
+            file: more/example_docs/doc2.md
+    -   label: Heading auto count
+        items:
+        -   label: Multi h1 titile in page
+            file: more/example_docs/multi_h1.md
+        -   label: Cancel heading auto count
+            file: more/example_docs/heading_no_counter.md
+    -   label: This is a external link
+        url: https://github.com/teedoc/teedoc
+        target: _blank

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="teedoc, 主题插件, 主题, 插件">
+    
+    
+    <meta name="description" content="teedoc 其它插件">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>teedoc 其它插件 - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "这是一个支持国际化的消息示例</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: 中文 简体</a><ul><li class=""><a  href="/get_started/en/plugins/others.html">English</a></li>
+<li class="active"><a  href="/get_started/zh/plugins/others.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">基本使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/quick_start.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">文档结构和配置</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">编写文档内容(语法)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_html.html"><span class="label">HTML 语法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cloud.html"><span class="label">部署到云服务商</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">进阶使用</span></li>
+<li class="active_parent with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/layout_template.html"><span class="label">自定义页面模板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/i18n.html"><span class="label">国际化(i18n/翻译)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/404.html"><span class="label">自定义404页面</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/list_files_by_size.html"><span class="label">查找大文件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/compare_dirs.html"><span class="label">找出两目录的不同文件</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">更多样例(目录默认展开)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">二级子目录</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">文章标题自动编号</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/multi_h1.html"><span class="label">页面有多个一级标题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/heading_no_counter.html"><span class="label">标题不自动编号</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>teedoc 其它插件</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/plugins/others.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <h2 id="%3Ccode%3Eteedoc-plugin-markdown-parser%3C/code%3E%3A-%E9%BB%98%E8%AE%A4-markdown-%E8%A7%A3%E6%9E%90%E6%8F%92%E4%BB%B6"><code>teedoc-plugin-markdown-parser</code>: 默认 markdown 解析插件</h2>
+<p>在<code>site_config.json</code>中配置插件</p>
+
+<pre class="language-json"><code class="language-json">    &quot;plugins&quot;: {
+        &quot;teedoc-plugin-markdown-parser&quot;:{
+            &quot;from&quot;: &quot;pypi&quot;,
+            &quot;config&quot;: {
+                &quot;parse_files&quot;: [&quot;md&quot;],
+                &quot;mermaid&quot;: true,
+                &quot;mermaid_use_cdn&quot;: false,
+                &quot;mermaid_cdn_url&quot;: &quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;,
+                &quot;mathjax&quot;: {
+                    &quot;enable&quot;: true,
+                    &quot;file_name&quot;: &quot;tex-mml-chtml&quot;,
+                    &quot;config&quot;: {
+                        &quot;loader&quot;: {
+                            &quot;load&quot;: [&quot;output/svg&quot;]
+                        },
+                        &quot;tex&quot;: {
+                            &quot;inlineMath&quot;: [[&quot;$&quot;, &quot;$&quot;], [&quot;\\(&quot;, &quot;\\)&quot;]]
+                        },
+                        &quot;svg&quot;: {
+                            &quot;fontCache&quot;: &quot;global&quot;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</code></pre>
+<ul>
+<li><code>parse_files</code>: 参与解析的文件格式</li>
+<li><code>mermaid</code>: 是否开启 mermaid 插件</li>
+<li><code>mermaid_use_cdn</code>: 是否使用 CDN 加载 mermaid 插件</li>
+<li><code>mermaid_cdn_url</code>: CDN 地址, <code>mermaid_use_cdn</code> 为 <code>true</code> 时才有用</li>
+<li><code>mathjax</code>: 数学公式渲染支持<ul>
+<li><code>enable</code>:  是否启用</li>
+<li><code>file_name</code>： <code>js</code>文件名， 定义了默认有哪些功能，默认<code>tex-mml-chtml</code>, <a href="http://docs.mathjax.org/en/latest/web/components/index.html"  target="_blank">参考这里</a></li>
+<li><code>config</code>: <code>mathjax</code>的配置， <a href="https://www.mathjax.org/"  target="_blank">mathjax</a>的配置， 具体配置项看<a href="http://docs.mathjax.org/en/latest/web/configuration.html"  target="_blank">这里</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="%3Ccode%3Eteedoc-plugin-jupyter-notebook-parser%3C/code%3E%3A-jupyter-notebook-%E8%A7%A3%E6%9E%90%E6%8F%92%E4%BB%B6"><code>teedoc-plugin-jupyter-notebook-parser</code>: jupyter notebook 解析插件</h2>
+<p>在<code>site_config.json</code>中配置插件</p>
+
+<pre class="language-json"><code class="language-json">    &quot;plugins&quot;: {
+        &quot;teedoc-plugin-jupyter-notebook-parser&quot;:{
+            &quot;from&quot;: &quot;pypi&quot;,
+            &quot;config&quot;: {
+            }
+        }
+    }
+</code></pre>
+<h2 id="%3Ccode%3Eteedoc-plugin-search%3C/code%3E%3A-%E7%BD%91%E7%AB%99%E6%90%9C%E7%B4%A2%E6%8F%92%E4%BB%B6"><code>teedoc-plugin-search</code>: 网站搜索插件</h2>
+<p>让网站和文档支持搜索功能，支持所搜当前文档和全站搜索</p>
+<p>要使用，在<code>site_config.json</code>中的<code>plugins</code>关键词中添加：</p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-search&quot;:{
+        &quot;from&quot;: &quot;pypi&quot;,
+        &quot;config&quot;: {
+            &quot;search_hint&quot;: &quot;Search&quot;,
+            &quot;env&quot;: {
+                &quot;main_color&quot;: &quot;#4caf7d&quot;,
+                &quot;main_color_dark&quot;: &quot;#1b4c33&quot;,
+                &quot;hint_shadow_color&quot;: &quot;rgba(76, 175, 125, 0.38)&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<p>不同文档的提示内容可以在对应的文档<code>config.json</code>中配置，以方便做多语言支持（国际化/i18n）, 当然，插件默认支持了<code>中文``英文</code>和<code>日文</code>， 翻译在<a href="https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-search/teedoc_plugin_search/locales"  target="_blank">这里</a>， 当默认找不到会使用<code>英文</code>， 手动设置下面这边变量会覆盖插件自带的翻译</p>
+<p>支持的配置如下：</p>
+
+<pre class="language-json"><code class="language-json">&quot;teedoc-plugin-search&quot;:{
+    &quot;config&quot;: {
+        &quot;search_hint&quot;: &quot;搜索&quot;,
+        &quot;input_hint&quot;: &quot;输入关键词，多关键词空格隔开&quot;,
+        &quot;loading_hint&quot;: &quot;正在加载，请稍候。。。&quot;,
+        &quot;download_err_hint&quot;: &quot;下载文件失败，请刷新重试或检查网络&quot;,
+        &quot;other_docs_result_hint&quot;: &quot;来自其它文档的结果&quot;,
+        &quot;curr_doc_result_hint&quot;: &quot;当前文档搜索结果&quot;
+    }
+}
+</code></pre>
+<ul>
+<li><code>search_hint</code>: 搜索框（按钮）的提示信息， 默认<code>Search</code></li>
+<li><code>input_hint</code>: 搜索页面搜索框输入提示信息， 默认<code>Keywords separated by space</code></li>
+<li><code>loading_hint</code>: 加载搜索所需的文件提示，默认<code>Loading, wait please ...</code></li>
+<li><code>download_err_hint</code>: 下载搜索所需的文件失败提示，需要用户刷新浏览器重试或者网络环境无法下载文件， 默认<code>Download error, please check network and refresh again</code></li>
+<li><code>other_docs_result_hint</code>: 搜索结果提示，其它文档中的搜索结果， 默认<code>Result from other docs</code></li>
+<li><code>curr_doc_result_hint</code>: 搜索结果提示，当前浏览的文档中的搜索结果， 默认<code>Result from current doc</code></li>
+<li><code>env</code>: 替换部分颜色， 包括<ul>
+<li><code>main_color</code>: 主颜色， 默认<code>&quot;#4caf7d&quot;</code></li>
+<li><code>main_color_dark</code>: 黑色主题主颜色， 默认<code>&quot;#1b4c33&quot;</code></li>
+<li><code>hint_shadow_color</code>: 阴影颜色，默认<code>rgba(76, 175, 125, 0.38)</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="%3Ccode%3Eteedoc-plugin-baidu-tongji%3C/code%3E%3A-%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1"><code>teedoc-plugin-baidu-tongji</code>: 百度统计</h2>
+<p>在每个页面添加<a href="https://tongji.baidu.com/"  target="_blank">百度统计</a>的代码，将访问信息发送到百度，就可以在后台看到访问统计信息了</p>
+<p>在百度统计注册登录后，在管理页面添加网站，然后会有一个代码获取页面，里面会有如下的代码</p>
+
+<pre class="language-js"><code class="language-js">&lt;script&gt;
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;https://hm.baidu.com/hm.js?90c693aa2************c14a50bb49&quot;;
+  var s = document.getElementsByTagName(&quot;script&quot;)[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+&lt;/script&gt;
+</code></pre>
+<p>这里有一串密钥<code>90c693aa2************c14a50bb49</code>，将这一串密钥复制，然后在<code>site_config.json</code>中的<code>plugins</code>关键词中添加：</p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-baidu-tongji&quot;:{
+        &quot;from&quot;: &quot;pypi&quot;,
+        &quot;config&quot;: {
+            &quot;code&quot;: &quot;这里填访问密钥&quot;
+        }
+    }
+}
+</code></pre>
+<p>部署好网站后，就可以在百度统计后台实时访客页面看到访问信息了</p>
+<h2 id="%3Ccode%3Eteedoc-plugin-google-analytics%3C/code%3E%3A-Google-%E5%88%86%E6%9E%90"><code>teedoc-plugin-google-analytics</code>: Google 分析</h2>
+<p>在每个页面添加<a href="https://analytics.google.com/"  target="_blank">Google 分析</a>的代码，将访问信息发送到 Google，就可以在后台看到访问统计信息了</p>
+<p>在 Google 分析 注册登录后，在管理页面添加网站，然后会有一个 <code>ID</code>，以<code>UA-</code>或者<code>G-</code>开头， 比如<code>UA-123456789-1</code> <code>G-AABBCCDDJJOOKK</code></p>
+<p>然后在<code>site_config.json</code>中的<code>plugins</code>关键词中添加：</p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-google-analytics&quot;:{
+        &quot;from&quot;: &quot;pypi&quot;,
+        &quot;config&quot;: {
+            &quot;id&quot;: &quot;这里填资源 ID&quot;
+        }
+    }
+}
+</code></pre>
+<h2 id="%3Ccode%3Eteedoc-plugin-comments-gitalk%3C/code%3E%3A-gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6"><code>teedoc-plugin-comments-gitalk</code>: gitalk 评论插件</h2>
+<p><a href="https://github.com/gitalk/gitalk"  target="_blank">gitalk</a> 是一个基于 <code>github</code> <code>issue</code>问答系统的一个评论工具， 使用 <code>gitalk</code>，无需自建服务器，只需要注册一个<code>github</code>账号， 所有的数据会放在<code>github</code>的一个仓库的<code>issue</code>上。</p>
+<blockquote>
+<p>如果你遇到了问题， <a href="https://github.com/gitalk/gitalk/wiki/Q&amp;A"  target="_blank">这里</a>也许有你要的答案</p>
+</blockquote>
+<h3 id="%E9%85%8D%E7%BD%AE-github">配置 github</h3>
+<p>首先到 <a href="https://github.com/settings/developers"  target="_blank">github 开发者设置</a>里面,</p>
+<ul>
+<li>添加 一个 Oauth Apps</li>
+<li>然后生成 secrets， 就获得了 client ID 和 secrets</li>
+<li>填写 <code>Homepage URL</code> 为 主页 url，比如<code>https://teedoc.github.io</code></li>
+<li>填写 <code>Authorization callback URL</code>为首页<code>https://teedoc.github.io/</code></li>
+</ul>
+<h3 id="%E9%85%8D%E7%BD%AE%E6%96%87%E6%A1%A3">配置文档</h3>
+<p>要使用， 需要在<code>site_config</code>文件中添加插件</p>
+
+<pre class="language-json"><code class="language-json">    &quot;teedoc-plugin-comments-gitalk&quot;: {
+        &quot;from&quot;: &quot;pypi&quot;,
+        &quot;config&quot;: {
+            &quot;contrainer&quot;: &quot;comments-container&quot;,
+            &quot;env&quot;: {
+                &quot;clientID&quot;: &quot;********&quot;,
+                &quot;clientSecret&quot;: &quot;********&quot;,
+                &quot;repo&quot;: &quot;repo name&quot;,
+                &quot;owner&quot;: &quot;orgnization name or user name&quot;,
+                &quot;admin&quot;: [&quot;user names have write access&quot;],
+                &quot;main_color&quot;: &quot;#4caf7d&quot;,
+                &quot;second_color&quot;: &quot;#0a7d43&quot;
+            },
+        }
+    }
+</code></pre>
+<ul>
+<li><code>contrainer</code>: 容纳评论的容器标签<code>id</code>，默认是<code>comments-container</code>, 在<code>teedoc-plugin-theme-default</code>插件里面文档页面和博客页面包含了这个标签</li>
+<li><code>env</code>: <code>gitalk</code> js 插件的配置项， 更多的参数看<a href="https://github.com/gitalk/gitalk#options"  target="_blank">这里</a>。<ul>
+<li><code>clientID</code>和<code>clientSecret</code>: 需要在<a href="https://github.com/settings/applications/new"  target="_blank">github application</a> 中新建一个应用，可以得到<code>ID</code>和<code>Secret</code></li>
+<li><code>repo</code>和<code>owner</code>: 就是仓库名和拥有者，比如这里用<a href="https://github.com/teedoc/teedoc.github.io"  target="_blank">github.com/teedoc/teedoc.github.io</a>这个仓库的<code>issue</code>作为评论系统，就填<code>teedoc.github.io</code>和<code>teedoc</code></li>
+<li><code>admin</code>: 就是拥有这个仓库写入权限的用户名</li>
+<li><code>adminAutoCreate</code>: 是否在管理员访问页面的时候就立刻创建 issue</li>
+<li><code>main_color</code>: 评论主要外观颜色, 可以不设置</li>
+<li><code>second_color</code>: 评论次要外观颜色, 可以不设置</li>
+</ul>
+</li>
+</ul>
+<p><del><strong>每个页面开启评论需要管理员登录<code>gitalk</code>后访问页面，<code>gitalk</code>会自动创建 <code>issue</code>，并且添加标签<code>Gitalk</code>和标签<code>url路径</code>，(路径字符有<code>50</code>个字符的长度限制)</strong>。 当然，也有批量创建的方法，这里就不介绍了，可以自行摸索。</del> 已经更新成任何人都可以创建 Issue 了</p>
+<p>也可以先手动创建 <code>issue</code> 并且指定<code>issue</code>的标签<code>Gitalk</code>(首字母大写)，再添加另一个标签<code>页面的 url 路径</code>或者<code>自定义id</code>（标签是自定义<code>id</code>则需要在使用这个 <code>issue</code> 的页面设置页面 <code>id</code>）</p>
+<p><code>env</code>参数除了在<code>site_config</code>设置， 也可在文章的<code>metadata</code>中设置，在设置前面加一个<code>gitalk-</code>前缀， 比如要设置<code>gitalk</code>生成的<code>issue</code>的<code>title</code>，就可以设置<code>gitalk-title</code>。以下是几个例子：</p>
+<ul>
+<li>如果你手动创建了一个 <code>issue</code>， 可以为某篇页面指定使用这个 <code>issue</code>, 为文章在 <code>metadata</code>中指定 <code>issue</code> 的 编号即可</li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown">---
+title: *****
+gitalk-number: 2
+---
+</code></pre>
+<ul>
+<li>或者先手动创建 <code>issue</code>， 在页面中指定使用这个带特定标签<code>issue</code>，可以看看<a href="https://github.com/gitalk/gitalk/issues/1"  target="_blank">官方的例子</a></li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown">---
+title: *****
+id: Demo
+---
+</code></pre>
+<p>or</p>
+
+<pre class="language-markdown"><code class="language-markdown">---
+title: *****
+gitalk-id: Demo
+---
+</code></pre>
+<h2 id="%3Ccode%3Eteedoc-plugin-assets%3C/code%3E%3A-assets-%E8%B5%84%E6%BA%90%E6%B7%BB%E5%8A%A0%E6%8F%92%E4%BB%B6"><code>teedoc-plugin-assets</code>: assets 资源添加插件</h2>
+<p>可以通过这个插件向页面自由添加资源， 比如<code>css</code>和<code>js</code>资源文件</p>
+<p>比如已经添加了资源文件的路径映射，并且有<code>/static/css/custom.css</code>和<code>/static/css/custom.js</code>两个文件， 需要将其分别添加到页面头部和尾部,<br />
+同时还希望在头部添加一个<code>meta</code>标签</p>
+<p><code>site_config.json</code>:</p>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;route&quot;: {
+            &quot;assets&quot;: {
+                &quot;/static/&quot;: &quot;static&quot;,
+            },
+        },
+    &quot;plugins&quot;: {
+        &quot;teedoc-plugin-assets&quot;:{
+            &quot;from&quot;: &quot;pypi&quot;,
+            &quot;config&quot;: {
+                &quot;header_items&quot;: [
+                    &quot;/static/css/custom.css&quot;,
+                    &quot;&lt;meta name=\&quot;plugin-assets\&quot; content=\&quot;example meta item\&quot;&gt;&quot;
+                ],
+                &quot;footer_items&quot;: [
+                    &quot;/static/css/custom.js&quot;
+                ],
+                &quot;env&quot;:{
+                    &quot;main_color&quot;: &quot;#000000&quot;
+                }
+            }
+        },
+    }
+}
+</code></pre>
+<p>如果是<code>css</code>和<code>js</code>文件，可以这样直接写<code>url</code>， 也可以写<code>http</code>开头的链接。</p>
+<p>这里<code>env</code>里面的变量会替换到资源文件中， 在资源文件中通过<code>${变量名}</code>来使用</p>
+<p><code>custom.css</code>:</p>
+
+<pre class="language-css"><code class="language-css">a {
+    color: ${main_color}
+}
+</code></pre>
+<h2 id="%3Ccode%3Eteedoc-plugin-google-translate%3C/code%3E%3A-Google-%E9%A1%B5%E9%9D%A2%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6"><code>teedoc-plugin-google-translate</code>: Google 页面翻译插件</h2>
+<p>功能和 <code>Chrome</code> 的鼠标右键翻译此页面 功能一样</p>
+<p>翻译前：</p>
+<p><img src="../../assets/images/google_translate0.png" alt="google translate" /></p>
+<p>翻译后：</p>
+<p><img src="../../assets/images/google_translate.png" alt="google translate" /></p>
+
+<pre class="language-json"><code class="language-json">&quot;config&quot;: {
+    &quot;lang&quot;: &quot;auto&quot;,
+    &quot;doc_types&quot;: [&quot;page&quot;, &quot;doc&quot;, &quot;blog&quot;],
+    &quot;domain&quot;: &quot;/&quot;
+}
+</code></pre>
+<ul>
+<li><code>lang</code>: 需要被翻译的页面的语言， 默认<strong>建议不要设置</strong>， 或者设置为文档的<code>locale</code>一致， 比如<code>locale</code>为<code>zh_CN</code>，则这个可以设置为<code>zh-CN</code></li>
+<li><code>doc_types</code>: 要展示在那些类型的文档页面中，<code>[&quot;page&quot;, &quot;doc&quot;, &quot;blog&quot;]</code> 中的 0 个 到 3 个，</li>
+<li><code>domain</code>: 从哪个网址下载<code>google translate</code>的源码，默认是<code>&quot;/&quot;</code>, 代表从本网站下载，也可以设置成 <code>translate.google.com</code> 或者 <code>translate.google.cn</code></li>
+</ul>
+<blockquote>
+<p>主要是考虑到中国地区不开代理无法下载请求的某些文件，实际还是要请求<code>translate.googleapis.com</code>的， 在制作插件时发现就算设置成<code>translate.google.cn</code>，有个<code>js</code>文件请求了<code>google.com</code>的域名下的一个<code>cleardot.gif</code>文件，导致网络请求卡住很久直到超时才能加载翻译，所以把那个<code>js</code>文件（<code>element_main.js</code>）修改并放到了本地，这样就可以很快地访问了。<br />
+但是这样也有风险，由于代码和 <code>Google</code>服务器的代码分离了，万一哪天<code>Google</code>更新了代码，我们也需要跟着手动更新（虽然大概率不会改），到时欢迎更新修改并提交 PR</p>
+</blockquote>
+<h2 id="%3Ccode%3Eteedoc-plugin-ad-hint%3C/code%3E%3A-%E5%B9%BF%E5%91%8A%E6%88%96%E8%80%85%E9%87%8D%E8%A6%81%E6%B6%88%E6%81%AF%E5%85%A8%E5%B1%80%E6%8F%90%E7%A4%BA"><code>teedoc-plugin-ad-hint</code>: 广告或者重要消息全局提示</h2>
+<h3 id="%E6%95%88%E6%9E%9C">效果</h3>
+<p><img src="../../assets/images/hint.jpg" alt="hint" /></p>
+<h3 id="%E4%BD%BF%E7%94%A8">使用</h3>
+<p>在<code>site_config</code>中添加插件</p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-ad-hint&quot;: {
+        &quot;from&quot;: &quot;pypi&quot;,
+        &quot;config&quot;: {
+            &quot;type&quot;: &quot;hint&quot;,
+            &quot;label&quot;: &quot;☆&quot;,
+            &quot;content&quot;: &quot;内容，支持 html 语法，不要使用英文单引号&quot;,
+            &quot;show_after_s&quot;: 432000
+        }
+    }
+}
+</code></pre>
+<p>配置：默认配置代码在<a href="https://github.com/teedoc/teedoc/blob/e909be61546e3817b872bd5005b9b867c6843e60/plugins/teedoc-plugin-ad-hint/teedoc_plugin_ad_hint/__init__.py#L22"  target="_blank">这里</a></p>
+<ul>
+<li><code>type</code>: 默认 <code>&quot;hint&quot;</code>, 目前只支持<code>hint</code></li>
+<li><code>label</code>: 默认 <code>&quot;New&quot;</code>, 会自动在导航栏添加一个标签，点击会显示顶部提示内容，这里设置标签显示的内容</li>
+<li><code>content</code>: 默认 <code>&quot;&quot;</code>, 内容，<code>hint</code>类别的内容会显示在顶部</li>
+<li><code>show_times</code>: 默认 <code>2</code>,  设置用户访问多少次页面后提示不在自动显示，如果值 <code>&lt;= 0</code> 则永远显示</li>
+<li><code>show_after_s</code>: 默认 <code>432000</code>,  设置下次再自动显示的时间，单位是秒，默认是 <code>5</code> 天</li>
+<li><code>date</code>: 默认值为<code>null</code>, 提示信息的更新时间，如果更新了信息，可以设置这个时间来让提示立即自动显示，格式:<code>2021-11-07 14:23:00</code>, 如果设置的时间大于当前实际的时间，则会一直保持自动显示</li>
+<li><code>color</code>: 默认 <code>&quot;#a0421d&quot;</code>, 字体颜色</li>
+<li><code>link_color</code>: 默认 <code>&quot;#e53935&quot;</code>, 链接（<code>&lt;a&gt;</code>标签）字体颜色</li>
+<li><code>link_bg_color</code>: 默认 <code>&quot;#e6ae5c&quot;</code>, 链接（<code>&lt;a&gt;</code>标签）背景颜色</li>
+<li><code>bg_color</code>: 默认 <code>&quot;#ffcf89&quot;</code>, 背景颜色</li>
+<li><code>color_hover</code>: 默认 <code>&quot;white&quot;</code>, 鼠标悬浮时的字体颜色</li>
+<li><code>bg_color_hover</code>: 默认 <code>&quot;#f57c00&quot;</code>, 鼠标悬浮时的背景颜色</li>
+<li><code>close_color</code>: 默认 <code>&quot;#eab971&quot;</code>， 关闭按钮背景颜色</li>
+</ul>
+<h3 id="%E5%9B%BD%E9%99%85%E5%8C%96">国际化</h3>
+<p>如果文档有多语言，可以在<code>site_config</code>中配置插件:</p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-ad-hint&quot;: {
+        &quot;from&quot;: &quot;pypi&quot;,
+        &quot;config&quot;: {
+            &quot;type&quot;: &quot;hint&quot;,
+            &quot;label&quot;: &quot;☆&quot;,
+            &quot;content&quot;: &quot;content&quot;,
+            &quot;show_after_s&quot;: 432000
+        }
+    }
+}
+</code></pre>
+<p>然后在不同语言的文档<code>config</code>中覆盖设置</p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-ad-hint&quot;: {
+        &quot;config&quot;: {
+            &quot;label&quot;: &quot;🦀&quot;,
+            &quot;content&quot;: &quot;内容，支持 html 语法，不要使用英文单引号&quot;,
+        }
+    }
+}
+</code></pre>
+<p>同一个语言的文档尽量使用同一份<code>config</code>模板文件, 在具体的文档<code>config</code>中<code>import</code>，更容易配置</p>
+<h2 id="%3Ccode%3Eteedoc-plugin-thumbs-up%3C/code%3E%3A-%E7%82%B9%E8%B5%9E%E6%8F%92%E4%BB%B6"><code>teedoc-plugin-thumbs-up</code>: 点赞插件</h2>
+<p>用这个插件可以实现页面显示点赞按钮，可以统计点赞次数，效果如下<br />
+<img src="../../assets/images/thumbs_up.png" alt="thumbs_up.png" /></p>
+<h3 id="%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">基本使用</h3>
+<p>在<code>site_config</code>中添加插件：</p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-thumbs-up&quot;: {
+        &quot;from&quot;: &quot;pypi&quot;,
+        &quot;config&quot;: {
+            &quot;url&quot;: &quot;https://xxxx.xxxx.com:80&quot;,
+            &quot;show_up_count&quot;: true,
+            &quot;show_down_count&quot;: false
+        }
+    }
+}
+</code></pre>
+<p>需要注意的是，因为网页是纯静态页面，使用这个插件需要配合服务器使用，统计信息储存在服务器上。</p>
+<p>服务器使用<code>pip install teedoc-plugin-thumbs-up</code>命令安装插件后使用<code>teedoc-thumbs-up-server</code>命令来运行服务，可以用<code>--port</code>参数来指定端口，更多参数使用<code>teedoc-thumbs-up-server --help</code>查看</p>
+<blockquote>
+<p>建议用 nginx 等代理服务器代理这个服务。<br />
+另外如果你的网站是 https 协议，那这个服务也需要是 https 服务，可以申请免费的证书后用 nginx 配置</p>
+</blockquote>
+<p>需要注意的是，这个服务只是个简单的例程，不完全保证服务安全性，建议仔细阅读这个服务器代码修改定制你自己的服务器脚本，代码：<a href="https://github.com/teedoc/teedoc/tree/main/plugins/teedoc-plugin-thumbs-up/server"  target="_blank">teedoc-plugin-thumbs-up/server</a></p>
+<h3 id="%E5%9B%BD%E9%99%85%E5%8C%96">国际化</h3>
+<p>和其它插件一样，在不同语言的文档<code>config</code>中覆盖设置，参数见<a href="https://github.com/teedoc/teedoc/blob/a8b93a4f29330b018c2e38589786b33d00854309/plugins/teedoc-plugin-thumbs-up/teedoc_plugin_thumbs_up/__init__.py#L24"  target="_blank">插件源码默认配置</a></p>
+
+<pre class="language-json"><code class="language-json">&quot;plugins&quot;: {
+    &quot;teedoc-plugin-thumbs-up&quot;: {
+        &quot;config&quot;: {
+            &quot;label_up&quot;: &quot;有帮助&quot;,
+            &quot;label_down&quot;: &quot;没帮助&quot;,
+            &quot;msg_already_voted&quot;: &quot;您已经投过票了&quot;,
+            &quot;msg_thanks&quot;: &quot;感谢您的反馈&quot;,
+            &quot;msg_down_prompt&quot;: &quot;感谢反馈，请告诉我们可以改进什么地方?（最少 10 个字）&quot;,
+            &quot;msg_down_prompt_error&quot;: &quot;消息最少需要 10 个字， 最多 256 个字&quot;,
+            &quot;msg_error&quot;: &quot;请求服务器出现错误!&quot;
+        }
+    }
+}
+</code></pre>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/zh/plugins/themes.html">
+                            <span class="icon"></span>
+                            <span class="label">主题插件</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/zh/usage/seo.html">
+                            <span class="label">SEO(为搜索引擎优化)</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

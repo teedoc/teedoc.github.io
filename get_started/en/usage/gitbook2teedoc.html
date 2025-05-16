@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="gitbook, teedoc">
+    
+    
+    <meta name="description" content="Quickly convert from gitbook to teedoc, get rid of gitbook single-threaded construction turtle speed">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>Quickly convert from gitbook to teedoc - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/en/">Install</a></li>
+<li class=""><a  href="/develop/en/">Develop</a></li>
+<li class=""><a  href="/blog/">blog</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: English</a><ul><li class="active"><a  href="/get_started/en/usage/gitbook2teedoc.html">English</a></li>
+<li class=""><a  href="/get_started/zh/usage/gitbook2teedoc.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/index.html"><span class="label">Introduction to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/sites.html"><span class="label">Website using teedoc</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Baisc usage</span></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/install/index.html"><span class="label">Install teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/start.html"><span class="label">Doc structure and config</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Write content(Syntax)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_markdown.html"><span class="label">markdown syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_jupyter.html"><span class="label">Jupyter syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_html.html"><span class="label">HTML syntax</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/write_attention.html"><span class="label">Pay attention to when writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/blog.html"><span class="label">Blog</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy.html"><span class="label">Deployment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_github_pages.html"><span class="label">Deploy to github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_nginx.html"><span class="label">Use nginx to deploy to the server</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cloud.html"><span class="label">Deploy to cloud service</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cdn.html"><span class="label">Use CDN to accelerate website</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/problems.html"><span class="label">Common problems</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Advanced use</span></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/index.html"><span class="label">Plugins</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/plugins/themes.html"><span class="label">Theme Plugins</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/others.html"><span class="label">Other plugins</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/seo.html"><span class="label">SEO (Optimize for Search Engines)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/layout_template.html"><span class="label">Customize layout</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/i18n.html"><span class="label">Internationalization(i18n/Translate)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/404.html"><span class="label">Customize 404 page</span><span class=""></span></a></li>
+<li class="active with_link"><a href="/get_started/en/usage/gitbook2teedoc.html"><span class="label">Convert gitbook to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/list_files_by_size.html"><span class="label">Find big files</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/compare_dirs.html"><span class="label">list difference in two dir</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">More</span></li>
+<li class="not_active with_link"><a href="/get_started/en/more/history.html"><span class="label">Update history</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">More samples(not collapsed by default)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Second-level subdirectory example</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sample three-level sub-directory</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc1.html"><span class="label">Article 1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc2.html"><span class="label">Article 2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Heading auto count</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/multi_h1.html"><span class="label">Multi h1 titile in page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/heading_no_counter.html"><span class="label">Cancel heading auto count</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">This is a external link</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>Quickly convert from gitbook to teedoc</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/en/usage/gitbook2teedoc.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>Introduce how to quickly convert from gitbook to teedoc, because gitbook has stopped maintenance, and some features are no longer suitable for current use, such as single-threaded construction, which is very slow.</p>
+<p>Take <a href="https://github.com/lyy289065406/re0-web/tree/033f5dfd7c9d3b8654b3c1ea4dabfab8b3ebebb7"  target="_blank">re0-web</a> as an example:</p>
+<p>The author said in the readme that it takes 30 minutes to build once, but after looking at the source code, the number of documents is not a lot, and it shouldn't take so long.After seeing that the author uses docker, and it is under windows, it is naturally very slow. The solution is to switch to the linux build, which will speed up some speed, and it is estimated that the build can be completed in 5 minutes.</p>
+<p>Teedoc has the advantage of multi-threaded construction, and other functions and UI can also be satisfied, you can consider switching to teedoc (but teedoc does not support epub and pdf export (2021-05-29), if it is supported, it will be in <a href="../index.html"  >here</a> description)</p>
+<p>Final effect: <a href="https://teedoc.github.io/re0-web-teedoc/"  target="_blank">teedoc.github.io/re0-web-teedoc/</a></p>
+<h2 id="New-teedoc-project">New teedoc project</h2>
+
+<pre class="language-none"><code class="language-none">mkdir re0-web-teedoc
+cd re0-web-teedoc
+teedoc init
+teedoc install
+</code></pre>
+<p>Use the <code>teedoc serve</code> command to start the build and start an http service, visit <code>http://127.0.0.1:2333</code> to preview</p>
+<p>Use the <code>teedoc build</code> command to build a version that can be deployed to the server, the file is in the <code>out</code> directory, you can delete the <code>out</code> directory before building</p>
+<h2 id="Copy-source-file">Copy source file</h2>
+<p>The source files of the <code>re0-web</code> project are under the <code>gitbook/markdown</code> directory, the resource files (pictures) are all placed in <code>gitbook/res</code>, and the directory files on the left are in <code>gitbook/SUMMARY.md</code></p>
+<p>Other files are not important, they are all project files or generated files, so we only need to copy them</p>
+<p>For example, create a folder <code>books/re0</code>, then copy the contents of the original project <code>gitbook/markdown/ch/</code> directory to the <code>books/re0/ch/</code> directory, and copy the original project <code>gitbook/markdown/jp/</code> Copy the contents of the directory to the <code>books/re0/jp/</code> directory, and copy the original projects <code>gitbook/markdown/character.md</code> and <code>gitbook/README.md</code> to <code>books/re0/ch/</code> and <code>gitbook/markdown/jp/</code></p>
+<p>In addition, create a folder <code>books/res/</code> for the resource files, copy all the files in the original project <code>gitbook/res/</code> directory to the <code>books/res/</code> directory</p>
+<h2 id="Create-configuration-for-each-document">Create configuration for each document</h2>
+<p>Copy the <code>config.json</code> and <code>sidebar.yaml</code> files from the <code>docs/get_started/zh/</code> directory to <code>books/re0/ch/</code> and <code>books/re0/jp/</code></p>
+<p>Each directory with <code>config.json</code> is equivalent to <strong>a document</strong>, or <strong>a book</strong></p>
+<h2 id="Modify-site_config.json">Modify site_config.json</h2>
+<ul>
+<li>Modify route</li>
+</ul>
+<p>Edit <code>site_config.json</code>, find the key value of <code>route</code>, modify the content:</p>
+
+<pre class="language-json"><code class="language-json">     &quot;route&quot;: {
+        &quot;docs&quot;: {
+            &quot;/gitbook/book/markdown/ch/&quot;: &quot;books/re0/ch&quot;,
+            &quot;/gitbook/book/markdown/jp/&quot;: &quot;books/re0/jp&quot;
+        },
+        &quot;pages&quot;: {
+            &quot;/&quot;: &quot;pages/index/zh&quot;,
+            &quot;/en/&quot;: &quot;pages/index/en&quot;
+        },
+        &quot;assets&quot;: {
+            &quot;/static/&quot;: &quot;static&quot;,
+            &quot;/res/&quot;: &quot;books/res&quot;
+        },
+</code></pre>
+<p>Here <code>url</code> is compatible with the previous path <code>gitbook/book/markdown/</code> and the resource path <code>/res/</code>.</p>
+<p>Because <code>re0-web</code> project source file pictures use absolute path <code>url</code> such as <code>&lt;img width=&quot;500&quot; src=&quot;/res/img/article/chapter010/12.jpg&quot; /&gt;</code>, So here <code>/res/</code> is alluded to the <code>books/res</code> folder;</p>
+<p>In addition, a relative path can be used in the source file, but the directory must be in the same document, such as in this document (click on the upper right corner to edit this page to see the source code), <code>![](../assets/images/logo. png)</code>: <img src="../assets/images/logo.png" alt="" /></p>
+<p>Because the <code>assets</code> directory is also under the <code>get_started/zh/</code> directory, it can be directly referenced, but directories beyond the scope of this document cannot be directly referenced by relative paths.</p>
+<p>But there are also ways to achieve it, such as quoting the resources in the <code>get_started/assets/</code> directory here, which can also be referenced in the <code>get_started/zh/</code> directory, just need to configure the <code>route</code> cleverly, as follows:<br />
+default</p>
+
+<pre class="language-json"><code class="language-json">    &quot;route&quot;: {
+        &quot;docs&quot;: {
+            &quot;/get_started/zh/&quot;: &quot;docs/get_started/zh&quot;,
+        },
+        &quot;assets&quot;: {
+            &quot;/get_started/assets/&quot;: &quot;docs/get_started/assets&quot;
+        },
+</code></pre>
+<ul>
+<li>Modify other</li>
+</ul>
+<p>Modify <code>title</code> <code>domain</code> <code>source</code> etc.</p>
+<h2 id="Sidebar-Directory">Sidebar Directory</h2>
+<ul>
+<li>View documentation</li>
+</ul>
+<p>If you use <code>teedoc serve</code> at this time, you can actually see the document at <code>http://127.0.0.1:2333/gitbook/book/markdown/ch/character.html</code></p>
+<p>But the list on the left is not finished yet, now modify the left list</p>
+<ul>
+<li>Convert SUMMARY.md</li>
+</ul>
+<p>Enter <code>books/re0/ch/</code>, earlier we copied a file of <code>sidebar.yaml</code>, now we need to convert the <code>SUMMARY.md</code> of gitbook into this file format</p>
+<p>Find the <code>SUMMARY.md</code> file of the previous <code>gitbook</code> project, and execute</p>
+
+<pre class="language-shell"><code class="language-shell">teedoc -f'SUMMARY.md' summary2yaml
+</code></pre>
+<p>We get a <code>sidebar.yaml</code> file, copy it to the <code>books/re0/ch/</code> directory and overwrite the previous <code>sidebar.yaml</code></p>
+<ul>
+<li>Modify the file path of sidebar.yaml</li>
+</ul>
+<p>Because the previous directory structure may not be similar to the directory structure of the new project, you need to modify the file path in <code>sidebar.yaml</code>, for example:</p>
+<p><code>markdown/character.md</code> is changed to <code>character.md</code>, which is the path relative to the document (the directory with <code>config.json</code>)<br />
+<code>markdown/ch/chapter010/README.md</code> is changed to <code>chapter010/README.md</code>, you can batch replace <code>markdown/ch/</code> as empty, which can be done in many editors, such as <code>vscode</code> and press <code>Ctrl +H</code> key to modify</p>
+<p>If you want the link (<code>url</code>) to open in a new window, just add a <code>target: _blank</code> key value.</p>
+<ul>
+<li>View the effect</li>
+</ul>
+<p>Then execute <code>teedoc serve</code> to visit <code>http://127.0.0.1:2333/gitbook/book/markdown/ch/index.html</code> and you can see the directory on the left, and you can get the same for the directory of <code>jp</code></p>
+<h2 id="Edit-navigation-bar">Edit navigation bar</h2>
+<p>The navigation bar needs to be edited as needed</p>
+<h3 id="Edit-template-%3Ccode%3Econfig/config_zh.json%3C/code%3E">Edit template <code>config/config_zh.json</code></h3>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;class&quot;: &quot;language_zh&quot;,
+    &quot;navbar&quot;: {
+        &quot;title&quot;: &quot;re0-web&quot;,
+        &quot;logo&quot;: {
+            &quot;alt&quot;: &quot;re0-web logo&quot;,
+            &quot;src&quot;: &quot;&quot;
+        },
+        &quot;home_url&quot;: &quot;/&quot;,
+        &quot;items&quot;: [
+            {
+                &quot;url&quot;: &quot;/gitbook/book/markdown/ch/&quot;,
+                &quot;label&quot;: &quot;Chinese&quot;,
+                &quot;position&quot;: &quot;left&quot;
+            },
+            {
+                &quot;url&quot;: &quot;/gitbook/book/markdown/jp/&quot;,
+                &quot;label&quot;: &quot;日本语&quot;,
+                &quot;position&quot;: &quot;left&quot;
+            },
+            {
+                &quot;url&quot;: &quot;https://github.com/teedoc/re0-web-teedoc&quot;,
+                &quot;label&quot;: &quot;github&quot;,
+                &quot;target&quot;: &quot;_blank&quot;,
+                &quot;position&quot;: &quot;right&quot;
+            },
+            {
+                &quot;id&quot;: &quot;language&quot;,
+                &quot;label&quot;: &quot;Language: &quot;,
+                &quot;position&quot;: &quot;right&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;id&quot;: &quot;zh&quot;,
+                        &quot;url&quot;: &quot;/&quot;,
+                        &quot;label&quot;: &quot;Chinese&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;en&quot;,
+                        &quot;url&quot;: &quot;/jp/&quot;,
+                        &quot;label&quot;: &quot;日本语&quot;
+                    }
+                ]
+            }
+        ]
+    },
+    &quot;footer&quot;:{
+        &quot;top&quot;:[
+            {
+                &quot;label&quot;: &quot;Link&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;label&quot;: &quot;Use teedoc to build&quot;,
+                        &quot;url&quot;: &quot;https://teedoc.neucrack.com&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    },
+                    {
+                        &quot;label&quot;: &quot;Site Map&quot;,
+                        &quot;url&quot;: &quot;/sitemap.xml&quot;
+                    }
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;Source&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;label&quot;: &quot;Source files of this website&quot;,
+                        &quot;url&quot;: &quot;https://github.com/teedoc/re-web-teedoc&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    }
+                ]
+            }
+        ],
+        &quot;bottom&quot;: [
+        ]
+    },
+    &quot;plugins&quot;: {
+        &quot;teedoc-plugin-search&quot;:{
+            &quot;config&quot;: {
+                &quot;search_hint&quot;: &quot;Search&quot;,
+                &quot;input_hint&quot;: &quot;Enter keywords, separate multiple keywords with spaces&quot;,
+                &quot;loading_hint&quot;: &quot;Loading, please wait...&quot;,
+                &quot;download_err_hint&quot;: &quot;Failed to download file, please refresh and try again or check the network&quot;,
+                &quot;other_docs_result_hint&quot;: &quot;Results from other documents&quot;,
+                &quot;curr_doc_result_hint&quot;: &quot;Current document search result&quot;
+            }
+        }
+    },
+    &quot;show_source&quot;: &quot;Edit this article&quot;
+}
+</code></pre>
+<p>Another <code>config_en.json</code> can be renamed to <code>config_jp.json</code>, similarly modify the following content, by the way, rename <code>pages/index/en</code> to <code>pages/index/jp</code></p>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;navbar&quot;: {
+        &quot;title&quot;: &quot;re0-web&quot;,
+        &quot;logo&quot;: {
+            &quot;alt&quot;: &quot;re0-web logo&quot;,
+            &quot;src&quot;: &quot;&quot;
+        },
+        &quot;home_url&quot;: &quot;/jp/&quot;,
+        &quot;items&quot;: [
+            {
+                &quot;url&quot;: &quot;/gitbook/book/markdown/ch/&quot;,
+                &quot;label&quot;: &quot;Chinese&quot;,
+                &quot;position&quot;: &quot;left&quot;
+            },
+            {
+                &quot;url&quot;: &quot;/gitbook/book/markdown/jp/&quot;,
+                &quot;label&quot;: &quot;日本语&quot;,
+                &quot;position&quot;: &quot;left&quot;
+            },
+            {
+                &quot;url&quot;: &quot;https://github.com/neutree/re0-web-teedoc&quot;,
+                &quot;label&quot;: &quot;github&quot;,
+                &quot;target&quot;: &quot;_blank&quot;,
+                &quot;position&quot;: &quot;right&quot;
+            },
+            {
+                &quot;id&quot;: &quot;language&quot;,
+                &quot;label&quot;: &quot;Language: &quot;,
+                &quot;position&quot;: &quot;right&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;id&quot;: &quot;zh&quot;,
+                        &quot;url&quot;: &quot;/&quot;,
+                        &quot;label&quot;: &quot;Chinese&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;en&quot;,
+                        &quot;url&quot;: &quot;/jp/&quot;,
+                        &quot;label&quot;: &quot;日本语&quot;
+                    }
+                ]
+            }
+        ]
+    },
+    &quot;footer&quot;:{
+        &quot;top&quot;:[
+            {
+                &quot;label&quot;: &quot;Links&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;label&quot;: &quot;Site generated by teedoc&quot;,
+                        &quot;url&quot;: &quot;https://teedoc.neucrack.com&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    },
+                    {
+                        &quot;label&quot;: &quot;Sitemap&quot;,
+                        &quot;url&quot;: &quot;/sitemap.xml&quot;
+                    }
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;Source code&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;label&quot;: &quot;website source files&quot;,
+                        &quot;url&quot;: &quot;https://github.com/teedoc/re0-web-teedoc&quot;,
+                        &quot;target&quot;: &quot;_blank&quot;
+                    }
+                ]
+            }
+        ],
+        &quot;bottom&quot;: [
+        ]
+    }
+}
+</code></pre>
+<h3 id="Modify-the-configuration-file-config.json-of-each-book-%28/document%29">Modify the configuration file config.json of each book (/document)</h3>
+<ul>
+<li>Modify <code>books/re0/ch/config.json</code></li>
+</ul>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;import&quot;: &quot;config_zh&quot;,
+    &quot;navbar&quot;: {
+        &quot;items&quot;: [
+            {
+                &quot;id&quot;: &quot;language&quot;,
+                &quot;label&quot;: &quot;Language: &quot;,
+                &quot;position&quot;: &quot;right&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;id&quot;: &quot;zh&quot;,
+                        &quot;url&quot;: &quot;/gitbook/book/markdown/ch/&quot;,
+                        &quot;label&quot;: &quot;Chinese&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;en&quot;,
+                        &quot;url&quot;: &quot;/gitbook/book/markdown/jp/&quot;,
+                        &quot;label&quot;: &quot;日本语&quot;
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+<ul>
+<li>Modify <code>books/re0/jp/config.json</code></li>
+</ul>
+
+<pre class="language-json"><code class="language-json">{
+    &quot;import&quot;: &quot;config_jp&quot;,
+    &quot;navbar&quot;: {
+        &quot;items&quot;: [
+            {
+                &quot;id&quot;: &quot;language&quot;,
+                &quot;label&quot;: &quot;Language: &quot;,
+                &quot;position&quot;: &quot;right&quot;,
+                &quot;items&quot;: [
+                    {
+                        &quot;id&quot;: &quot;zh&quot;,
+                        &quot;url&quot;: &quot;/gitbook/book/markdown/ch/&quot;,
+                        &quot;label&quot;: &quot;Chinese&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;en&quot;,
+                        &quot;url&quot;: &quot;/gitbook/book/markdown/jp/&quot;,
+                        &quot;label&quot;: &quot;日本语&quot;
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+<h2 id="Edit-home-page">Edit home page</h2>
+<p>Edit <code>pages/index/zh/README.md</code>, modify as needed</p>
+<h2 id="Deployment">Deployment</h2>
+<p>Like <code>gitbook</code>, <code>teedoc build</code> generates static files and puts them in the <code>out</code> folder, and can be directly copied to the server for deployment. For more information, please see <a href="./deploy.html"  >document</a></p>
+<p>Final effect: <a href="https://teedoc.github.io/re0-web-teedoc/"  target="_blank">teedoc.github.io/re0-web-teedoc/</a></p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/en/usage/404.html">
+                            <span class="icon"></span>
+                            <span class="label">Customize 404 page</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/en/usage/list_files_by_size.html">
+                            <span class="label">Find big files</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">Site generated by teedoc</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">website source files</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

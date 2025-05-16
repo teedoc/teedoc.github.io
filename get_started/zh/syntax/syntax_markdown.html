@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="teedoc, markdown, 语法">
+    
+    
+    <meta name="description" content="teedoc 的 markdown 语法介绍和实例">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>markdown 语法 - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "这是一个支持国际化的消息示例</br>喜欢项目请<a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">点下 ☆ star </a>哦~🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": ["teedoc", "markdown", "语法"], "date": "2021-09-19", "update": [{"date": "2021-09-19", "version": "插件 v2.10.3", "author": "neucrack", "content": ["元数据头完全支持 yaml 格式", "支持 <code>update</code> 元数据头，用于生成更新历史表格", "支持 <code>{#id}</code> 语法自定义标题 id", "支持 <code>tabset</code> 语法", "支持 <code>details</code> 语法", "支持上下标语法"]}], "ts": 1632009600, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/zh/">安装使用</a></li>
+<li class=""><a  href="/develop/zh/">开发</a></li>
+<li class=""><a  href="/blog/">博客</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: 中文 简体</a><ul><li class=""><a  href="/get_started/en/syntax/syntax_markdown.html">English</a></li>
+<li class="active"><a  href="/get_started/zh/syntax/syntax_markdown.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">搜索</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">输入关键词，多关键词空格隔开</span>
+                                <span id="search_loading_hint">正在加载，请稍候。。。</span>
+                                <span id="search_download_err_hint">下载文件失败，请刷新重试或检查网络</span>
+                                <span id="search_other_docs_result_hint">来自其它文档的结果</span>
+                                <span id="search_curr_doc_result_hint">当前文档搜索结果</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/zh/index.html"><span class="label">teedoc 简介</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/sites.html"><span class="label">使用了 teedoc 的网站</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">基本使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/quick_start.html"><span class="label">快速开始</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/install/index.html"><span class="label">安装 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/start.html"><span class="label">文档结构和配置</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">编写文档内容(语法)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active with_link"><a href="/get_started/zh/syntax/syntax_markdown.html"><span class="label">markdown 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_jupyter.html"><span class="label">Jupyter 语法</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/syntax/syntax_html.html"><span class="label">HTML 语法</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/write_attention.html"><span class="label">写文档时需注意</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/blog.html"><span class="label">博客</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy.html"><span class="label">部署</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_github_pages.html"><span class="label">部署到 github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_nginx.html"><span class="label">使用 nginx 部署到服务器</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cloud.html"><span class="label">部署到云服务商</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/deploy_cdn.html"><span class="label">使用 CDN 加速网站</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/problems.html"><span class="label">常见问题</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">进阶使用</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/index.html"><span class="label">插件</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/plugins/themes.html"><span class="label">主题插件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/plugins/others.html"><span class="label">其它插件</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/seo.html"><span class="label">SEO(为搜索引擎优化)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/layout_template.html"><span class="label">自定义页面模板</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/i18n.html"><span class="label">国际化(i18n/翻译)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/404.html"><span class="label">自定义404页面</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/gitbook2teedoc.html"><span class="label">从 gitbook 转换为 teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/list_files_by_size.html"><span class="label">查找大文件</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/usage/compare_dirs.html"><span class="label">找出两目录的不同文件</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">更多</span></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/history.html"><span class="label">更新历史</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">更多样例(目录默认展开)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">二级子目录</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">三级子目录样例</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc1.html"><span class="label">文章1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/doc2.html"><span class="label">文章2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">文章标题自动编号</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/multi_h1.html"><span class="label">页面有多个一级标题</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/zh/more/example_docs/heading_no_counter.html"><span class="label">标题不自动编号</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">这是一个外部链接</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>markdown 语法</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                                <li>teedoc</li>
+                            
+                                <li>markdown</li>
+                            
+                                <li>语法</li>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                                <span class="article_date" title="最后修改日期： 2021-09-19">
+                                    2021-09-19
+                                </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/syntax/syntax_markdown.md" target="_blank">
+                                    编辑本页
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                        
+                        <details open>
+                        
+                            <summary>更新历史</summary>
+                            <div>
+                                <table>
+                                        <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>版本</th>
+                                                <th>作者</th>
+                                                <th>更新内容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td>2021-09-19</td>
+                                                    <td>插件 v2.10.3</td>
+                                                    <td>neucrack</td>
+                                                    <td>
+                                                    
+                                                        <ul>
+                                                        
+                                                            <li>元数据头完全支持 yaml 格式</li>
+                                                        
+                                                            <li>支持 <code>update</code> 元数据头，用于生成更新历史表格</li>
+                                                        
+                                                            <li>支持 <code>{#id}</code> 语法自定义标题 id</li>
+                                                        
+                                                            <li>支持 <code>tabset</code> 语法</li>
+                                                        
+                                                            <li>支持 <code>details</code> 语法</li>
+                                                        
+                                                            <li>支持上下标语法</li>
+                                                        
+                                                        </ul>
+                                                    
+                                                    </td>
+                                                </tr>
+                                            
+                                        </tbody>
+                                </table>
+                            </div>
+                        </details>
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>本文是使用<code>Markdown</code>编写的文档，使用<code>teedoc</code>生成的页面效果， <code>Markdown</code>文件源码见<a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/zh/syntax/syntax_markdown.md"  target="_blank">这里</a></p>
+</blockquote>
+<h2 id="Markdown-%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B">Markdown 使用简介</h2>
+<p>放在文档目录下面的文件，如果是可是识别的文件，比如<code>*.md</code>， 则会转换成<code>*.html</code>， 如果不能识别，比如<code>*.jpg</code>， 则会原封不动地拷贝到输出文件夹（<code>out</code>）中。</p>
+<p>默认 <code>Markdown</code> 解析由插件<code>teedoc-plugin-markdown-parser</code>完成， 模板工程默认使用了该插件。</p>
+<p>如果你需要将文档链接到左侧目录， 则在<code>sidebar.json</code>或者<code>sidebar.yaml</code>中配置。</p>
+<p>如果你使用过<code>Markdown</code>， 也强烈建议花 2 分钟浏览一遍！</p>
+<h2 id="Markdown-%E5%9F%BA%E6%9C%AC%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%A0%BC%E5%BC%8F">Markdown 基本文件内容格式</h2>
+<p>需要先在<code>site_config.json</code>中确认有<code>markdown</code>解析插件启用了，比如<code>teedoc-plugin-markdown-parser</code>。</p>
+<p>在<code>config.json</code>对应的目录下建立文件夹或者文件， 比如<code>get_started/zh/syntax/syntax_markdown.md</code> (<code>README.md</code>最终会生成<code>index.html</code>)， 注意要使用<code>UTF-8</code>文件编码（不要使用<code>Windows</code>默认的记事本），推荐使用<a href="https://code.visualstudio.com/"  target="_blank">vscode</a> + <code>Markdown Preview Enhanced</code>插件, 默认文件就会是<code>UTF-8</code>编码，如果不是也可以在右下角点击编码并点击弹出的选项<code>通过编码保存</code>选择<code>UTF-8</code>即可更改编码。<br />
+<img src="../../assets/images/vscode_status_bar.png" alt="vscode_status_bar" /></p>
+<h3 id="Markdown-%E5%85%83%E6%95%B0%E6%8D%AE%E5%A4%B4">Markdown 元数据头</h3>
+<p>每个<code>md</code>文件可以添加一个头，也叫<code>metadata</code>（中文叫元数据），通过这些键值来设置文章信息，格式为<code>yaml</code>格式，当然这个文件头是可选的，也可以不写</p>
+
+<pre class="language-markdown"><code class="language-markdown">---
+title: markdown 语法
+tags: teedoc, markdown, 语法
+keywords: teedoc, markdown, 语法
+desc: teedoc 的 markdown 语法介绍和实例
+id: zh_readme
+class: zh_readme
+draft: false
+# 以 # 号开头表示注释
+---
+</code></pre>
+<ul>
+<li><code>title</code>: 文章的标题，如果没有元数据头的话，可以使用</li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown"># 文章标题
+</code></pre>
+<p>或者</p>
+
+<pre class="language-markdown"><code class="language-markdown">文章标题
+===
+</code></pre>
+<ul>
+<li><code>keywords</code>: 关键词，多个关键词用英文逗号<code>,</code> 隔开，会被添加到<code>html</code>头中，方便搜索引擎爬取，不会显示到页面。也可以用<code>yaml</code>列表的格式写</li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown">keywords:
+  - teedoc
+  - markdown
+  - 语法
+</code></pre>
+<ul>
+<li><code>desc</code>: 页面描述，会被添加到<code>html</code>头中，不会在页面显示，方便搜索引擎爬取</li>
+<li><code>tags</code>： 文章标签，会显示到页面，多个标签用英文逗号<code>,</code> 隔开，也可以用<code>yaml</code>列表的格式写，同<code>keywords</code></li>
+<li><code>id</code>: 页面<code>id</code>， 会被添加到<code>html</code>标签中，比如<code>&lt;html id=&quot;zh_readme&quot;&gt;...&lt;/html&gt;</code>, 通常不需要，一般在对某个页面单独自定义<code>css</code>的时候可能会用上，会覆盖<code>config.json</code>中的设置</li>
+<li><code>class</code>: 页面<code>class</code>,多个用英文逗号<code>,</code>隔开，可以不设置，会覆盖<code>config.json</code>中的设置。比如可以通过设置这个值来达到设置特定页面的<code>css</code>样式。具体支持的样式见<a href="../plugins/themes.html"  >主题插件的文档</a></li>
+<li><code>layout</code>: 页面使用的布局模板, 默认会使用主题插件里面的配置,如果你需要自定义此页面的布局, 可以设置这个参数, 路径相对于<code>site_config</code>中的<code>layout_root_dir</code>设置的路径, <code>layout_root_dir</code> 默认为<code>layout</code>, 所以要使用<code>layout/special_layout.html</code> 只需要填写<code>special_layout.html</code>. 布局模板语法见<a href="../usage/layout_template.html"  >layout 文档</a></li>
+<li><code>date</code>: 最后更新日期，格式如<code>2022-09-15</code><ul>
+<li>如果不设置：默认会使用文件的最后修改时间，如果是<code>git</code>仓库，会自动从<code>git</code>获取页面最后一次提交的时间，如果没有<code>git</code>或者<code>git</code>获取失败则会从文件系统读取最后修改时间（这很可能不准确）。另外如果<code>update</code>填写了值，则会采用<code>update</code>中最新的修改日期</li>
+<li>如果不想显示最后修改日期，通过设置值为<code>false</code>来禁用</li>
+<li>如果设置了<code>update</code>值，仍然会优先使用<code>date</code>中的值</li>
+</ul>
+</li>
+<li><code>update</code>: 更新历史，会在文章开头生成更新历史表格，格式：</li>
+</ul>
+
+<pre class="language-markdown"><code class="language-markdown">update:
+  - date: 2022-09-15
+    author: author1
+    version: 1.1.0
+    content: 更新了xxx
+  - date: 2022-08-05
+    author: author2
+    version: 1.0.0
+    content: 更新了xxx
+</code></pre>
+<ul>
+<li><code>update_open</code>: 是否默认展开更新记录，默认为 <code>true</code>，关闭设置为<code>false</code>即可。（由主题插件支持）</li>
+<li><code>draft</code>: 是否为草稿，默认为<code>false</code>，如果设置为<code>true</code>，则在生成页面时会忽略此文件。</li>
+</ul>
+<h3 id="Markdown-%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9">Markdown 文件内容</h3>
+<p>内容就是使用<code>Markdown</code>语法进行编写，因为大标题会被转成<code>&lt;h1&gt;</code>标签，所以内容中建议从二级标题开始，这样一个页面只有一个<code>&lt;h1&gt;</code>标签，方便搜索引擎爬取，比如</p>
+
+<pre class="language-markdown"><code class="language-markdown">---
+title: teedoc
+---
+
+## 标题一
+
+内容。。。
+
+## 标题二
+
+内容。。。
+</code></pre>
+<h2 id="%E6%A0%87%E9%A2%98">标题</h2>
+<h3 id="%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98">三级标题</h3>
+<h4 id="%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98">四级标题</h4>
+<h4 id="%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%982">四级标题2</h4>
+<h4 id="%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%983">四级标题3</h4>
+<h5 id="%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98">五级标题</h5>
+<h6 id="%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98">六级标题</h6>
+<h3 id="custom-id">标题自定义id</h3>
+<p>这里自定义 <code>id</code> 为 <code>custom-id</code></p>
+<p>最多 6 级标题</p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">### 三级标题
+
+#### 四级标题
+
+#### 四级标题2
+
+#### 四级标题3
+
+##### 五级标题
+
+###### 六级标题
+
+### 标题自定义id {#custom-id}
+这里自定义 `id` 为 `custom-id`
+</code></pre>
+</div>
+</details>
+<h2 id="%E5%BC%BA%E8%B0%83%EF%BC%8C%E6%96%9C%E4%BD%93%EF%BC%8C%E5%88%A0%E9%99%A4%E7%BA%BF">强调，斜体，删除线</h2>
+<p>我们只知道<strong>地球</strong>具有让人类生存的环境，还有<del>火星</del>，也许还有<em>其它星球</em>。</p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">我们只知道**地球**具有让人类生存的环境，还有~~火星~~，也许还有*其它星球*。
+</code></pre>
+</div>
+</details>
+<h2 id="%E5%88%86%E9%9A%94%E7%AC%A6">分隔符</h2>
+<p>分隔符</p>
+
+<pre class="language-markdown"><code class="language-markdown">---
+***
+</code></pre>
+<hr />
+<hr />
+<h2 id="%E9%93%BE%E6%8E%A5">链接</h2>
+<p><a href="../index.html"  >相对路径， README.md 文件</a>: <code>../README.md</code>， 会自动转换成<code>index.html</code><br />
+<a href="./syntax_markdown.html"  >相对路径， md 文件</a>： <code>./syntax_markdown.md</code>， 会转成文档的 <code>.html</code> 结尾的链接<br />
+<a href="https://storage.googleapis.com/tensorflow_docs/docs-l10n/site/zh-cn/tutorials/quickstart/beginner.ipynb"  target="_blank">绝对路径， http 文件</a>： <code>https://。。。/beginner.ipynb</code>，原链接，不会修改<br />
+<a href="./syntax_jupyter.html"  >相对路径， ipynb 文件</a>： <code>./syntax_jupyter.ipynb</code>， 会转成文档的 <code>.html</code> 结尾的链接</p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">[相对路径， README.md 文件](../index.html)
+[相对路径， md 文件](./syntax_markdown.html)
+[绝对路径， http 文件](https://storage.googleapis.com/tensorflow_docs/docs-l10n/site/zh-cn/tutorials/quickstart/beginner.ipynb)
+[相对路径， ipynb 文件](./syntax_jupyter.html)
+</code></pre>
+</div>
+</details>
+<h2 id="%E5%88%97%E8%A1%A8">列表</h2>
+<p>列表项:</p>
+<ul>
+<li><p>包子</p>
+</li>
+<li><p>馒头</p>
+</li>
+<li><p>茶叶蛋</p>
+</li>
+<li><p>aaaaaaa</p>
+<ul>
+<li>二级列表</li>
+<li>二级列表</li>
+<li>二级列表<ul>
+<li>三级列表</li>
+<li>三级列表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>bbbbbb</p>
+</li>
+</ul>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">列表项:
+* 包子
+* 馒头
+* 茶叶蛋
+
+* aaaaaaa
+  * 二级列表
+  * 二级列表
+  * 二级列表
+    * 三级列表
+    * 三级列表
+* bbbbbb
+</code></pre>
+</div>
+</details>
+<h2 id="%E4%BB%A3%E7%A0%81%E6%AE%B5">代码段</h2>
+<p>这是一段行内代码<code>print(&quot;hello&quot;)</code>，或者强调<code>teedoc</code></p>
+
+<pre class="language-python"><code class="language-python">print(&quot;hello&quot;)
+
+print(&quot;world&quot;)
+</code></pre>
+
+<pre class="language-c"><code class="language-c">#include &quot;stdio.h&quot;
+
+int main()
+{
+    printf(&quot;hello world&quot;);
+}
+</code></pre>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">     这是一段行内代码`print(&quot;hello&quot;)`，或者强调`teedoc`
+     ```python
+       print(&quot;hello&quot;)
+
+       print(&quot;world&quot;)
+     ```
+
+     ```c
+       #include &quot;stdio.h&quot;
+
+       int main()
+       {
+           printf(&quot;hello world&quot;);
+       }
+     ```
+</code></pre>
+</div>
+</details>
+<h2 id="%E6%B3%A8%E9%87%8A%28%E5%BC%95%E7%94%A8%E5%9D%97%29">注释(引用块)</h2>
+<p>下面是一段注释</p>
+<blockquote>
+<p>这里是一段注释 (<code>&lt;blockquote&gt;&lt;/blockquote&gt;</code>)<br />
+这是注释的第二行</p>
+</blockquote>
+
+<pre class="language-python"><code class="language-python"># 这里是注释里面的代码段
+print(&quot;hello&quot;)
+</code></pre>
+<blockquote>
+<p>注释</p>
+<blockquote>
+<p>注释嵌套<br />
+注释嵌套</p>
+</blockquote>
+</blockquote>
+<p>在块引用中使用 markdown 语法</p>
+<blockquote>
+<h4 id="The-quarterly-results-look-great%21">The quarterly results look great!</h4>
+<ul>
+<li>Revenue was off the chart.</li>
+<li>Profits were higher than ever.</li>
+</ul>
+<p><em>Everything</em> is going according to <strong>plan</strong>.</p>
+
+<pre class="language-c"><code class="language-c">printf(&quot;hello&quot;);
+</code></pre>
+</blockquote>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">     下面是一段注释
+     &gt; 这里是一段注释 (`&lt;blockquote&gt;&lt;/blockquote&gt;`)
+     &gt; 这是注释的第二行
+     ```python
+     # 这里是注释里面的代码段
+     print(&quot;hello&quot;)
+     ```
+     &gt; 注释
+     &gt;&gt; 注释嵌套
+     &gt;&gt; 注释嵌套
+
+     在块引用中使用 markdown 语法
+
+     &gt; #### The quarterly results look great!
+     &gt;
+     &gt; - Revenue was off the chart.
+     &gt; - Profits were higher than ever.
+     &gt;
+     &gt;  *Everything* is going according to **plan**.
+     &gt; ```c
+     &gt; printf(&quot;hello&quot;);
+     &gt; ```
+</code></pre>
+</div>
+</details>
+<h2 id="%E8%AD%A6%E5%91%8A">警告</h2>
+<p>下面是一段警告信息</p>
+<blockquote class="spoiler warning">
+<p> 这是一段警告信息(<code>&lt;blockquote class=&quot;spoiler&quot;&gt;&lt;/blockquote&gt;</code>)</p>
+</blockquote>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">&gt;! 这是一段警告信息(`&lt;blockquote class=&quot;spoiler&quot;&gt;&lt;/blockquote&gt;`)
+</code></pre>
+</div>
+</details>
+<h2 id="Emoji-%E8%A1%A8%E6%83%85">Emoji 表情</h2>
+<p>暂不支持<code>emoji</code>语法，但是可以直接从<code>emoji</code>表情大全拷贝表情到文档，比如:<br />
+🍊 🍇 😀 😅 😇</p>
+<h2 id="%E4%B8%8A%E4%B8%8B%E6%A0%87">上下标</h2>
+<p>H<sub>2</sub>O， y = x<sup>2</sup></p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">H~2~O， y = x^2^
+</code></pre>
+</div>
+</details>
+<h2 id="%E5%9B%BE%E7%89%87">图片</h2>
+<p>资源文件会被拷贝到输出文件夹（<code>out</code>）, 所以最重要的是怎么在文档中引用</p>
+<ul>
+<li>最简单和推荐的方法<br />
+使用相对路径：<br />
+资源文件可以放在文档对应的目录，比如文档<code>docs/get_started/zh</code>， 可以创建<code>docs/get_started/zh/assets/images/logo.png</code>,<br />
+然后在<code>docs/get_started/zh/README.md</code>中使用相对路径引用，即<code>![](assets/images/logo.png)</code></li>
+<li>进阶方法<br />
+这种情况适用于多份文档都引用同一个文件夹下（<code>url</code>）的资源， 方便维护多份文档，比如多语言翻译，或者减少 <code>CDN</code> 流量消耗。<br />
+使用文档路径外的资源，在<code>site_config.json</code> 中配置
+<pre class="language-json"><code class="language-json">{
+    &quot;route&quot;: {
+        &quot;docs&quot;: {
+            &quot;/get_started/zh/&quot;: &quot;docs/get_started/zh&quot;,
+        },
+        &quot;assets&quot;: {
+            &quot;/get_started/assets/&quot;: &quot;docs/get_started/assets&quot;
+        }
+    }
+}
+</code></pre>
+这个设置会将<code>docs/get_started/assets</code>整个目录拷贝为<code>/get_started/assets</code><br />
+所以只需要在<code>docs/get_started/zh/README.md</code>中使用相对路径引用，即<code>![](../assets/images/logo.png)</code></li>
+</ul>
+<p>要显示这张图片，需要在<code>site_config.json</code>中设置<code>route</code>键值</p>
+<p><img src="../../assets/images/logo.png" alt="这是一张图片" /><br />
+<img src="../assets/images/logo.png" alt="这是一张图片" /></p>
+<p><img src="../../assets/images/logo.png" alt="这是一张图片" /><img src="../assets/images/logo.png" alt="这是一张图片" /></p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">![这是一张图片](../../assets/images/logo.png)
+![这是一张图片](../assets/images/logo.png)
+
+![这是一张图片](../../assets/images/logo.png)![这是一张图片](../assets/images/logo.png)
+</code></pre>
+</div>
+</details>
+<h2 id="%E8%A7%86%E9%A2%91">视频</h2>
+<p>直接使用 HTML 的 <code>video</code> 标签：</p>
+
+<pre class="language-html"><code class="language-html">&lt;video src=&quot;https://****.com/***.mp4&quot; controls=&quot;controls&quot; preload=&quot;auto&quot;&gt;your brower not support play video&lt;/video&gt;
+</code></pre>
+<p>这里没有放视频， 所以是空白, 放入正确的视频就可以播放了</p>
+<p><video src="" controls="controls" preload="auto">your brower or site not support play video</video></p>
+<h2 id="iframe-%E5%B5%8C%E5%85%A5%E7%BD%91%E9%A1%B5">iframe 嵌入网页</h2>
+<p>一般视频平台分享的代码直接能使用，可以稍微设置一下宽高</p>
+<iframe src="//player.bilibili.com/player.html?aid=52613549&bvid=BV144411J72P&cid=92076022&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:43vw;height:34vw;min-width: 85%;"> </iframe>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-html"><code class="language-html">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=52613549&amp;bvid=BV144411J72P&amp;cid=92076022&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; style=&quot;width:43vw;height:34vw;min-width: 85%;&quot;&gt; &lt;/iframe&gt;
+</code></pre>
+</div>
+</details>
+<h2 id="%E5%BC%95%E7%94%A8%E6%A0%87%E8%AE%B0">引用标记</h2>
+<p>我能干饭我自豪。<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup></p>
+<p>这会在文章末尾进行注解</p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">我能干饭我自豪。[^干饭人]
+
+[^干饭人]: 老子说道
+这会在文章末尾进行注解
+</code></pre>
+</div>
+</details>
+<h2 id="%E8%A1%A8%E6%A0%BC">表格</h2>
+<table>
+<thead>
+<tr>
+  <th>Header 1</th>
+  <th><em>Header</em> 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Cell 1</code></td>
+  <td><a href="http://example.com"  target="_blank">Cell 2</a> link</td>
+</tr>
+<tr>
+  <td>Cell 3</td>
+  <td><strong>Cell 4</strong></td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">| Header 1 | *Header* 2 |
+| -------- | -------- |
+| `Cell 1` | [Cell 2](http://example.com) link |
+| Cell 3 | **Cell 4** |
+</code></pre>
+</div>
+</details>
+<h2 id="%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8">任务列表</h2>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>任务1</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>任务2</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>任务3</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled/>任务4</li>
+</ul>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">- [x] 任务1
+- [x] 任务2
+- [ ] 任务3
+- [ ] 任务4
+</code></pre>
+</div>
+</details>
+<h2 id="%E6%A0%87%E9%A2%98%E9%93%BE%E6%8E%A5%28%E9%A1%B5%E5%86%85%E8%B7%B3%E8%BD%AC%29">标题链接(页内跳转)</h2>
+<p>比如要跳转到标题<a href="#iframe-%E5%B5%8C%E5%85%A5%E7%BD%91%E9%A1%B5"  >iframe 嵌入网页</a>, 只需</p>
+
+<pre class="language-markdown"><code class="language-markdown">[iframe 嵌入网页](#iframe-嵌入网页)
+</code></pre>
+<p>这里空格使用了减号<code>-</code>替换。<br />
+另外，如果标题也可以自定义<code>id</code>，比如</p>
+
+<pre class="language-markdown"><code class="language-markdown">## iframe 嵌入网页 {#iframe-embed}
+</code></pre>
+<h2 id="HTML">HTML</h2>
+<p>能直接在<code>md</code>文件中写<code>HTML</code>：</p>
+<div class="hello">
+hello <br/> <img src="../../assets/images/logo.png"/>
+</div>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content"><p>注意没有空行</p>
+
+<pre class="language-html"><code class="language-html">&lt;div class=&quot;hello&quot;&gt;
+hello  &lt;img src=&quot;../../assets/images/logo.png&quot;/&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+</details>
+<h2 id="%E6%95%B0%E5%AD%A6">数学</h2>
+<p>支持<code>tex</code>和<code>Latex</code>语法，以及<code>MathML</code>标签</p>
+<p>两种写法，</p>
+<ul>
+<li>一种是行内内嵌，用<code>$</code>符号将方程包起来，比如</li>
+</ul>
+<p>质能方程 $E=mc^2$大家很熟悉吧</p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">质能方程 $E=mc^2$大家很熟悉吧
+</code></pre>
+</div>
+</details>
+<ul>
+<li>另一种，块方程，用<code>$$</code>将方程包起来，比如</li>
+</ul>
+$$
+E=mc^2
+$$<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">$$
+E=mc^2
+$$
+</code></pre>
+</div>
+</details>
+<p>其他例子：<br />
+常见：</p>
+<p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are<br />
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$</p>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$
+</code></pre>
+</div>
+</details>
+<p>除法式：</p>
+$$
+\require{enclose}
+\begin{array}{r}
+                13  \\[-3pt]
+4 \enclose{longdiv}{52} \\[-3pt]
+     \underline{4}\phantom{2} \\[-3pt]
+                12  \\[-3pt]
+     \underline{12}\\0
+\end{array}\\
+$$<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">$$
+\require{enclose}
+\begin{array}{r}
+                13  \\[-3pt]
+4 \enclose{longdiv}{52} \\[-3pt]
+    \underline{4}\phantom{2} \\[-3pt]
+                12  \\[-3pt]
+    \underline{12}\\0
+\end{array}\\
+$$
+</code></pre>
+</div>
+</details>
+<p>加框：</p>
+$$
+\bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+$$<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">$$
+\bbox[#cde, 3px,border:1px solid blue]{y=x^2-1}
+$$
+</code></pre>
+</div>
+</details>
+<h2 id="mermaid-%E6%94%AF%E6%8C%81">mermaid 支持</h2>
+<p>使用 mermaid 可以画很多类型的图表， 详细的语法和支持请看<a href="https://mermaid-js.github.io/"  target="_blank">官网</a></p>
+
+<div class="mermaid">sequenceDiagram
+  Alice-&gt;&gt;John: Hello John, how are you?
+  loop Healthcheck
+      John-&gt;&gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John--&gt;&gt;Alice: Great!
+  John-&gt;&gt;Bob: How about you?
+  Bob--&gt;&gt;John: Jolly good!
+</div>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">    ```mermaid
+    sequenceDiagram
+      Alice-&gt;&gt;John: Hello John, how are you?
+      loop Healthcheck
+          John-&gt;&gt;John: Fight against hypochondria
+      end
+      Note right of John: Rational thoughts!
+      John--&gt;&gt;Alice: Great!
+      John-&gt;&gt;Bob: How about you?
+      Bob--&gt;&gt;John: Jolly good!
+    ```
+</code></pre>
+<p>或者直接 <code>html</code>:</p>
+
+<pre class="language-html"><code class="language-html">&lt;div class=&quot;mermaid&quot;&gt;
+sequenceDiagram
+  Alice-&gt;&gt;John: Hello John, how are you?
+  loop Healthcheck
+      John-&gt;&gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts!
+  John--&gt;&gt;Alice: Great!
+  John-&gt;&gt;Bob: How about you?
+  Bob--&gt;&gt;John: Jolly good!
+&lt;/div&gt;
+</code></pre>
+</div>
+</details>
+<h2 id="%E6%A0%87%E7%AD%BE%E9%A1%B5%EF%BC%88tabset%EF%BC%89%E6%94%AF%E6%8C%81">标签页（tabset）支持</h2>
+<blockquote>
+<p>因为不是标准 Markdown 语法，目前仅 teedoc 支持，所以根据你的需求选择使用<br />
+当然也欢迎将格式推广到其它解析器</p>
+</blockquote>
+<p>效果：</p>
+<div class="tabset tabset-id-tabset1">
+<div class="tabset-title">标签页标题（可选）</div>
+<div class="tabset-content"><div class="tabset-tab"><span class="tabset-tab-label tabset-tab-active" idx=0>标签一</span>
+<span class="tabset-tab-label " idx=1>标签二</span>
+</div>
+<div class="tabset-text-container"><div class="tabset-text tabset-text-active" idx=0><p>内容一，可以使用 Markdown 语法</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+<div class="tabset-text " idx=1><p>内容二，可以使用 Markdown 语法</p>
+
+<pre class="language-java"><code class="language-java">  public class Main {
+      public static void main(String[] args) {
+          System.out.println(&quot;Hello World&quot;);
+      }
+  }
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>在选中一个页面中的某个标签时，会自动选中相同<code>id</code>的标签页中的相应标签，不相同<code>id</code>或者没设置<code>id</code>则不会。</p>
+<div class="tabset tabset-id-tabset1">
+<div class="tabset-content"><div class="tabset-tab"><span class="tabset-tab-label tabset-tab-active" idx=0>标签一</span>
+<span class="tabset-tab-label " idx=1>标签二</span>
+</div>
+<div class="tabset-text-container"><div class="tabset-text tabset-text-active" idx=0><p>内容一，可以使用 Markdown 语法</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+<div class="tabset-text " idx=1><p>内容二，可以使用 Markdown 语法</p>
+
+<pre class="language-java"><code class="language-java">  public class Main {
+      public static void main(String[] args) {
+          System.out.println(&quot;Hello World&quot;);
+      }
+  }
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="tabset ">
+<div class="tabset-content"><div class="tabset-tab"><span class="tabset-tab-label tabset-tab-active" idx=0>标签一</span>
+<span class="tabset-tab-label " idx=1>标签二</span>
+</div>
+<div class="tabset-text-container"><div class="tabset-text tabset-text-active" idx=0><p>内容一，可以使用 Markdown 语法</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+<div class="tabset-text " idx=1><p>内容二，可以使用 Markdown 语法</p>
+
+<pre class="language-java"><code class="language-java">  public class Main {
+      public static void main(String[] args) {
+          System.out.println(&quot;Hello World&quot;);
+      }
+  }
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">效果：
+（注意这里需要空一行）
+.. tabset::标签页标题（可选）
+    :id: tabset1
+    (注意必须和上面的 tabset 对齐或者更多空格)
+    ## 标签一
+
+    内容一，可以使用 Markdown 语法
+    ```kotlin
+      fun main() {
+          println(&quot;Hello World&quot;)
+      }
+    ```
+
+    ## 标签二
+
+    内容二，可以使用 Markdown 语法
+    ```java
+      public class Main {
+          public static void main(String[] args) {
+              System.out.println(&quot;Hello World&quot;);
+          }
+      }
+    ```
+</code></pre>
+</div>
+</details>
+<h2 id="%E8%AF%A6%E6%83%85%E9%A1%B5%EF%BC%88details%EF%BC%89%E6%94%AF%E6%8C%81">详情页（details）支持</h2>
+<blockquote>
+<p>因为不是标准 Markdown 语法，目前仅 teedoc 支持，所以根据你的需求选择使用<br />
+当然也欢迎将格式推广到其它解析器</p>
+</blockquote>
+<p>这是对 <code>HTML5</code> <code>details</code>标签的一种 <code>Markdown</code> 语法， <code>HTML</code>这样写:</p>
+
+<pre class="language-html"><code class="language-html">&lt;details&gt;
+  &lt;summary&gt;标题，点击展开&lt;/summary&gt;
+  &lt;div class=&quot;details-content&quot;&gt;
+    &lt;p&gt;这里是内容&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+</code></pre>
+<p>效果：</p>
+<details>
+<summary>标题，点击展开</summary>
+<div class="details-content"><p>内容一，可以使用 Markdown 语法</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+</details>
+<details open>
+<summary>标题，默认展开</summary>
+<div class="details-content"><p>内容一，可以使用 Markdown 语法</p>
+
+<pre class="language-kotlin"><code class="language-kotlin">  fun main() {
+      println(&quot;Hello World&quot;)
+  }
+</code></pre>
+</div>
+</details>
+<details>
+<summary>Markdown 源码，点击展开</summary>
+<div class="details-content">
+<pre class="language-markdown"><code class="language-markdown">.. details::标题，点击展开
+
+    内容一，可以使用 Markdown 语法
+    ```kotlin
+      fun main() {
+          println(&quot;Hello World&quot;)
+      }
+    ```
+
+.. details::标题，默认展开
+    :open: true
+
+    内容一，可以使用 Markdown 语法
+    ```kotlin
+      fun main() {
+          println(&quot;Hello World&quot;)
+      }
+    ```
+</code></pre>
+</div>
+</details>
+<section class="footnotes">
+<ol>
+<li id="fn-1"><p>老子说道<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+</ol>
+</section>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/zh/usage/start.html">
+                            <span class="icon"></span>
+                            <span class="label">文档结构和配置</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/zh/syntax/syntax_jupyter.html">
+                            <span class="label">Jupyter 语法</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>链接</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">网站使用 teedoc 生成</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">网站地图</a></li>
+</ul>
+</li>
+<li><a>源码</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://gitee.com/teedoc/teedoc">gitee</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">本网站源文件</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

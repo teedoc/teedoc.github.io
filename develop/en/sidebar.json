@@ -1,0 +1,13 @@
+{
+    "items":[
+        {
+            "label": "teedoc development",
+            "file": "README.md"
+        },
+        {
+            "label": "Plugins development",
+            "file": "plugins.md"
+        }
+    ]
+}
+

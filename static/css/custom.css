@@ -1,0 +1,123 @@
+
+#navbar h2 {
+    color: #4caf7d;
+}
+#navbar .site_logo {
+    margin-right: 0.5em;
+}
+#page_footer {
+    margin-top: 0;
+}
+#home_page #page_content h1 {
+    width: 100%;
+    font-size: 6em;
+    text-align: center;
+    font-family: sans-serif;
+    color: #4caf7d;
+}
+#home_page h3 {
+    width: 100%;
+    text-align: center;
+}
+#navbar {
+    background: white;
+    z-index: 98;
+    box-shadow: 0px 0px 5px 0px #e4e4e4;
+}
+.dark #navbar {
+    background: #161616;
+    z-index: 98;
+    box-shadow: 0px 0px 5px 0px #0000002e;
+}
+#home_page .logo {
+    height: 2em;
+    vertical-align: middle;
+    filter: invert(56%) sepia(31%) saturate(171%) hue-rotate(196deg) brightness(87%) contrast(86%);
+}
+.big_btn_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 8em 1em;
+}
+#home_page .big_btn a {
+    padding: 2em;
+    background-color: #4caf7d;
+    font-size: 1.3em;
+    border-radius: 10px;
+    transition: 0.4s;
+    display: flex;
+    color: white;
+}
+#home_page .big_btn a:hover {
+    box-shadow: 6px 4px 20px #0000002e;
+}
+.md_page #page_content > div {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    line-height: 2em;
+}
+.dark #home_page .big_btn a {
+    background-color: #1b5638;
+    color: #d2f9e5;
+}
+.dark #home_page .big_btn a:hover {
+    box-shadow: 6px 4px 20px #000000;
+    background-color: #2a7d53;
+}
+#home_page .dark #navbar {
+    background: #1f1f1f;
+    box-shadow: 0px 0px 5px 0px #000000;
+}
+
+.section {
+    overflow: hidden;
+}
+.dsc_wrapper_left > div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.dsc_wrapper_left .dsc_left {
+    width: 50%;
+    text-align: center;
+    color: #818395;
+}
+.dsc_wrapper_left .dsc_right {
+    flex-grow: 1;
+    text-align: center;
+    color: #818395;
+}
+
+.dsc_wrapper_right > div > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.dsc_wrapper_right .dsc_right {
+    width: 50%;
+    text-align: center;
+    color: #818395;
+}
+.dsc_wrapper_right .dsc_left {
+    flex-grow: 1;
+    text-align: center;
+    color: #818395;
+}
+
+
+@media screen and (max-width: 900px) {
+    #navbar #navbar_items {
+        display: none;
+    }
+    .dsc_wrapper_left > div > div {
+        flex-direction: column;
+    }
+    .dsc_wrapper_right > div > div {
+        flex-direction: column-reverse;
+    }
+    #home_page .big_btn a {
+        padding: 1em;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="tensorflow gpu jupyterlab docker deepin ubuntu linux environment install NVIDIA driver docker">
+    
+    
+    <meta name="description" content="GPU + Docker environment installation under Tensorflow Linux">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>TensorFlow Linux GPU + jupyterlab environment installation (Docker) (Ubuntu Deepin Manjaro) - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/en/">Install</a></li>
+<li class=""><a  href="/develop/en/">Develop</a></li>
+<li class=""><a  href="/blog/">blog</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: English</a><ul><li class="active"><a  href="/get_started/en/more/example_docs/doc2.html">English</a></li>
+<li class=""><a  href="/get_started/zh/more/example_docs/doc2.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/index.html"><span class="label">Introduction to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/sites.html"><span class="label">Website using teedoc</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Baisc usage</span></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/install/index.html"><span class="label">Install teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/start.html"><span class="label">Doc structure and config</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Write content(Syntax)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_markdown.html"><span class="label">markdown syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_jupyter.html"><span class="label">Jupyter syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_html.html"><span class="label">HTML syntax</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/write_attention.html"><span class="label">Pay attention to when writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/blog.html"><span class="label">Blog</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy.html"><span class="label">Deployment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_github_pages.html"><span class="label">Deploy to github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_nginx.html"><span class="label">Use nginx to deploy to the server</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cloud.html"><span class="label">Deploy to cloud service</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cdn.html"><span class="label">Use CDN to accelerate website</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/problems.html"><span class="label">Common problems</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Advanced use</span></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/index.html"><span class="label">Plugins</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/plugins/themes.html"><span class="label">Theme Plugins</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/others.html"><span class="label">Other plugins</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/seo.html"><span class="label">SEO (Optimize for Search Engines)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/layout_template.html"><span class="label">Customize layout</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/i18n.html"><span class="label">Internationalization(i18n/Translate)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/404.html"><span class="label">Customize 404 page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/gitbook2teedoc.html"><span class="label">Convert gitbook to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/list_files_by_size.html"><span class="label">Find big files</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/compare_dirs.html"><span class="label">list difference in two dir</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">More</span></li>
+<li class="not_active with_link"><a href="/get_started/en/more/history.html"><span class="label">Update history</span><span class=""></span></a></li>
+<li class="active_parent no_link"><a><span class="label">More samples(not collapsed by default)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="active_parent no_link"><a><span class="label">Second-level subdirectory example</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Sample three-level sub-directory</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc1.html"><span class="label">Article 1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="active with_link"><a href="/get_started/en/more/example_docs/doc2.html"><span class="label">Article 2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Heading auto count</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/multi_h1.html"><span class="label">Multi h1 titile in page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/heading_no_counter.html"><span class="label">Cancel heading auto count</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">This is a external link</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>TensorFlow Linux GPU + jupyterlab environment installation (Docker) (Ubuntu Deepin Manjaro)</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/en/more/example_docs/doc2.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <blockquote>
+<p>Copyright statement: This article is neucrack's original article and follows the CC 4.0 BY-SA copyright agreement. Please attach the original source link and this statement for reprinting.<br />
+Original link: <a href="https://neucrack.com/p/116"  target="_blank">https://neucrack.com/p/116</a></p>
+</blockquote>
+<p>Using docker here, the installation environment is simpler (you only need to install the NVIDIA driver, you don’t need to install cuda, and of course you don’t have to worry about the cuda version) and stable~<br />
+And you can run multiple dockers at the same time, such as running multiple jupyterlabs at the same time for different people to use</p>
+<h2 id="Install-docker">Install docker</h2>
+<p>Install docker, <strong>version must be 19.03 and above</strong> (you can use <code>docker --version</code> to view), if the version is lower than this version, later use of <code>nvidia-docker</code> driver will fail and you will be prompted to find it --gpu all` parameter</p>
+<h3 id="Installation">Installation</h3>
+<ul>
+<li>If it is Manjaro, directly <code>yay -S docker</code></li>
+<li>Other releases:</li>
+</ul>
+<p>See the official tutorial: <a href="https://docs.docker.com/install/linux/docker-ce/debian/"  target="_blank">https://docs.docker.com/install/linux/docker-ce/debian/</a></p>
+<blockquote>
+<p>deepin is based on debian 9.0<br />
+If it is deepin, you need to modify the unstable in <code>sudo vim /usr/share/python-apt/templates/Deepin.info</code> to stable<br />
+And use the command <code>sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/debian stretch stable&quot;</code></p>
+</blockquote>
+<h3 id="Set-up-proxy">Set up proxy</h3>
+<p>If the download is slow, you may need to set up a proxy, or you can use a domestic mirror instead of an official mirror, such as daocloud mirror acceleration</p>
+<p>Docker proxy setting reference: <a href="https://neucrack.com/p/286"  target="_blank">https://neucrack.com/p/286</a></p>
+<p>When you pull the image, you can set the proxy to make the pull faster. It is recommended to remove the proxy when creating the container</p>
+<h3 id="Set-the-current-user-can-access-docker-%28non-root%29">Set the current user can access docker (non-root)</h3>
+<p>Reference here: <a href="https://docs.docker.com/install/linux/linux-postinstall/"  target="_blank">https://docs.docker.com/install/linux/linux-postinstall/</a></p>
+
+<pre class="language-none"><code class="language-none">sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker # Or restart the terminal, if it does not take effect, you can restart
+</code></pre>
+<h3 id="Common-commands">Common commands</h3>
+<p><code>docker images</code>: list image list<br />
+<code>docker run [options] image_name [command]</code>: create a new container from the image<br />
+<code>docker ps</code>: running container<br />
+<code>docker ps -a</code>: all containers, including those that are not running<br />
+<code>docker rm container_name</code>: delete the container<br />
+<code>docker rmi image_name</code>: delete image<br />
+<code>docker start container_name</code>: start the container<br />
+<code>docker attatch container_name</code>: attach to the container<br />
+<code>docker exec conrainer_name [comand]</code>: execute commands in the container<br />
+<code>docker logs container_name</code>: view container execution log</p>
+<p><code>docker build -t image_name .</code>: build an image from Dockerfile</p>
+<h3 id="docker-run-common-parameters">docker run common parameters</h3>
+<p><code>-it</code>: Enable interactive terminal<br />
+<code>-rm</code>: delete in time, do not save the container, that is, delete after exit<br />
+<code>--gpus all</code>: enable all GPU support<br />
+<code>-p port1:port2</code>: host and container port mapping, port1 is the port of the host<br />
+<code>-v volume1:volume2</code>: the disk mapping between the host and the container, volume1 is the folder of the host, such as mapping <code>/home/${USER}/notes</code> to <code>/tf/notes</code><br />
+<code>--name name</code>: Give the container a name. Without this parameter, the name is randomly generated<br />
+<code>--device device:container_device</code>: hang on the device, such as <code>/dev/ttyUSB0:/dev/ttyUSB0</code><br />
+<code>--network=host</code>: Use the host's network<br />
+<code>--restart</code>: Automatically start, you can use this setting to start automatically, if you forget to run it, you can use <code>docker update --restart=always container name</code> to update</p>
+
+<pre class="language-none"><code class="language-none">no: Do ​​not restart the container automatically. (default value)
+on-failure: The container exits due to an error (the exit status of the container is not 0) restart the container
+unless-stopped: Restart the container when it has been stopped or Docker stopped/restarted
+always: restart the container when the container has been stopped or Docker stopped/restarted
+</code></pre>
+<h2 id="Install-graphics-card-driver">Install graphics card driver</h2>
+<p>The graphics card installation part has written an independent article, refer to <a href="https://neucrack.com/p/252"  target="_blank">Linux Nvidia graphics card installation</a></p>
+<h2 id="Install-mirror">Install mirror</h2>
+<p>Refer to the official document: <a href="https://www.tensorflow.org/install/docker"  target="_blank">https://www.tensorflow.org/install/docker</a></p>
+<p>For example, my Ubuntu here: (Be sure to read the documentation, it may be different, there are updates)</p>
+<ul>
+<li>Install <a href="https://github.com/NVIDIA/nvidia-docker"  target="_blank">nvidia-docker</a></li>
+</ul>
+<p>Just follow the installation guide in the readme, for example, Ubuntu:</p>
+
+<pre class="language-none"><code class="language-none"># Add the package repositories
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add-
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+</code></pre>
+<p>If it is deepin, you need to change the system version</p>
+
+<pre class="language-none"><code class="language-none">distribution=&quot;ubuntu18.04&quot;
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add-
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit
+sudo systemctl restart docker
+</code></pre>
+<p>If it is Manjaro, just command <code>yay -S nvidia-docker</code>! (If you encounter slow downloads, you can use poipo to set up a global proxy, refer to <a href="https://neucrack.com/p/275"  target="_blank">Terminal proxy setting method</a>)</p>
+<ul>
+<li>Test whether nvidia-docker and cuda can be used</li>
+</ul>
+<p>Use the image of <code>nvidia/cuda</code>, this image is just for testing, you can delete it when you use it up, if you don’t have a proxy set up, and you don’t want to spend too much time pulling the image, you can use this image directly instead of <code>tensorflow/tensorflow:latest -gpu-py3</code> this mirror or <code>neucrack/tensorflow-gpu-py3-jupyterlab</code> (or <code>daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab</code>) this mirror (recommended) (jupyterlab is installed on the basis of the former , And do better user rights management)</p>
+
+<pre class="language-none"><code class="language-none">lspci | grep -i nvidia
+docker run --gpus all --rm nvidia/cuda nvidia-smi
+</code></pre>
+<p>such as:</p>
+
+<pre class="language-none"><code class="language-none">➜ ~ sudo docker run --gpus all --rm nvidia/cuda nvidia-smi
+Tue Mar 10 15:57:12 2020
++------------------------------------------------- ----------------------------+
+| NVIDIA-SMI 440.64 Driver Version: 440.64 CUDA Version: 10.2 |
+|-------------------------------+----------------- -----+----------------------+
+| GPU Name Persistence-M| Bus-Id Disp.A | Volatile Uncorr. ECC |
+| Fan Temp Perf Pwr:Usage/Cap| Memory-Usage | GPU-Util Compute M. |
+|===============================+================= =====+======================|
+| 0 GeForce GTX 106... Off | 00000000:01:00.0 On | N/A |
+| 33% 39C P0 27W / 120W | 310MiB / 6075MiB | 0% Default |
++-------------------------------+----------------- -----+----------------------+
+
++------------------------------------------------- ----------------------------+
+| Processes: GPU Memory |
+| GPU PID Type Process name Usage |
+|================================================ ============================|
++------------------------------------------------- ----------------------------+
+
+</code></pre>
+
+<pre class="language-none"><code class="language-none">Wed Mar 11 02:04:26 2020
++------------------------------------------------- ----------------------------+
+| NVIDIA-SMI 430.40 Driver Version: 430.40 CUDA Version: 10.1 |
+|-------------------------------+----------------- -----+----------------------+
+| GPU Name Persistence-M| Bus-Id Disp.A | Volatile Uncorr. ECC |
+| Fan Temp Perf Pwr:Usage/Cap| Memory-Usage | GPU-Util Compute M. |
+|===============================+================= =====+======================|
+| 0 GeForce GTX 108... Off | 00000000:04:00.0 Off | N/A |
+| 35% 41C P5 25W / 250W | 0MiB / 11178MiB | 0% Default |
++-------------------------------+----------------- -----+----------------------+
+| 1 GeForce GTX 108... Off | 00000000:81:00.0 Off | N/A |
+| 39% 36C P5 19W / 250W | 0MiB / 11178MiB | 2% Default |
++-------------------------------+----------------- -----+----------------------+
+
++------------------------------------------------- ----------------------------+
+| Processes: GPU Memory |
+| GPU PID Type Process name Usage |
+|================================================ ============================|
+| No running processes found |
++------------------------------------------------- ----------------------------+
+</code></pre>
+<p>If the driver version is too low, there will be a prompt to update the driver</p>
+<p>At the same time, notice that the cuda version is 10.2, maybe tensorflow only supports 10.1. If tensorflow is installed directly on the host, it will report an error and not support. The benefits of using docker here are reflected. Don’t bother, just make sure that the driver is installed. Up</p>
+<p>Deepin has an error</p>
+
+<pre class="language-none"><code class="language-none">docker: Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused &quot;process_linux.go:449: container init caused \&quot;process_linux.go:432: running prestart hook 0 caused \\\&quot;error running hook: exit status 1, stdout:, stderr: nvidia-container-cli: ldcache error: open failed: /sbin/ldconfig.real: no such file or directory\\\\n\\\&quot;\&quot;&quot;: unknown .
+</code></pre>
+<p>Refer to the solution here: <a href="https://github.com/NVIDIA/nvidia-docker/issues/614"  target="_blank">https://github.com/NVIDIA/nvidia-docker/issues/614</a> to solve:</p>
+
+<pre class="language-none"><code class="language-none">ln -s /sbin/ldconfig /sbin/ldconfig.real
+</code></pre>
+<p>docker error: <code>nvidia-container-cli: initialization error: cuda error: unknown error</code><br />
+Restart the system to be resolved</p>
+<h2 id="Run-tensorflow-with-GPU">Run tensorflow with GPU</h2>
+<p>Pull the mirror, pull directly</p>
+
+<pre class="language-none"><code class="language-none">docker pull neucrack/tensorflow-gpu-py3-jupyterlab
+# docker pull tensorflow/tensorflow:latest-gpu-py3-jupyter
+# docker pull tensorflow/tensorflow
+# docker pull tensorflow/tensorflow:latest-gpu
+</code></pre>
+<p>The image on daocloud can be used in China, and the speed will be faster:</p>
+
+<pre class="language-none"><code class="language-none">docker pull daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab
+</code></pre>
+<p>Execute the test statement:</p>
+
+<pre class="language-none"><code class="language-none">docker run --gpus all -it --rm neucrack/tensorflow-gpu-py3-jupyterlab python -c &quot;import tensorflow as tf; print('-----version:{}, gpu:{}, 1+2 ={}'.format(tf.__version__, tf.test.is_gpu_available(), tf.add(1, 2).numpy()) );&quot;
+</code></pre>
+<blockquote>
+<p>If daocloud is used, the image name needs to be changed to <code>daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab</code></p>
+</blockquote>
+<p>If there is no problem, the following output will appear (it will be accompanied by a lot of debugging information and there may be warning messages, you can take a closer look):</p>
+
+<pre class="language-none"><code class="language-none">-----version:2.1.0, gpu:True, 1+2=3
+</code></pre>
+<h2 id="Jupyterlab">Jupyterlab</h2>
+
+<pre class="language-none"><code class="language-none">docker run --gpus all --name jupyterlab-gpu -it -p 8889:8889 -e USER_NAME=$USER -e USER_ID=`id -u $USER` -e GROUP_NAME=`id -gn $USER` -e GROUP_ID =`id -g $USER` -v /home/${USER}:/tf neucrack/tensorflow-gpu-py3-jupyterlab
+</code></pre>
+<blockquote>
+<p>If daocloud is used, the image name needs to be changed to <code>daocloud.io/neucrack/tensorflow-gpu-py3-jupyterlab</code></p>
+</blockquote>
+<p>Then you can use the browser to use <code>jupyterlab</code> at the address of <code>http://127.0.0.1:8889/</code>, and the directory corresponds to the set <code>/home/${USER}</code> directory</p>
+<p><img src="../../../assets/images/jupyterlab.jpg" alt="jupyterlab" /><br />
+<img src="../../../assets/images/jupyterlab_1.jpg" alt="jupyterlab.png" /></p>
+<p>Exit directly with <code>Ctrl+C</code><br />
+This container will always exist on the computer after it is created, you can use <code>docker ps -a</code> to view it, and use it next time you start it</p>
+
+<pre class="language-none"><code class="language-none">docker start jupyterlab_gpu
+</code></pre>
+<p>Can also be attached to the container:</p>
+
+<pre class="language-none"><code class="language-none">docker attatch jupyterlab_gpu
+</code></pre>
+<p>Stop the container:</p>
+
+<pre class="language-none"><code class="language-none">docker stop jupyterlab_gpu
+</code></pre>
+<p>Delete the container:</p>
+
+<pre class="language-none"><code class="language-none">docker rm jupyterlab_gpu
+</code></pre>
+<p>Modify the user and root passwords so that you can use the <code>sudo</code> command</p>
+
+<pre class="language-none"><code class="language-none">docker exec -it jupyterlab_gpu /bin/bash
+passwd $USER
+passwd root
+</code></pre>
+<p>If you need to create a new container every time and delete it when you use it up, you only need to add a <code>-rm</code> parameter after the <code>run</code> command</p>
+<h2 id="other-questions">other questions</h2>
+<ul>
+<li>Prompt when running the program: ResourceExhaustedError: OOM when allocating tensor with shape[784,128]</li>
+</ul>
+<p>Use <code>nvidia-smi</code> to view memory usage</p>
+<p>tensorflow will apply for (almost) all video memory at once:</p>
+
+<pre class="language-none"><code class="language-none">➜ ~ nvidia-smi
+Fri Mar 20 09:18:48 2020
++------------------------------------------------- ----------------------------+
+| NVIDIA-SMI 435.21 Driver Version: 435.21 CUDA Version: 10.1 |
+|-------------------------------+----------------- -----+----------------------+
+| GPU Name Persistence-M| Bus-Id Disp.A | Volatile Uncorr. ECC |
+| Fan Temp Perf Pwr:Usage/Cap| Memory-Usage | GPU-Util Compute M. |
+|===============================+================= =====+======================|
+| 0 GeForce GTX 108... Off | 00000000:04:00.0 On | N/A |
+| 0% 48C P2 60W / 250W | 10726MiB / 11178MiB | 0% Default |
++-------------------------------+----------------- -----+----------------------+
+| 1 GeForce GTX 108... Off | 00000000:81:00.0 Off | N/A |
+| 0% 47C P2 58W / 250W | 197MiB / 11178MiB | 0% Default |
++-------------------------------+----------------- -----+----------------------+
+
++------------------------------------------------- ----------------------------+
+| Processes: GPU Memory |
+| GPU PID Type Process name Usage |
+|================================================ ============================|
+| 0 3099 G /usr/lib/xorg/Xorg 21MiB |
+| 0 40037 C /usr/bin/python3 10693MiB |
+| 1 40037 C /usr/bin/python3 185MiB |
++------------------------------------------------- ----------------------------+
+
+</code></pre>
+<p>There may be too many processes using video memory, and some processes can be properly exited;<br />
+It is also possible that the memory application is repeated, you can try to restart the container to solve it</p>
+<ul>
+<li>Has been running without results</li>
+</ul>
+<p>Restart the docker container to solve it. Anyway, if something is indecisive, restart to solve it. .</p>
+<ul>
+<li>Prompt <code>could not retrieve CUDA device count: CUDA_ERROR_NOT_INITIALIZED</code></li>
+</ul>
+<p>Multi-process may be used. The new process directly copies the environment of the current process, resulting in an error. The solution is ** the parent process needs to be imported**, which is imported separately when needed in the child process, instead of writing to the global, reference Here: <a href="https://abcdabcd987.com/python-multiprocessing/"  target="_blank">https://abcdabcd987.com/python-multiprocessing/</a></p>
+<ul>
+<li><code>ImportError: libGL.so.1: cannot open shared object file: No such file or directory</code></li>
+</ul>
+
+<pre class="language-none"><code class="language-none">apt install libgl1-mesa-glx
+</code></pre>
+<ul>
+<li><code>Failed to get convolution algorithm. This is probably because cuDNN failed to initialize</code></li>
+</ul>
+<p>The graphics card memory is insufficient. Check if it is occupied by other programs. If there are multiple graphics cards, you can set the environment variable <code>CUDA_VISIBLE_DEVICES</code> to set the graphics card to be used. For example, there are three graphics cards, the subscripts are <code>0</code>, <code>1</code> , <code>2</code>, select the third card and set it to <code>2</code></p>
+
+<pre class="language-python"><code class="language-python">import os
+
+os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] = '2'
+
+</code></pre>
+<h2 id="Reference">Reference</h2>
+<ul>
+<li><p><a href="https://blog.csdn.net/liuzk2014/article/details/83190267"  target="_blank">https://blog.csdn.net/liuzk2014/article/details/83190267</a></p>
+</li>
+<li><p><a href="https://devtalk.nvidia.com/default/topic/1047416/linux/nvidia-driver-is-not-loaded-ubuntu-18-10-/"  target="_blank">https://devtalk.nvidia.com/default/topic/1047416/linux/nvidia-driver-is-not-loaded-ubuntu-18-10-/</a></p>
+</li>
+<li><p><a href="https://github.com/tensorflow/tensorflow/issues/394"  target="_blank">https://github.com/tensorflow/tensorflow/issues/394</a></p>
+</li>
+</ul>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                        <a href="/get_started/en/more/example_docs/doc1.html">
+                            <span class="icon"></span>
+                            <span class="label">Article 1</span>
+                        </a>
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/en/more/example_docs/multi_h1.html">
+                            <span class="label">Multi h1 titile in page</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">Site generated by teedoc</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">website source files</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>

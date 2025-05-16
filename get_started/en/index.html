@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en"  class="">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="keywords" content="teedoc, markdown, jupyter notebook, html, document generation, alternative gitbook, website generation, static website, static blog">
+    
+    
+    <meta name="description" content="teedoc, open source static doc site generator, convert markdown or jupyter notbook into html static web pages, used for personal or corporate website building, blog building, database building, wiki, etc.">
+    
+    <meta name="generator" content="teedoc">
+    <meta name="theme" content="teedoc-plugin-theme-default">
+    
+        
+        <meta name="markdown-generator" content="teedoc-plugin-markdown-parser">
+        
+        <script>
+MathJax = {"loader": {"load": ["output/svg"]}, "tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "svg": {"fontCache": "global"}};
+</script>
+        
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+        <meta name="html-generator" content="teedoc-plugin-jupyter-notebook-parser">
+        
+        <script src="/static/js/theme_default/pre_main.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/prism.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/viewer.min.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/dark.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/theme_default/light.css" type="text/css"/>
+        
+        <script src="/static/js/theme_default/jquery.min.js"></script>
+        
+        <script src="/static/js/theme_default/split.js"></script>
+        
+        <link rel="stylesheet" href="/static/css/search/style.css" type="text/css"/>
+        
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4d52982572d5512e9762879ebf063c86";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+        
+        <meta name="blog-generator" content="teedoc-plugin-blog">
+        
+        <link rel="stylesheet" href="/static/css/gitalk/gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/gitalk/custom_gitalk.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="/static/css/custom.css" type="text/css"/>
+        
+    
+    
+    <title>open source static doc site generator teedoc - teedoc</title>
+    
+    <script type="text/javascript">js_vars = {"teedoc-plugin-ad-hint": {"type": "hint", "label": "☆", "content": "This is a hint example(support i18n)</br><a target=\"_blank\" href=\"https://github.com/teedoc/teedoc\">Give a ☆ star </a> if you like this project 🦀🦀", "show_times": 2, "show_after_s": 432000, "date": "2021-11-16 14:40", "color": "#a0421d", "link_color": "#e53935", "link_bg_color": "#e6ae5c", "bg_color": "#ffcf89", "color_hover": "white", "bg_color_hover": "#f57c00", "close_color": "#eab971"}}</script>
+    <script type="text/javascript">metadata = {"tags": [], "date": false, "update": [], "ts": 0, "author": "", "brief": "", "cover": ""}</script>
+</head>
+
+
+<body class="type_doc">
+    
+    <div id="navbar">
+        <div id="navbar_menu">
+            <a class="site_title" href="/en/">
+                
+                    <img class="site_logo" src="/static/image/logo.png" alt="teedoc logo">
+                
+                
+                    <h2>teedoc</h2>
+                
+        </a>
+            <a id="navbar_menu_btn"></a>
+        </div>
+        <div id="navbar_items">
+            <div>
+                <ul id="nav_left">
+<li class="active"><a  href="/get_started/en/">Install</a></li>
+<li class=""><a  href="/develop/en/">Develop</a></li>
+<li class=""><a  href="/blog/">blog</a></li>
+</ul>
+
+            </div>
+            <div>
+                <ul id="nav_right">
+<li class=""><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li class="sub_items "><a  >Language: English</a><ul><li class="active"><a  href="/get_started/en/index.html">English</a></li>
+<li class=""><a  href="/get_started/zh/index.html">中文 简体</a></li>
+</ul></li>
+</ul>
+
+                <ul class="nav_plugins"><li><a id="google_translate_element"><img class="icon" src="/static/image/google_translate/translate.svg"/>Translate</a></li></ul><ul class="nav_plugins"><li><a id="themes" class="light"></a></li></ul><ul class="nav_plugins"><li><a id="search"><span class="icon"></span><span class="placeholder">Search</span>
+                            <div id="search_hints">
+                                <span id="search_input_hint">Keywords separated by space</span>
+                                <span id="search_loading_hint">Loading, wait please ...</span>
+                                <span id="search_download_err_hint">Download error, please check network and refresh again</span>
+                                <span id="search_other_docs_result_hint">Result from other docs</span>
+                                <span id="search_curr_doc_result_hint">Result from current doc</span>
+                            </div></a></li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="wrapper">
+        <div id="sidebar_wrapper">
+            <div id="sidebar">
+                <div id="sidebar_title">
+                    
+                </div>
+                <ul class="show">
+<li class="active with_link"><a href="/get_started/en/index.html"><span class="label">Introduction to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/sites.html"><span class="label">Website using teedoc</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Baisc usage</span></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/quick_start.html"><span class="label">Quick start</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/install/index.html"><span class="label">Install teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/start.html"><span class="label">Doc structure and config</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">Write content(Syntax)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_markdown.html"><span class="label">markdown syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_jupyter.html"><span class="label">Jupyter syntax</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/syntax/syntax_html.html"><span class="label">HTML syntax</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/write_attention.html"><span class="label">Pay attention to when writing</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/blog.html"><span class="label">Blog</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy.html"><span class="label">Deployment</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_github_pages.html"><span class="label">Deploy to github</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_nginx.html"><span class="label">Use nginx to deploy to the server</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cloud.html"><span class="label">Deploy to cloud service</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/deploy_cdn.html"><span class="label">Use CDN to accelerate website</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/problems.html"><span class="label">Common problems</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">Advanced use</span></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/index.html"><span class="label">Plugins</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/plugins/themes.html"><span class="label">Theme Plugins</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/plugins/others.html"><span class="label">Other plugins</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/usage/seo.html"><span class="label">SEO (Optimize for Search Engines)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/layout_template.html"><span class="label">Customize layout</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/i18n.html"><span class="label">Internationalization(i18n/Translate)</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/404.html"><span class="label">Customize 404 page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/gitbook2teedoc.html"><span class="label">Convert gitbook to teedoc</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/list_files_by_size.html"><span class="label">Find big files</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/usage/compare_dirs.html"><span class="label">list difference in two dir</span><span class=""></span></a></li>
+<li class="not_active no_link sidebar_category"><span class="label">More</span></li>
+<li class="not_active with_link"><a href="/get_started/en/more/history.html"><span class="label">Update history</span><span class=""></span></a></li>
+<li class="not_active no_link"><a><span class="label">More samples(not collapsed by default)</span><span class="sub_indicator"></span></a><ul class="show">
+<li class="not_active no_link"><a><span class="label">Second-level subdirectory example</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active no_link"><a><span class="label">Sample three-level sub-directory</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc1.html"><span class="label">Article 1</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/doc2.html"><span class="label">Article 2</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active no_link"><a><span class="label">Heading auto count</span><span class="sub_indicator sub_indicator_collapsed"></span></a><ul class="">
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/multi_h1.html"><span class="label">Multi h1 titile in page</span><span class=""></span></a></li>
+<li class="not_active with_link"><a href="/get_started/en/more/example_docs/heading_no_counter.html"><span class="label">Cancel heading auto count</span><span class=""></span></a></li>
+</ul>
+</li>
+<li class="not_active ext_link with_link"><a href="https://github.com/teedoc/teedoc" target="_blank"><span class="label">This is a external link</span><span class="ext_link_icon"></span><span class=""></span></a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+        <div id="article">
+            <div id="menu_wrapper">
+                <div id="menu">
+                </div>
+            </div>
+            <div id="content_wrapper">
+                <div id="content_body">
+                    <div id="article_head">
+                        <div id="article_title">
+                            
+                            <h1>open source static doc site generator teedoc</h1>
+                            
+                        </div>
+                        <div id="article_tags">
+                            <ul>
+                            
+                            </ul>
+                        </div>
+                        <div id="article_info">
+                        <div id="article_info_left">
+                            <span class="article_author">
+                                
+                            </span>
+                            
+                        </div>
+                        <div id="article_info_right">
+                            
+                            <div id="source_link">
+                                <a href="https://github.com/teedoc/teedoc.github.io/blob/main/docs/get_started/en/README.md" target="_blank">
+                                    Edit this page
+                                </a>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div id="article_tools">
+                        <span></span>
+                        <span id="toc_btn"></span>
+                    </div>
+                    <div id="update_history">
+                        
+                    </div>
+                    <div id="article_content">
+                        
+                            <p>Official website: <a href="https://teedoc.neucrack.com/"  target="_blank">teedoc.neucrack.com</a> or <a href="https://teedoc.github.io/"  target="_blank">teedoc.github.io</a><br />
+Source file of this document: <a href="https://github.com/teedoc/teedoc.github.io"  target="_blank">github.com/teedoc/teedoc.github.io</a><br />
+Source code: <a href="https://github.com/teedoc/teedoc"  target="_blank">https://github.com/teedoc/teedoc</a> Welcome star</p>
+<p>Convert documents in <code>Markdown</code> or <code>Jupyter Notebook</code> format into <code>HTML</code> static web pages</p>
+<p><code>teedoc</code> can be used in the following scenarios:</p>
+<ul>
+<li>Build a document website, and it is best to support multiple documents (for example, you have two books called <code>Python Learning</code> and <code>C++ Learning</code>, they have separate directories, and <code>teedoc</code> is the library)</li>
+<li>Documents and web pages coexist, support custom <code>HTML</code> pages</li>
+<li>Build a <code>WiKi</code> website</li>
+<li>Build a personal or corporate knowledge base</li>
+<li>Build a personal or corporate website</li>
+<li>Blog</li>
+</ul>
+<p>If you encounter problems during use, you can find similar problems in <a href="https://github.com/teedoc/teedoc/issues"  target="_blank">here</a> (you need to register and log in to github) to find similar issues, or create an issue</p>
+<h2 id="Features">Features</h2>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Multi-document support</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Simple to use, cross-platform, only dependent on <code>Python3</code></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>No database required, all static pages of the website</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>The deployment is simple, the generated website is a fully static page, which can be directly copied to the server or uploaded to a third party organization for deployment</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Easy to write, using <a href="./syntax/syntax_markdown.html"  >Markdown syntax</a>编写</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/><a href="(./syntax/syntax_jupyter.ipynb)"  >Jupyter notebook support</a></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>HTML support, you can directly use HTML to write pages, with great freedom</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Plug-in support</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Multi-theme support (implemented by plug-in)</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Control the style accurate to the page through css (implemented by customizing the id and class of each page)</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Multi-level directory support(infinite levels)</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Multi-language support (manual translation) (Internationalization/i18n)</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Multilingual support (translation plugin)</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Multi-version support (implementation method is the same as multi-language)</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Search support</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>SEO friendly</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Real-time preview of changes</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Parallel build, faster build speed</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Blog support</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Switch from gitbook is easy, just config <code>route</code> and convert <code>SUMMARY.md</code> by <code>summary2yaml</code> command</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" type="checkbox" disabled checked/>Comments(Plugins), e.g. <code>gitalk</code></li>
+</ul>
+<h2 id="Demo">Demo</h2>
+<p><a href="https://teedoc.github.io/"  target="_blank">This website</a> is generated using <code>teedoc</code>, what you see now is what the generated website looks like.</p>
+<p>In addition, there are other websites that use <code>teedoc</code>, please see <a href="./usage/sites.html"  >here</a> for details</p>
+<h2 id="Similar-tools">Similar tools</h2>
+<p>In fact, there are many tools of this type, but each one is slightly different. Just choose one according to your needs.</p>
+<p>If you have choice difficulties, you are recommended to use teedoc if you meet some of the following conditions:</p>
+<ul>
+<li>Used as a document website? You have a lot of document sites in your hand, want to unify them into one site? Also websites in various languages? Use <code>teedoc</code></li>
+<li>Use <code>Jupyter notebook</code> to write documents or code? Decisively choose teedoc</li>
+<li>Does the function meet your needs?</li>
+<li>Does the interface meet your aesthetics (you can customize <code>css</code>, or change the theme plug-in)</li>
+<li>Familiar with <code>Python</code>? Plug-ins and functions can be customized at any time</li>
+</ul>
+<p>Other similar tools:</p>
+<ul>
+<li><code>docusaurus</code>: <code>teedoc</code>'s <code>UI</code> layout is almost similar to it, but it is written by <code>ract</code>, <code>teedoc</code> is native <code>js</code>, if you are using <code>ract</code>, you can consider this</li>
+<li><code>gitbook</code>: a tool that used to be very useful, but it is no longer maintained by the government, and it is switched to commercial use. It is not recommended to use it</li>
+<li><code>docsify</code>: only one page is needed, <code>markdown</code> is rendered in the browser, instead of pre-rendered as <code>HTML</code>, the advantage is that it is lightweight, but <code>SEO</code> is not very friendly, you can use its <code>SSR</code> function, <code>nodejs</code> written</li>
+<li><code>readthedocs(Sphinx)</code>: In fact, it uses <code>Sphinx</code> as a generation tool. The official website documentation of <code>Python</code> is generated by this tool. Many open source projects use tools. <code>readthedocs</code> is just a public document website. You don’t need to build your own website, you can start writing documents after registering and logging in, and it is friendly to <code>RST</code> format support</li>
+<li><code>mkdoc</code>: It is also a tool written by <code>python</code>. It is easy to use and has many plugins. If your document is a single language document, you can use this tool</li>
+</ul>
+<h2 id="Some-usage-suggestions">Some usage suggestions</h2>
+<ul>
+<li>Add <code>Generate with teedoc</code> in footer to help more people discover teedoc and promote the growth of the project</li>
+<li>Use the template project to start a new document project, you can run it first, and then modify it according to your own needs, so that you can get started faster</li>
+</ul>
+<h2 id="Quick-start">Quick start</h2>
+<p>Visit<a href="./usage/quick_start.html"  >quick start</a> to install and quick start</p>
+
+                        
+                    </div>
+                </div>
+                <div id="previous_next">
+                    <div id="previous">
+                        
+                    </div>
+                    <div id="next">
+                        
+                        <a href="/get_started/en/usage/sites.html">
+                            <span class="label">Website using teedoc</span>
+                            <span class="icon"></span>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div id="comments-container"></div>
+            </div>
+            <div id="toc_wrapper">
+                <div id="toc">
+                    <div id="toc_content">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a id="to_top" href="#"></a>
+    <div id="doc_footer">
+        <div id="footer">
+            <div id="footer_top">
+                <ul>
+<li><a>Links</a><ul><li><a target="_blank" href="https://teedoc.neucrack.com">Site generated by teedoc</a></li>
+<li><a target="_blank" href="https://neucrack.com">Copyright © 2021 Neucrack</a></li>
+<li><a  href="/sitemap.xml">Sitemap</a></li>
+</ul>
+</li>
+<li><a>Source code</a><ul><li><a target="_blank" href="https://github.com/neutree/teedoc">github</a></li>
+<li><a target="_blank" href="https://github.com/teedoc/teedoc.github.io">website source files</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <div id="footer_bottom">
+                <ul>
+<li><a target="_blank" href="https://beian.miit.gov.cn">渝ICP备19015320号</a></li>
+<li><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030602004109">粤公网安备44030602004109号</a></li>
+</ul>
+
+            </div>
+        </div>
+    </div>
+    
+        <script src="/teedoc-plugin-markdown-parser/mermaid.min.js"></script>
+    
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    
+        <script type="text/javascript">
+                var transLoaded = false;
+                var loading = false;
+                var domain = "translate.google.com";
+                var domainDefault = domain;
+                var storeDomain = localStorage.getItem("googleTransDomain");
+                if(storeDomain){
+                    domain = storeDomain;
+                    console.log("load google translate domain from local storage:" + domain);
+                }
+                function getUrl(domain){
+                    if(domain == "/")
+                        return "/static/js/google_translate/element.js?cb=googleTranslateElementInit";
+                    else
+                        return "https://" + domain + "/translate_a/element.js?cb=googleTranslateElementInit";
+                }
+                var url = getUrl(domain);
+                console.log("google translate domain:" + domain + ", url: " + url);
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: "auto", layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                }
+                function loadJS( url, callback ){
+                    var script = document.createElement('script');
+                    fn = callback || function(){ };
+                    script.type = 'text/javascript';
+                    if(script.readyState){
+                        script.onreadystatechange = function(){
+                            if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                                script.onreadystatechange = null;
+                                fn();
+                            }
+                        };
+                    }else{
+                        script.onload = function(){
+                            fn();
+                        };
+                    }
+                    script.src = url;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                }
+                function removeHint(){
+                    var hint = document.getElementById("loadingTranslate");
+                    if(hint){
+                        hint.remove();
+                    }
+                }
+                var btn = document.getElementById("google_translate_element");
+                btn.onclick = function(){
+                    if(transLoaded) return;
+                    if(loading){
+                        var flag = confirm("loading from " + domain + ", please wait, or change domain?");
+                        if(flag){
+                            newDomain = prompt("domain, default: " + domainDefault + ", now: " + domain);
+                            if(newDomain){
+                                domain = newDomain;
+                                console.log(domain);
+                                url = getUrl(domain);
+                                loadJS(url, function(){
+                                    localStorage.setItem("googleTransDomain", domain);
+                                    removeHint()
+                                    transLoaded = true;
+                                });
+                            }
+                        }
+                        return;
+                    }
+                    btn.innerHTML = '<span id="loadingTranslate"><img class="icon" src="/static/image/google_translate/translate.svg"/>Loading ...</span>';
+                    loading = true;
+                    loadJS(url, function(){
+                        localStorage.setItem("googleTransDomain", domain);
+                        removeHint()
+                        transLoaded = true;
+                    });
+                }
+                </script>
+            
+    
+        <script src="/static/js/theme_default/tocbot.min.js"></script>
+    
+        <script src="/static/js/theme_default/main.js"></script>
+    
+        <script src="/static/js/theme_default/viewer.min.js"></script>
+    
+        <script src="/static/css/theme_default/prism.min.js"></script>
+    
+        <script src="/static/js/search/search_main.js"></script>
+    
+        <script src="/static/js/plugin_blog/main.js"></script>
+    
+        <link rel="stylesheet" href="/static/js/add_hint/style.css" type="text/css"/>
+    
+        <script src="/static/js/add_hint/main.js"></script>
+    
+        <script src="/static/js/gitalk/gitalk.min.js"></script>
+    
+        <script src="/static/js/gitalk/main.js"></script>
+    
+        <script src="/static/js/custom.js"></script>
+    
+</body>
+
+</html>
