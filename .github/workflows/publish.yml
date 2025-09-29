@@ -43,7 +43,7 @@ jobs:
           teedoc build
           echo "out dir: ${out_dir}"
           cp -rf .github $out_dir
-          echo ::set-output name=out_dir::$out_dir
+          echo "out_dir=$out_dir" >> $GITHUB_OUTPUT
           remote_addr=`git remote get-url --push origin`
           echo "remote addr: ${remote_addr}"
           cd $out_dir
